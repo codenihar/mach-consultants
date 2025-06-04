@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[#f1f5fd] text-gray-800">
       {/* Top CTA Section */}
-      <div className="bg-gradient-to-r from-[#b3c7f5] to-[#d6e0fa] px-4 sm:px-6">
+      <div className="bg-blue-100/50 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto py-12 md:py-16 flex flex-col lg:flex-row justify-between items-center gap-8">
           <div className="text-center lg:text-left">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 md:mb-4">
