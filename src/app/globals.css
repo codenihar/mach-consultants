@@ -38,6 +38,8 @@ body {
   box-sizing: border-box;
 }
 
-.clip-home {
-  clip-path: polygon(50% 0%, 100% 38%, 98% 100%, 2% 100%, 0% 38%);
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

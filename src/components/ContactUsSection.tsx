@@ -75,7 +75,9 @@ const ConsultationForm: React.FC = () => {
               </div>
               <div className="col-span-2">
                 <select className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none">
-                  <option>Inquiry type?</option>
+                  <option value="" disabled selected hidden>
+                    Inquiry type?
+                  </option>
                   <option>Support or consulting</option>
                   <option>Conference or speaking</option>
                   <option>Collaboration or research</option>
