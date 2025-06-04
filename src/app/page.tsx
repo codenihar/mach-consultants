@@ -1,12 +1,12 @@
-import AboutUsSection from "../../components/AboutSection";
-import CoverageSection from "../../components/CoverageSection";
-import HeroSection from "../../components/HeroSection";
-import HowItWorksSection from "../../components/HowItWorks";
-import StatsSection from "../../components/StatsSection";
-import AgentsSection from "../../components/AgentsSection";
-import ConsultationForm from "../../components/ContactUsSection";
-import WhyChooseUsSection from "../../components/WhyChooseUs";
-import BlogSection from "../../components/BlogSection";
+import AboutUsSection from "../components/AboutSection";
+import CoverageSection from "../components/CoverageSection";
+import HeroSection from "../components/HeroSection";
+import HowItWorksSection from "../components/HowItWorks";
+import StatsSection from "../components/StatsSection";
+import AgentsSection from "../components/AgentsSection";
+import ConsultationForm from "../components/ContactUsSection";
+import WhyChooseUsSection from "../components/WhyChooseUs";
+import BlogSection from "../components/BlogSection";
 
 export default function Home() {
   return (
