@@ -19,7 +19,7 @@ const ConsultationForm: React.FC = () => {
 
         {/* Form Section */}
         <div className="order-1 lg:order-2 w-full">
-          <div className="max-w-lg mx-auto lg:mx-0">
+          <div className="max-w-lg">
             <h3 className="text-blue-600 text-sm sm:text-base font-semibold mb-2">
               Free Consultation
             </h3>

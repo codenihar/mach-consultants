@@ -3,8 +3,8 @@ import React from "react";
 
 const AboutUsSection: React.FC = () => {
   return (
-    <section className="pt-36 pb-20 px-4 md:px-16 bg-white">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+    <section className="pt-36 pb-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
         {/* Left Image Section */}
         <div className="relative flex items-center justify-end h-140 w-full">
           {/* Top Image */}

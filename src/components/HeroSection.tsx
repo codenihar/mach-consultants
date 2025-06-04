@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
           <p className="text-gray-600 text-base sm:text-lg md:text-xl my-4 sm:my-6 md:my-8 max-w-2xl">
             We are selective consultants focused on immediate performance
             improvement. We are dedicated to revealing hidden resources of the
-            enterprise and growing its potential
+            enterprise and growing its potential.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">

@@ -57,7 +57,7 @@ const HowItWorksSection: React.FC = () => {
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-3">
                 {step.title}
               </h3>
-              <p className="text-gray-600 text-sm sm:text-base md:text-md max-w-xs mx-auto">
+              <p className="text-gray-600 text-sm sm:text-base md:text-md max-w-xs mx-auto line-clamp-4">
                 {step.desc}
               </p>
             </div>
