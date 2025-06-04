@@ -73,7 +73,7 @@ const WhyChooseUsSection: React.FC = () => {
 
         {/* Right Image with Badge */}
         <div className="relative w-full order-1 lg:order-2">
-          <div className="rounded-xl overflow-hidden w-full max-w-md shadow-lg">
+          <div className="rounded-xl overflow-hidden w-full max-w-md xl:mx-auto shadow-lg">
             <img
               src="/images/why_choose_us.png"
               alt="Handshake"
