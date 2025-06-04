@@ -8,22 +8,30 @@ type Stat = {
 
 const stats: Stat[] = [
   {
-    icon: <MapPin className="w-12 h-12 text-blue-600" />,
+    icon: (
+      <MapPin className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-blue-600" />
+    ),
     value: "30+",
     label: "Locations Available",
   },
   {
-    icon: <ShieldCheck className="w-12 h-12 text-blue-600" />,
+    icon: (
+      <ShieldCheck className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-blue-600" />
+    ),
     value: "30+",
     label: "Licensed All States",
   },
   {
-    icon: <Users className="w-12 h-12 text-blue-600" />,
+    icon: (
+      <Users className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-blue-600" />
+    ),
     value: "60K+",
     label: "Satisfied Clients",
   },
   {
-    icon: <FileText className="w-12 h-12 text-blue-600" />,
+    icon: (
+      <FileText className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-blue-600" />
+    ),
     value: "12K+",
     label: "Insurance Policies",
   },
@@ -31,33 +39,29 @@ const stats: Stat[] = [
 
 const StatsSection: React.FC = () => {
   return (
-    <section className="bg-white py-6 sm:py-8 md:py-10 w-full max-w-5xl mx-auto relative -bottom-10 sm:-bottom-16 md:-bottom-20 lg:-bottom-24 rounded-xl shadow-md px-4 sm:px-6">
-      <div className="w-full text-center">
-        <h2 className="text-sm sm:text-base font-semibold text-gray-700 mb-3 sm:mb-4 md:mb-6">
-          You can count on us
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 py-2">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className={`flex flex-col md:flex-row items-center md:items-end justify-center gap-2 sm:gap-3 md:gap-4 font-SFmedium ${
-                index % 2 === 1 ? "md:border-l-2" : ""
-              } ${
-                index > 1 ? "border-t-2 md:border-t-0" : ""
-              } border-gray-200 pt-4 md:pt-0 px-4 sm:px-6 md:px-8`}
-            >
-              <div className="text-blue-500">{stat.icon}</div>
-              <div className="flex flex-col items-center md:items-start">
-                <p className="text-3xl sm:text-4xl font-bold text-gray-800">
-                  {stat.value}
-                </p>
-                <p className="text-sm sm:text-md text-gray-500 text-center md:text-left">
-                  {stat.label}
-                </p>
-              </div>
+    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md">
+      <h2 className="text-sm text-center font-semibold text-gray-700 mb-8 md:mb-4">
+        You can count on us
+      </h2>
+      <div className="max-w-full grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-12 md:py-2 md:px-6">
+        {stats.map((stat, index) => (
+          <div
+            key={index}
+            className={`flex flex-col gap-1 lg:gap-3 lg:flex-row lg:space-y-2 items-center ${
+              index > 0 && "xl:border-l-2"
+            } xl:px-10 font-SFmedium border-gray-200`}
+          >
+            <div className="h-full flex items-center">{stat.icon}</div>
+            <div className="flex flex-col items-center lg:items-start text-center">
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800">
+                {stat.value}
+              </p>
+              <p className="text-sm md:text-md text-gray-500 w-[max-content]">
+                {stat.label}
+              </p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
