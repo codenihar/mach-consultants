@@ -18,28 +18,28 @@ type CoverageItem = {
 const CoverageItems: CoverageItem[] = [
   {
     icon: <GraduationCap size={72} className="text-blue-600" />,
-    title: "Education",
+    title: "CODE",
   },
   {
     icon: <HeartPulse size={72} className="text-blue-600" />,
-    title: "Health",
+    title: "DPIE",
   },
   {
     icon: <Car size={72} className="text-blue-600" />,
-    title: "Vehicle",
+    title: "STAR",
     active: true,
   },
   {
     icon: <Hourglass size={72} className="text-blue-600" />,
-    title: "Life",
+    title: "OMC",
   },
   {
     icon: <Shield size={72} className="text-blue-600" />,
-    title: "Pet",
+    title: "BRD",
   },
   {
     icon: <Home size={72} className="text-blue-600" />,
-    title: "Home",
+    title: "BUTTERS",
   },
 ];
 
@@ -51,10 +51,10 @@ const CoverageSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-8 md:mb-10 lg:mb-12">
           <div className="max-w-2xl">
             <p className="text-sm sm:text-base md:text-lg text-blue-600 font-semibold mb-1 sm:mb-2">
-              Coverages
+              Services
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
-              Get the coverage you need for your business, family, and assets.
+              Get the services you need for your business, family, and assets.
             </h2>
           </div>
           <button className="cursor-pointer flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 sm:px-5 sm:py-2.5 rounded-md transition duration-300 hover:shadow-md whitespace-nowrap">
@@ -79,7 +79,7 @@ const CoverageSection: React.FC = () => {
               <p className="text-sm sm:text-base md:text-lg font-medium text-gray-700">
                 {item.title}
               </p>
-              <p className="text-xs sm:text-sm text-gray-500 mt-1">Insurance</p>
+              {/* <p className="text-xs sm:text-sm text-gray-500 mt-1">Insurance</p> */}
             </div>
           ))}
         </div>

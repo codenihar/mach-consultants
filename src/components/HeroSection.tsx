@@ -8,19 +8,18 @@ const HeroSection: React.FC = () => {
         {/* Left Section */}
         <div className="flex-1 w-full mt-8 lg:mt-0">
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            Highest Quality
+            Sustainable <span className="text-blue-600">performance</span>
             <br />
-            Insurance at the
+            is the core
             <br />
-            <span className="text-blue-600">lowest rates</span>
+            of our work
             <br />
-            available.
           </h1>
 
           <p className="text-gray-600 text-base sm:text-lg md:text-xl my-4 sm:my-6 md:my-8 max-w-2xl">
-            We have access to the majority of the first-rate insurance companies
-            in Texas to offer you the best coverage at the lowest available
-            price.
+            We are selective consultants focused on immediate performance
+            improvement. We are dedicated to revealing hidden resources of the
+            enterprise and growing its potential
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">

@@ -42,22 +42,23 @@ const AboutUsSection: React.FC = () => {
         <div className="w-full text-left">
           <p className="text-md text-blue-600 font-semibold mb-2">About Us</p>
           <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-gray-800 mb-4 leading-tight">
-            We specialize in customized insurance programs for people and
+            We specialize in customized consulting programs for people and
             businesses.
           </h2>
           <p className="text-md md:text-lg text-gray-600 mb-4">
-            Since 1948, Seltzer Group Partners has been a trusted insurance
-            agency that helps individuals and businesses protect their future.
-            With an extensive network of independent agencies and industry
-            partners, we provide customized coverage that meets your specific
-            needs today and minimizes your future risk.
+            Selective consultants focused on immediate performance improvement.
+            We are dedicated to revealing the hidden resources of the enterprise
+            and growing its potential. Sustainable performance is the core of
+            our work.
           </p>
           <p className="text-md md:text-lg text-gray-600 mb-6">
-            We don’t just sell insurance; we build relationships with our
-            clients to help them make informed decisions. Our team of insurance
-            professionals have the knowledge, skills, markets and desire
-            necessary to provide you with the most pleasant insurance experience
-            possible.
+            We consider complementary and wholesome the ethical, normative, and
+            regulative dimensions. We are engaged in advancing the benefits of
+            our stakeholders and placing them at par with ours as a guide to our
+            work ethics. We are committed to transparency and continuous
+            communication with stakeholders about mutual expectations beyond
+            contractual obligations. We commit to being compliant, and we pledge
+            to uphold the rules of conduct.
           </p>
           <button className="cursor-pointer flex items-center gap-2 bg-blue-600 text-white px-4 py-2 md:px-6 md:py-4 rounded-md font-semibold hover:bg-blue-700 transition">
             Learn More <MoveUpRight className="w-4 h-4" />
