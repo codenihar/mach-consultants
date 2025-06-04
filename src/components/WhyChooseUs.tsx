@@ -73,7 +73,7 @@ const WhyChooseUsSection: React.FC = () => {
 
         {/* Right Image with Badge */}
         <div className="relative w-full order-1 lg:order-2">
-          <div className="rounded-xl overflow-hidden w-full max-w-md mx-auto shadow-lg">
+          <div className="rounded-xl overflow-hidden w-full max-w-md shadow-lg">
             <img
               src="/images/why_choose_us.png"
               alt="Handshake"
@@ -82,7 +82,7 @@ const WhyChooseUsSection: React.FC = () => {
             />
           </div>
 
-          <div className="absolute -bottom-4 right-4 sm:right-8 md:right-12 lg:right-16 bg-blue-100 text-blue-900 font-bold text-sm w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-2 border-blue-300 flex flex-col items-center justify-center shadow-md">
+          <div className="absolute bottom-20 -left-2 md:-left-4 lg:-right-4 xl:right-4 bg-blue-100 text-blue-900 font-bold text-sm w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-2 border-blue-300 flex flex-col items-center justify-center shadow-md">
             <span className="text-2xl sm:text-3xl">25k</span>
             <span className="text-xs sm:text-sm font-medium">Agents</span>
             <span className="text-xs sm:text-sm font-medium">Worldwide</span>

@@ -3,11 +3,11 @@ import React from "react";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="w-full min-h-screen flex items-center bg-gradient-to-r from-blue-100 to-yellow-100 px-4 sm:px-6 md:px-8 lg:px-16 pt-24 pb-64 md:pb-48 md:pt-36">
+    <section className="w-full flex items-center bg-gradient-to-r from-blue-100 to-yellow-100 px-4 sm:px-6 md:px-8 lg:px-16 pt-24 pb-64 md:pb-48 md:pt-36">
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-20 w-full">
         {/* Left Section */}
         <div className="flex-1 w-full mt-8 lg:mt-0">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
             Highest Quality
             <br />
             Insurance at the
@@ -23,13 +23,13 @@ const HeroSection: React.FC = () => {
             price.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-md">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
             <input
               type="text"
               placeholder="Enter Zip Code"
               className="px-4 py-3 rounded-md border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-64 placeholder:text-gray-400 text-black"
             />
-            <button className="flex items-center justify-center gap-2 bg-blue-600 text-white px-5 py-3 rounded-md hover:bg-blue-700 transition cursor-pointer w-full">
+            <button className="flex items-center justify-center gap-2 bg-blue-600 text-white px-5 py-3 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content]">
               Request a Quote
               <MoveUpRight className="w-4 h-4" />
             </button>

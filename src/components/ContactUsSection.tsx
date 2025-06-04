@@ -49,14 +49,14 @@ const ConsultationForm: React.FC = () => {
                   required
                 />
               </div>
-              <div className="sm:col-span-2">
+              <div className="col-span-2">
                 <select className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none">
                   <option>Are you a new client?</option>
                   <option>Yes</option>
                   <option>No</option>
                 </select>
               </div>
-              <div className="sm:col-span-2">
+              <div className="col-span-2">
                 <textarea
                   placeholder="How can we help you?"
                   rows={4}
@@ -64,10 +64,10 @@ const ConsultationForm: React.FC = () => {
                 ></textarea>
               </div>
 
-              <div className="sm:col-span-2 mt-2">
+              <div className="max-sm:col-span-2 mt-2">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                  className="w-[max-content] px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                 >
                   Make An Appointment
                   <MoveUpRight className="w-4 h-4" />
