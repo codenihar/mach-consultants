@@ -38,7 +38,7 @@ const CreateAccount: React.FC = () => {
 
         <div className="text-center text-sm text-gray-600">
           Already have an account?{" "}
-          <a href="/auth/signin" className="text-blue-600 hover:underline">
+          <a href="/signin" className="text-blue-600 hover:underline">
             Log in
           </a>
         </div>
