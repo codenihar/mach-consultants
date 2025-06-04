@@ -7,13 +7,10 @@ const HeroSection: React.FC = () => {
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-20 w-full">
         {/* Left Section */}
         <div className="flex-1 w-full mt-8 lg:mt-0">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            Sustainable <span className="text-blue-600">performance</span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+            Mach <span className="text-blue-600">Consultants</span>
             <br />
-            is the core
-            <br />
-            of our work
-            <br />
+            Sustainable Performance is the core of our work
           </h1>
 
           <p className="text-gray-600 text-base sm:text-lg md:text-xl my-4 sm:my-6 md:my-8 max-w-2xl">
