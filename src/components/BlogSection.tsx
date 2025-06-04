@@ -12,26 +12,24 @@ const Blogs: Blog[] = [
   {
     category: "Insurance",
     img: "/images/blog_1.png",
-    title:
-      "Avenues Financial Hailed as a Global Leader in the Financial Industry.",
+    title: "Organization Development Journal",
     description:
-      "At Avenues Financial, we are a team of knowledgeable & experienced accounting and business professionals that provide solutions to your accounting needs....",
+      "El Haddad, P., Kuran, O. (2022), “Generic Aspects of Performance Improvement: Comparative Case Studies in Lebanon”, Organization Development Journal, in print, International Society for Organizational Development and Change, Colorado, US.",
   },
   {
     category: "Insurance",
     img: "/images/blog_2.png",
-    title:
-      "Avenues Financial Hailed as a Global Leader in the Financial Industry.",
+    title: "EMS Management at Society",
     description:
-      "At Avenues Financial, we are a team of knowledgeable & experienced accounting and business professionals that provide solutions to your accounting needs....",
+      "El Haddad, P., Barazi, R. (2021), “The Socio-Economic Drive to Transformation from Non- Governmental Organization to Social Enterprise”, in Savall, H, & Zardet, V . (Eds.), Traité du Management Socio-économique, EMS Management et Société: Caen. ISBN: 978-2-37687-470-6",
   },
   {
     category: "Insurance",
     img: "/images/blog_3.png",
     title:
-      "Avenues Financial Hailed as a Global Leader in the Financial Industry.",
+      "International Journal of Islamic and Middle Eastern Finance and Management.",
     description:
-      "At Avenues Financial, we are a team of knowledgeable & experienced accounting and business professionals that provide solutions to your accounting needs....",
+      "El Haddad, P., Bachkirov, A.A., Grishina, O. (2020), “Comparative CSR Decision Making in the Middle East: An Exploratory Study”, International Journal of Islamic and Middle Eastern Finance and Management, in-print. Emerald.",
   },
 ];
 
@@ -42,10 +40,10 @@ const BlogSection: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-10 md:mb-14 lg:mb-16">
           <p className="text-blue-600 font-semibold text-sm sm:text-base md:text-lg mb-2">
-            Our Blog
+            Our Publications
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
-            Take a look at the latest articles from Consultic
+            Take a look at the latest publications from Mach Consultants
           </h2>
         </div>
 
@@ -68,13 +66,13 @@ const BlogSection: React.FC = () => {
 
               {/* Content */}
               <div className="p-5 sm:p-6 flex flex-col flex-grow">
-                <p className="text-xs sm:text-sm text-blue-600 font-semibold mb-2">
+                {/* <p className="text-xs sm:text-sm text-blue-600 font-semibold mb-2">
                   Insurance
-                </p>
+                </p> */}
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 leading-snug">
                   {blog.title}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed flex-grow">
+                <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed flex-grow line-clamp-4">
                   {blog.description}
                 </p>
                 <a
