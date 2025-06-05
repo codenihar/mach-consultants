@@ -7,6 +7,8 @@ import AgentsSection from "../components/AgentsSection";
 import ConsultationForm from "../components/ContactUsSection";
 import WhyChooseUsSection from "../components/WhyChooseUs";
 import BlogSection from "../components/BlogSection";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 
 export default function Home() {
   return (
@@ -22,6 +24,7 @@ export default function Home() {
       <WhyChooseUsSection />
       <ConsultationForm />
       <BlogSection />
+      <Footer />
     </main>
   );
 }
