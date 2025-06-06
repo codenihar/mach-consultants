@@ -1,64 +1,67 @@
+import { ChevronRight } from "lucide-react";
 import React from "react";
 
-type Step = {
+type Publication = {
   img: string;
   step: string;
   title: string;
   desc: string;
 };
 
-const STEPS: Step[] = [
+const publications: Publication[] = [
   {
-    img: "/images/how_it_works_1.png",
+    img: "https://mach-consultants.com/wp-content/uploads/2024/05/odj-logo.jpg",
     step: "01",
-    title: "Dr. Pierre El Haddad",
-    desc: "Dr. Pierre is President and Senior Consultant at MACH Consultants S.A.S, Associate Professor of Management at INSEEC Grande Ecole, Paris, Board Member of the Management Consulting division AOM, Board Member ISODC and NODE Network of Organizational Development Experts, Chair of RISE Conference Research with Impact for Society and the Enterprise",
+    title: "Organization Development Journal",
+    desc: "El Haddad, P., Kuran, O. (2022), “Generic Aspects of Performance Improvement: Comparative Case Studies in Lebanon”, Organization Development Journal, in print, International Society for Organizational Development and Change, Colorado, US.",
   },
   {
-    img: "/images/how_it_works_2.png",
+    img: "https://mach-consultants.com/wp-content/uploads/2024/05/edition-ems-management-and-societe-logo.jpg",
     step: "02",
-    title: "Nabil Najjar",
-    desc: "Nabil holds an MBA from ESA (ESCP-EAP) and a civil engineering degree from Ecole Centrale de Lyon. He managed flagship construction projects in healthcare, healthcare education, and first response training. He is also a long-standing committee member of a renowned cultural festival.",
+    title: "EMS Management et Société",
+    desc: "El Haddad, P., Barazi, R. (2021), “The Socio-Economic Drive to Transformation from Non- Governmental Organization to Social Enterprise”, in Savall, H, & Zardet, V . (Eds.), Traité du Management Socio-économique, EMS Management et Société: Caen. ISBN: 978-2-37687-470-6.",
   },
   {
-    img: "/images/how_it_works_3.png",
+    img: "https://mach-consultants.com/wp-content/uploads/2024/05/international-journal-of-islamic-and-middle-eastern-finance-and-management.png",
     step: "03",
-    title: "Relax and sleep easy",
-    desc: "Your business isn’t just business to us. It’s personal. We don’t rest easy until you do.",
+    title:
+      "International Journal of Islamic and Middle Eastern Finance and Management",
+    desc: "El Haddad, P., Bachkirov, A.A., Grishina, O. (2020), “Comparative CSR Decision Making in the Middle East: An Exploratory Study”, International Journal of Islamic and Middle Eastern Finance and Management, in-print. Emerald.",
   },
 ];
 
 const HowItWorksSection: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white px-4 sm:px-6">
+    <section className="py-12 md:py-16 lg:py-20 bg-white px-4 sm:px-6 font-LibreRegular">
       <div className="max-w-6xl mx-auto text-center">
-        <p className="text-blue-600 font-semibold text-sm sm:text-base md:text-lg mb-2 sm:mb-3">
-          Associates
+        <p className="text-blue-600 font-semibold text-sm md:text-md md:text-xl mb-2 sm:mb-3">
+          Publications
         </p>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-8 sm:mb-10 md:mb-12 leading-tight">
-          We give you access to the best and <br className="hidden sm:block" />
-          most competitive insurance products
+          View our latest publications
         </h2>
 
         <div className="grid gap-8 sm:gap-10 md:gap-12 md:grid-cols-3">
-          {STEPS.map((step, idx) => (
+          {publications.map((publication, idx) => (
             <div key={idx} className="flex flex-col items-center text-left">
               <div className="relative w-full overflow-hidden rounded-xl aspect-square mb-4 sm:mb-6">
                 <img
-                  src={step.img}
-                  alt={step.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  src={publication.img}
+                  alt={publication.title}
+                  className="w-full h-full object-fit transition-transform duration-500 hover:scale-105"
                   loading="lazy"
                 />
               </div>
-              <div className="bg-blue-100 text-blue-600 text-2xl sm:text-3xl font-bold w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center rounded-full border-2 border-blue-400 -mt-10 sm:-mt-12 mb-4 z-10 relative shadow-sm">
-                {step.step}
+              <div className="flex items-center justify-between w-full mb-3">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 line-clamp-1">
+                  {publication.title}
+                </h3>
+                <button className="bg-gray-400 rounded-full p-2 cursor-pointer">
+                  <ChevronRight className="w-6 h-6" />
+                </button>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-3">
-                {step.title}
-              </h3>
-              <p className="text-gray-600 text-sm sm:text-base md:text-md max-w-xs mx-auto line-clamp-4">
-                {step.desc}
+              <p className="text-gray-600 text-sm sm:text-base md:text-md line-clamp-4">
+                {publication.desc}
               </p>
             </div>
           ))}

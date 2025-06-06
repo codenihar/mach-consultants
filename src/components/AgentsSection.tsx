@@ -3,11 +3,11 @@ import React from "react";
 
 const AgentsSection: React.FC = () => {
   return (
-    <section className="py-16 px-4 sm:px-6 bg-white">
+    <section className="py-16 px-4 sm:px-6 bg-white font-LibreRegular">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-24">
         {/* Left Text Content */}
         <div>
-          <p className="text-blue-600 font-semibold mb-2 text-lg">Agents</p>
+          <p className="text-blue-600 font-semibold mb-2 text-xl">Agents</p>
           <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight mb-6">
             Friendly, Helpful and <br />
             Knowledgeable Agents Your <br className="max-xl:hidden" />
@@ -26,7 +26,7 @@ const AgentsSection: React.FC = () => {
             need. Let us show you how we can save you money, keep you protected
             and feeling secure 365 days a year.
           </p>
-          <button className="cursor-pointer flex items-center gap-2 bg-blue-600 text-white px-4 py-2 md:px-6 md:py-4 rounded-md font-semibold hover:bg-blue-700 transition">
+          <button className="cursor-pointer flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition">
             Learn More <MoveUpRight className="w-4 h-4" />
           </button>
         </div>

@@ -1,6 +1,7 @@
 "use client";
+import { NavItems } from "@/lib/constants";
 import { motion, AnimatePresence } from "framer-motion";
-import { PhoneCall, Menu, X } from "lucide-react";
+import { Menu, X, UserRoundCheck } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -22,9 +23,9 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 py-2 w-full transition-all duration-300 font-LibreRegular ${
         hasScrolled
-          ? "bg-white/80 backdrop-blur-lg shadow-sm"
+          ? "bg-blue-100/50 backdrop-blur-xl shadow-sm"
           : "bg-transparent shadow-none"
       }`}
     >
@@ -32,58 +33,32 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2 z-30">
-            <img src="/logo.png" alt="Logo" className="w-6 h-6" />
-            <span className="text-md lg:text-lg font-bold text-gray-700">
-              Consultia Insurance
-            </span>
+            <img
+              src="https://mach-consultants.com/wp-content/uploads/2022/03/MACH-LOGO-FINAL-01.png"
+              alt="Logo"
+              className="w-auto h-15"
+            />
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-10 font-bold text-gray-700">
-            <a
-              href="#"
-              className="cursor-pointer hover:text-black text-sm lg:text-md"
-            >
-              About Us
-            </a>
-            <a
-              href="#"
-              className="cursor-pointer hover:text-black text-sm lg:text-md"
-            >
-              Coverages
-            </a>
-            <a
-              href="#"
-              className="cursor-pointer hover:text-black text-sm lg:text-md"
-            >
-              File a Claim
-            </a>
-            <a
-              href="#"
-              className="cursor-pointer hover:text-black text-sm lg:text-md"
-            >
-              Blog
-            </a>
-            <a
-              href="#"
-              className="cursor-pointer hover:text-black text-sm lg:text-md"
-            >
-              Contact
-            </a>
+            {NavItems &&
+              NavItems.length > 0 &&
+              NavItems.map((nav, index) => (
+                <a
+                  key={`nav-${index}`}
+                  href={nav.route}
+                  className="cursor-pointer hover:text-black text-sm lg:text-lg"
+                >
+                  {nav.name}
+                </a>
+              ))}
           </nav>
 
-          {/* Desktop Hotline */}
-          <div className="hidden md:flex items-center gap-3 rounded-full px-4 py-1">
-            <div className="bg-blue-600 p-2 rounded-full text-white cursor-pointer">
-              <PhoneCall className="w-3 h-3 lg:w-6 lg:h-6" />
-            </div>
-            <div className="text-sm text-gray-700">
-              <div className="lg:text-md text-gray-600">Hotline 24/7</div>
-              <div className="font-bold text-gray-700 text-md lg:text-lg">
-                +49 30 9233255
-              </div>
-            </div>
-          </div>
+          <button className="hidden lg:flex items-center justify-center gap-2 bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-lg">
+            Contact Us
+            <UserRoundCheck />
+          </button>
 
           {/* Mobile Menu Button */}
           <button
@@ -116,55 +91,24 @@ const Header = () => {
               </div>
 
               <nav className="flex flex-col space-y-4 font-bold text-gray-700">
-                <a
-                  href="#"
-                  className="cursor-pointer hover:text-black text-sm py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  About Us
-                </a>
-                <a
-                  href="#"
-                  className="cursor-pointer hover:text-black text-sm py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Coverages
-                </a>
-                <a
-                  href="#"
-                  className="cursor-pointer hover:text-black text-sm py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  File a Claim
-                </a>
-                <a
-                  href="#"
-                  className="cursor-pointer hover:text-black text-sm py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Blog
-                </a>
-                <a
-                  href="#"
-                  className="cursor-pointer hover:text-black text-sm py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact
-                </a>
+                {NavItems &&
+                  NavItems.length > 0 &&
+                  NavItems.map((nav) => (
+                    <a
+                      href={nav.route}
+                      className="cursor-pointer hover:text-black text-sm py-2"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {nav.name}
+                    </a>
+                  ))}
               </nav>
 
               {/* Mobile Hotline */}
-              <div className="flex items-center gap-3 mt-3 py-3 border-t border-gray-100">
-                <div className="bg-blue-600 p-2 rounded-full text-white cursor-pointer">
-                  <PhoneCall className="w-3 h-3 md:w-6 md:h-6" />
-                </div>
-                <div className="text-sm text-gray-700">
-                  <div className="text-sm text-gray-600">Hotline 24/7</div>
-                  <div className="font-bold text-gray-700 text-md">
-                    +49 30 9233255
-                  </div>
-                </div>
-              </div>
+              <button className="hidden lg:flex items-center justify-center gap-2 bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-lg">
+                Contact Us
+                <UserRoundCheck />
+              </button>
             </motion.div>
           )}
         </AnimatePresence>

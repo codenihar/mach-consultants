@@ -3,13 +3,13 @@ import { MoveUpRight } from "lucide-react";
 
 const ConsultationForm: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-[#eaf0fb] px-4 sm:px-6 md:px-8">
+    <section className="py-12 md:py-16 lg:py-20 bg-[#eaf0fb] px-4 sm:px-6 md:px-8 font-LibreRegular">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         {/* Image Section */}
         <div className="order-2 lg:order-1 w-full">
           <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
             <img
-              src="/images/consulting_image.png"
+              src="https://mach-consultants.com/wp-content/uploads/elementor/thumbs/woman-hand-desk-office-qnsnja20favr40urk8g0mnordansyzd26g8act02wc.jpg"
               alt="Consultation"
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               loading="lazy"
@@ -20,7 +20,7 @@ const ConsultationForm: React.FC = () => {
         {/* Form Section */}
         <div className="order-1 lg:order-2 w-full">
           <div className="max-w-lg">
-            <h3 className="text-blue-600 text-sm sm:text-base font-semibold mb-2">
+            <h3 className="text-blue-600 text-sm md:text-md lg:text-lg font-semibold mb-2">
               Free Consultation
             </h3>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 leading-tight">

@@ -35,15 +35,15 @@ const Blogs: Blog[] = [
 
 const BlogSection: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-white">
+    <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-white font-LibreRegular">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10 md:mb-14 lg:mb-16">
           <p className="text-blue-600 font-semibold text-sm sm:text-base md:text-lg mb-2">
-            Our Publications
+            Our Blogs
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
-            Take a look at the latest publications from Mach Consultants
+            Take a look at the latest blogs from Mach Consultants
           </h2>
         </div>
 
