@@ -39,7 +39,7 @@ const BlogSection: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10 md:mb-14 lg:mb-16">
-          <p className="text-blue-600 font-semibold text-sm sm:text-base md:text-lg mb-2">
+          <p className="text-blue-600 font-semibold text-md md:text-lg lg:text-xl mb-2">
             Our Blogs
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight">

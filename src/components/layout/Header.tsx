@@ -41,14 +41,14 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-10 font-bold text-gray-700">
+          <nav className="hidden md:flex items-center space-x-3 md:space-x-6 xl:space-x-10 font-bold text-gray-700">
             {NavItems &&
               NavItems.length > 0 &&
               NavItems.map((nav, index) => (
                 <a
                   key={`nav-${index}`}
                   href={nav.route}
-                  className="cursor-pointer hover:text-black text-sm lg:text-lg"
+                  className="cursor-pointer hover:text-black text-sm md:text-md lg:text-lg"
                 >
                   {nav.name}
                 </a>

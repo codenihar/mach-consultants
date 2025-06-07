@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="max-w-6xl mx-auto pb-8 pt-12 md:pt-16">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 pb-8 pt-12 md:pt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-10">
           {/* Logo and About */}
           <div className="xl:col-span-2">
