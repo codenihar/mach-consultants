@@ -31,9 +31,7 @@ export default function RootLayout({
         cz-shortcut-listen="false"
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );

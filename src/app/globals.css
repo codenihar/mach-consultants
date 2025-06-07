@@ -31,6 +31,7 @@ body {
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

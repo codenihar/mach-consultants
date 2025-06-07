@@ -62,7 +62,7 @@ const AboutUsSection: React.FC = () => {
             to uphold the rules of conduct.
           </p>
           <button className="cursor-pointer bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition">
-            <a className="flex items-center gap-2" href={"/about"}>
+            <a className="w-full flex items-center gap-2" href="/about">
               Learn More <MoveUpRight className="w-4 h-4" />
             </a>
           </button>

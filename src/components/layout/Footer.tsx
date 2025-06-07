@@ -23,10 +23,13 @@ const Footer: React.FC = () => {
               placeholder="Email Address"
               className="px-4 py-3 w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
             />
-            <button className="cursor-pointer font-semibold flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg transition-colors duration-300">
+            <a
+              href="/#contactUs"
+              className="cursor-pointer font-semibold flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg transition-colors duration-300"
+            >
               Contact Us
               <MoveUpRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

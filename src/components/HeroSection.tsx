@@ -19,10 +19,13 @@ const HeroSection: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
-            <button className="flex items-center justify-center gap-4 bg-blue-600 text-white px-5 py-3 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-xl">
+            <a
+              href="/#contactUs"
+              className="flex items-center justify-center gap-4 bg-blue-600 text-white px-5 py-3 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-xl"
+            >
               Contact Us
               <UserRoundCheck />
-            </button>
+            </a>
           </div>
         </div>
 

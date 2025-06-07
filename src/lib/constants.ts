@@ -11,7 +11,6 @@ export const NavItems: NavItem[] = [
   { name: "About Us", route: "/about" },
   { name: "Services", route: "/services" },
   { name: "Blogs & Publications", route: "/blogs" },
-  { name: "Contact Us", route: "/contact" },
 ];
 
 export const policies: Policy[] = [

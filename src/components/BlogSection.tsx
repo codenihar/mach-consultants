@@ -89,10 +89,13 @@ const BlogSection: React.FC = () => {
 
         {/* View All Button (optional) */}
         <div className="text-center mt-10 md:mt-14">
-          <button className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-300">
+          <a
+            href="/blogs"
+            className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-300"
+          >
             View All Articles
             <ChevronRight className="w-4 h-4 ml-2" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

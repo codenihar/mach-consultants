@@ -1,3 +1,5 @@
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 import ContentSection from "@/components/services/ContentSection";
 import HeroSection from "@/components/services/HeroSection";
 import React from "react";
@@ -72,18 +74,22 @@ const services: Service["service"][] = [
 
 const Services = () => {
   return (
-    <main className="relative bg-white">
+    <main className="bg-white">
+      <Header />
       <HeroSection />
-      {services &&
-        services.length > 0 &&
-        services.map((service, index) => (
-          <div
-            key={`service-${index}`}
-            className={`sticky ${index === 0 ? "top-25 pb-20" : "top-0"}`}
-          >
-            <ContentSection service={service} />
-          </div>
-        ))}
+      <div className="relative">
+        {services &&
+          services.length > 0 &&
+          services.map((service, index) => (
+            <div
+              key={`service-${index}`}
+              className={`sticky ${index === 0 ? "top-25 pb-20" : "top-0"}`}
+            >
+              <ContentSection service={service} />
+            </div>
+          ))}
+      </div>
+      <Footer />
     </main>
   );
 };
