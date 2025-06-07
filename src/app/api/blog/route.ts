@@ -11,7 +11,7 @@ import {
 import { blogPostSchema } from "@/lib/db/zodSchema";
 import { NextResponse } from "next/server";
 
-export default async function POST(req: Request) {
+export async function POST(req: Request) {
   try {
     const data = await req.json();
     const validatedData = blogPostSchema.parse(data);
