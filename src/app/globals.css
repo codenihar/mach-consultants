@@ -13,7 +13,7 @@
   --font-LibreItalic: "LibreBaskerville-Italic", "sans-serif";
   --font-LibreRegular: "LibreBaskerville-Regular", "sans-serif";
   --font-RecoletaRegular: "Recoleta-RegularDEMO", "sans-serif";
-  --font-PeachCrushRegular:: "peach-crush", "sans-serif";
+  --font-PeachCrushRegular: "peach-crush", "sans-serif";
 }
 
 @media (prefers-color-scheme: dark) {
