@@ -39,7 +39,7 @@ const stats: Stat[] = [
 
 const StatsSection: React.FC = () => {
   return (
-    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md font-LibreRegular">
+    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md font-RecoletaRegular">
       <div className="max-w-full grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-12 md:py-2 md:px-6">
         {stats.map((stat, index) => (
           <div

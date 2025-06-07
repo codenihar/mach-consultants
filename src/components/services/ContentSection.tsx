@@ -6,7 +6,7 @@ const ContentSection = ({ service }: Service) => {
     <section
       className={`w-full ${service.bgColor} ${
         service.textColor === "white" ? "text-white" : "text-black"
-      } py-12 sm:py-16 md:py-14 px-4 sm:px-6 md:px-8 lg:px-12 font-LibreRegular`}
+      } py-12 sm:py-16 md:py-14 px-4 sm:px-6 md:px-8 lg:px-12 font-RecoletaRegular`}
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
         <div className="order-2 md:order-1">

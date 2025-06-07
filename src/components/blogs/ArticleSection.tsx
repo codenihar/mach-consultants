@@ -1,158 +1,122 @@
-import { ArrowRight } from "lucide-react";
+import { FC } from "react";
+import { CalendarDays, Clock, User } from "lucide-react";
 
-type Article = {
-  type: string;
-  title: string;
+type Blog = {
   category: string;
+  title: string;
+  author?: string;
   date: string;
+  readTime: string;
   image: string;
-  desc: string;
 };
 
-const articles: Article[] = [
+const blogs: Blog[] = [
   {
-    type: "wide",
-    title:
-      "Meet the new Stack: The documentation platform you know, made effortless with AI.",
-    category: "Product Update",
-    date: "June 1, 2025",
-    image: "/images/wideArticle.png",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis aliquam eos itaque, voluptate aspernatur ullam!",
+    category: "Technology",
+    title: "Boost your online sales with these top conversion strategies",
+    author: "Courtney Henry",
+    date: "November 10, 2024",
+    readTime: "2 min read",
+    image:
+      "https://cdn.prod.website-files.com/6730614b3d201ddcf88f344b/67308a182c39026fe235e8e2_blog-thumb-1-p-800.jpg",
   },
   {
-    type: "wide",
-    title: "Using heatmaps to improve your website's UX: 5 ways to get started",
-    category: "Knowledge",
-    date: "June 1, 2025",
-    image: "/images/wideArticle.png",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis aliquam eos itaque, voluptate aspernatur ullam!",
+    category: "Lifestyle",
+    title: "The ultimate guide to creating a standout portfolio in 2024",
+    date: "November 10, 2024",
+    readTime: "7 min read",
+    image:
+      "https://cdn.prod.website-files.com/6730614b3d201ddcf88f344b/67309e63cdf19828e75269ab_blog-thumb-2-p-500.jpg",
   },
   {
-    type: "short",
-    title:
-      "How to create a cohesive omnichannel experience in the buying process",
-    category: "Example",
-    date: "May 29, 2025",
-    image: "/images/shortArticle.png",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis aliquam eos itaque, voluptate aspernatur ullam!",
+    category: "Science",
+    title: "How to optimize your website for faster loading times",
+    date: "November 10, 2024",
+    readTime: "4 min read",
+    image:
+      "https://cdn.prod.website-files.com/6730614b3d201ddcf88f344b/67309ed67742ac6d01e2b35e_blog-thumb-3-p-500.jpg",
   },
   {
-    type: "short",
-    title: "The power and business value of visual communication",
-    category: "Knowledge",
-    date: "May 28, 2025",
-    image: "/images/shortArticle.png",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis aliquam eos itaque, voluptate aspernatur ullam!",
-  },
-  {
-    type: "short",
-    title: "The Rise of AI in Everyday Life: Transforming the Norm",
-    category: "Example",
-    date: "May 27, 2025",
-    image: "/images/shortArticle.png",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis aliquam eos itaque, voluptate aspernatur ullam!",
-  },
-  {
-    type: "wide",
-    title: "The Future of Work: Navigating the Remote Revolution",
-    category: "Example",
-    date: "May 26, 2025",
-    image: "/images/wideArticle.png",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis aliquam eos itaque, voluptate aspernatur ullam!",
-  },
-  {
-    type: "wide",
-    title: "Demystifying Blockchain: Beyond Cryptocurrency",
-    category: "Knowledge",
-    date: "May 25, 2025",
-    image: "/images/wideArticle.png",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis aliquam eos itaque, voluptate aspernatur ullam!",
+    category: "Hobbies",
+    title: "5 design trends shaping the future of digital experiences",
+    date: "November 10, 2024",
+    readTime: "5 min read",
+    image:
+      "https://cdn.prod.website-files.com/6730614b3d201ddcf88f344b/67309ef95d1f44a4dacde997_blog-thumb-4-p-500.jpg",
   },
 ];
 
-const categories: string[] = [
-  "All articles",
-  "Spotlight",
-  "Product update",
-  "Example",
-  "Knowledge",
-];
-
-const ArticlesSection = () => {
+const RecentBlogs: FC = () => {
   return (
-    <section className="w-full bg-white py-10 px-4 md:px-12">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
-            All Articles
-          </h2>
-          <p className="text-gray-600 mt-2 text-sm max-w-xl">
-            Find practical ideas that help designers build to last. Simplify
-            design with our comprehensive and carefully written library from the
-            start.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {categories &&
-              categories.map((tag, idx) => (
-                <button
-                  key={idx}
-                  className="px-4 py-1.5 text-sm rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100 transition"
-                >
-                  {tag}
-                </button>
-              ))}
+    <section className="max-w-7xl mx-auto px-4 py-12 font-RecoletaRegular text-black">
+      <h2 className="text-3xl md:text-4xl font-bold mb-8">Recent Blogs</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="">
+          <div className="rounded-2xl overflow-hidden">
+            <img
+              src={blogs[0].image}
+              alt={blogs[0].title}
+              className="w-full h-72 object-cover rounded-2xl"
+            />
           </div>
+          <span className="bg-white text-sm font-medium inline-block mt-4 px-3 py-1 rounded-full shadow">
+            {blogs[0].category}
+          </span>
+          <h3 className="text-2xl md:text-3xl font-semibold mt-3">
+            {blogs[0].title}
+          </h3>
+          <div className="flex items-center gap-4 text-sm mt-2 flex-wrap">
+            <div className="flex items-center gap-1">
+              <User className="w-4 h-4" />
+              <span>{blogs[0].author}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <CalendarDays className="w-4 h-4" />
+              <span>{blogs[0].date}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Clock className="w-4 h-4" />
+              <span>{blogs[0].readTime}</span>
+            </div>
+          </div>
+          <button className="mt-5 px-4 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition text-sm flex items-center gap-2">
+            Read more →
+          </button>
         </div>
 
-        {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
-          {articles.map((article, idx) => (
-            <div
-              key={idx}
-              className={`${
-                article.type === "wide"
-                  ? "md:col-span-3 col-span-1"
-                  : "md:col-span-2 col-span-1"
-              } bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition`}
-            >
+        <div className="space-y-6">
+          {blogs.slice(1).map((blog, index) => (
+            <div key={index} className="flex gap-4">
               <img
-                src={article.image}
-                alt={article.title}
-                className="w-full h-40 object-cover"
+                src={blog.image}
+                alt={blog.title}
+                className="w-32 h-28 object-cover rounded-xl shrink-0"
               />
-              <div className="p-4 space-y-2">
-                <div className="flex gap-2">
-                  <p className="text-xs lg:text-sm text-orange-600 font-medium">
-                    {article.category}
-                  </p>
-                  <p className="text-xs lg:text-sm text-gray-500 border-l px-2">
-                    {article.date}
-                  </p>
+              <div className="flex flex-col justify-between">
+                <span className="bg-white text-xs font-medium px-2 py-1 rounded shadow text-gray-800 w-fit mb-2">
+                  {blog.category}
+                </span>
+                <h4 className="text-lg font-semibold">{blog.title}</h4>
+                <div className="flex items-center gap-3 text-sm text-gray-600 mt-2 flex-wrap">
+                  <div className="flex items-center gap-1">
+                    <CalendarDays className="w-4 h-4" />
+                    <span>{blog.date}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-4 h-4" />
+                    <span>{blog.readTime}</span>
+                  </div>
                 </div>
-                <h3 className="text-base font-semibold text-gray-900 max-sm:leading-tight line-clamp-2">
-                  {article.title}
-                </h3>
-                <p className="text-gray-600 line-clamp-5 leading-tight text-sm py-2">
-                  {article.desc}
-                </p>
-                <button className="cursor-pointer inline-flex items-center text-sm text-orange-600 font-medium mt-2 hover:underline">
-                  Learn More <ArrowRight className="ml-1 w-4 h-4" />
+                <button className="mt-2 px-3 py-1 text-sm border border-gray-300 rounded-full hover:bg-gray-100 transition flex items-center gap-1 w-fit">
+                  Read more →
                 </button>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* View More Button */}
-        <div className="w-full mt-12 text-center">
-          <button className="cursor-pointer w-full px-6 py-2 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 transition">
-            View More
-          </button>
         </div>
       </div>
     </section>
   );
 };
 
-export default ArticlesSection;
+export default RecentBlogs;

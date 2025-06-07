@@ -36,7 +36,7 @@ const features: Feature[] = [
 
 const WhyChooseUsSection: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white px-4 sm:px-6 md:px-8 font-LibreRegular">
+    <section className="py-12 md:py-16 lg:py-20 bg-white px-4 sm:px-6 md:px-8 font-RecoletaRegular">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         {/* Left Content */}
         <div className="order-2 lg:order-1">

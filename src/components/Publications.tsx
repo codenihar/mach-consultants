@@ -32,7 +32,7 @@ const publications: Publication[] = [
 
 const HowItWorksSection: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white px-4 sm:px-6 font-LibreRegular">
+    <section className="py-12 md:py-16 lg:py-20 bg-white px-4 sm:px-6 font-RecoletaRegular">
       <div className="max-w-6xl mx-auto text-center">
         <p className="text-blue-600 font-semibold text-md md:text-lg lg:text-xl mb-2 sm:mb-3">
           Publications

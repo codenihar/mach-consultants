@@ -55,7 +55,7 @@
 
 const PrincipalsSection: React.FC = () => {
   return (
-    <section className="max-w-7xl w-full mx-auto font-LibreRegular 2xl:rounded-[3rem] bg-gradient-to-r from-blue-100 to-yellow-100 overflow-hidden">
+    <section className="max-w-7xl w-full mx-auto font-RecoletaRegular 2xl:rounded-[3rem] bg-gradient-to-r from-blue-100 to-yellow-100 overflow-hidden">
       <div className="grid md:grid-cols-7 2xl:grid-cols-3 justify-between items-end w-full overflow-hidden md:pt-4">
         {/* First Content - Full width on mobile, then col-span-2 */}
         <div className="md:col-span-2 2xl:col-span-1 text-center md:text-left max-sm:order-2">
@@ -79,7 +79,7 @@ const PrincipalsSection: React.FC = () => {
 
         {/* Center Content - Full width on mobile, then col-span-3 */}
         <div className="md:col-span-3 2xl:col-span-1 flex flex-col justify-center max-sm:h-full md:h-88 lg:h-105 xl:h-130 w-full bg-white max-sm:rounded-none rounded-t-[3rem] text-center text-black px-3 sm:px-6 py-4 sm:py-6 md:py-8 max-sm:order-1 md:order-2 mt-6 md:mt-0">
-          <h2 className="text-4xl md:text-4xl lg:text-7xl font-bold font-LibreBold">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold font-RecoletaRegular">
             Meet The <br className="hidden md:block" /> Associates
           </h2>
           <p className="py-8">

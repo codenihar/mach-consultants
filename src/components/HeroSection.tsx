@@ -3,11 +3,11 @@ import React from "react";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="w-full flex items-center bg-gradient-to-r from-blue-100 to-yellow-100 px-4 sm:px-6 md:px-8 lg:px-16 pt-24 pb-48 md:pt-36 font-LibreRegular">
+    <section className="w-full flex items-center bg-gradient-to-r from-blue-100 to-yellow-100 px-4 sm:px-6 md:px-8 lg:px-16 pt-24 pb-48 md:pt-36 font-RecoletaRegular">
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-4 md:gap-12 lg:gap-20 w-full">
         {/* Left Section */}
         <div className="flex-1 w-full mt-8 lg:mt-0">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 sm:mb-6 leading-12 md:leading-14 lg:leading-16 font-bold font-LibreBold">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 sm:mb-6 leading-12 md:leading-14 lg:leading-16 font-bold">
             Mach <span className="text-blue-600">Consultants</span>
             <br />
             Sustainable Performance is the core of our work

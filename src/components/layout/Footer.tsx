@@ -4,7 +4,7 @@ import { NavItems, policies } from "@/lib/constants";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#f1f5fd] text-gray-800 font-LibreRegular">
+    <footer className="bg-[#f1f5fd] text-gray-800 font-RecoletaRegular">
       {/* Top CTA Section */}
       <div className="bg-blue-100/50 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto py-12 md:py-16 flex flex-col lg:flex-row justify-between items-center gap-8">
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="max-w-6xl mx-auto px-4 md:px-8 pb-8 pt-12 md:pt-16">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 xl:px-0 pb-8 pt-12 md:pt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-10">
           {/* Logo and About */}
           <div className="xl:col-span-2">

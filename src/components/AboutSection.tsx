@@ -4,7 +4,7 @@ import React from "react";
 
 const AboutUsSection: React.FC = () => {
   return (
-    <section className="pt-36 pb-20 font-LibreRegular">
+    <section className="pt-36 pb-20 font-RecoletaRegular">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-2 md:gap-12">
         {/* Left Image Section */}
         <div className="relative flex items-center justify-end h-120 md:h-140 w-full">

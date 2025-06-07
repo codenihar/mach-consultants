@@ -24,10 +24,10 @@ const services: Service[] = [
 
 const ServiceSection: React.FC = () => {
   return (
-    <section className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 lg:py-24 bg-white font-LibreRegular">
+    <section className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 lg:py-24 bg-white font-RecoletaRegular">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-12">
         <div className="w-full lg:flex-1 space-y-4 sm:space-y-5 md:space-y-6">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-LibreBold tracking-tight text-black">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-RecoletaRegular tracking-tight text-black">
             Our Services
           </h2>
           <p className="text-gray-700 text-md leading-relaxed max-w-md py-2">
