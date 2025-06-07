@@ -25,7 +25,7 @@ const Header = () => {
     <header
       className={`fixed left-0 right-0 top-0 z-50 py-2 w-full transition-all duration-300 font-LibreRegular ${
         hasScrolled
-          ? "bg-blue-100/50 backdrop-blur-xl shadow-sm"
+          ? "bg-blue-100 backdrop-blur-xl shadow-sm"
           : "bg-transparent shadow-none"
       }`}
     >
@@ -96,6 +96,7 @@ const Header = () => {
                   NavItems.length > 0 &&
                   NavItems.map((nav) => (
                     <a
+                      key={`nav-${nav.name}`}
                       href={nav.route}
                       className="cursor-pointer hover:text-black text-sm py-2"
                       onClick={() => setIsMobileMenuOpen(false)}

@@ -55,62 +55,56 @@
 
 const PrincipalsSection: React.FC = () => {
   return (
-    <section className="max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 font-LibreRegular xl:rounded-[3rem] bg-gradient-to-r from-blue-100 to-yellow-100">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 w-full overflow-hidden py-6 sm:py-8 md:py-10">
-        <svg width="0" height="0" className="absolute">
-          <defs>
-            <clipPath id="custom-shape" clipPathUnits="objectBoundingBox">
-              <path d="M0.782 0.0027H0.221C0.196 0.0027 0.1756 0.023 0.1756 0.048V0.1203C0.1756 0.1453 0.1552 0.1657 0.130 0.1657H0.048C0.023 0.1657 0.0027 0.1861 0.0027 0.211V0.7437C0.0027 0.7686 0.023 0.789 0.048 0.789H0.130C0.1552 0.789 0.1756 0.8094 0.1756 0.8344V0.9429C0.1756 0.9679 0.196 0.9883 0.221 0.9883H0.782C0.807 0.9883 0.8274 0.9679 0.8274 0.9429V0.8344C0.8274 0.8094 0.8478 0.789 0.873 0.789H0.9515C0.9765 0.789 0.9969 0.7686 0.9969 0.7437V0.211C0.9969 0.1861 0.9765 0.1657 0.9515 0.1657H0.873C0.8478 0.1657 0.8274 0.1453 0.8274 0.1203V0.048C0.8274 0.023 0.807 0.0027 0.782 0.0027Z" />
-            </clipPath>
-          </defs>
-        </svg>
-
+    <section className="max-w-7xl w-full mx-auto font-LibreRegular 2xl:rounded-[3rem] bg-gradient-to-r from-blue-100 to-yellow-100 overflow-hidden">
+      <div className="grid md:grid-cols-7 2xl:grid-cols-3 justify-between items-end w-full overflow-hidden md:pt-4">
         {/* First Content - Full width on mobile, then col-span-2 */}
-        <div className="flex-1 text-center md:text-left space-y-2 sm:space-y-3 md:space-y-4 order-1">
+        <div className="md:col-span-2 2xl:col-span-1 text-center md:text-left max-sm:order-2">
           <img
-            src="https://mach-consultants.com/wp-content/uploads/2022/04/Nabil-Photo-1-scaled.jpg"
+            src="/images/Nabil.png"
             alt="Nabil Najjar"
-            className="w-full rounded-2xl max-w-xs mx-auto md:mx-0"
+            className="w-full max-w-sm mx-auto md:mx-0"
           />
-          <div className="text-center space-y-1 w-full max-w-xs">
-            <h3 className="text-xl md:text-2xl text-black font-bold line-clamp-1">
-              Nabil Najjar
-            </h3>
-            <p className="text-gray-600 text-base sm:text-lg line-clamp-1">
-              Senior Associate
-            </p>
+
+          <div className="text-center py-6 md:pt-6 space-y-1 w-full bg-white">
+            <div className="max-w-sm mr-auto">
+              <h3 className="text-xl md:text-2xl text-black font-bold line-clamp-1">
+                Nabil Najjar
+              </h3>
+              <p className="text-gray-600 text-base sm:text-lg line-clamp-1">
+                Senior Associate
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Center Content - Full width on mobile, then col-span-3 */}
-        <div
-          style={{
-            clipPath: "url(#custom-shape)",
-            WebkitClipPath: "url(#custom-shape)",
-          }}
-          className="flex-1 w-full bg-white rounded-xl md:rounded-t-4xl text-center text-black px-3 sm:px-6 py-4 sm:py-6 md:py-8 order-2 md:order-2 my-6 md:my-0"
-        >
-          <div className="space-y-3">
-            <h2 className="text-2xl lg:text-5xl font-bold font-LibreBold">
-              Meet The <br /> Associates
-            </h2>
-          </div>
+        <div className="md:col-span-3 2xl:col-span-1 flex flex-col justify-center max-sm:h-full md:h-88 lg:h-105 xl:h-130 w-full bg-white max-sm:rounded-none rounded-t-[3rem] text-center text-black px-3 sm:px-6 py-4 sm:py-6 md:py-8 max-sm:order-1 md:order-2 mt-6 md:mt-0">
+          <h2 className="text-4xl md:text-4xl lg:text-7xl font-bold font-LibreBold">
+            Meet The <br className="hidden md:block" /> Associates
+          </h2>
+          <p className="py-8">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+            dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Eaque temporibus quae soluta, saepe molestias adipisci.
+          </p>
         </div>
 
         {/* Last Content - Full width on mobile, then col-span-2 */}
-        <div className="flex-1 space-y-2 sm:space-y-3 md:space-y-4 order-3 md:order-3">
+        <div className="md:col-span-2 2xl:col-span-1 flex flex-col items-end order-3 md:order-3">
           <img
-            src="https://mach-consultants.com/wp-content/uploads/2023/09/Pierre-Haddad.-resizedjpg.jpg"
+            src="/images/Pierre-Haddad.png"
             alt=" Dr. Pierre El Haddad"
-            className="w-full rounded-2xl max-w-xs mx-auto md:mx-0"
+            className="w-full rounded-2xl max-w-sm mx-auto md:mx-0"
           />
-          <div className="text-center space-y-1 max-w-xs w-full">
-            <h3 className="text-xl md:text-2xl text-black font-bold line-clamp-1">
-              Dr. Pierre El Haddad
-            </h3>
-            <p className="text-gray-600 text-base sm:text-lg line-clamp-1">
-              Senior Associate MACH Consultants
-            </p>
+          <div className="text-center pt-6 w-full bg-white">
+            <div className="max-w-sm ml-auto">
+              <h3 className="text-xl md:text-2xl text-black font-bold line-clamp-1">
+                Dr. Pierre El Haddad
+              </h3>
+              <p className="text-gray-600 text-base sm:text-lg line-clamp-1">
+                Senior Associate MACH Consultants
+              </p>
+            </div>
           </div>
         </div>
       </div>
