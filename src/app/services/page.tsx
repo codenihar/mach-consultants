@@ -7,7 +7,6 @@ export type Service = {
     title: string;
     image: string;
     desc: string;
-    lists: string[];
     buttonText: string;
     bgColor: string;
     textColor: string;
@@ -16,89 +15,58 @@ export type Service = {
 
 const services: Service["service"][] = [
   {
-    title: "Branding Identity",
-    image: "/images/content_1.png",
-    desc: "Create a trusted, global brand with our expert designs and strategies. We help improve your brand's visibility, credibility, and connection with customers both online and offline.",
-    lists: [
-      "Rebranding",
-      "Brand Guidelines",
-      "Brand Strategy",
-      "Brand Collaterals",
-      "Visual Identity Design",
-      "Brand Experience",
-      "Brand Audits",
-    ],
-    buttonText: "Build brand identity",
-    bgColor: "bg-[#3D2EFF]",
-    textColor: "white",
-  },
-  {
-    title: "UI UX Design",
-    image: "/images/content_1.png",
-    desc: "Turn your ideas into designs that help to business growth. Our UI UX services create easy-to-use, eye-catching digital experiences that keep users engaged, improve satisfaction.",
-    lists: [
-      "User Research",
-      "Wireframe & Prototyping",
-      "Brand Strategy",
-      "Brand Collaterals",
-      "Visual Identity Design",
-      "Brand Experience",
-      "Brand Audits",
-    ],
-    buttonText: "Improve product UX",
-    bgColor: "bg-white",
+    title: "CODE - Consulting for Organization and Development of Enterprises",
+    image:
+      "https://mach-consultants.com/wp-content/uploads/2024/05/CODE-without-a-title-1-1024x985.jpg",
+    desc: "Reveals the hidden resources and critical elements of operations in order to develop the capabilities of the enterprise for global performance, create transformations, improve global performance, build strategic vigilance, and foster innovation and resilience.",
+    buttonText: "Book Appointment",
+    bgColor: "bg-gradient-to-r from-gray-300 to-white",
     textColor: "black",
   },
   {
-    title: "Web Design",
-    image: "/images/content_1.png",
-    desc: "Get a website that looks great and drives real results. With responsive, user-friendly design, your site will engage visitors, boost conversions, and enhance your brand’s online presence..",
-    lists: [
-      "User Research",
-      "Wireframe & Prototyping",
-      "Brand Strategy",
-      "Brand Collaterals",
-      "Visual Identity Design",
-      "Brand Experience",
-      "Brand Audits",
-    ],
-    buttonText: "Design website today",
-    bgColor: "bg-yellow-300",
+    title: "DPIE - Transformational Change",
+    image:
+      "https://mach-consultants.com/wp-content/uploads/2024/05/Transformational-Change-without-a-title.jpg",
+    desc: "Few professionals doubt that companies and administrations need to transform. We help organizations manage their transformations effectively and instill processes to identify transformation objectives, methods, and measurements.",
+    buttonText: "Book Appointment",
+    bgColor: "bg-gradient-to-r from-gray-100 to-green-100",
     textColor: "black",
   },
   {
-    title: "Build Product (MVP)",
-    image: "/images/content_1.png",
-    desc: "Change your idea into a real product with our MVP development services. We focus on the essential features, test with real users, and help you launch fast, get feedback, for saving your time and money.",
-    lists: [
-      "User Research",
-      "Wireframe & Prototyping",
-      "Brand Strategy",
-      "Brand Collaterals",
-      "Visual Identity Design",
-      "Brand Experience",
-      "Brand Audits",
-    ],
-    buttonText: "Design website today",
-    bgColor: "bg-red-500",
-    textColor: "white",
+    title: "STAR - Strategy Tracking and Review",
+    image:
+      "https://mach-consultants.com/wp-content/uploads/2024/05/Strategy-without-a-title.jpg",
+    desc: "The pace of change in the world is brutal; reactive strategies fall short of delivering results and survivability. Get ahead of the curve with the right process of strategy review.",
+    buttonText: "Book Appointment",
+    bgColor: "bg-gradient-to-r from-gray-100 to-yellow-100",
+    textColor: "black",
   },
   {
-    title: "Webflow",
-    image: "/images/content_1.png",
-    desc: "Build beautiful, fast websites with our Webflow & Framer development services. We make sure your site is easy to use and helps you reach your goals quickly.",
-    lists: [
-      "User Research",
-      "Wireframe & Prototyping",
-      "Brand Strategy",
-      "Brand Collaterals",
-      "Visual Identity Design",
-      "Brand Experience",
-      "Brand Audits",
-    ],
-    buttonText: "Launch website flow",
-    bgColor: "bg-black",
-    textColor: "white",
+    title: "OMC - Operations and Management Control",
+    image:
+      "https://mach-consultants.com/wp-content/uploads/2024/05/Management-Control-english-958x1024.jpg",
+    desc: "Unleashes then federates human energy through collaborative management tools. It is the process needed by business leaders to monitor and control the advancement toward objectives, and the alignment of personal objectives with teamwork and corporate goals.",
+    buttonText: "Book Appointment",
+    bgColor: "bg-gradient-to-r from-white to-red-100",
+    textColor: "black",
+  },
+  {
+    title: "BRD - Business Responsible Development",
+    image:
+      "https://mach-consultants.com/wp-content/uploads/2024/05/BRD-without-a-title-1024x388.jpg",
+    desc: "We are not imposing models or certifications or a procedure. We go into the company, work with the people with their environmental and social sensibilities in order to innovate in the products, processes, strategies, to build environmental and social resources to sustain future growth of the company.",
+    buttonText: "Book Appointment",
+    bgColor: "bg-gradient-to-r from-blue-100 to-white",
+    textColor: "black",
+  },
+  {
+    title: "BRD - Business Responsible Development",
+    image:
+      "https://mach-consultants.com/wp-content/uploads/2024/05/BUTTERS-with-no-title-1536x776.jpg",
+    desc: "We are not imposing models or certifications or a procedure. We go into the company, work with the people with their environmental and social sensibilities in order to innovate in the products, processes, strategies, to build environmental and social resources to sustain future growth of the company.",
+    buttonText: "Book Appointment",
+    bgColor: "bg-gradient-to-r from-white to-pink-100",
+    textColor: "black",
   },
 ];
 
@@ -109,7 +77,10 @@ const Services = () => {
       {services &&
         services.length > 0 &&
         services.map((service, index) => (
-          <div key={`service-${index}`} className="sticky top-16">
+          <div
+            key={`service-${index}`}
+            className={`sticky ${index === 0 ? "top-25 pb-20" : "top-0"}`}
+          >
             <ContentSection service={service} />
           </div>
         ))}
