@@ -36,7 +36,7 @@ const Header = () => {
             <img
               src="https://mach-consultants.com/wp-content/uploads/2022/03/MACH-LOGO-FINAL-01.png"
               alt="Logo"
-              className="w-auto h-15"
+              className="w-auto h-12 md:h-15"
             />
           </div>
 
@@ -62,7 +62,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="absolute right-2 z-50 md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
+            className="absolute right-3 z-50 md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -83,11 +83,12 @@ const Header = () => {
               transition={{ duration: 0.1, ease: "easeInOut" }}
               className="lg:hidden w-full absolute top-0 left-0 right-0 z-40 bg-white shadow-lg rounded-b-lg py-4 px-6 overflow-hidden"
             >
-              <div className="flex items-center gap-2 pt-1 pb-5">
-                <img src="/logo.png" alt="Logo" className="w-6 h-6" />
-                <span className="text-md lg:text-lg font-bold text-gray-700">
-                  Consultia Insurance
-                </span>
+              <div className="flex items-center gap-2 pt-3 pb-5">
+                <img
+                  src="https://mach-consultants.com/wp-content/uploads/2022/03/MACH-LOGO-FINAL-01.png"
+                  alt="Logo"
+                  className="w-auto h-12 md:h-15"
+                />
               </div>
 
               <nav className="flex flex-col space-y-4 font-bold text-gray-700">

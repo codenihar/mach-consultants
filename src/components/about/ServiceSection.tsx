@@ -5,40 +5,40 @@ type Service = {
 
 const services: Service[] = [
   {
-    title: "SPACE PLANNING",
-    desc: "we create efficient layouts to maximize the use of space. every design is crafted with attention to detail to ensure comfort and ease of use.",
+    title: "CODE - Consulting for Organization and Development of Enterprises",
+    desc: "Reveals the hidden resources and critical elements of operations in order to develop the capabilities of the enterprise for global performance, create transformations, improve global performance, build strategic vigilance, and foster innovation and resilience.",
   },
   {
-    title: "INTERIOR DESIGN",
-    desc: "From concept development to final installation, we handle all aspects of interior decoration, ensuring every detail aligns with the client’s vision.",
+    title: "DPIE - Transformational Change",
+    desc: "Few professionals doubt that companies and administrations need to transform. We help organizations manage their transformations effectively and instill processes to identify transformation objectives, methods, and measurements.",
   },
   {
-    title: "CUSTOM FURNITURE DESIGN",
-    desc: "We design and craft unique furniture pieces tailored to specific client needs, creating items that are not only beautiful but also functional.",
+    title: "STAR - Strategy Tracking and Review",
+    desc: "The pace of change in the world is brutal; reactive strategies fall short of delivering results and survivability. Get ahead of the curve with the right process of strategy review.",
   },
   {
-    title: "PROJECT MANAGEMENT",
-    desc: "We oversee the entire design process, ensuring projects are completed on time and within budget. Our team is committed to delivering the best results for every client.",
+    title: "OMC - Operations and Management Control",
+    desc: "Unleashes then federates human energy through collaborative management tools. It is the process needed by business leaders to monitor and control the advancement toward objectives, and the alignment of personal objectives with teamwork and corporate goals.",
   },
 ];
 
 const ServiceSection: React.FC = () => {
   return (
-    <section className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+    <section className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 lg:py-24 bg-white font-LibreRegular">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-12">
         <div className="w-full lg:flex-1 space-y-4 sm:space-y-5 md:space-y-6">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-LibreBold tracking-tight text-black">
             Our Services
           </h2>
-          <p className="text-gray-700 text-sm sm:text-base leading-relaxed max-w-md">
+          <p className="text-gray-700 text-md leading-relaxed max-w-md py-2">
             At Britto Charette, we offer a comprehensive range of services to
             bring your interior design vision to life. Each service is tailored
             to meet the unique needs of our clients, ensuring a seamless and
             satisfying experience.
           </p>
           <img
-            src="/images/services.png"
-            alt="Our Services Room"
+            src="https://mach-consultants.com/wp-content/uploads/2024/05/pexels-karolina-grabowska-4195409-1.jpg"
+            alt="Our Services"
             className="rounded-xl sm:rounded-2xl md:rounded-[3rem] w-full h-auto object-cover mt-4 sm:mt-6"
             loading="lazy"
           />
@@ -48,13 +48,13 @@ const ServiceSection: React.FC = () => {
           {services.map((item, index) => (
             <div key={index}>
               <h3
-                className={`leading-tight text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-md text-black font-bold tracking-tight mb-2 sm:mb-3 md:mb-4 ${
+                className={`leading-tight text-lg sm:text-xl md:text-2xl max-w-md text-black font-bold tracking-tight mb-2 sm:mb-3 md:mb-4 ${
                   index > 0 ? "mt-6 sm:mt-7 md:mt-8" : ""
                 }`}
               >
                 {item.title}
               </h3>
-              <p className="text-gray-700 text-xs sm:text-sm md:text-base max-w-md mt-1 sm:mt-2">
+              <p className="text-gray-700 text-xs sm:text-sm md:text-base max-w-md mt-1 sm:mt-2 lg:line-clamp-3">
                 {item.desc}
               </p>
             </div>
