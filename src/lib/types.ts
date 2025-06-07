@@ -22,8 +22,7 @@ export type ContentBlock =
 export interface Blog {
   id: string;
   title: string;
-  author: string;
   published: string;
-  featuredImage?: string;
+  featured_image_url?: string;
   content: ContentBlock[];
 }

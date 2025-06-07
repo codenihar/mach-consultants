@@ -19,7 +19,7 @@ const BlogList: React.FC<BlogListProps> = ({ blogs, onEdit, onDelete }) => {
             {/* Content */}
             <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full">
               <img
-                src={blog.featuredImage}
+                src={blog.featured_image_url}
                 alt={blog.title}
                 className="w-full md:w-32 rounded-2xl"
               />
@@ -28,7 +28,7 @@ const BlogList: React.FC<BlogListProps> = ({ blogs, onEdit, onDelete }) => {
                   {blog.title}
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-md">
-                  By {blog.author} on {blog.published}
+                  published {blog.published}
                 </p>
               </div>
             </div>

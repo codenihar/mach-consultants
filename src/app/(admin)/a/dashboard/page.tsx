@@ -9,21 +9,36 @@ const App: React.FC = () => {
   const [blogs, setBlogs] = useState<Blog[]>([
     {
       id: "1",
-      title: "Getting Started with React",
-      content: "React is a JavaScript library for building user interfaces...",
-      author: "John Doe",
-      published: "2023-05-15",
-      image:
-        "https://cdn.prod.website-files.com/6730614b3d201ddcf88f344b/67309ef95d1f44a4dacde997_blog-thumb-4-p-500.jpg",
-    },
-    {
-      id: "2",
-      title: "TypeScript Best Practices",
-      content: "TypeScript brings static typing to JavaScript...",
-      author: "Jane Smith",
-      published: "2023-06-20",
-      image:
-        "https://cdn.prod.website-files.com/6730614b3d201ddcf88f344b/67309ef95d1f44a4dacde997_blog-thumb-4-p-500.jpg",
+      title: "Organization Development Journal",
+      featured_image_url:
+        "https://mach-consultants.com/wp-content/uploads/2024/05/odj-logo.jpg",
+      content: [
+        {
+          type: "header",
+          data: {
+            text: "Mastering Productivity",
+            level: 2,
+          },
+        },
+        {
+          type: "paragraph",
+          data: {
+            text: "Productivity isn’t about doing more, it’s about doing what matters most efficiently.",
+          },
+        },
+        {
+          type: "list",
+          data: {
+            style: "unordered",
+            items: [
+              "Prioritize tasks using the Eisenhower matrix",
+              "Block distractions with tools like Focusmate",
+              "Automate repetitive workflows",
+            ],
+          },
+        },
+      ],
+      published: "today",
     },
   ]);
   const [edit, setEdit] = useState<Blog | null>(null);
@@ -51,13 +66,9 @@ const App: React.FC = () => {
       };
       setBlogs([...blogs, newBlog]);
     }
-    setShowForm(false);
   };
 
-  const handleCancel = () => {
-    setShowForm(false);
-    setEditingBlog(null);
-  };
+  const handleCancel = () => {};
 
   return (
     <section className="min-h-screen bg-gray-100 font-RecoletaRegular">

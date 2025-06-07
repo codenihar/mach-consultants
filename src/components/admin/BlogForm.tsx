@@ -16,8 +16,7 @@ const BlogForm: React.FC<BlogFormProps> = ({
 }) => {
   const [formData, setFormData] = useState<Omit<Blog, "id" | "published">>({
     title: initialData?.title || "",
-    author: initialData?.author || "",
-    featuredImage: initialData?.featuredImage || "",
+    featured_image_url: initialData?.featured_image_url || "",
     content: initialData?.content || [
       { type: "header", data: { text: "Introduction", level: 2 } },
       { type: "paragraph", data: { text: "" } },
@@ -97,7 +96,7 @@ const BlogForm: React.FC<BlogFormProps> = ({
               setFormData((prev) => ({ ...prev, content: newContent }));
             }
           } else {
-            setFormData((prev) => ({ ...prev, featuredImage: url }));
+            setFormData((prev) => ({ ...prev, featured_image_url: url }));
           }
         }
       };
@@ -134,17 +133,17 @@ const BlogForm: React.FC<BlogFormProps> = ({
         <label className="block text-gray-700 text-md font-bold mb-2">
           Featured Image
         </label>
-        {formData.featuredImage ? (
+        {formData.featured_image_url ? (
           <div className="mb-2">
             <img
-              src={formData.featuredImage}
+              src={formData.featured_image_url}
               alt="Featured"
               className="max-h-48 rounded-md border border-gray-200"
             />
             <button
               type="button"
               onClick={() =>
-                setFormData((prev) => ({ ...prev, featuredImage: "" }))
+                setFormData((prev) => ({ ...prev, featured_image_url: "" }))
               }
               className="cursor-pointer mt-2 px-4 py-2 bg-red-100 hover:bg-red-200 border border-gray-400 text-black rounded-3xl transition text-sm"
             >
