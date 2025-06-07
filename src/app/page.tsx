@@ -6,7 +6,6 @@ import StatsSection from "../components/StatsSection";
 import ConsultationForm from "../components/ContactUsSection";
 import WhyChooseUsSection from "../components/WhyChooseUs";
 import BlogSection from "../components/BlogSection";
-import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <WhyChooseUsSection />
       <ConsultationForm />
       <BlogSection />
-      <Footer />
     </main>
   );
 }

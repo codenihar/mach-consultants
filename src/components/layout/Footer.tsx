@@ -33,13 +33,13 @@ const Footer: React.FC = () => {
 
       {/* Main Footer Content */}
       <div className="max-w-6xl mx-auto px-4 md:px-8 xl:px-0 pb-8 pt-12 md:pt-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-10">
           {/* Logo and About */}
-          <div className="xl:col-span-2">
+          <div className="md:col-span-3 lg:col-span-1 xl:col-span-2">
             <div className="text-blue-700 font-bold text-xl lg:text-2xl mb-3">
               Mach Consultants
             </div>
-            <p className="text-gray-600 text-lg leading-relaxed max-w-xs">
+            <p className="text-gray-600 text-lg leading-relaxed lg:max-w-xs">
               At Avenues Financial, we are a team of knowledgeable & experienced
               accounting and business professionals that provide solutions to
               your accounting needs.
@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
             </h4>
 
             <div className="space-y-4 md:space-y-5">
-              <div className="flex items-start gap-3 text-gray-600 text-lg">
+              <div className="flex items-start gap-3 text-gray-600 text-sm md:text-lg">
                 <Phone className="w-5 h-5 mt-1 flex-shrink-0" />
                 <div>
                   <p className="transition-colors w-[max-content]">
@@ -108,13 +108,11 @@ const Footer: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 text-gray-600 text-lg">
+              <div className="flex items-center gap-3 text-gray-600 text-sm md:text-lg">
                 <Mail className="w-5 h-5 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="hover:text-blue-600 transition-colors">
-                    info@mach-consultants.com
-                  </p>
-                </div>
+                <p className="hover:text-blue-600 transition-colors">
+                  info@mach-consultants.com
+                </p>
               </div>
             </div>
           </div>
