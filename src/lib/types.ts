@@ -10,24 +10,14 @@ export type Policy = {
 
 // Admin
 export type ContentBlock =
-  | { type: "header"; data: { text: string; level: number } }
-  | { type: "paragraph"; data: { text: string } }
-  | { type: "list"; data: { style: "ordered" | "unordered"; items: string[] } }
-  | { type: "quote"; data: { text: string; caption?: string } }
-  | {
-      type: "image";
-      data: { file: { url: string }; caption?: string; withBorder?: boolean };
-    };
+  | { block_type: "header"; headerBlock: { text: string; level: number } }
+  | { block_type: "paragraph"; paragraphBlock: { text: string } };
 
 export interface Blog {
   id: string;
   title: string;
-  published: string;
   featured_image_url?: string;
-  content: ContentBlock[];
+  published: string;
+  updated_at: string;
+  contentBlocks: ContentBlock[];
 }
-
-export type OrderByFn<T> = (
-  table: T,
-  utils: { asc: (col: any) => any }
-) => any[];

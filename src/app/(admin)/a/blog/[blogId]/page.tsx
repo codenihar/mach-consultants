@@ -1,13 +1,13 @@
 import React from "react";
-import { NewBlog } from "./NewBlog";
+import { EditBlog } from "./EditBlog";
 import { auth } from "@/lib/auth/auth";
 import { redirect } from "next/navigation";
 
-const AddBlog = async () => {
+const UpdateBlog = async () => {
   const session = await auth();
   if (!session) redirect("/signin");
 
-  return <NewBlog />;
+  return <EditBlog />;
 };
 
-export default AddBlog;
+export default UpdateBlog;

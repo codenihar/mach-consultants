@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
   date,
   index,
@@ -34,7 +35,7 @@ export const contentBlocks = pgTable(
       .references(() => blogs.id, { onDelete: "cascade" }),
     block_type: varchar("block_type", { length: 20 })
       .notNull()
-      .$type<"header" | "paragraph" | "list" | "quote" | "image">(),
+      .$type<"header" | "paragraph" | "list" | "image">(),
     block_order: integer("block_order").notNull(),
     created_at: timestamp("created_at", { withTimezone: true }).defaultNow(),
   },
@@ -97,12 +98,72 @@ export const imageBlocks = pgTable("image_blocks", {
   caption: text("caption"),
 });
 
-export const schema = {
-  blogs,
-  contentBlocks,
-  headerBlocks,
+export const blogRelations = relations(blogs, ({ many }) => ({
+  contentBlocks: many(contentBlocks),
+}));
+
+export const contentBlockRelations = relations(contentBlocks, ({ one }) => ({
+  blog: one(blogs, {
+    fields: [contentBlocks.blog_id],
+    references: [blogs.id],
+  }),
+
+  headerBlock: one(headerBlocks, {
+    fields: [contentBlocks.id],
+    references: [headerBlocks.block_id],
+  }),
+
+  paragraphBlock: one(paragraphBlocks, {
+    fields: [contentBlocks.id],
+    references: [paragraphBlocks.block_id],
+  }),
+
+  listBlock: one(listBlocks, {
+    fields: [contentBlocks.id],
+    references: [listBlocks.block_id],
+  }),
+
+  imageBlock: one(imageBlocks, {
+    fields: [contentBlocks.id],
+    references: [imageBlocks.block_id],
+  }),
+}));
+
+export const headerBlockRelations = relations(headerBlocks, ({ one }) => ({
+  contentBlock: one(contentBlocks, {
+    fields: [headerBlocks.block_id],
+    references: [contentBlocks.id],
+  }),
+}));
+
+export const paragraphBlockRelations = relations(
   paragraphBlocks,
-  listBlocks,
-  listItems,
-  imageBlocks,
-};
+  ({ one }) => ({
+    contentBlock: one(contentBlocks, {
+      fields: [paragraphBlocks.block_id],
+      references: [contentBlocks.id],
+    }),
+  })
+);
+
+export const listBlockRelations = relations(listBlocks, ({ one, many }) => ({
+  contentBlock: one(contentBlocks, {
+    fields: [listBlocks.block_id],
+    references: [contentBlocks.id],
+  }),
+  listItems: many(listItems),
+}));
+
+export const listItemRelations = relations(listItems, ({ one }) => ({
+  listBlock: one(listBlocks, {
+    fields: [listItems.list_block_id],
+    references: [listBlocks.block_id],
+  }),
+}));
+
+export const imageBlockRelations = relations(imageBlocks, ({ one }) => ({
+  contentBlock: one(contentBlocks, {
+    fields: [imageBlocks.block_id],
+    references: [contentBlocks.id],
+  }),
+}));

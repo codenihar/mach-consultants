@@ -1,5 +1,5 @@
 import { drizzle } from "drizzle-orm/node-postgres";
-import { schema } from "../drizzle/schema";
+import * as schema from "../drizzle/schema";
 import { Pool } from "pg";
 
 if (!process.env.DATABASE_URL) {

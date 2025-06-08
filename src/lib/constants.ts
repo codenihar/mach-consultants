@@ -1,10 +1,4 @@
 import { NavItem, Policy } from "./types";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-} from "react-icons/fa";
 
 export const NavItems: NavItem[] = [
   { name: "Home", route: "/" },
