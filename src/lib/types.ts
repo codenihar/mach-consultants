@@ -26,3 +26,8 @@ export interface Blog {
   featured_image_url?: string;
   content: ContentBlock[];
 }
+
+export type OrderByFn<T> = (
+  table: T,
+  utils: { asc: (col: any) => any }
+) => any[];

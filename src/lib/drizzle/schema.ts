@@ -15,7 +15,7 @@ export const blogs = pgTable(
   {
     id: uuid("id").defaultRandom().primaryKey(),
     title: varchar("title", { length: 255 }).notNull(),
-    published: date("date").defaultNow().notNull(),
+    published: date("published").defaultNow().notNull(),
     featured_image_url: text("featured_image_url"),
     created_at: timestamp("created_at", { withTimezone: true }).defaultNow(),
     updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow(),
@@ -52,7 +52,7 @@ export const headerBlocks = pgTable("header_blocks", {
     .primaryKey()
     .references(() => contentBlocks.id, { onDelete: "cascade" }),
   text: text("text").notNull(),
-  level: smallint("level").notNull().$type<1 | 2 | 3 | 4 | 5 | 6>(),
+  level: smallint("level").notNull(),
 });
 
 export const paragraphBlocks = pgTable("paragraph_blocks", {
@@ -96,3 +96,13 @@ export const imageBlocks = pgTable("image_blocks", {
   image_url: text("image_url").notNull(),
   caption: text("caption"),
 });
+
+export const schema = {
+  blogs,
+  contentBlocks,
+  headerBlocks,
+  paragraphBlocks,
+  listBlocks,
+  listItems,
+  imageBlocks,
+};
