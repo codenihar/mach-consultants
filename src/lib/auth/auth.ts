@@ -14,7 +14,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         const user = {
           id: "admin",
           email: process.env.EMAIL,
-          password: process.env.password,
+          password: process.env.PASSWORD,
         };
 
         const isMatch = user.password === password;
