@@ -39,7 +39,7 @@ const stats: Stat[] = [
 
 const StatsSection: React.FC = () => {
   return (
-    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md font-RecoletaRegular">
+    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md font-PTSerif">
       <div className="max-w-full grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-12 md:py-2 md:px-6">
         {stats.map((stat, index) => (
           <div
@@ -50,10 +50,10 @@ const StatsSection: React.FC = () => {
           >
             <div className="h-full flex items-center">{stat.icon}</div>
             <div className="flex flex-col items-center lg:items-start text-center">
-              <p className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800">
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800  italic">
                 {stat.value}
               </p>
-              <p className="text-sm md:text-md text-gray-500 w-[max-content]">
+              <p className="text-sm md:text-md text-gray-500 w-[max-content] font-Inter">
                 {stat.label}
               </p>
             </div>
