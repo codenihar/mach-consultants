@@ -36,14 +36,14 @@ const features: Feature[] = [
 
 const WhyChooseUsSection: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white px-4 sm:px-6 md:px-8 font-RecoletaRegular">
+    <section className="py-12 md:py-16 lg:py-20 bg-white px-4 sm:px-6 md:px-8 font-PTSerif">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         {/* Left Content */}
         <div className="order-2 lg:order-1">
           <p className="text-blue-600 font-semibold mb-2 text-sm sm:text-base md:text-lg">
             Why Choose Us
           </p>
-          <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4 md:mb-6">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4 md:mb-6 font-PTSerif italic">
             Why you should choose Consultia, there are tons of reasons.
           </h2>
           <p className="text-gray-700 mb-6 md:mb-8 text-base sm:text-lg">
@@ -59,7 +59,7 @@ const WhyChooseUsSection: React.FC = () => {
               >
                 <div className="text-blue-600">{feature.icon}</div>
                 <div>
-                  <h4 className="font-semibold text-lg lg:text-xl text-gray-900">
+                  <h4 className="font-semibold text-lg lg:text-xl text-gray-900 font-PTSerif italic">
                     {feature.title}
                   </h4>
                   <p className="text-gray-600 text-md text-base leading-relaxed mt-2">

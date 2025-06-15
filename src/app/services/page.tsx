@@ -83,7 +83,7 @@ const Services = () => {
           services.map((service, index) => (
             <div
               key={`service-${index}`}
-              className={`sticky ${index === 0 ? "top-25 pb-20" : "top-0"}`}
+              className={`sticky ${index === 0 ? "top-25" : "top-0"}`}
             >
               <ContentSection service={service} />
             </div>

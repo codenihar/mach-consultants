@@ -25,7 +25,7 @@ const BlogSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-white font-RecoletaRegular">
+    <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-white font-Inter">
       {loading ? (
         <div>
           <p className="text-black text-center">loading...</p>
@@ -37,7 +37,7 @@ const BlogSection: React.FC = () => {
             <p className="text-blue-600 font-semibold text-md md:text-lg lg:text-xl mb-2">
               Our Blogs
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight font-PTSerif italic">
               Take a look at the latest blogs from Mach Consultants
             </h2>
           </div>
@@ -66,7 +66,7 @@ const BlogSection: React.FC = () => {
                     {/* <p className="text-xs sm:text-sm text-blue-600 font-semibold mb-2">
                   Insurance
                 </p> */}
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 leading-snug line-clamp-1">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 leading-snug line-clamp-1 font-PTSerif italic">
                       {blog.title}
                     </h3>
 

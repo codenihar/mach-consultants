@@ -13,7 +13,6 @@ const About = () => {
       <PrinciplesSection />
       <ServiceSection />
       <FooterSection />
-      <Footer />
     </main>
   );
 };

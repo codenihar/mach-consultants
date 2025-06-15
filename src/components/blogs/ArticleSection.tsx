@@ -25,14 +25,16 @@ const RecentBlogs: FC = () => {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12 font-RecoletaRegular text-black">
+    <section className="max-w-7xl mx-auto px-4 py-12 font-Inter text-black">
       {loading ? (
         <div>
           <p className="text-black text-center">loading...</p>
         </div>
       ) : (
         <>
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">Recent Blogs</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 font-PTSerif italic">
+            Recent Blogs
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {blogs && blogs.length > 0 && blogs[0] && (
               <div className="">
@@ -47,7 +49,7 @@ const RecentBlogs: FC = () => {
                   />
                 </div>
 
-                <h3 className="text-lg md:text-xl lg:text-3xl font-semibold mt-3 line-clamp-2">
+                <h3 className="text-lg md:text-xl lg:text-3xl font-semibold mt-3 line-clamp-2 font-PTSerif italic">
                   {blogs[0].title}
                 </h3>
                 <div className="flex items-center gap-4 text-sm mt-2 flex-wrap">
@@ -81,7 +83,7 @@ const RecentBlogs: FC = () => {
                       />
                     </div>
                     <div className="lg:col-span-2 flex flex-col justify-between">
-                      <h4 className="text-md md:text-sm lg:text-xl font-semibold max-w-sm line-clamp-2">
+                      <h4 className="text-md md:text-sm lg:text-xl font-semibold max-w-sm line-clamp-2 font-PTSerif italic">
                         {blog.title}
                       </h4>
                       <div className="flex items-center gap-3 text-xs lg:text-sm text-gray-600 mt-2 flex-wrap">

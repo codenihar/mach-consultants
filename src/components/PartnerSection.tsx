@@ -21,10 +21,10 @@ const partners: string[] = [
 
 const CoverageSection: React.FC = () => {
   return (
-    <section className="bg-gradient-to-r from-blue-100 to-yellow-100 py-4 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 font-RecoletaRegular">
+    <section className="bg-gradient-to-r from-blue-100 to-yellow-100 py-4 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 font-Inter">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
-        <h2 className="text-2xl lg:text-3xl text-gray-800 text-center font-semibold pb-8">
+        <h2 className="text-2xl lg:text-3xl text-gray-800 text-center font-semibold pb-8 font-PTSerif italic">
           Our Partners
         </h2>
 

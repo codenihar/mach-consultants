@@ -5,7 +5,7 @@ const ConsultationForm: React.FC = () => {
   return (
     <section
       id="contactUs"
-      className="py-12 md:py-16 lg:py-20 bg-[#eaf0fb] px-4 sm:px-6 md:px-8 font-RecoletaRegular"
+      className="py-12 md:py-16 lg:py-20 bg-[#eaf0fb] px-4 sm:px-6 md:px-8 font-Inter"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         {/* Image Section */}
@@ -26,7 +26,7 @@ const ConsultationForm: React.FC = () => {
             <h3 className="text-blue-600 text-sm md:text-md lg:text-lg font-semibold mb-2">
               Free Consultation
             </h3>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 leading-tight font-PTSerif italic">
               Contact us now for a free consultation
             </h2>
             <p className="text-gray-700 my-4 sm:my-0 text-base sm:text-md">

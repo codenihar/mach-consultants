@@ -6,11 +6,11 @@ const ContentSection = ({ service }: Service) => {
     <section
       className={`w-full ${service.bgColor} ${
         service.textColor === "white" ? "text-white" : "text-black"
-      } py-12 sm:py-16 md:py-14 px-4 sm:px-6 md:px-8 lg:px-12 font-RecoletaRegular`}
+      } py-12 sm:py-16 md:py-14 px-4 sm:px-6 md:px-8 lg:px-12 font-Inter`}
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
         <div className="order-2 md:order-1">
-          <h2 className="text-3xl font-bold mb-4 sm:mb-5 md:mb-6">
+          <h2 className="text-3xl font-bold mb-4 sm:mb-5 md:mb-6 font-PTSerif italic">
             {service.title}
           </h2>
 

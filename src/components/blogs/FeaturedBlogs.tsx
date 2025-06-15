@@ -9,7 +9,7 @@ interface BlogCardProps {
 
 const FeaturedBlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   return (
-    <div className="overflow-hidden font-RecoletaRegular">
+    <div className="overflow-hidden font-Inter">
       <div className="relative rounded-xl overflow-hidden">
         <img
           className="w-full max-h-52 h-full object-cover hover:scale-110 transition-all duration-300"
@@ -24,7 +24,7 @@ const FeaturedBlogCard: React.FC<BlogCardProps> = ({ blog }) => {
 
       <div className="py-3">
         {/* Title */}
-        <h2 className="text-xl lg:text-2xl font-bold text-gray-900 my-2 leading-tight line-clamp-1">
+        <h2 className="text-xl lg:text-2xl font-bold text-gray-900 my-2 leading-tight line-clamp-1 font-PTSerif italic">
           {blog.title}
         </h2>
 
@@ -71,14 +71,14 @@ const FeaturedBlogs = () => {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12 font-RecoletaRegular text-black">
+    <section className="max-w-7xl mx-auto px-4 py-12 font-Inter text-black">
       {loading ? (
         <div>
           <p className="text-black text-center">loading...</p>
         </div>
       ) : (
         <>
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 font-PTSerif italic">
             Featured Blogs
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

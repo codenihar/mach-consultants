@@ -32,7 +32,7 @@ export const BlogPageComponent: React.FC = () => {
       <p className="text-center text-black">loading...</p>
     </div>
   ) : (
-    <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 md:py-36 font-RecoletaRegular">
+    <div className="max-w-4xl mx-auto px-4 pt-32 pb-10 md:py-36 font-Inter">
       <div className="text-sm flex items-center gap-4 text-gray-500">
         <span className="text-md md:text-lg">
           Published on {blog?.published}
@@ -42,7 +42,9 @@ export const BlogPageComponent: React.FC = () => {
         </span> */}
       </div>
 
-      <h1 className="text-3xl md:text-4xl font-bold my-4">{blog?.title}</h1>
+      <h1 className="text-3xl md:text-4xl font-bold my-4 font-PTSerif italic">
+        {blog?.title}
+      </h1>
 
       <div className="rounded-xl overflow-hidden mb-6 border border-gray-200 shadow-sm">
         <img
@@ -55,7 +57,10 @@ export const BlogPageComponent: React.FC = () => {
       {blog?.contentBlocks.map((block, index) => {
         if (block.block_type === "header" && block.headerBlock) {
           return (
-            <h2 key={index} className="text-2xl font-semibold mb-2 mt-6">
+            <h2
+              key={index}
+              className="text-2xl font-semibold mb-2 mt-6 font-PTSerif italic"
+            >
               {block.headerBlock.text}
             </h2>
           );
