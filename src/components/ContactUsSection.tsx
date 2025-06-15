@@ -5,7 +5,7 @@ const ConsultationForm: React.FC = () => {
   return (
     <section
       id="contactUs"
-      className="py-12 md:py-16 lg:py-20 bg-[#eaf0fb] px-4 sm:px-6 md:px-8 font-Inter"
+      className="py-12 md:py-16 lg:py-20 bg-pink-50/40 px-4 sm:px-6 md:px-8 font-Inter"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         {/* Image Section */}
@@ -23,7 +23,7 @@ const ConsultationForm: React.FC = () => {
         {/* Form Section */}
         <div className="order-1 lg:order-2 w-full">
           <div className="max-w-lg">
-            <h3 className="text-blue-600 text-sm md:text-md lg:text-lg font-semibold mb-2">
+            <h3 className="text-pink-600 text-sm md:text-md lg:text-lg font-semibold mb-2">
               Free Consultation
             </h3>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 leading-tight font-PTSerif italic">
@@ -114,7 +114,7 @@ const ConsultationForm: React.FC = () => {
               <div className="max-sm:col-span-2 mt-2">
                 <button
                   type="submit"
-                  className="w-[max-content] px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-[max-content] px-6 py-3 bg-pink-500 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
                 >
                   Make An Appointment
                   <MoveUpRight className="w-4 h-4" />

@@ -7,7 +7,7 @@ const AgentsSection: React.FC = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-24">
         {/* Left Text Content */}
         <div>
-          <p className="text-blue-600 font-semibold mb-2 text-xl">Agents</p>
+          <p className="text-pink-600 font-semibold mb-2 text-xl">Agents</p>
           <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight mb-6">
             Friendly, Helpful and <br />
             Knowledgeable Agents Your <br className="max-xl:hidden" />
@@ -26,7 +26,7 @@ const AgentsSection: React.FC = () => {
             need. Let us show you how we can save you money, keep you protected
             and feeling secure 365 days a year.
           </p>
-          <button className="cursor-pointer flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition">
+          <button className="cursor-pointer flex items-center gap-2 bg-pink-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition">
             Learn More <MoveUpRight className="w-4 h-4" />
           </button>
         </div>
@@ -53,7 +53,7 @@ const AgentsSection: React.FC = () => {
 
           {/* Circular Badge */}
           <div className="absolute z-20 max-sm:left-52 left-64 md:left-88 lg:left-76 top-64 md:top-72">
-            <div className="bg-blue-100 border-2 border-blue-500 text-center rounded-full w-32 h-32 flex flex-col items-center justify-center shadow-md">
+            <div className="bg-pink-200 border-2 border-blue-500 text-center rounded-full w-32 h-32 flex flex-col items-center justify-center shadow-md">
               <span className="text-3xl font-bold text-blue-700">25K</span>
               <span className="text-sm text-gray-700 leading-tight">
                 Agents

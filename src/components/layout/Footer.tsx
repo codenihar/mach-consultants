@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[#f1f5fd] text-gray-800 font-Inter">
       {/* Top CTA Section */}
-      <div className="bg-blue-100/50 px-4 sm:px-6">
+      <div className="bg-pink-100/50 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto py-12 md:py-16 flex flex-col lg:flex-row justify-between items-center gap-8">
           <div className="text-center lg:text-left">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 md:mb-4 font-PTSerif italic">
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
             />
             <a
               href="/#contactUs"
-              className="cursor-pointer font-semibold flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg transition-colors duration-300"
+              className="cursor-pointer font-semibold flex items-center justify-center gap-2 bg-pink-500 hover:bg-blue-700 text-white px-5 py-3 rounded-lg transition-colors duration-300"
             >
               Contact Us
               <MoveUpRight className="w-4 h-4" />
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-10">
           {/* Logo and About */}
           <div className="md:col-span-3 lg:col-span-1 xl:col-span-2">
-            <div className="text-blue-700 font-bold text-xl lg:text-2xl mb-3 font-PTSerif italic">
+            <div className="text-pink-700 font-bold text-xl lg:text-2xl mb-3 font-PTSerif italic">
               Mach Consultants
             </div>
             <p className="text-gray-600 text-lg leading-relaxed lg:max-w-xs">
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
                   <li key={item.name}>
                     <a
                       href={item.route}
-                      className="hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-lg"
+                      className="hover:text-pink-600 transition-colors cursor-pointer text-sm lg:text-lg"
                     >
                       {item.name}
                     </a>
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
 
               <div className="flex items-center gap-3 text-gray-600 text-sm md:text-lg">
                 <Mail className="w-5 h-5 mt-1 flex-shrink-0" />
-                <p className="hover:text-blue-600 transition-colors">
+                <p className="hover:text-pink-600 transition-colors">
                   info@mach-consultants.com
                 </p>
               </div>

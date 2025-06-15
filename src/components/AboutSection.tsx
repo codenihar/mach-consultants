@@ -28,9 +28,9 @@ const AboutUsSection: React.FC = () => {
 
           {/* Circular Badge */}
           <div className="absolute z-20 max-sm:left-52 left-64 md:left-88 lg:left-80 top-52 md:top-72">
-            <div className="bg-blue-100 border-2 border-blue-500 text-center rounded-full w-28 h-28 flex flex-col items-center justify-center shadow-md">
-              <span className="text-4xl font-bold text-blue-700">35</span>
-              <span className="text-xs text-gray-700 leading-none">
+            <div className="bg-pink-100 border-2 border-pinl-500 text-center rounded-full w-28 h-28 flex flex-col items-center justify-center shadow-md">
+              <span className="text-4xl font-bold text-pink-700">35</span>
+              <span className="text-xs text-gray-900 leading-none">
                 Years of
                 <br />
                 Experience
@@ -41,7 +41,7 @@ const AboutUsSection: React.FC = () => {
 
         {/* Right Text Section */}
         <div className="w-full text-left">
-          <p className="text-lg text-blue-600 font-semibold mb-2">About Us</p>
+          <p className="text-lg text-pink-600 font-semibold mb-2">About Us</p>
           <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold text-gray-800 mb-4 leading-tight font-PTSerif italic">
             We specialize in customized consulting programs for people and
             businesses.
@@ -61,7 +61,7 @@ const AboutUsSection: React.FC = () => {
             contractual obligations. We commit to being compliant, and we pledge
             to uphold the rules of conduct.
           </p>
-          <button className="cursor-pointer bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition">
+          <button className="cursor-pointer bg-pink-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition">
             <a className="w-full flex items-center gap-2" href="/about">
               Learn More <MoveUpRight className="w-4 h-4" />
             </a>

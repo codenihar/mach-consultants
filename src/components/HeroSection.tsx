@@ -1,14 +1,14 @@
-import { MoveUpRight, UserRoundCheck } from "lucide-react";
+import { UserRoundCheck } from "lucide-react";
 import React from "react";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="w-full flex items-center bg-gradient-to-r from-[#bddbf4] to-[#d2bbcd] px-4 sm:px-6 md:px-8 lg:px-16 pt-24 pb-48 md:pt-36 font-PTSerif">
+    <section className="w-full flex items-center bg-gradient-to-r from-[#fef2f2] to-[#eff6ff] px-4 sm:px-6 md:px-8 lg:px-16 pt-24 pb-48 md:pt-36 font-PTSerif">
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-4 md:gap-12 lg:gap-20 w-full">
         {/* Left Section */}
         <div className="flex-1 w-full mt-8 lg:mt-0">
           <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 sm:mb-6 leading-12 md:leading-14 lg:leading-16 font-bold italic">
-            Mach <span className="text-blue-600">Consultants</span>
+            Mach <span className="text-pink-600">Consultants</span>
             <br />
             Sustainable Performance is the core of our work
           </h1>
@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
             <a
               href="/#contactUs"
-              className="flex items-center justify-center gap-4 bg-blue-600 text-white px-5 py-3 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-xl"
+              className="flex items-center justify-center gap-4 bg-pink-500 text-white px-5 py-3 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-xl"
             >
               Contact Us
               <UserRoundCheck />

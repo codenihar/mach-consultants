@@ -9,28 +9,28 @@ type Stat = {
 const stats: Stat[] = [
   {
     icon: (
-      <MapPin className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-blue-600" />
+      <MapPin className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-pink-600" />
     ),
     value: "30+",
     label: "Locations Available",
   },
   {
     icon: (
-      <ShieldCheck className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-blue-600" />
+      <ShieldCheck className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-pink-600" />
     ),
     value: "30+",
     label: "Licensed All States",
   },
   {
     icon: (
-      <Users className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-blue-600" />
+      <Users className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-pink-600" />
     ),
     value: "60K+",
     label: "Satisfied Clients",
   },
   {
     icon: (
-      <FileText className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-blue-600" />
+      <FileText className="w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12 text-pink-600" />
     ),
     value: "12K+",
     label: "Insurance Policies",

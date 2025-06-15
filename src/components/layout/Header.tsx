@@ -25,7 +25,7 @@ const Header = () => {
     <header
       className={`fixed left-0 right-0 top-0 z-50 py-2 w-full transition-all duration-300 font-Inter ${
         hasScrolled
-          ? "bg-blue-100/50 backdrop-blur-xl shadow-sm"
+          ? "bg-pink-200/50 backdrop-blur-xl shadow-sm"
           : "bg-transparent shadow-none"
       }`}
     >
@@ -57,7 +57,7 @@ const Header = () => {
 
           <a
             href="/#contactUs"
-            className="hidden lg:flex items-center justify-center gap-2 bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-lg"
+            className="hidden lg:flex items-center justify-center gap-2 bg-pink-500 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-lg"
           >
             Contact Us
             <UserRoundCheck />
@@ -110,7 +110,7 @@ const Header = () => {
               </nav>
 
               {/* Mobile Hotline */}
-              <button className="hidden lg:flex items-center justify-center gap-2 bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-lg">
+              <button className="hidden lg:flex items-center justify-center gap-2 bg-pink-500 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-lg">
                 Contact Us
                 <UserRoundCheck />
               </button>

@@ -54,7 +54,7 @@ const BlogList: React.FC = () => {
               <div className="md:px-4 flex flex-col xs:flex-row sm:flex-col md:flex-row gap-2 w-full xs:w-auto sm:w-full md:w-auto justify-end">
                 <a
                   href={`/a/blog/${blog.id}`}
-                  className="cursor-pointer px-4 sm:px-6 py-1 text-black border border-gray-400 bg-blue-100 hover:bg-blue-200 rounded-3xl transition text-sm sm:text-base"
+                  className="cursor-pointer px-4 sm:px-6 py-1 text-black border border-gray-400 bg-pink-200 hover:bg-blue-200 rounded-3xl transition text-sm sm:text-base"
                 >
                   Edit
                 </a>

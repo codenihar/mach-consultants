@@ -32,7 +32,7 @@ const HowItWorksSection: React.FC = () => {
         </div>
       ) : (
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-blue-600 font-semibold text-md md:text-lg lg:text-xl mb-2 sm:mb-3">
+          <p className="text-pink-600 font-semibold text-md md:text-lg lg:text-xl mb-2 sm:mb-3">
             Publications
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-8 sm:mb-10 md:mb-12 leading-tight font-PTSerif italic">
