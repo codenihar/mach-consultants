@@ -1,19 +1,9 @@
-import { db } from "@/lib/db";
-import { BlogContentBlock, blogPostSchema } from "@/lib/db/zodSchema";
-import {
-  blogs,
-  contentBlocks,
-  headerBlocks,
-  paragraphBlocks,
-} from "@/lib/drizzle/schema";
-import { and, eq, inArray } from "drizzle-orm";
+import { BlogsService } from "@/actions/blogs/blogs.service";
+import { ContentBlocksService } from "@/actions/content-blocks/content-blocks.service";
+import { HeaderBlocksService } from "@/actions/header-blocks/header-blocks.service";
+import { ParagraphBlocksService } from "@/actions/paragraph-blocks/paragraph-blocks.service";
+import { blogPostSchema, TContentBlockSchema } from "@/lib/validations";
 import { NextResponse } from "next/server";
-
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
 
 export async function POST(request: Request) {
   try {
@@ -27,38 +17,37 @@ export async function POST(request: Request) {
       );
     }
 
-    const { title, featured_image_url } = validatedData;
+    const { title, featured_image_url, preference, type } = validatedData;
 
-    const [newBlog] = await db
-      .insert(blogs)
-      .values({ title, featured_image_url })
-      .returning({ id: blogs.id });
+    const newBlog = await BlogsService.createBlog({
+      title,
+      featured_image_url,
+      preference,
+      type,
+    });
 
     for (let i = 0; i < validatedData.contentBlocks.length; i++) {
-      const block = validatedData.contentBlocks[i] as BlogContentBlock;
+      const block = validatedData.contentBlocks[i] as TContentBlockSchema;
       const order = i + 1;
 
-      const [newBlock] = await db
-        .insert(contentBlocks)
-        .values({
-          blog_id: newBlog.id,
-          block_type: block.block_type,
-          block_order: order,
-        })
-        .returning({ id: contentBlocks.id });
+      const newBlock = await ContentBlocksService.createContentBlock({
+        blog_id: newBlog.data?.id as string,
+        block_type: block.block_type,
+        block_order: order,
+      });
 
       switch (block.block_type) {
         case "header":
-          await db.insert(headerBlocks).values({
-            block_id: newBlock.id,
+          await HeaderBlocksService.creatHeaderBlock({
+            block_id: newBlock.data?.id,
             text: block.headerBlock.text,
             level: block.headerBlock.level,
           });
           break;
 
         case "paragraph":
-          await db.insert(paragraphBlocks).values({
-            block_id: newBlock.id,
+          await ParagraphBlocksService.createParagraphBlock({
+            block_id: newBlock.data?.id,
             text: block.paragraphBlock.text,
           });
           break;
@@ -66,11 +55,10 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json(
-      { success: true, blogID: newBlog.id },
+      { success: true, blogID: newBlog },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error inserting blog:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -83,71 +71,14 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("blogId");
 
-    console.log(id);
     if (id) {
-      const blog = await db.query.blogs.findFirst({
-        where: eq(blogs.id, id),
-        columns: {
-          id: true,
-          title: true,
-          featured_image_url: true,
-          published: true,
-          updated_at: true,
-        },
-        with: {
-          contentBlocks: {
-            columns: { block_type: true },
-            with: {
-              headerBlock: {
-                columns: {
-                  text: true,
-                  level: true,
-                },
-              },
-              paragraphBlock: {
-                columns: {
-                  text: true,
-                },
-              },
-            },
-          },
-        },
-      });
-      return NextResponse.json({ success: true, data: blog }, { status: 200 });
+      const blog = await BlogsService.getBlogById(id);
+      return NextResponse.json({ blog }, { status: 200 });
     }
 
-    const AllBlogs = await db.query.blogs.findMany({
-      columns: {
-        id: true,
-        title: true,
-        featured_image_url: true,
-        published: true,
-        updated_at: true,
-      },
-      with: {
-        contentBlocks: {
-          columns: { block_type: true },
-          with: {
-            headerBlock: {
-              columns: {
-                text: true,
-              },
-            },
-            paragraphBlock: {
-              columns: {
-                text: true,
-              },
-            },
-          },
-        },
-      },
-    });
-    return NextResponse.json(
-      { success: true, data: AllBlogs },
-      { status: 200 }
-    );
+    const AllBlogs = await BlogsService.getBlogs();
+    return NextResponse.json({ AllBlogs }, { status: 200 });
   } catch (error) {
-    console.error("Error inserting blog:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -165,71 +96,45 @@ export async function PUT(request: Request) {
     }
 
     const data = await request.json();
-    const validatedData = blogPostSchema.parse(data);
-    const { title, featured_image_url } = validatedData;
+    const validatedData = blogPostSchema.partial().parse(data);
+    const { contentBlocks, ...rest } = validatedData;
 
-    const existingBlog = await db.query.blogs.findFirst({
-      where: (blogs, { eq }) => eq(blogs.id, blogId),
-    });
-
-    if (!existingBlog) {
-      return NextResponse.json({ error: "Blog not found" }, { status: 404 });
-    }
-
-    if (title || featured_image_url) {
-      await db
-        .update(blogs)
-        .set({
-          ...(title && { title }),
-          ...(featured_image_url && { featured_image_url }),
-        })
-        .where(eq(blogs.id, blogId));
-    }
+    await BlogsService.updateBlog(blogId, rest);
 
     if (contentBlocks && Array.isArray(contentBlocks)) {
-      const existingBlocks = await db
-        .select({ id: contentBlocks.id })
-        .from(contentBlocks)
-        .where(eq(contentBlocks.blog_id, blogId));
+      const existingBlocks =
+        await ContentBlocksService.getContentBlocksByBlogId(blogId);
 
-      const blockIds = existingBlocks.map((b) => b.id);
+      const blockIds =
+        existingBlocks?.data && existingBlocks.data.map((b) => b.id);
 
-      if (blockIds.length) {
-        await db
-          .delete(headerBlocks)
-          .where(inArray(headerBlocks.block_id, blockIds));
-        await db
-          .delete(paragraphBlocks)
-          .where(inArray(paragraphBlocks.block_id, blockIds));
-        await db
-          .delete(contentBlocks)
-          .where(inArray(paragraphBlocks.block_id, blockIds));
+      if (blockIds) {
+        await HeaderBlocksService.deleteHeaderBlocks(blockIds);
+        await ParagraphBlocksService.deleteParagraphBlocks(blockIds);
+        await ContentBlocksService.deleteContentBlocks(blockIds);
       }
 
       for (let i = 0; i < contentBlocks.length; i++) {
-        const block = contentBlocks[i] as BlogContentBlock;
+        const block = contentBlocks[i] as TContentBlockSchema;
         const order = i + 1;
 
-        const [newBlock] = await db
-          .insert(contentBlocks)
-          .values({
-            blog_id: blogId,
-            block_type: block.block_type,
-            block_order: order,
-          })
-          .returning({ id: contentBlocks.id });
+        const newBlock = await ContentBlocksService.createContentBlock({
+          blog_id: blogId,
+          block_type: block.block_type,
+          block_order: order,
+        });
 
         switch (block.block_type) {
           case "header":
-            await db.insert(headerBlocks).values({
-              block_id: newBlock.id,
+            await HeaderBlocksService.creatHeaderBlock({
+              block_id: newBlock.data?.id,
               text: block.headerBlock.text,
               level: block.headerBlock.level,
             });
             break;
           case "paragraph":
-            await db.insert(paragraphBlocks).values({
-              block_id: newBlock.id,
+            await ParagraphBlocksService.createParagraphBlock({
+              block_id: newBlock.data?.id,
               text: block.paragraphBlock.text,
             });
             break;
@@ -242,7 +147,6 @@ export async function PUT(request: Request) {
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error updating blog:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -259,29 +163,9 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: "Missing blogId" }, { status: 400 });
     }
 
-    const blocks = await db
-      .select({ id: contentBlocks.id })
-      .from(contentBlocks)
-      .where(eq(contentBlocks.blog_id, blogId));
-
-    const blockIds = blocks.map((b) => b.id);
-
-    if (blockIds.length > 0) {
-      await db
-        .delete(headerBlocks)
-        .where(inArray(headerBlocks.block_id, blockIds));
-      await db
-        .delete(paragraphBlocks)
-        .where(inArray(paragraphBlocks.block_id, blockIds));
-
-      await db.delete(contentBlocks).where(inArray(contentBlocks.id, blockIds));
-    }
-
-    await db.delete(blogs).where(eq(blogs.id, blogId));
-
+    await BlogsService.deleteBlog(blogId);
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    console.error("Error deleting blog:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

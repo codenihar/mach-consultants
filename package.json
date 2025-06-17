@@ -6,6 +6,7 @@
     "dev": "next dev",
     "db:generate": "dotenv -e .env.local -- drizzle-kit generate",
     "db:migrate": "dotenv -e .env.local -- tsx src/lib/drizzle/migration.ts",
+    "db:run": "dotenv -e .env.local -- drizzle-kit studio",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -21,6 +22,7 @@
     "drizzle-orm": "^0.44.2",
     "framer-motion": "^12.16.0",
     "lucide-react": "^0.511.0",
+    "motion": "^12.18.1",
     "multer": "^2.0.1",
     "next": "15.3.3",
     "next-auth": "^5.0.0-beta.28",

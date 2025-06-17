@@ -1,0 +1,1 @@
+ALTER TABLE "blogs" ADD COLUMN "type" varchar(20) NOT NULL;

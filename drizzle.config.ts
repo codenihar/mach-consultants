@@ -7,7 +7,7 @@ if (!process.env.DATABASE_URL) {
 }
 
 export default {
-  out: "./src/lib/drizzle/mirgations",
+  out: "./src/lib/drizzle/migrations",
   schema: "./src/lib/drizzle/schema.ts",
   dialect: "postgresql",
   dbCredentials: {

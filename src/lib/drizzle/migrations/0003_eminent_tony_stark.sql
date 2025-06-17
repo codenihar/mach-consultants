@@ -1,0 +1,1 @@
+ALTER TABLE "blogs" ADD COLUMN "published" date DEFAULT now() NOT NULL;

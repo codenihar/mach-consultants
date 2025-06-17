@@ -2,7 +2,7 @@ import React from "react";
 import { Facebook, Mail, MoveUpRight, Phone, Twitter } from "lucide-react";
 import { NavItems, policies } from "@/lib/constants";
 
-const Footer: React.FC = () => {
+export function Footer() {
   return (
     <footer className="bg-[#f1f5fd] text-gray-800 font-Inter">
       {/* Top CTA Section */}
@@ -131,6 +131,4 @@ const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

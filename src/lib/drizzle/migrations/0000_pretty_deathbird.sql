@@ -1,7 +1,6 @@
 CREATE TABLE "blogs" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"title" varchar(255) NOT NULL,
-	"published" date DEFAULT now() NOT NULL,
 	"featured_image_url" text,
 	"created_at" timestamp with time zone DEFAULT now(),
 	"updated_at" timestamp with time zone DEFAULT now()

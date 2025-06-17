@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, UserRoundCheck } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const Header = () => {
+export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -25,7 +25,7 @@ const Header = () => {
     <header
       className={`fixed left-0 right-0 top-0 z-50 py-2 w-full transition-all duration-300 font-Inter ${
         hasScrolled
-          ? "bg-pink-200/50 backdrop-blur-xl shadow-sm"
+          ? "bg-blue-100/50 backdrop-blur-xl shadow-sm"
           : "bg-transparent shadow-none"
       }`}
     >
@@ -57,7 +57,7 @@ const Header = () => {
 
           <a
             href="/#contactUs"
-            className="hidden lg:flex items-center justify-center gap-2 bg-pink-500 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-lg"
+            className="hidden lg:flex items-center justify-center gap-2 bg-[#27548e] opacity-95 hover:opacity-100 text-white px-3 py-2 rounded-md transition cursor-pointer w-[max-content] text-lg"
           >
             Contact Us
             <UserRoundCheck />
@@ -120,6 +120,4 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}
