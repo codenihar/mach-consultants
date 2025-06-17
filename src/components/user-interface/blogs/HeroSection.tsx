@@ -16,9 +16,9 @@ export function BlogsAndPublications({ promises }: BlogPageProps) {
   useEffect(() => {
     const sequence = async () => {
       while (true) {
+        await new Promise((resolve) => setTimeout(resolve, 1500));
         await controls.start("animate");
         await controls.set("initial");
-        await new Promise((resolve) => setTimeout(resolve, 1500));
       }
     };
     sequence();
@@ -31,16 +31,16 @@ export function BlogsAndPublications({ promises }: BlogPageProps) {
           <motion.h1
             initial={{ y: 75, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.4, ease: "easeIn" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="text-6xl md:text-8xl font-extrabold text-black"
           >
-            Global Stories & Articles
+            Publications And Blogs
           </motion.h1>
 
           <motion.p
             initial={{ y: 75, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.4, ease: "easeIn", delay: 0.05 }}
+            transition={{ duration: 0.3, ease: "easeOut", delay: 0.05 }}
             className="mt-6 text-xl text-gray-900 font-semibold"
           >
             A place to read, write, and deepen your understanding
@@ -50,7 +50,7 @@ export function BlogsAndPublications({ promises }: BlogPageProps) {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: "easeInOut", delay: 0.4 }}
+          transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
           className="relative w-80 h-95 flex justify-center items-center"
         >
           <motion.div
@@ -91,9 +91,12 @@ export function BlogsAndPublications({ promises }: BlogPageProps) {
                 </div>
               </div>
 
-              <button className="bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all">
+              <a
+                href={`/blogs/${data && data[0].id}`}
+                className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
+              >
                 Read more <ArrowRight className="ml-2 w-4 h-4" />
-              </button>
+              </a>
             </div>
           </motion.div>
 
@@ -139,9 +142,12 @@ export function BlogsAndPublications({ promises }: BlogPageProps) {
                 </div>
               </div>
 
-              <button className="bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all">
+              <a
+                href={`/blogs/${data && data[0].id}`}
+                className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
+              >
                 Read more <ArrowRight className="ml-2 w-4 h-4" />
-              </button>
+              </a>
             </div>
           </motion.div>
 
@@ -187,9 +193,12 @@ export function BlogsAndPublications({ promises }: BlogPageProps) {
                 </div>
               </div>
 
-              <button className="bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all">
+              <a
+                href={`/blogs/${data && data[0].id}`}
+                className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
+              >
                 Read more <ArrowRight className="ml-2 w-4 h-4" />
-              </button>
+              </a>
             </div>
           </motion.div>
         </motion.div>

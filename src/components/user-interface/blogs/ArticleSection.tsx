@@ -4,6 +4,7 @@ import React from "react";
 import { CalendarDays } from "lucide-react";
 import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
+import { motion } from "motion/react";
 
 interface RecentBlogProps {
   promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
@@ -59,9 +60,14 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-20 font-Inter text-black">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 font-PTSerif italic">
-        Recent Blogs
-      </h2>
+      <motion.h2
+        initial={{ y: 100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="text-3xl md:text-4xl font-bold mb-8 font-PTSerif italic"
+      >
+        Recent Publications
+      </motion.h2>
 
       <React.Suspense
         fallback={
@@ -72,19 +78,24 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data && data.length > 0 && data[0] && (
-            <div>
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              className="space-y-3"
+            >
               <div
                 className="relative
-            rounded-2xl overflow-hidden border border-gray-200"
+            rounded-2xl overflow-hidden shadow-sm"
               >
                 <img
                   src={data[0].featured_image_url}
                   alt={data[0].title}
-                  className="w-full h-72 object-cover rounded-2xl hover:scale-110 transform-all duration-300"
+                  className="w-full h-72 object-fit rounded-2xl hover:scale-102 transform-all duration-300"
                 />
               </div>
 
-              <h3 className="text-lg md:text-xl lg:text-3xl font-semibold mt-3 line-clamp-2 font-PTSerif italic">
+              <h3 className="text-lg md:text-xl lg:text-3xl font-semibold mt-4 line-clamp-2 font-PTSerif italic">
                 {data[0].title}
               </h3>
 
@@ -100,33 +111,40 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
 
               <a
                 href={`/blogs/${data[0].id}`}
-                className="cursor-pointer w-[max-content] mt-2 lg:mt-4 px-4 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition text-sm flex items-center gap-2"
+                className="cursor-pointer w-[max-content] mt-2 lg:mt-4 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition text-sm flex items-center gap-2"
               >
                 Read more →
               </a>
-            </div>
+            </motion.div>
           )}
 
-          <div className="w-full h-full space-y-6">
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            className="w-full h-full space-y-6 flex flex-col flex-1"
+          >
             {data &&
               data.length > 0 &&
               data.slice(7, 11).map((blog, index) => (
                 <div
                   key={index}
-                  className="grid grid-cols-2 lg:grid-cols-3 gap-4"
+                  className="grid grid-cols-2 lg:grid-cols-3 gap-3"
                 >
-                  <div className="col-span-1 relative overflow-hidden rounded-xl border border-gray-200">
+                  <div className="col-span-1 relative overflow-hidden rounded-xl shadow-sm">
                     <img
                       src={blog.featured_image_url}
                       alt={blog.title}
-                      className="w-full h-full object-cover rounded-xl shrink-0 hover:scale-110 transform-all duration-300"
+                      className="w-full h-full object-fit rounded-xl shrink-0 hover:scale-102 transform-all duration-300"
                     />
                   </div>
+
                   <div className="lg:col-span-2 flex flex-col justify-between">
                     <h4 className="text-md md:text-sm lg:text-xl font-semibold max-w-sm line-clamp-2 font-PTSerif italic">
                       {blog.title}
                     </h4>
-                    <div className="flex items-center gap-3 text-xs lg:text-sm text-gray-600 mt-2 flex-wrap">
+
+                    <div className="flex items-center gap-3 text-xs lg:text-sm text-gray-600 my-2 flex-wrap">
                       <div className="flex items-center gap-1 text-sm">
                         <CalendarDays className="w-4 h-4" />
                         <span>
@@ -135,9 +153,10 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
                         </span>
                       </div>
                     </div>
+
                     <a
                       href={`/blogs/${blog.id}`}
-                      className="max-md:hidden cursor-pointer mt-2 px-3 py-1 text-sm border border-gray-300 rounded-full hover:bg-gray-100 transition flex items-center gap-1 w-fit"
+                      className="max-md:hidden cursor-pointer mt-2 px-4 py-2 text-sm border border-gray-300 rounded-md hover:bg-gray-100 transition flex items-center gap-1 w-fit"
                     >
                       Read more →
                     </a>
@@ -150,7 +169,7 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
                   </a>
                 </div>
               ))}
-          </div>
+          </motion.div>
         </div>
       </React.Suspense>
     </section>

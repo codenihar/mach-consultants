@@ -1,9 +1,10 @@
 "use client";
 
+import React from "react";
 import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowRight, Calendar } from "lucide-react";
-import React from "react";
+import { motion } from "motion/react";
 
 interface BlogCardProps {
   blog: {
@@ -12,6 +13,7 @@ interface BlogCardProps {
     title: string;
     id: string;
   };
+  index: number;
 }
 
 interface FeaturedBlogProps {
@@ -36,12 +38,17 @@ function FeaturedBlogSkeleton() {
   );
 }
 
-const FeaturedBlogCard: React.FC<BlogCardProps> = ({ blog }) => {
+const FeaturedBlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
   return (
-    <div className="overflow-hidden font-Inter">
+    <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 * index }}
+      className="overflow-hidden font-Inter"
+    >
       <div className="relative rounded-xl overflow-hidden">
         <img
-          className="w-full max-h-52 h-full object-cover hover:scale-110 transition-all duration-300"
+          className="w-full max-h-52 h-full object-fit hover:scale-102 transition-all duration-300 shadow-sm"
           src={blog.featured_image_url}
           alt="Blog post visual"
           onError={(e) => {
@@ -51,7 +58,7 @@ const FeaturedBlogCard: React.FC<BlogCardProps> = ({ blog }) => {
         />
       </div>
 
-      <div className="py-3">
+      <div className="py-3 space-y-2">
         <h2 className="text-xl lg:text-2xl font-bold text-gray-900 my-2 leading-tight line-clamp-1 font-PTSerif italic">
           {blog.title}
         </h2>
@@ -67,13 +74,13 @@ const FeaturedBlogCard: React.FC<BlogCardProps> = ({ blog }) => {
 
         <a
           href={`/blogs/${blog.id}`}
-          className="cursor-pointer flex items-center justify-center px-3 py-2 border border-gray-300 text-base font-medium text-gray-900 rounded-xl shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
+          className="cursor-pointer w-[max-content] flex items-center justify-center px-5 py-2 border border-gray-300 text-base font-medium text-gray-900 rounded-xl shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
         >
           Read more
           <ArrowRight className="w-5 h-5 ml-2" />
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -82,9 +89,14 @@ export const FeaturedBlogs = ({ promises }: FeaturedBlogProps) => {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-12 font-Inter text-black">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 font-PTSerif italic">
+      <motion.h2
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="text-3xl md:text-4xl font-bold mb-8 font-PTSerif italic"
+      >
         Featured Blogs
-      </h2>
+      </motion.h2>
 
       <React.Suspense
         fallback={
@@ -95,13 +107,21 @@ export const FeaturedBlogs = ({ promises }: FeaturedBlogProps) => {
           </div>
         }
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { staggerChildren: 0.4 } }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {data &&
             data.length > 0 &&
             data.map((blog, index) => (
-              <FeaturedBlogCard key={`blog-${index}`} blog={blog} />
+              <FeaturedBlogCard
+                key={`blog-${index}`}
+                blog={blog}
+                index={index}
+              />
             ))}
-        </div>
+        </motion.div>
       </React.Suspense>
     </section>
   );
