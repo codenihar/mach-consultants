@@ -1,5 +1,11 @@
 import { z } from "zod";
 import { blogs } from "@/lib/drizzle/schema";
+import {
+  createSearchParamsCache,
+  parseAsInteger,
+  parseAsString,
+} from "nuqs/server";
+import { commonParsers } from "@/lib/table/validations";
 
 export type Blog = typeof blogs.$inferSelect;
 export type NewBlog = typeof blogs.$inferInsert;
@@ -21,4 +27,19 @@ export type BlogsResponse = {
   success: boolean;
   data?: Blog[];
   error?: string;
+  pageCount: number;
 };
+
+export const blogSearchParamCache = createSearchParamsCache({
+  ...commonParsers,
+  blogId: parseAsString.withDefault(""),
+  title: parseAsString.withDefault(""),
+  type: parseAsString.withDefault(""),
+  preference: parseAsInteger.withDefault(1),
+  from: parseAsString.withDefault(""),
+  to: parseAsString.withDefault(""),
+});
+
+export type GetBlogsSearchParamsSchema = Awaited<
+  ReturnType<typeof blogSearchParamCache.parse>
+>;

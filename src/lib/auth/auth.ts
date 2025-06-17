@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { TSignInSchema } from "../db/zodSchema";
+import { TSignInSchema } from "@/lib/validations";
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   providers: [
@@ -9,6 +9,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
+
       authorize: async (credentials) => {
         const { email, password } = credentials as TSignInSchema;
         const user = {

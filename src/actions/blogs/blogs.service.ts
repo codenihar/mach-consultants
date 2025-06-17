@@ -1,5 +1,11 @@
 import { BlogsModel } from "@/actions/blogs/blogs.model";
-import { Blog, BlogResponse, blogSchema } from "@/actions/blogs/blogs.types";
+import {
+  Blog,
+  BlogResponse,
+  blogSchema,
+  BlogsResponse,
+  GetBlogsSearchParamsSchema,
+} from "@/actions/blogs/blogs.types";
 import { TBlogPostSchema } from "@/lib/validations";
 
 export class BlogsService {
@@ -67,6 +73,17 @@ export class BlogsService {
         success: false,
         error: error instanceof Error ? error.message : "Failed to get blogs",
       };
+    }
+  }
+
+  static async getAdminBlogs(
+    input: GetBlogsSearchParamsSchema
+  ): Promise<BlogsResponse> {
+    try {
+      const blogs = await BlogsModel.getAdminBlogs(input);
+      return { success: true, data: blogs.data, pageCount: blogs.pageCount };
+    } catch (error) {
+      return { success: false, data: [], pageCount: 0 };
     }
   }
 

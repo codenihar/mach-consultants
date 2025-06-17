@@ -1,13 +1,56 @@
+import { SiteHeader } from "@/components/site-header";
+import { SearchParams } from "@/lib/data-table/types";
+import { blogSearchParamCache } from "@/actions/blogs/blogs.types";
+import { BlogsService } from "@/actions/blogs/blogs.service";
+import { BlogsTable } from "@/components/admin/table/blogs/blogs-table";
 import React from "react";
-import { DashboardComponent } from "./Dashboard";
-import { auth } from "@/lib/auth/auth";
-import { redirect } from "next/navigation";
+import { DataTableSkelton } from "@/components/data-table/data-table-skeleton";
+import { Shell } from "@/components/shell/shell";
 
-const Dashboard = async () => {
-  const session = await auth();
-  if (!session) redirect("/signin");
+interface IndexPageProps {
+  searchParams: Promise<SearchParams>;
+}
 
-  return <DashboardComponent />;
-};
+export default async function IndexPage(props: IndexPageProps) {
+  const searchParams = await props.searchParams;
+  const search = blogSearchParamCache.parse(searchParams);
+  const promises = Promise.all([
+    BlogsService.getAdminBlogs({
+      ...search,
+    }),
+  ]);
 
-export default Dashboard;
+  return (
+    <>
+      <SiteHeader />
+      <div className="flex flex-1 flex-col">
+        <div className="@container/main flex flex-1 flex-col gap-2">
+          <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+            <div className="p-2 sm:p-4">
+              <Shell className="gap-2">
+                <React.Suspense
+                  fallback={
+                    <DataTableSkelton
+                      columnCount={6}
+                      cellWidths={[
+                        "10rem",
+                        "40rem",
+                        "12rem",
+                        "12rem",
+                        "8rem",
+                        "8rem",
+                      ]}
+                      shrinkZero
+                    />
+                  }
+                >
+                  <BlogsTable promises={promises} />
+                </React.Suspense>
+              </Shell>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

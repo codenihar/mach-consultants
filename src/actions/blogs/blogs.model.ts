@@ -1,8 +1,12 @@
 import { db } from "@/lib/db";
 import { blogs } from "@/lib/drizzle/schema";
-import { Blog, NewBlog } from "@/actions/blogs/blogs.types";
+import {
+  Blog,
+  NewBlog,
+  GetBlogsSearchParamsSchema,
+} from "@/actions/blogs/blogs.types";
 import { unstable_cache } from "next/cache";
-import { eq } from "drizzle-orm";
+import { and, count, eq, gte, ilike, lte } from "drizzle-orm";
 import { TBlogPostSchema } from "@/lib/validations";
 
 export class BlogsModel {
@@ -48,7 +52,7 @@ export class BlogsModel {
       },
       [`blog-${id}`],
       {
-        tags: [`user-blog-${id}`],
+        tags: [`blog-${id}`],
         revalidate: 3600,
       }
     );
@@ -92,11 +96,70 @@ export class BlogsModel {
       },
       [`blogs`],
       {
-        tags: [`user-blogs`],
+        tags: [`blogs`],
         revalidate: 3600,
       }
     );
 
+    return await cachedBlogs();
+  }
+
+  static async getAdminBlogs(input: GetBlogsSearchParamsSchema) {
+    const cachedBlogs = unstable_cache(
+      async () => {
+        try {
+          const offset = (input.page - 1) * input.perPage;
+          const fromDate = input.from ? new Date(input.from) : undefined;
+          const toDate = input.to ? new Date(input.to) : undefined;
+
+          const where = and(
+            input.blogId ? ilike(blogs.id, `%${input.blogId}%`) : undefined,
+            input.title ? ilike(blogs.title, `%${input.title}%`) : undefined,
+            input.type ? ilike(blogs.type, `%${input.type}%`) : undefined,
+            fromDate ? gte(blogs.created_at, fromDate) : undefined,
+            toDate ? lte(blogs.created_at, toDate) : undefined
+          );
+
+          const { data, total } = await db.transaction(async (tx) => {
+            const data = await tx
+              .select({
+                id: blogs.id,
+                title: blogs.title,
+                type: blogs.type,
+                preference: blogs.preference,
+                featured_image_url: blogs.featured_image_url,
+                created_at: blogs.created_at,
+                updated_at: blogs.updated_at,
+              })
+              .from(blogs)
+              .limit(input.perPage)
+              .offset(offset)
+              .where(where);
+
+            const total = await tx
+              .select({
+                count: count(),
+              })
+              .from(blogs)
+              .where(where)
+              .execute()
+              .then((res) => res[0]?.count ?? 0);
+
+            return { data, total };
+          });
+
+          const pageCount = Math.ceil(total / input.perPage);
+          return { data, pageCount };
+        } catch (error) {
+          return { data: [], pageCount: 0 };
+        }
+      },
+      [JSON.stringify(input)],
+      {
+        revalidate: 3600,
+        tags: ["blogs"],
+      }
+    );
     return await cachedBlogs();
   }
 

@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const validatedData = blogPostSchema.parse(data);
+    const validatedData = blogPostSchema.partial().parse(data);
 
     if (!validatedData) {
       return NextResponse.json(
@@ -17,7 +17,8 @@ export async function POST(request: Request) {
       );
     }
 
-    const { title, featured_image_url, preference, type } = validatedData;
+    const { title, featured_image_url, preference, type, contentBlocks } =
+      validatedData;
 
     const newBlog = await BlogsService.createBlog({
       title,
@@ -26,8 +27,9 @@ export async function POST(request: Request) {
       type,
     });
 
-    for (let i = 0; i < validatedData.contentBlocks.length; i++) {
-      const block = validatedData.contentBlocks[i] as TContentBlockSchema;
+    if (!contentBlocks) return;
+    for (let i = 0; i < contentBlocks.length; i++) {
+      const block = contentBlocks[i] as TContentBlockSchema;
       const order = i + 1;
 
       const newBlock = await ContentBlocksService.createContentBlock({
