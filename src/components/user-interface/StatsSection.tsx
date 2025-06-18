@@ -1,4 +1,5 @@
 import { ShieldCheck, MapPin, Users, FileText } from "lucide-react";
+import * as motion from "motion/react-client";
 
 type Stat = {
   icon: React.ReactNode;
@@ -37,14 +38,29 @@ const stats: Stat[] = [
   },
 ];
 
+const getInitialX = (index: number) => {
+  const offsets = [420, 150, -150, -420];
+  return offsets[index] || 0;
+};
+
 export function Stats() {
   return (
-    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md font-PTSerif">
+    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md font-PTSerif border border-gray-200">
       <div className="max-w-full grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-12 md:py-2 md:px-6">
         {stats.map((stat, index) => (
-          <div
+          <motion.div
+            initial={{
+              x: getInitialX(index),
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            viewport={{ once: true }}
             key={index}
-            className={`flex flex-col gap-1 lg:gap-3 lg:flex-row lg:space-y-2 items-center ${
+            className={`flex flex-col gap-1 lg:gap-3 lg:flex-row lg:space-y-2 items-center bg-white ${
               index > 0 && "xl:border-l-2"
             } xl:px-10 font-SFmedium border-gray-200`}
           >
@@ -57,7 +73,7 @@ export function Stats() {
                 {stat.label}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,38 +1,156 @@
 import { UserRoundCheck } from "lucide-react";
+import * as motion from "motion/react-client";
 import React from "react";
 
 export function Hero() {
   return (
-    <section className="w-full flex items-center bg-gradient-to-r from-[#fef2f2] to-[#eff6ff] px-4 sm:px-6 md:px-8 lg:px-16 pt-24 pb-48 md:pt-36 font-PTSerif">
+    <section className="w-full flex items-center px-4 sm:px-6 md:px-8 lg:px-16 pt-24 pb-48 md:pt-36 font-PTSerif">
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-4 md:gap-12 lg:gap-20 w-full">
         {/* Left Section */}
         <div className="flex-1 w-full mt-8 lg:mt-0">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 sm:mb-6 leading-12 md:leading-14 lg:leading-16 font-bold italic">
-            Mach <span className="text-pink-600">Consultants</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 sm:mb-6 leading-15 md:leading-14 lg:leading-16 font-bold italic overflow-hidden">
+            <motion.p
+              initial={{
+                x: 100,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+              className="inline-block overflow-hidden"
+            >
+              Mach <span className="text-[#1c5894]">Consultants</span>
+            </motion.p>
             <br />
-            Sustainable Performance is the core of our work
+            <motion.p
+              initial={{
+                x: -100,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.1,
+              }}
+              className="inline-block overflow-hidden"
+            >
+              Sustainable
+            </motion.p>{" "}
+            <motion.p
+              initial={{
+                x: 100,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.2,
+              }}
+              className="inline-block overflow-hidden"
+            >
+              Performance is the
+            </motion.p>{" "}
+            <motion.p
+              initial={{
+                x: -100,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.3,
+              }}
+              className="inline-block overflow-hidden"
+            >
+              core of our work
+            </motion.p>
           </h1>
-          <p className="text-gray-600 text-base sm:text-lg md:text-xl my-4 sm:my-6 md:my-8 max-w-2xl font-Inter">
+
+          <motion.p
+            initial={{
+              x: 50,
+              opacity: 0,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 0.25,
+            }}
+            className="text-gray-600 text-base sm:text-lg md:text-xl my-4 sm:my-6 md:my-8 max-w-2xl font-Inter"
+          >
             We are selective consultants focused on immediate performance
             improvement. We are dedicated to revealing hidden resources of the
             enterprise and growing its potential.
-          </p>
+          </motion.p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
-            <a
+            <motion.a
+              initial={{
+                x: -50,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.3,
+              }}
               href="/#contactUs"
-              className="flex items-center justify-center gap-4 bg-pink-500 text-white px-5 py-3 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-xl"
+              className="flex items-center justify-center gap-4 bg-black hover:bg-gray-800 text-white px-5 py-3 rounded-md ransition cursor-pointer w-[max-content] text-xl"
             >
               Contact Us
               <UserRoundCheck />
-            </a>
+            </motion.a>
           </div>
         </div>
 
         {/* Right Section */}
-
         <div className="relative flex-1 w-full flex justify-start lg:justify-end">
-          <div
+          <motion.div
+            initial={{
+              y: 100,
+              opacity: 0,
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 0.35,
+            }}
             className="relative w-full max-w-md lg:max-w-none lg:mx-0 rounded-2xl sm:rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-lg"
             style={{ clipPath: "url(#clip-home-shape)" }}
           >
@@ -43,11 +161,11 @@ export function Hero() {
             </svg>
 
             <img
-              src="https://mach-consultants.com/wp-content/uploads/elementor/thumbs/Mach-consultants-qnx31tdx98c1yvlfmksnt1wja9wmx06lsuua6w79z4.jpg"
+              src="/images/hero.jpg"
               alt="Family with insurance"
-              className="w-full h-full object-cover"
+              className="w-full h-160 object-cover"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

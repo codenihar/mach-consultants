@@ -12,15 +12,15 @@ const partners: string[] = [
 
 export function Partners() {
   return (
-    <section className="bg-gradient-to-r from-blue-100 to-yellow-100 py-4 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 font-Inter">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-4 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 font-Inter">
+      <div className="max-w-7xl mx-auto bg-black rounded-3xl py-8">
         {/* Heading */}
-        <h2 className="text-2xl lg:text-3xl text-gray-800 text-center font-semibold pb-8 font-PTSerif italic">
+        <h2 className="text-2xl lg:text-3xl text-white text-center font-semibold pb-8 font-PTSerif italic">
           Our Partners
         </h2>
 
         {/* Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-7 gap-3 sm:gap-4 md:gap-8 py-2">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-7 gap-3 sm:gap-4 md:gap-8 py-2">
           {partners &&
             partners.map((partner, idx) => (
               <div

@@ -1,5 +1,6 @@
 import React from "react";
 import { ShieldCheck, Clock, Star, Building2 } from "lucide-react";
+import * as motion from "motion/react-client";
 
 type Feature = {
   icon: React.ReactNode;
@@ -34,26 +35,99 @@ const features: Feature[] = [
   },
 ];
 
+const getOffsetX = (index: number) => {
+  const offsets = [0, -300, 300, 0];
+  return offsets[index] || 0;
+};
+
+const getOffsetY = (index: number) => {
+  const offsets = [260, 0, 0, -260];
+  return offsets[index] || 0;
+};
+
 export function WhyChooseUs() {
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-white px-4 sm:px-6 md:px-8 font-PTSerif">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         {/* Left Content */}
         <div className="order-2 lg:order-1">
-          <p className="text-pink-600 font-semibold mb-2 text-sm sm:text-base md:text-lg">
+          <motion.p
+            initial={{
+              y: 100,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            className="text-pink-600 font-semibold mb-2 text-sm sm:text-base md:text-lg"
+          >
             Why Choose Us
-          </p>
-          <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4 md:mb-6 font-PTSerif italic">
+          </motion.p>
+          <motion.h2
+            initial={{
+              y: 100,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+              delay: 0.1,
+            }}
+            className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4 md:mb-6 font-PTSerif italic"
+          >
             Why you should choose Consultia, there are tons of reasons.
-          </h2>
-          <p className="text-gray-700 mb-6 md:mb-8 text-base sm:text-lg">
+          </motion.h2>
+          <motion.p
+            initial={{
+              y: 100,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+              delay: 0.2,
+            }}
+            className="text-gray-700 mb-6 md:mb-8 text-base sm:text-lg"
+          >
             Our team of insurance professionals have the knowledge, skills,
             markets and desire necessary to provide you.
-          </p>
+          </motion.p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {features.map((feature, index) => (
-              <div
+              <motion.div
+                initial={{
+                  x: getOffsetX(index),
+                  y: getOffsetY(index),
+                  opacity: 0,
+                }}
+                whileInView={{
+                  x: 0,
+                  y: 0,
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeInOut",
+                  delay: 0.2,
+                }}
+                viewport={{ once: true }}
                 key={`feat-${index}`}
                 className="flex flex-col items-start gap-3 p-4 sm:p-5 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors duration-300"
               >
@@ -66,27 +140,59 @@ export function WhyChooseUs() {
                     {feature.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Right Image with Badge */}
         <div className="relative w-full order-1 lg:order-2">
-          <div className="rounded-xl overflow-hidden w-full max-w-md xl:mx-auto shadow-lg">
+          <motion.div
+            initial={{
+              x: 100,
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 0.6,
+              ease: "easeInOut",
+              delay: 0.3,
+            }}
+            viewport={{ once: true }}
+            className="rounded-xl overflow-hidden w-full max-w-md xl:mx-auto shadow-lg"
+          >
             <img
               src="/images/why_choose_us.png"
               alt="Handshake"
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               loading="lazy"
             />
-          </div>
+          </motion.div>
 
-          <div className="absolute bottom-20 -left-2 md:-left-4 lg:-right-4 xl:right-4 bg-pink-100 text-pink-700 font-bold text-sm w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-2 border-pink-300 flex flex-col items-center justify-center shadow-md">
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: 0,
+            }}
+            whileInView={{
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.6,
+              ease: "easeInOut",
+              delay: 0.25,
+            }}
+            viewport={{ once: true }}
+            className="absolute bottom-20 -left-2 md:-left-4 lg:-right-4 xl:right-4 bg-pink-100 text-pink-700 font-bold text-sm w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-2 border-pink-300 flex flex-col items-center justify-center shadow-md"
+          >
             <span className="text-2xl sm:text-3xl">25k</span>
             <span className="text-xs sm:text-sm font-medium">Agents</span>
             <span className="text-xs sm:text-sm font-medium">Worldwide</span>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

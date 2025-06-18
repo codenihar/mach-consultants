@@ -1,4 +1,5 @@
 import React from "react";
+import * as motion from "motion/react-client";
 import { MoveUpRight } from "lucide-react";
 
 export function ConsultationForm() {
@@ -9,7 +10,23 @@ export function ConsultationForm() {
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         {/* Image Section */}
-        <div className="order-2 lg:order-1 w-full">
+        <motion.div
+          initial={{
+            x: -100,
+            opacity: 0,
+          }}
+          whileInView={{
+            x: 0,
+            opacity: 1,
+          }}
+          transition={{
+            duration: 0.6,
+            ease: "easeInOut",
+            delay: 0.15,
+          }}
+          viewport={{ once: true }}
+          className="order-2 lg:order-1 w-full"
+        >
           <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
             <img
               src="https://mach-consultants.com/wp-content/uploads/elementor/thumbs/woman-hand-desk-office-qnsnja20favr40urk8g0mnordansyzd26g8act02wc.jpg"
@@ -18,11 +35,27 @@ export function ConsultationForm() {
               loading="lazy"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Form Section */}
         <div className="order-1 lg:order-2 w-full">
-          <div className="max-w-lg">
+          <motion.div
+            initial={{
+              x: 100,
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 0.6,
+              ease: "easeInOut",
+              delay: 0.15,
+            }}
+            viewport={{ once: true }}
+            className="max-w-lg"
+          >
             <h3 className="text-pink-600 text-sm md:text-md lg:text-lg font-semibold mb-2">
               Free Consultation
             </h3>
@@ -121,7 +154,7 @@ export function ConsultationForm() {
                 </button>
               </div>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

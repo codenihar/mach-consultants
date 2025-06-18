@@ -1,13 +1,17 @@
-"use client";
-
 import React from "react";
 import { ChevronRight } from "lucide-react";
 import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
+import * as motion from "motion/react-client";
 
 interface PublicationsProps {
   promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
 }
+
+const getInitialX = (index: number) => {
+  const offsets = [400, 0, -400];
+  return offsets[index] || 0;
+};
 
 function PublicationCardSkeleton() {
   return (
@@ -32,12 +36,43 @@ export function Publications({ promises }: PublicationsProps) {
   return (
     <section className="py-12 md:py-16 bg-white px-4 sm:px-6 font-Inter">
       <div className="max-w-6xl mx-auto text-center">
-        <p className="text-pink-600 font-semibold text-md md:text-lg lg:text-xl mb-2 sm:mb-3">
+        <motion.p
+          initial={{
+            y: 100,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.3,
+            ease: "easeOut",
+          }}
+          className="text-pink-600 font-semibold text-md md:text-lg lg:text-xl mb-2 sm:mb-3"
+        >
           Publications
-        </p>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-8 sm:mb-10 md:mb-12 leading-tight font-PTSerif italic">
+        </motion.p>
+        <motion.h2
+          initial={{
+            y: 100,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.3,
+            ease: "easeOut",
+            delay: 0.1,
+          }}
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-8 sm:mb-10 md:mb-12 leading-tight font-PTSerif italic"
+        >
           View our latest publications
-        </h2>
+        </motion.h2>
 
         <React.Suspense
           fallback={
@@ -52,7 +87,25 @@ export function Publications({ promises }: PublicationsProps) {
             {data &&
               data.length > 0 &&
               data.slice(3, 6).map((publication, idx) => (
-                <div key={idx} className="flex flex-col items-center text-left">
+                <motion.div
+                  initial={{
+                    x: getInitialX(idx),
+                    opacity: idx !== 1 ? 1 : 0.5,
+                    scale: idx === 1 ? 0.5 : 1,
+                  }}
+                  whileInView={{
+                    x: 0,
+                    opacity: 1,
+                    scale: 1,
+                  }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: idx !== 1 ? 1 : 0.6,
+                    ease: "easeInOut",
+                  }}
+                  key={idx}
+                  className="flex flex-col items-center text-left bg-white"
+                >
                   <div className="relative max-h-56 w-full overflow-hidden rounded-xl aspect-square mb-4 sm:mb-6">
                     <img
                       src={publication.featured_image_url}
@@ -86,7 +139,7 @@ export function Publications({ promises }: PublicationsProps) {
                         }
                       </p>
                     )}
-                </div>
+                </motion.div>
               ))}
           </div>
         </React.Suspense>
