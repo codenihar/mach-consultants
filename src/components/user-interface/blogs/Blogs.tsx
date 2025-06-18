@@ -102,7 +102,7 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
                 <img
                   src={data[0].featured_image_url}
                   alt={data[0].title}
-                  className="w-full h-72 object-fit rounded-2xl hover:scale-102 transform-all duration-300"
+                  className="w-full h-72 object-cover rounded-2xl hover:scale-102 transform-all duration-300"
                 />
               </div>
 
@@ -134,24 +134,24 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
             initial={{ y: 100, opacity: 0 }}
             animate={controls}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-            className="w-full h-full space-y-6 flex flex-col flex-1"
+            className="w-full h-72 flex flex-col items-between gap-6"
           >
             {data &&
               data.length > 0 &&
               data.slice(7, 11).map((blog, index) => (
                 <div
                   key={index}
-                  className="grid grid-cols-2 lg:grid-cols-3 gap-3"
+                  className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-6 justify-between items-between"
                 >
-                  <div className="col-span-1 relative overflow-hidden rounded-xl shadow-sm">
+                  <div className="col-span-1 relative overflow-hidden rounded-xl border border-gray-300">
                     <img
                       src={blog.featured_image_url}
                       alt={blog.title}
-                      className="w-full max-h-36 h-full object-fit rounded-xl shrink-0 hover:scale-102 transform-all duration-300"
+                      className="w-full max-h-36 object-cover rounded-xl shrink-0 hover:scale-102 transform-all duration-300"
                     />
                   </div>
 
-                  <div className="lg:col-span-2 flex flex-col justify-between">
+                  <div className="lg:col-span-2 flex flex-col">
                     <h4 className="text-md md:text-sm lg:text-xl font-semibold max-w-sm line-clamp-2 font-PTSerif italic">
                       {blog.title}
                     </h4>
