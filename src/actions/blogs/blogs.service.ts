@@ -1,42 +1,40 @@
 import { BlogsModel } from "@/actions/blogs/blogs.model";
 import {
   Blog,
-  BlogResponse,
   blogSchema,
+  BlogResponse,
   BlogsResponse,
   GetBlogsSearchParamsSchema,
+  TBlogSchema,
 } from "@/actions/blogs/blogs.types";
-import { TBlogPostSchema } from "@/lib/validations";
 
 export class BlogsService {
-  static async createBlog(data: Partial<Blog>): Promise<BlogResponse> {
+  static async createBlog(
+    data: TBlogSchema
+  ): Promise<{ success: boolean; data?: TBlogSchema["id"]; error?: string }> {
     try {
       const validatedData = blogSchema.parse(data);
 
-      const chat = await BlogsModel.createBlog(validatedData);
+      const blog = await BlogsModel.createBlog(validatedData);
       return {
         success: true,
-        data: chat,
+        data: blog,
       };
     } catch (error) {
       return {
         success: false,
-        error: error instanceof Error ? error.message : "Failed to create chat",
+        error: error instanceof Error ? error.message : "Failed to create blog",
       };
     }
   }
 
-  static async getBlogById(id: string): Promise<{
-    success: boolean;
-    data?: TBlogPostSchema;
-    error?: string;
-  }> {
+  static async getBlogById(id: string): Promise<BlogResponse> {
     try {
       const blog = await BlogsModel.getBlogById(id);
       if (!blog) {
         return {
           success: false,
-          error: "Chat not found",
+          error: "Blog not found",
         };
       }
       return {
@@ -51,17 +49,13 @@ export class BlogsService {
     }
   }
 
-  static async getBlogs(): Promise<{
-    success: boolean;
-    data?: TBlogPostSchema[];
-    error?: string;
-  }> {
+  static async getBlogs(): Promise<BlogsResponse> {
     try {
       const blogs = await BlogsModel.getBlogs();
       if (!blogs) {
         return {
           success: false,
-          error: "Chat not found",
+          error: "Blogs not found",
         };
       }
       return {
@@ -76,9 +70,12 @@ export class BlogsService {
     }
   }
 
-  static async getAdminBlogs(
-    input: GetBlogsSearchParamsSchema
-  ): Promise<BlogsResponse> {
+  static async getAdminBlogs(input: GetBlogsSearchParamsSchema): Promise<{
+    success: boolean;
+    data?: Blog[];
+    pageCount: number;
+    error?: string;
+  }> {
     try {
       const blogs = await BlogsModel.getAdminBlogs(input);
       return { success: true, data: blogs.data, pageCount: blogs.pageCount };
@@ -89,10 +86,16 @@ export class BlogsService {
 
   static async updateBlog(
     id: string,
-    data: Partial<Blog>
-  ): Promise<BlogResponse> {
+    data: Partial<TBlogSchema>
+  ): Promise<{
+    success: boolean;
+    data?: TBlogSchema["id"];
+    error?: string;
+  }> {
     try {
-      const blog = await BlogsModel.updateBlog(id, data);
+      const validatedData = blogSchema.parse(data);
+
+      const blog = await BlogsModel.updateBlog(id, validatedData);
       if (!blog) {
         return {
           success: false,

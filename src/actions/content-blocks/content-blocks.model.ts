@@ -23,18 +23,6 @@ export class ContentBlocksModel {
     return allContentBlocks;
   }
 
-  static async updateContentBlock(
-    id: string,
-    data: Partial<NewContentBlock>
-  ): Promise<ContentBlock | null> {
-    const [contentBlock] = await db
-      .update(contentBlocks)
-      .set({ ...data })
-      .where(eq(contentBlocks.id, id))
-      .returning();
-    return contentBlock || null;
-  }
-
   static async deleteContentBlocks(blockIds: string[]): Promise<boolean> {
     const result = await db
       .delete(contentBlocks)

@@ -1,33 +1,56 @@
 import { z } from "zod";
-import { blogs } from "@/lib/drizzle/schema";
 import {
   createSearchParamsCache,
   parseAsInteger,
   parseAsString,
 } from "nuqs/server";
 import { commonParsers } from "@/lib/table/validations";
+import { blogs } from "@/lib/drizzle/schema";
 
 export type Blog = typeof blogs.$inferSelect;
-export type NewBlog = typeof blogs.$inferInsert;
+
+const headerBlockSchema = z.object({
+  block_order: z.number(),
+  block_type: z.literal("header"),
+  headerBlock: z.object({
+    text: z.string().min(1),
+    level: z.number().int().min(1).max(6),
+  }),
+});
+
+export const paragraphBlockSchema = z.object({
+  block_order: z.number(),
+  block_type: z.literal("paragraph"),
+  paragraphBlock: z.object({
+    text: z.string().min(1),
+  }),
+});
+
+const contentBlockSchema = z.union([headerBlockSchema, paragraphBlockSchema]);
+export type TContentBlockSchema = z.infer<typeof contentBlockSchema>;
 
 export const blogSchema = z.object({
+  id: z.string().uuid().optional(),
   title: z.string().min(1),
   featured_image_url: z.string(),
-  preference: z.number().default(1),
   type: z.enum(["blog", "publication"]).default("blog"),
+  contentBlocks: z.array(contentBlockSchema).min(1),
+  preference: z.number().default(1),
+  updated_at: z.coerce.date().optional(),
+  created_at: z.coerce.date().optional(),
 });
+export type TBlogSchema = z.infer<typeof blogSchema>;
 
 export type BlogResponse = {
   success: boolean;
-  data?: Blog;
+  data?: TBlogSchema;
   error?: string;
 };
 
 export type BlogsResponse = {
   success: boolean;
-  data?: Blog[];
+  data?: TBlogSchema[];
   error?: string;
-  pageCount: number;
 };
 
 export const blogSearchParamCache = createSearchParamsCache({

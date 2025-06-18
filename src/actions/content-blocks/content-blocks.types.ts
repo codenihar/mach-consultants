@@ -8,7 +8,7 @@ export type NewContentBlock = typeof contentBlocks.$inferInsert;
 
 export const contentBlockSchema = z.object({
   blog_id: z.string(),
-  block_type: z.enum(["header", "paragraph", "list", "image"]),
+  block_type: z.enum(["header", "paragraph"]),
   block_order: z.number(),
 });
 

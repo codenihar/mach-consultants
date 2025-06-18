@@ -4,12 +4,6 @@ import {
   contentBlockSchema,
 } from "@/actions/content-blocks/content-blocks.types";
 import { ContentBlocksModel } from "@/actions/content-blocks/content-blocks.model";
-import {
-  Blog,
-  blogPostSchema,
-  BlogResponse,
-} from "@/actions/blogs/blogs.types";
-import { BlogsModel } from "@/actions/blogs/blogs.model";
 
 export class ContentBlocksService {
   static async createContentBlock(
@@ -54,32 +48,6 @@ export class ContentBlocksService {
       return {
         success: false,
         error: error instanceof Error ? error.message : "Failed to get blogs",
-      };
-    }
-  }
-
-  static async updateContentBlock(
-    id: string,
-    data: Partial<Blog>
-  ): Promise<BlogResponse> {
-    try {
-      const validatedData = blogPostSchema.partial().parse(data);
-
-      const blog = await BlogsModel.updateBlog(id, validatedData);
-      if (!blog) {
-        return {
-          success: false,
-          error: "Chat not found",
-        };
-      }
-      return {
-        success: true,
-        data: blog,
-      };
-    } catch (error) {
-      return {
-        success: false,
-        error: error instanceof Error ? error.message : "Failed to update blog",
       };
     }
   }

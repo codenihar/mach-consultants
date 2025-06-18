@@ -2,6 +2,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { auth } from "@/lib/auth/auth";
 import { redirect } from "next/navigation";
+import { ToastContainer } from "react-toastify";
 
 export default async function AdminInterfaceLayout({
   children,
@@ -21,8 +22,8 @@ export default async function AdminInterfaceLayout({
       }
     >
       <AppSidebar variant="inset" />
-
-      <SidebarInset>{children}</SidebarInset>
+      <SidebarInset suppressHydrationWarning>{children}</SidebarInset>
+      <ToastContainer />
     </SidebarProvider>
   );
 }

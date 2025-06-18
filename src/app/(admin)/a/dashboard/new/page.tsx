@@ -1,37 +1,11 @@
-"use client";
-import { Blog } from "@/actions/blogs/blogs.types";
-import { revalidateBlogs } from "@/actions/revalidates/revalidate";
+import React from "react";
 import BlogForm from "@/components/admin/table/blogs/blog-form";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { BlogsService } from "@/actions/blogs/blogs.service";
+import { TContentBlockSchema } from "@/actions/blogs/blogs.types";
+import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
 
-export default function NewBlog() {
-  const router = useRouter();
-  const [pending, setPending] = useState(false);
-
-  const handleSubmit = async (
-    blog: Omit<Blog, "id" | "created_at" | "updated_at">
-  ) => {
-    try {
-      setPending(true);
-      const response = await fetch("/api/blog", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(blog),
-      });
-
-      if (response.ok) {
-        revalidateBlogs();
-        alert("New Blog Posted Successfully");
-        router.push("/a/dashboard");
-      }
-    } catch (error) {
-      alert("Server Error, Please try later");
-    } finally {
-      setPending(false);
-    }
-  };
-
+export default async function NewBlog() {
   return (
     <section className="bg-white font-RecoletaRegular">
       <div className="max-w-6xl mx-auto py-10">
@@ -39,7 +13,30 @@ export default function NewBlog() {
           Create New Blog
         </h2>
 
-        <BlogForm onSubmit={handleSubmit} type="create" pending={pending} />
+        <BlogForm
+          onSubmit={async (formData) => {
+            "use server";
+            const contentBlocks = JSON.parse(
+              formData.get("contentBlocks") as string
+            );
+            const response = await BlogsService.createBlog({
+              title: formData.get("title") as string,
+              featured_image_url: formData.get("featured_image_url") as string,
+              preference: parseInt(formData.get("preference") as string) || 1,
+              type: formData.get("type") as "blog" | "publication",
+              contentBlocks: contentBlocks as TContentBlockSchema[],
+            });
+            if (response.success) {
+              revalidateTag("blogs");
+              redirect("/a/dashboard");
+            }
+            if (!response.success) {
+              console.error(response.error || "Failed to create blog");
+            }
+          }}
+          initialData={null}
+          type="create"
+        />
       </div>
     </section>
   );

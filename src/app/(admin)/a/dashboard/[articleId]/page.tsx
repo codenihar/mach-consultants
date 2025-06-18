@@ -1,43 +1,92 @@
-"use client";
-import { Blog } from "@/actions/blogs/blogs.types";
-import { revalidateBlogs } from "@/actions/revalidates/revalidate";
+import { BlogsService } from "@/actions/blogs/blogs.service";
+import { TBlogSchema, TContentBlockSchema } from "@/actions/blogs/blogs.types";
 import BlogForm from "@/components/admin/table/blogs/blog-form";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
+import React from "react";
 
-export default function UpdateBlog() {
-  const router = useRouter();
-  const [pending, setPending] = useState(false);
+export function BlogFormSkeleton() {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-300 space-y-6">
+      <div>
+        <Skeleton className="h-4 w-24 mb-2" />
+        <Skeleton className="h-10 w-full rounded-md" />
+      </div>
 
-  const handleSubmit = async (
-    blog: Omit<Blog, "id" | "created_at" | "updated_at">,
-    id: string
-  ) => {
-    try {
-      setPending(true);
-      const response = await fetch(`/api/blog?blogId=${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(blog),
-      });
+      <div>
+        <Skeleton className="h-4 w-24 mb-2" />
+        <Skeleton className="h-10 w-full rounded-md" />
+      </div>
 
-      if (response.ok) {
-        revalidateBlogs();
-        alert("Updated Blog Successfully");
-        router.push("/a/dashboard");
-      }
-    } catch (error) {
-      alert("Server Error, Please try later");
-    } finally {
-      setPending(false);
-    }
-  };
+      <div>
+        <Skeleton className="h-4 w-32 mb-2" />
+        <Skeleton className="h-10 w-full rounded-md" />
+      </div>
+
+      <div>
+        <Skeleton className="h-4 w-32 mb-2" />
+        <Skeleton className="h-10 w-full rounded-md" />
+      </div>
+
+      <div>
+        <Skeleton className="h-4 w-24 mb-2" />
+        <Skeleton className="h-10 w-full rounded-md" />
+      </div>
+
+      <div>
+        <Skeleton className="h-4 w-32 mb-2" />
+        <Skeleton className="h-10 w-full rounded-md" />
+      </div>
+    </div>
+  );
+}
+
+export default async function UpdateBlog({
+  params,
+}: {
+  params: Promise<{ articleId: string }>;
+}) {
+  const { articleId } = await params;
+
+  const [{ data: blogsData }] = await Promise.all([
+    BlogsService.getBlogById(articleId),
+  ]);
 
   return (
     <section className="bg-white font-RecoletaRegular">
       <div className="max-w-6xl mx-auto py-10">
         <h2 className="text-lg text-gray-700 font-bold my-4">Update Blog</h2>
-        <BlogForm onSubmit={handleSubmit} type="update" pending={pending} />
+
+        <React.Suspense fallback={<BlogFormSkeleton />}>
+          <BlogForm
+            onSubmit={async (formData) => {
+              "use server";
+              const contentBlocks = JSON.parse(
+                formData.get("contentBlocks") as string
+              );
+              const response = await BlogsService.updateBlog(articleId, {
+                title: formData.get("title") as string,
+                featured_image_url: formData.get(
+                  "featured_image_url"
+                ) as string,
+                preference: parseInt(formData.get("preference") as string) || 1,
+                type: formData.get("type") as "blog" | "publication",
+                contentBlocks: contentBlocks as TContentBlockSchema[],
+              });
+              if (response.success) {
+                revalidateTag("blogs");
+                revalidateTag(`blog-${articleId}`);
+                redirect("/a/dashboard");
+              }
+              if (!response.success) {
+                console.error(response.error || "Failed to create blog");
+              }
+            }}
+            type="update"
+            initialData={blogsData as TBlogSchema}
+          />
+        </React.Suspense>
       </div>
     </section>
   );

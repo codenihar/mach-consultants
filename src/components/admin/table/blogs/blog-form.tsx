@@ -1,54 +1,32 @@
 "use client";
-import { Blog } from "@/actions/blogs/blogs.types";
-import { TBlogPostSchema, TContentBlockSchema } from "@/lib/validations";
-import { useParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { TBlogSchema, TContentBlockSchema } from "@/actions/blogs/blogs.types";
+import React, { useState } from "react";
+import { useFormStatus } from "react-dom";
 
 interface BlogFormProps {
-  pending: boolean;
   type: "update" | "create";
-  onSubmit: (
-    blog: Omit<Blog, "id" | "created_at" | "updated_at">,
-    id: string
-  ) => void;
+  onSubmit: (formData: FormData) => Promise<void> | void;
+  initialData: TBlogSchema | null;
 }
 
-interface useParamProps {
-  [key: string]: string | string[] | undefined;
-  articleId: string;
-}
-
-export function BlogForm({ pending, type, onSubmit }: BlogFormProps) {
-  const { articleId } = useParams<useParamProps>();
-
+export function BlogForm({ type, onSubmit, initialData }: BlogFormProps) {
+  const { pending } = useFormStatus();
   const [formData, setFormData] = useState<
-    Omit<TBlogPostSchema, "id" | "created_at" | "updated_at">
+    Omit<TBlogSchema, "id" | "created_at" | "updated_at" | "block_order">
   >({
-    title: "",
-    featured_image_url: "",
-    contentBlocks: [
-      { block_type: "header", headerBlock: { text: "", level: 1 } },
-      { block_type: "paragraph", paragraphBlock: { text: "" } },
+    title: initialData?.title ?? "",
+    featured_image_url: initialData?.featured_image_url ?? "",
+    contentBlocks: initialData?.contentBlocks ?? [
+      {
+        block_order: 1,
+        block_type: "header",
+        headerBlock: { text: "", level: 1 },
+      },
+      { block_order: 2, block_type: "paragraph", paragraphBlock: { text: "" } },
     ],
-    preference: 1,
-    type: "blog",
+    preference: initialData?.preference ?? 1,
+    type: initialData?.type ?? "blog",
   });
-
-  useEffect(() => {
-    try {
-      const fetchBlog = async () => {
-        const response = await fetch(`/api/blog?blogId=${articleId}`);
-        if (response.ok) {
-          const { blog } = await response.json();
-          setFormData(blog.data);
-        }
-      };
-
-      if (articleId) fetchBlog();
-    } catch (error) {
-      alert("Some Error Occured");
-    }
-  }, [articleId]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -67,43 +45,55 @@ export function BlogForm({ pending, type, onSubmit }: BlogFormProps) {
   };
 
   const addContentBlock = (type: TContentBlockSchema["block_type"]) => {
-    let newBlock: TContentBlockSchema;
+    setFormData((prev) => {
+      const newOrder = prev.contentBlocks.length + 1;
+      let newBlock: TContentBlockSchema;
 
-    switch (type) {
-      case "header":
-        newBlock = {
-          block_type: "header",
-          headerBlock: { text: "", level: 2 },
-        };
-        break;
-      case "paragraph":
-        newBlock = { block_type: "paragraph", paragraphBlock: { text: "" } };
-        break;
-      default:
-        return;
-    }
+      switch (type) {
+        case "header":
+          newBlock = {
+            block_order: newOrder,
+            block_type: "header",
+            headerBlock: { text: "", level: 2 },
+          };
+          break;
+        case "paragraph":
+          newBlock = {
+            block_order: newOrder,
+            block_type: "paragraph",
+            paragraphBlock: { text: "" },
+          };
+          break;
+        default:
+          return prev;
+      }
 
-    setFormData((prev) => ({
-      ...prev,
-      contentBlocks: [...prev.contentBlocks, newBlock],
-    }));
+      return {
+        ...prev,
+        contentBlocks: [...prev.contentBlocks, newBlock],
+      };
+    });
   };
 
   const removeContentBlock = (index: number) => {
-    setFormData((prev) => ({
-      ...prev,
-      contentBlocks: prev.contentBlocks.filter((_, i) => i !== index),
-    }));
-  };
+    setFormData((prev) => {
+      const newBlock = prev.contentBlocks
+        .filter((_, i) => i !== index)
+        .map((block, i) => ({
+          ...block,
+          block_order: i + 1,
+        }));
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit(formData, articleId);
+      return {
+        ...prev,
+        contentBlocks: newBlock,
+      };
+    });
   };
 
   return (
     <form
-      onSubmit={handleSubmit}
+      action={onSubmit}
       className="bg-white p-6 rounded-lg shadow-sm border border-gray-300"
     >
       <div className="mb-6">
@@ -198,13 +188,15 @@ export function BlogForm({ pending, type, onSubmit }: BlogFormProps) {
       )}
 
       <div className="mb-6">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
-          Content Blocks
-        </label>
+        {formData.contentBlocks.length > 0 && (
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Content Blocks
+          </label>
+        )}
 
         <div className="space-y-4">
           {formData.contentBlocks.map((block, index) => (
-            <div key={index} className="border border-gray-200 rounded-md p-4">
+            <div key={index} className="rounded-md">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-xs font-semibold text-gray-500 uppercase">
                   {block.block_type}
@@ -295,6 +287,12 @@ export function BlogForm({ pending, type, onSubmit }: BlogFormProps) {
           </button>
         </div>
       </div>
+
+      <input
+        type="hidden"
+        name="contentBlocks"
+        value={JSON.stringify(formData.contentBlocks)}
+      />
 
       <div className="flex justify-end space-x-3">
         <a

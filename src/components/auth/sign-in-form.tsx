@@ -60,7 +60,7 @@ export function SignInForm() {
       >
         <div className="w-full max-w-sm p-6 space-y-6">
           <h2 className="text-3xl font-semibold text-center text-black pb-3">
-            Welcome Back
+            Admin Panel
           </h2>
 
           {error && (
@@ -150,12 +150,12 @@ export function SignInForm() {
             {loading ? "Authenticatiing..." : "Login"}
           </Button>
 
-          <div className="text-center text-md font-semibold text-gray-600">
+          {/* <div className="text-center text-md font-semibold text-gray-600">
             Don't have an account?{" "}
             <a href="/signup" className="text-blue-600 hover:underline">
               Sign Up
             </a>
-          </div>
+          </div> */}
         </div>
       </form>
     </Form>
