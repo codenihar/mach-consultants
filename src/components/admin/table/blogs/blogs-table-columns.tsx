@@ -16,7 +16,6 @@ import { useRouter } from "next/navigation";
 import { DataTableRowAction } from "@/lib/data-table/types";
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-headers";
 import { Blog } from "@/actions/blogs/blogs.types";
-import { formatDate } from "@/lib/utils";
 
 interface GetBlogColumnsProps {
   setRowAction: React.Dispatch<

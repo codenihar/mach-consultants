@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowRight, Calendar } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useAnimation, useInView } from "motion/react";
 
 interface BlogCardProps {
   blog: {
@@ -39,11 +39,22 @@ function FeaturedBlogSkeleton() {
 }
 
 const FeaturedBlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ y: 0, opacity: 1 });
+    }
+  }, [inView]);
+
   return (
     <motion.div
+      ref={ref}
       initial={{ y: 100, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 * index }}
+      animate={controls}
+      transition={{ duration: 0.3, ease: "easeOut", delay: 0.05 * index }}
       className="overflow-hidden font-Inter"
     >
       <div className="relative rounded-xl overflow-hidden">

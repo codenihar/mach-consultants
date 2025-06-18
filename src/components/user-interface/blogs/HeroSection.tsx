@@ -11,6 +11,9 @@ interface BlogPageProps {
 
 export function BlogsAndPublications({ promises }: BlogPageProps) {
   const [{ data }] = React.use(promises);
+  const [hovered, setHovered] = React.useState<boolean>(false);
+  const [focusedIndex, setFocusedIndex] = React.useState<number | null>(null);
+
   const controls = useAnimation();
 
   useEffect(() => {
@@ -48,159 +51,84 @@ export function BlogsAndPublications({ promises }: BlogPageProps) {
         </div>
 
         <motion.div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
           className="relative w-80 h-95 flex justify-center items-center"
         >
-          <motion.div
-            initial={{
-              opacity: 1,
-              zIndex: 3,
-            }}
-            animate={controls}
-            variants={{
-              initial: { opacity: 1, x: 0, rotate: 0 },
-              animate: { opacity: 0 },
-            }}
-            transition={{
-              opacity: { duration: 0.3, ease: "easeInOut" },
-            }}
-            className="absolute w-full max-h-100 bg-white rounded-xl shadow-xl"
-          >
-            <div className="p-2">
-              <img
-                src={data && data[0]?.featured_image_url}
-                alt={data && data[0]?.title}
-                className="w-full h-56 object-fit rounded-lg shadow-sm"
-              />
-            </div>
+          {data &&
+            data.length > 0 &&
+            data.slice(0, 3).map((article, index) => {
+              const isFocused = focusedIndex === index;
 
-            <div className="px-3">
-              <h2 className="text-lg font-semibold text-black leading-snug line-clamp-1">
-                {data && data[0]?.title}
-              </h2>
+              let x = 0;
+              let z = 0;
+              let rotate = 0;
 
-              <div className="flex items-center text-sm text-gray-600 mt-3 space-x-4">
-                <div className="flex items-center space-x-1">
-                  <Calendar className="w-4 h-4" />
-                  <span>
-                    {data?.[0]?.updated_at &&
-                      new Date(data[0].updated_at).toLocaleString()}
-                  </span>
-                </div>
-              </div>
+              if (hovered) {
+                if (focusedIndex === null) {
+                  x = index * 40;
+                  rotate = index * 4;
+                  z = data.length - index;
+                } else {
+                  if (isFocused) {
+                    x = 0;
+                    rotate = 0;
+                    z = 999;
+                  } else {
+                    const offset = index > focusedIndex ? index : index + 1;
+                    x = offset * 40;
+                    rotate = offset * 4;
+                    z = 998 - offset;
+                  }
+                }
+              }
 
-              <a
-                href={`/blogs/${data && data[0].id}`}
-                className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
-              >
-                Read more <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
-            </div>
-          </motion.div>
+              return (
+                <motion.div
+                  key={`blog-${index}`}
+                  onClick={() => setFocusedIndex(index)}
+                  animate={{ x, rotate, zIndex: z }}
+                  transition={{
+                    opacity: { duration: 0.3, ease: "easeInOut" },
+                  }}
+                  className="absolute w-full max-h-100 bg-white rounded-xl shadow-xl"
+                >
+                  <div className="p-2">
+                    <img
+                      src={article.featured_image_url}
+                      alt={article.title}
+                      className="w-full h-56 object-fit rounded-lg shadow-sm"
+                    />
+                  </div>
 
-          <motion.div
-            initial={{
-              opacity: 1,
-              x: 40,
-              rotate: 4,
-              zIndex: 2,
-            }}
-            animate={controls}
-            variants={{
-              initial: { opacity: 1, x: 40, rotate: 4 },
-              animate: { x: 0, rotate: 0, opacity: 0 },
-            }}
-            transition={{
-              x: { duration: 0.6, ease: "easeInOut", delay: 0.3 },
-              rotate: { duration: 0.6, ease: "easeInOut", delay: 0.3 },
-              opacity: { duration: 0.3, ease: "easeInOut", delay: 0.9 },
-            }}
-            className="absolute w-full max-h-100 bg-white rounded-xl shadow-xl"
-          >
-            <div className="p-2">
-              <img
-                src={data && data[1]?.featured_image_url}
-                alt={data && data[1]?.title}
-                className="w-full h-56 object-fit rounded-lg shadow-sm"
-              />
-            </div>
+                  <div className="px-3">
+                    <h2 className="text-lg font-semibold text-black leading-snug line-clamp-1">
+                      {article.title}
+                    </h2>
 
-            <div className="px-3">
-              <h2 className="text-lg font-semibold text-black leading-snug line-clamp-1">
-                {data && data[1]?.title}
-              </h2>
+                    <div className="flex items-center text-sm text-gray-600 mt-3 space-x-4">
+                      <div className="flex items-center space-x-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>
+                          {article.updated_at &&
+                            new Date(article.updated_at).toLocaleString()}
+                        </span>
+                      </div>
+                    </div>
 
-              <div className="flex items-center text-sm text-gray-600 mt-3 space-x-4">
-                <div className="flex items-center space-x-1">
-                  <Calendar className="w-4 h-4" />
-                  <span>
-                    {data?.[0]?.updated_at &&
-                      new Date(data[0].updated_at).toLocaleString()}
-                  </span>
-                </div>
-              </div>
-
-              <a
-                href={`/blogs/${data && data[0].id}`}
-                className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
-              >
-                Read more <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{
-              opacity: 1,
-              x: 80,
-              rotate: 8,
-              zIndex: 1,
-            }}
-            animate={controls}
-            variants={{
-              initial: { opacity: 1, x: 80, rotate: 8 },
-              animate: { x: 0, rotate: 0, opacity: 0 },
-            }}
-            transition={{
-              x: { duration: 0.6, ease: "easeInOut", delay: 1.2 },
-              rotate: { duration: 0.6, ease: "easeInOut", delay: 1.2 },
-              opacity: { duration: 0.3, ease: "easeInOut", delay: 1.5 },
-            }}
-            className="absolute w-full max-h-100 bg-white rounded-xl shadow-xl"
-          >
-            <div className="p-2">
-              <img
-                src={data && data[2]?.featured_image_url}
-                alt={data && data[2]?.title}
-                className="w-full h-56 object-fit rounded-lg shadow-sm"
-              />
-            </div>
-
-            <div className="px-3">
-              <h2 className="text-lg font-semibold text-black leading-snug line-clamp-1">
-                {data && data[2]?.title}
-              </h2>
-
-              <div className="flex items-center text-sm text-gray-600 mt-3 space-x-4">
-                <div className="flex items-center space-x-1">
-                  <Calendar className="w-4 h-4" />
-                  <span>
-                    {data?.[0]?.updated_at &&
-                      new Date(data[0].updated_at).toLocaleString()}
-                  </span>
-                </div>
-              </div>
-
-              <a
-                href={`/blogs/${data && data[0].id}`}
-                className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
-              >
-                Read more <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
-            </div>
-          </motion.div>
+                    <a
+                      href={`/blogs/${article.id}`}
+                      className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
+                    >
+                      Read more <ArrowRight className="ml-2 w-4 h-4" />
+                    </a>
+                  </div>
+                </motion.div>
+              );
+            })}
         </motion.div>
       </div>
     </section>

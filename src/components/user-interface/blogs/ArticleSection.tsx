@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { CalendarDays } from "lucide-react";
 import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
-import { motion } from "motion/react";
+import { motion, useAnimation, useInView } from "motion/react";
 
 interface RecentBlogProps {
   promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
@@ -57,12 +57,22 @@ function RecentBlogSkeleton() {
 
 export function RecentBlogs({ promises }: RecentBlogProps) {
   const [{ data }] = React.use(promises);
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ y: 0, opacity: 1 });
+    }
+  }, [inView]);
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-20 font-Inter text-black">
       <motion.h2
+        ref={ref}
         initial={{ y: 100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        animate={controls}
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="text-3xl md:text-4xl font-bold mb-8 font-PTSerif italic"
       >
@@ -79,8 +89,9 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data && data.length > 0 && data[0] && (
             <motion.div
+              ref={ref}
               initial={{ y: 100, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
+              animate={controls}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
               className="space-y-3"
             >
@@ -119,8 +130,9 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
           )}
 
           <motion.div
+            ref={ref}
             initial={{ y: 100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            animate={controls}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
             className="w-full h-full space-y-6 flex flex-col flex-1"
           >

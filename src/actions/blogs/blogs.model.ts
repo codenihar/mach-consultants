@@ -15,6 +15,7 @@ import { and, count, eq, gte, ilike, lte } from "drizzle-orm";
 import { ContentBlocksService } from "@/actions/content-blocks/content-blocks.service";
 import { HeaderBlocksService } from "@/actions/header-blocks/header-blocks.service";
 import { ParagraphBlocksService } from "@/actions/paragraph-blocks/paragraph-blocks.service";
+import { DateTime } from "luxon";
 
 export class BlogsModel {
   static async createBlog(
@@ -215,7 +216,7 @@ export class BlogsModel {
 
     const [newBlog] = await db
       .update(blogs)
-      .set({ ...rest })
+      .set({ ...rest, updated_at: DateTime.now().toJSDate() as Date })
       .where(eq(blogs.id, id))
       .returning();
 
