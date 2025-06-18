@@ -147,7 +147,7 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
                     <img
                       src={blog.featured_image_url}
                       alt={blog.title}
-                      className="w-full h-full object-fit rounded-xl shrink-0 hover:scale-102 transform-all duration-300"
+                      className="w-full max-h-36 h-full object-fit rounded-xl shrink-0 hover:scale-102 transform-all duration-300"
                     />
                   </div>
 

@@ -24,7 +24,7 @@ export function BlogForm({ type, onSubmit, initialData }: BlogFormProps) {
       },
       { block_order: 2, block_type: "paragraph", paragraphBlock: { text: "" } },
     ],
-    preference: initialData?.preference ?? 1,
+    preference: initialData?.preference ?? parseInt("0"),
     type: initialData?.type ?? "blog",
   });
 
@@ -157,35 +157,34 @@ export function BlogForm({ type, onSubmit, initialData }: BlogFormProps) {
         </select>
       </div>
 
-      {formData.type === "blog" && (
-        <div className="mb-6">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="preference"
-          >
-            Article Preference
-          </label>
+      <div className="mb-6">
+        <label
+          className="block text-gray-700 text-sm font-bold mb-2"
+          htmlFor="preference"
+        >
+          Article Preference
+        </label>
 
-          <select
-            id="preference"
-            name="preference"
-            value={formData.preference}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-              setFormData((prev) => ({
-                ...prev,
-                [e.target.name]: e.target.value,
-              }));
-            }}
-            className="p-2 text-gray-600 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500"
-            required
-          >
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-          </select>
-        </div>
-      )}
+        <select
+          id="preference"
+          name="preference"
+          value={formData.preference}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+            setFormData((prev) => ({
+              ...prev,
+              [e.target.name]: e.target.value,
+            }));
+          }}
+          className="p-2 text-gray-600 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500"
+          required
+        >
+          <option value={0}>0</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+        </select>
+      </div>
 
       <div className="mb-6">
         {formData.contentBlocks.length > 0 && (
@@ -303,7 +302,6 @@ export function BlogForm({ type, onSubmit, initialData }: BlogFormProps) {
         </a>
 
         <button
-          type="submit"
           disabled={pending}
           className={`cursor-pointer px-4 py-2 bg-gray-900 text-white rounded-3xl hover:bg-gray-700 transition ${
             pending && "opacity-70"

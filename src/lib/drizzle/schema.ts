@@ -18,7 +18,7 @@ export const blogs = pgTable("blogs", {
     .$type<"publication" | "blog">()
     .default("blog"),
   featured_image_url: text("featured_image_url"),
-  preference: integer("preference").notNull().default(1),
+  preference: integer("preference").notNull().default(0),
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow(),
   updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 });

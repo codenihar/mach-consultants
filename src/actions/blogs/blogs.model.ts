@@ -216,7 +216,10 @@ export class BlogsModel {
 
     const [newBlog] = await db
       .update(blogs)
-      .set({ ...rest, updated_at: DateTime.now().toJSDate() as Date })
+      .set({
+        ...rest,
+        updated_at: DateTime.now().toJSDate() as Date,
+      })
       .where(eq(blogs.id, id))
       .returning();
 

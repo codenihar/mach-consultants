@@ -22,7 +22,8 @@ export default async function NewBlog() {
             const response = await BlogsService.createBlog({
               title: formData.get("title") as string,
               featured_image_url: formData.get("featured_image_url") as string,
-              preference: parseInt(formData.get("preference") as string) || 1,
+              preference:
+                parseInt(formData.get("preference") as string) || parseInt("0"),
               type: formData.get("type") as "blog" | "publication",
               contentBlocks: contentBlocks as TContentBlockSchema[],
             });

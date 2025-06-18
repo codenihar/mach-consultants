@@ -38,7 +38,7 @@ function FeaturedBlogSkeleton() {
   );
 }
 
-const FeaturedBlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
+const PublicationCard: React.FC<BlogCardProps> = ({ blog, index }) => {
   const controls = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
@@ -78,13 +78,13 @@ const FeaturedBlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
           <div className="flex items-center">
             <Calendar className="w-4 h-4 mr-1" />
             <span>
-              {blog?.updated_at && new Date(blog.updated_at).toLocaleString()}
+              {blog?.updated_at && new Date(blog?.updated_at).toLocaleString()}
             </span>
           </div>
         </div>
 
         <a
-          href={`/blogs/${blog.id}`}
+          href={`/blogs/${blog?.id}`}
           className="cursor-pointer w-[max-content] flex items-center justify-center px-5 py-2 border border-gray-300 text-base font-medium text-gray-900 rounded-xl shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
         >
           Read more
@@ -95,7 +95,7 @@ const FeaturedBlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
   );
 };
 
-export const FeaturedBlogs = ({ promises }: FeaturedBlogProps) => {
+export const Publications = ({ promises }: FeaturedBlogProps) => {
   const [{ data }] = React.use(promises);
 
   return (
@@ -125,13 +125,21 @@ export const FeaturedBlogs = ({ promises }: FeaturedBlogProps) => {
         >
           {data &&
             data.length > 0 &&
-            data.map((blog, index) => (
-              <FeaturedBlogCard
-                key={`blog-${index}`}
-                blog={blog}
-                index={index}
-              />
-            ))}
+            data.map((blog, index) => {
+              if (!blog?.updated_at || !blog?.id) return;
+
+              return (
+                <PublicationCard
+                  key={`blog-${index}`}
+                  blog={{
+                    ...blog,
+                    id: blog.id ?? "",
+                    updated_at: blog.updated_at ?? new Date(),
+                  }}
+                  index={index}
+                />
+              );
+            })}
         </motion.div>
       </React.Suspense>
     </section>

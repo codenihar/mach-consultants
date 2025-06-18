@@ -35,7 +35,7 @@ export const blogSchema = z.object({
   featured_image_url: z.string(),
   type: z.enum(["blog", "publication"]).default("blog"),
   contentBlocks: z.array(contentBlockSchema).min(1),
-  preference: z.number().default(1),
+  preference: z.number().default(0),
   updated_at: z.coerce.date().optional(),
   created_at: z.coerce.date().optional(),
 });
@@ -58,7 +58,7 @@ export const blogSearchParamCache = createSearchParamsCache({
   blogId: parseAsString.withDefault(""),
   title: parseAsString.withDefault(""),
   type: parseAsString.withDefault(""),
-  preference: parseAsInteger.withDefault(1),
+  preference: parseAsInteger.withDefault(0),
   from: parseAsString.withDefault(""),
   to: parseAsString.withDefault(""),
 });

@@ -43,6 +43,13 @@
       "when": 1750137562592,
       "tag": "0005_previous_blob",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1750239975062,
+      "tag": "0006_faithful_night_thrasher",
+      "breakpoints": true
     }
   ]
 }
