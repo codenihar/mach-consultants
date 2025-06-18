@@ -11,21 +11,14 @@ interface BlogPageProps {
 
 export function BlogsAndPublications({ promises }: BlogPageProps) {
   const [{ data }] = React.use(promises);
-  const [hovered, setHovered] = React.useState<boolean>(false);
+  const [hovered, setHovered] = React.useState<boolean>(true);
   const [focusedIndex, setFocusedIndex] = React.useState<number | null>(null);
 
-  const controls = useAnimation();
-
   useEffect(() => {
-    const sequence = async () => {
-      while (true) {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        await controls.start("animate");
-        await controls.set("initial");
-      }
-    };
-    sequence();
-  }, [controls]);
+    setTimeout(() => {
+      setHovered(false);
+    }, 500);
+  }, []);
 
   return (
     <section className="bg-[#f4f4f4] px-8 pt-42 py-20 font-PTSerif">

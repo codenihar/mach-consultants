@@ -98,15 +98,26 @@ const PublicationCard: React.FC<BlogCardProps> = ({ blog, index }) => {
 export const Publications = ({ promises }: FeaturedBlogProps) => {
   const [{ data }] = React.use(promises);
 
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ y: 0, opacity: 1 });
+    }
+  }, [inView]);
+
   return (
     <section className="max-w-7xl mx-auto px-4 py-12 font-Inter text-black">
       <motion.h2
+        ref={ref}
         initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        animate={controls}
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="text-3xl md:text-4xl font-bold mb-8 font-PTSerif italic"
       >
-        Featured Blogs
+        Publications
       </motion.h2>
 
       <React.Suspense
