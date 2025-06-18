@@ -10,7 +10,7 @@ interface MiddleSectionProps {
 
 export function MiddleSection({ promises }: MiddleSectionProps) {
   const [{ data }] = React.use(promises);
-  const [hovered, setHovered] = React.useState<boolean>(true);
+
   const [focusedIndex, setFocusedIndex] = React.useState<number | null>(null);
 
   return (
@@ -91,8 +91,6 @@ export function MiddleSection({ promises }: MiddleSectionProps) {
 
         <div className="flex-1">
           <motion.div
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -108,22 +106,20 @@ export function MiddleSection({ promises }: MiddleSectionProps) {
                 let z = 0;
                 let rotate = 0;
 
-                if (hovered) {
-                  if (focusedIndex === null) {
-                    x = index * 40;
-                    rotate = index * 4;
-                    z = data.length - index;
+                if (focusedIndex === null) {
+                  x = index * 40;
+                  rotate = index * 4;
+                  z = data.length - index;
+                } else {
+                  if (isFocused) {
+                    x = 0;
+                    rotate = 0;
+                    z = 999;
                   } else {
-                    if (isFocused) {
-                      x = 0;
-                      rotate = 0;
-                      z = 999;
-                    } else {
-                      const offset = index > focusedIndex ? index : index + 1;
-                      x = offset * 40;
-                      rotate = offset * 4;
-                      z = 998 - offset;
-                    }
+                    const offset = index > focusedIndex ? index : index + 1;
+                    x = offset * 40;
+                    rotate = offset * 4;
+                    z = 998 - offset;
                   }
                 }
 
