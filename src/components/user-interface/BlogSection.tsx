@@ -137,7 +137,7 @@ export function Blogs({ promises }: BlogSectionProps) {
 
                     <a
                       href={`/blogs/${blog.id}`}
-                      className="inline-flex items-center text-pink-600 font-medium text-sm sm:text-base hover:underline mt-auto"
+                      className="inline-flex items-center text-gray-600 font-medium text-sm sm:text-base mt-auto"
                     >
                       Read More
                       <ChevronRight className="w-4 h-4 ml-1" />
@@ -167,7 +167,7 @@ export function Blogs({ promises }: BlogSectionProps) {
         >
           <a
             href="/blogs"
-            className="inline-flex items-center px-6 py-3 bg-pink-500 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-300"
+            className="inline-flex items-center px-6 py-3 bg-black hover:bg-gray-800 text-white font-medium rounded-lg transition-colors duration-300"
           >
             View All Articles
             <ChevronRight className="w-4 h-4 ml-2" />

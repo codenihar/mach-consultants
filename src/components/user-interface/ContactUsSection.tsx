@@ -4,12 +4,8 @@ import { MoveUpRight } from "lucide-react";
 
 export function ConsultationForm() {
   return (
-    <section
-      id="contactUs"
-      className="py-12 md:py-16 lg:py-20 bg-pink-50/40 px-4 sm:px-6 md:px-8 font-Inter"
-    >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
-        {/* Image Section */}
+    <section id="contactUs" className="py-12 px-4 sm:px-6 md:px-8 font-Inter">
+      <div className="bg-black py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 rounded-4xl max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         <motion.div
           initial={{
             x: -100,
@@ -37,7 +33,6 @@ export function ConsultationForm() {
           </div>
         </motion.div>
 
-        {/* Form Section */}
         <div className="order-1 lg:order-2 w-full">
           <motion.div
             initial={{
@@ -56,13 +51,13 @@ export function ConsultationForm() {
             viewport={{ once: true }}
             className="max-w-lg"
           >
-            <h3 className="text-pink-600 text-sm md:text-md lg:text-lg font-semibold mb-2">
+            <h3 className="text-[#f6f4f4] text-sm md:text-md lg:text-lg font-semibold mb-2">
               Free Consultation
             </h3>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 leading-tight font-PTSerif italic">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-[#f6f4f4] leading-tight font-PTSerif italic">
               Contact us now for a free consultation
             </h2>
-            <p className="text-gray-700 my-4 sm:my-0 text-base sm:text-md">
+            <p className="text-gray-300 my-4 sm:my-0 text-base sm:text-md">
               Consultic can handle tech advisory help decide upon the project
               rationale. Leave your contacts below and we'll get back to you
               within 24 hours.
@@ -138,7 +133,7 @@ export function ConsultationForm() {
                   className="cursor-pointer mt-1.5"
                   required
                 />
-                <label htmlFor="checkbox" className="text-black">
+                <label htmlFor="checkbox" className="text-[#f6f4f4]">
                   GDPR consent: I authorize MACH to use my data to respond to my
                   request
                 </label>
@@ -147,7 +142,7 @@ export function ConsultationForm() {
               <div className="max-sm:col-span-2 mt-2">
                 <button
                   type="submit"
-                  className="w-[max-content] px-6 py-3 bg-pink-500 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-[max-content] px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white font-semibold rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
                 >
                   Make An Appointment
                   <MoveUpRight className="w-4 h-4" />

@@ -10,40 +10,30 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    icon: <ShieldCheck className="text-pink-600 w-10 h-10" />,
+    icon: <ShieldCheck className="text-[#0562a3] w-10 h-10" />,
     title: "Professional Service",
     description:
       "Our team of insurance professionals have the knowledge, skills, markets and desire necessary to provide.",
   },
   {
-    icon: <Clock className="text-pink-600 w-10 h-10" />,
+    icon: <Clock className="text-[#0562a3] w-10 h-10" />,
     title: "Ultra Fast Support",
     description:
       "Our experienced staff of garage insurance, auto dealer bond and commercial insurance experts.",
   },
   {
-    icon: <Star className="text-pink-600 w-10 h-10" />,
+    icon: <Star className="text-[#0562a3] w-10 h-10" />,
     title: "Top Rated Insurance",
     description:
       "We have the best selection of policies and carriers to fill any need. Let us show you how we can save you money.",
   },
   {
-    icon: <Building2 className="text-pink-600 w-10 h-10" />,
+    icon: <Building2 className="text-[#0562a3] w-10 h-10" />,
     title: "Comprehensive Coverage",
     description:
       "Our policies cover a wide range of needs, ensuring you are protected in every aspect.",
   },
 ];
-
-const getOffsetX = (index: number) => {
-  const offsets = [0, -300, 300, 0];
-  return offsets[index] || 0;
-};
-
-const getOffsetY = (index: number) => {
-  const offsets = [260, 0, 0, -260];
-  return offsets[index] || 0;
-};
 
 export function WhyChooseUs() {
   return (
@@ -113,19 +103,17 @@ export function WhyChooseUs() {
             {features.map((feature, index) => (
               <motion.div
                 initial={{
-                  x: getOffsetX(index),
-                  y: getOffsetY(index),
+                  y: 100,
                   opacity: 0,
                 }}
                 whileInView={{
-                  x: 0,
                   y: 0,
                   opacity: 1,
                 }}
                 transition={{
                   duration: 0.6,
                   ease: "easeInOut",
-                  delay: 0.2,
+                  delay: index * 0.1,
                 }}
                 viewport={{ once: true }}
                 key={`feat-${index}`}

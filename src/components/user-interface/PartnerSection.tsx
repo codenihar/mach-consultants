@@ -1,4 +1,5 @@
 import React from "react";
+import * as motion from "motion/react-client";
 
 const partners: string[] = [
   "https://mach-consultants.com/wp-content/uploads/2024/05/ISEOR-Smaller.jpg",
@@ -14,21 +15,53 @@ export function Partners() {
   return (
     <section className="py-4 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 font-Inter">
       <div className="max-w-7xl mx-auto bg-black rounded-3xl py-8">
-        {/* Heading */}
-        <h2 className="text-2xl lg:text-3xl text-white text-center font-semibold pb-8 font-PTSerif italic">
+        <motion.h2
+          initial={{
+            y: 100,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.3,
+            ease: "easeOut",
+            delay: 0.1,
+          }}
+          className="text-2xl lg:text-3xl text-white text-center font-semibold pb-8 font-PTSerif italic"
+        >
           Our Partners
-        </h2>
+        </motion.h2>
 
         {/* Cards */}
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-7 gap-3 sm:gap-4 md:gap-8 py-2">
           {partners &&
             partners.map((partner, idx) => (
-              <div
+              <motion.div
                 key={idx}
                 className="cursor-pointer text-center transition-all duration-300"
               >
-                <img src={partner} alt="partner-image" />
-              </div>
+                <motion.img
+                  initial={{
+                    y: 150,
+                    opacity: 0,
+                  }}
+                  whileInView={{
+                    y: 0,
+                    opacity: 1,
+                  }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.3,
+                    ease: "easeOut",
+                    delay: idx * 0.1,
+                  }}
+                  src={partner}
+                  alt="partner-image"
+                />
+              </motion.div>
             ))}
         </div>
       </div>

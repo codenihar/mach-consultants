@@ -193,7 +193,7 @@ export function AboutUs() {
               ease: "easeOut",
               delay: 0.1,
             }}
-            className="cursor-pointer bg-pink-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition"
+            className="cursor-pointer bg-black text-white px-4 py-2 rounded-md font-semibold transition"
           >
             <a className="w-full flex items-center gap-2" href="/about">
               Learn More <MoveUpRight className="w-4 h-4" />
