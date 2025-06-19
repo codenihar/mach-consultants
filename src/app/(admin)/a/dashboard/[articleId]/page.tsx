@@ -6,42 +6,6 @@ import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import React from "react";
 
-export function BlogFormSkeleton() {
-  return (
-    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-300 space-y-6">
-      <div>
-        <Skeleton className="h-4 w-24 mb-2" />
-        <Skeleton className="h-10 w-full rounded-md" />
-      </div>
-
-      <div>
-        <Skeleton className="h-4 w-24 mb-2" />
-        <Skeleton className="h-10 w-full rounded-md" />
-      </div>
-
-      <div>
-        <Skeleton className="h-4 w-32 mb-2" />
-        <Skeleton className="h-10 w-full rounded-md" />
-      </div>
-
-      <div>
-        <Skeleton className="h-4 w-32 mb-2" />
-        <Skeleton className="h-10 w-full rounded-md" />
-      </div>
-
-      <div>
-        <Skeleton className="h-4 w-24 mb-2" />
-        <Skeleton className="h-10 w-full rounded-md" />
-      </div>
-
-      <div>
-        <Skeleton className="h-4 w-32 mb-2" />
-        <Skeleton className="h-10 w-full rounded-md" />
-      </div>
-    </div>
-  );
-}
-
 export default async function UpdateBlog({
   params,
 }: {
@@ -58,7 +22,41 @@ export default async function UpdateBlog({
       <div className="max-w-6xl mx-auto py-10">
         <h2 className="text-lg text-gray-700 font-bold my-4">Update Blog</h2>
 
-        <React.Suspense fallback={<BlogFormSkeleton />}>
+        <React.Suspense
+          fallback={
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-300 space-y-6">
+              <div>
+                <Skeleton className="h-4 w-24 mb-2" />
+                <Skeleton className="h-10 w-full rounded-md" />
+              </div>
+
+              <div>
+                <Skeleton className="h-4 w-24 mb-2" />
+                <Skeleton className="h-10 w-full rounded-md" />
+              </div>
+
+              <div>
+                <Skeleton className="h-4 w-32 mb-2" />
+                <Skeleton className="h-10 w-full rounded-md" />
+              </div>
+
+              <div>
+                <Skeleton className="h-4 w-32 mb-2" />
+                <Skeleton className="h-10 w-full rounded-md" />
+              </div>
+
+              <div>
+                <Skeleton className="h-4 w-24 mb-2" />
+                <Skeleton className="h-10 w-full rounded-md" />
+              </div>
+
+              <div>
+                <Skeleton className="h-4 w-32 mb-2" />
+                <Skeleton className="h-10 w-full rounded-md" />
+              </div>
+            </div>
+          }
+        >
           <BlogForm
             onSubmit={async (formData) => {
               "use server";
