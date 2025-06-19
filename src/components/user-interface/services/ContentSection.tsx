@@ -86,7 +86,7 @@ export function ContentSection({ service }: Service) {
         <div className="order-1 md:order-2 flex justify-center">
           <motion.img
             initial={{
-              y: 100,
+              y: 200,
               opacity: 0,
             }}
             whileInView={{
