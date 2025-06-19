@@ -1,3 +1,5 @@
+import * as motion from "motion/react-client";
+
 type Service = {
   title: string;
   desc: string;
@@ -27,16 +29,61 @@ export function ServiceSection() {
     <section className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 lg:py-24 bg-white font-Inter">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-8 sm:gap-10 md:gap-12">
         <div className="w-full lg:flex-1 space-y-4 sm:space-y-5 md:space-y-6">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-PTSerif italic tracking-tight text-black">
+          <motion.h2
+            initial={{
+              y: 100,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-PTSerif italic tracking-tight text-black"
+          >
             Our Services
-          </h2>
-          <p className="text-gray-700 text-md leading-relaxed max-w-md py-2">
+          </motion.h2>
+          <motion.p
+            initial={{
+              y: 100,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 0.1,
+            }}
+            className="text-gray-700 text-md leading-relaxed max-w-md py-2"
+          >
             At Britto Charette, we offer a comprehensive range of services to
             bring your interior design vision to life. Each service is tailored
             to meet the unique needs of our clients, ensuring a seamless and
             satisfying experience.
-          </p>
-          <img
+          </motion.p>
+          <motion.img
+            initial={{
+              y: 100,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 0.2,
+            }}
             src="https://mach-consultants.com/wp-content/uploads/2024/05/pexels-karolina-grabowska-4195409-1.jpg"
             alt="Our Services"
             className="rounded-xl sm:rounded-2xl md:rounded-[3rem] w-full h-auto object-cover mt-4 sm:mt-6"
@@ -47,16 +94,46 @@ export function ServiceSection() {
         <div className="w-full lg:flex-1 flex flex-col lg:items-end space-y-2 sm:space-y-3">
           {services.map((item, index) => (
             <div key={index}>
-              <h3
+              <motion.h3
+                initial={{
+                  y: 100,
+                  opacity: 0,
+                }}
+                whileInView={{
+                  y: 0,
+                  opacity: 1,
+                }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  delay: index * 0.1,
+                }}
                 className={`leading-tight text-lg sm:text-xl md:text-2xl max-w-md text-black font-bold tracking-tight mb-2 sm:mb-3 md:mb-4 font-PTSerif italic ${
                   index > 0 ? "mt-6 sm:mt-7 md:mt-8" : ""
                 }`}
               >
                 {item.title}
-              </h3>
-              <p className="text-gray-700 text-xs sm:text-sm md:text-base max-w-md mt-1 sm:mt-2 lg:line-clamp-3">
+              </motion.h3>
+              <motion.p
+                initial={{
+                  y: 100,
+                  opacity: 0,
+                }}
+                whileInView={{
+                  y: 0,
+                  opacity: 1,
+                }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  delay: index * 0.1,
+                }}
+                className="text-gray-700 text-xs sm:text-sm md:text-base max-w-md mt-1 sm:mt-2 lg:line-clamp-3"
+              >
                 {item.desc}
-              </p>
+              </motion.p>
             </div>
           ))}
         </div>

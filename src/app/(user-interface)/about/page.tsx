@@ -9,7 +9,6 @@ const About = () => {
       <AboutHeroSection />
       <PrincipalsSection />
       <ServiceSection />
-      <FooterSection />
     </main>
   );
 };

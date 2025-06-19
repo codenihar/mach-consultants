@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
 import { motion, useAnimation } from "motion/react";
