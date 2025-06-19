@@ -74,13 +74,14 @@ const Services = () => {
   return (
     <main className="bg-white">
       <HeroSection />
-      <div className="relative">
+
+      <div className="relative py-10">
         {services &&
           services.length > 0 &&
           services.map((service, index) => (
             <div
               key={`service-${index}`}
-              className={`sticky ${index === 0 ? "top-25" : "top-0"}`}
+              className={`sticky ${index === 0 ? "top-25" : "top-0"} -mt-4`}
             >
               <ContentSection service={service} />
             </div>
