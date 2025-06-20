@@ -85,7 +85,7 @@ export function Blogs({ promises }: BlogSectionProps) {
             </div>
           }
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {data &&
               data.length > 0 &&
               data.slice(0, 3).map((blog, index) => (
@@ -106,18 +106,18 @@ export function Blogs({ promises }: BlogSectionProps) {
                     ease: "easeInOut",
                   }}
                   key={`blog-${index}`}
-                  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col h-full"
+                  className="bg-white rounded-lg shadow-lg transition-shadow duration-300 border border-gray-300 flex flex-col h-full overflow-hidden"
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={blog.featured_image_url}
                       alt={blog.title}
-                      className="w-full max-h-56 h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full max-h-56 h-full object-fit transition-transform duration-500 hover:scale-105"
                       loading="lazy"
                     />
                   </div>
 
-                  <div className="p-5 sm:p-6 flex flex-col flex-grow">
+                  <div className="px-3 py-4 flex flex-col flex-grow">
                     <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 leading-snug line-clamp-1 font-PTSerif italic">
                       {blog.title}
                     </h3>

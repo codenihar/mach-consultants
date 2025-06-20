@@ -56,7 +56,7 @@ export function BlogsAndPublications({ promises }: BlogPageProps) {
               const isFocused = focusedIndex === index;
 
               let x = 0;
-              let z = 0;
+              let z = data.length - index;
               let rotate = 0;
 
               if (hovered) {

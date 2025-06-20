@@ -14,7 +14,7 @@ const partners: string[] = [
 export function Partners() {
   return (
     <section className="py-4 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 font-Inter">
-      <div className="max-w-7xl mx-auto bg-black rounded-3xl py-8">
+      <div className="max-w-7xl mx-auto bg-black rounded-3xl max-md:px-4 md:px-8 lg:px-0 py-8">
         <motion.h2
           initial={{
             y: 100,
@@ -36,7 +36,7 @@ export function Partners() {
         </motion.h2>
 
         {/* Cards */}
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-7 gap-3 sm:gap-4 md:gap-8 py-2">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-7 gap-6 md:gap-4 lg:gap-8 py-2">
           {partners &&
             partners.map((partner, idx) => (
               <motion.div

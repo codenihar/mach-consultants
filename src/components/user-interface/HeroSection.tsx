@@ -5,10 +5,10 @@ import React from "react";
 export function Hero() {
   return (
     <section className="w-full flex items-center px-4 sm:px-6 md:px-8 lg:px-16 pt-24 pb-48 md:pt-36 font-PTSerif">
-      <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-4 md:gap-12 lg:gap-20 w-full">
+      <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-20 w-full">
         {/* Left Section */}
         <div className="flex-1 w-full mt-8 lg:mt-0">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 sm:mb-6 leading-15 md:leading-14 lg:leading-16 font-bold italic overflow-hidden">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 sm:mb-6 md:leading-15 font-bold italic overflow-hidden">
             <motion.p
               initial={{
                 x: 100,
@@ -163,7 +163,7 @@ export function Hero() {
             <img
               src="/images/hero.jpg"
               alt="Family with insurance"
-              className="w-full h-160 object-cover"
+              className="w-full h-100 md:h-160 object-cover"
             />
           </motion.div>
         </div>

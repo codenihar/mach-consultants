@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="bg-black text-[#f6f4f4] px-4 md:px-8 xl:px-0 pb-8 pt-16 md:pt-24 font-Inter">
       <div className="max-w-[120rem] mx-auto">
         {/* Top CTA Section */}
-        <div className="flex justify-between px-4 sm:px-6 py-12 md:py-16 overflow-hidden">
+        <div className="flex flex-col lg:flex-row justify-between px-4 sm:px-6 py-12 md:py-16 overflow-hidden">
           <motion.div
             initial={{
               x: -10,
