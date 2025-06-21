@@ -56,6 +56,9 @@ export function RecentBlogs() {
   if (!promises) return;
 
   const [{ data }] = React.use(promises);
+  if (!data) return;
+
+  const mainArticle = data.find((a) => a.preference === 9);
 
   const controls = useAnimation();
   const ref = useRef(null);
@@ -87,7 +90,7 @@ export function RecentBlogs() {
         }
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {data && data.length > 0 && data[0] && (
+          {mainArticle && (
             <motion.div
               ref={ref}
               initial={{ y: 100, opacity: 0 }}
@@ -100,28 +103,28 @@ export function RecentBlogs() {
             rounded-2xl overflow-hidden shadow-sm"
               >
                 <img
-                  src={data[0].featured_image_url}
-                  alt={data[0].title}
-                  className="w-full h-72 object-cover rounded-2xl hover:scale-102 transform-all duration-300"
+                  src={mainArticle.featured_image_url}
+                  alt={mainArticle.title}
+                  className="w-full h-80 object-fit rounded-2xl hover:scale-102 transform-all duration-300"
                 />
               </div>
 
               <h3 className="text-lg md:text-xl lg:text-3xl font-semibold mt-4 line-clamp-2 font-PTSerif italic">
-                {data[0].title}
+                {mainArticle.title}
               </h3>
 
               <div className="flex items-center gap-4 text-sm mt-2 flex-wrap">
                 <div className="flex items-center gap-1">
                   <CalendarDays className="w-4 h-4" />
                   <span>
-                    {data?.[0]?.updated_at &&
-                      new Date(data[0].updated_at).toLocaleString()}
+                    {mainArticle.updated_at &&
+                      new Date(mainArticle.updated_at).toLocaleString()}
                   </span>
                 </div>
               </div>
 
               <a
-                href={`/blogs/${data[0].id}`}
+                href={`/blogs/${mainArticle.id}`}
                 className="cursor-pointer w-[max-content] mt-2 lg:mt-4 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition text-sm flex items-center gap-2"
               >
                 Read more →
@@ -138,50 +141,52 @@ export function RecentBlogs() {
           >
             {data &&
               data.length > 0 &&
-              data.slice(7, 11).map((blog, index) => (
-                <div
-                  key={index}
-                  className="flex-1 grid grid-cols-2 gap-3 md:gap-6 justify-between items-between"
-                >
-                  <div className="col-span-2 md:col-span-1 relative overflow-hidden rounded-xl border border-gray-300">
-                    <img
-                      src={blog.featured_image_url}
-                      alt={blog.title}
-                      className="w-full h-auto md:max-h-36 object-cover rounded-xl shrink-0 hover:scale-102 transform-all duration-300"
-                    />
-                  </div>
+              data
+                .filter((a) => [7, 8, 10].includes(a.preference))
+                .map((blog, index) => (
+                  <div
+                    key={index}
+                    className="flex-1 grid grid-cols-2 gap-3 md:gap-6 justify-between items-between"
+                  >
+                    <div className="col-span-2 md:col-span-1 relative overflow-hidden rounded-xl border border-gray-300">
+                      <img
+                        src={blog.featured_image_url}
+                        alt={blog.title}
+                        className="w-full h-auto md:max-h-36 object-cover rounded-xl shrink-0 hover:scale-102 transform-all duration-300"
+                      />
+                    </div>
 
-                  <div className="col-span-2 md:col-span-1 flex flex-col">
-                    <h4 className="text-md md:text-md lg:text-xl font-semibold line-clamp-1 font-PTSerif italic">
-                      {blog.title}
-                    </h4>
+                    <div className="col-span-2 md:col-span-1 flex flex-col">
+                      <h4 className="text-md md:text-md lg:text-xl font-semibold line-clamp-1 font-PTSerif italic">
+                        {blog.title}
+                      </h4>
 
-                    <div className="flex items-center gap-3 text-xs lg:text-sm text-gray-600 my-2 flex-wrap">
-                      <div className="flex items-center gap-1 text-sm">
-                        <CalendarDays className="w-4 h-4" />
-                        <span>
-                          {data?.[0]?.updated_at &&
-                            new Date(data[0].updated_at).toLocaleString()}
-                        </span>
+                      <div className="flex items-center gap-3 text-xs lg:text-sm text-gray-600 my-2 flex-wrap">
+                        <div className="flex items-center gap-1 text-sm">
+                          <CalendarDays className="w-4 h-4" />
+                          <span>
+                            {data?.[0]?.updated_at &&
+                              new Date(data[0].updated_at).toLocaleString()}
+                          </span>
+                        </div>
                       </div>
+
+                      <a
+                        href={`/blogs/${blog.id}`}
+                        className="max-md:hidden cursor-pointer mt-2 px-4 py-2 text-sm border border-gray-300 rounded-md hover:bg-gray-100 transition flex items-center gap-1 w-fit"
+                      >
+                        Read more →
+                      </a>
                     </div>
 
                     <a
                       href={`/blogs/${blog.id}`}
-                      className="max-md:hidden cursor-pointer mt-2 px-4 py-2 text-sm border border-gray-300 rounded-md hover:bg-gray-100 transition flex items-center gap-1 w-fit"
+                      className="md:hidden w-full col-span-2 cursor-pointer px-3 py-1 text-sm border border-gray-300 rounded-full hover:bg-gray-100 transition flex justify-center items-center gap-1"
                     >
                       Read more →
                     </a>
                   </div>
-
-                  <a
-                    href={`/blogs/${blog.id}`}
-                    className="md:hidden w-full col-span-2 cursor-pointer px-3 py-1 text-sm border border-gray-300 rounded-full hover:bg-gray-100 transition flex justify-center items-center gap-1"
-                  >
-                    Read more →
-                  </a>
-                </div>
-              ))}
+                ))}
           </motion.div>
         </div>
       </React.Suspense>

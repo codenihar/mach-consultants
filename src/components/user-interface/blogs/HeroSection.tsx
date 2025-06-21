@@ -52,75 +52,77 @@ export function BlogsAndPublications() {
         >
           {data &&
             data.length > 0 &&
-            data.slice(0, 3).map((article, index) => {
-              const isFocused = focusedIndex === index;
+            data
+              .filter((a) => [2, 3, 4].includes(a.preference))
+              .map((article, index) => {
+                const isFocused = focusedIndex === index;
 
-              let x = 0;
-              let z = data.length - index;
-              let rotate = 0;
+                let x = 0;
+                let z = data.length - index;
+                let rotate = 0;
 
-              if (hovered) {
-                if (focusedIndex === null) {
-                  x = index * 40;
-                  rotate = index * 4;
-                  z = data.length - index;
-                } else {
-                  if (isFocused) {
-                    x = 0;
-                    rotate = 0;
-                    z = 999;
+                if (hovered) {
+                  if (focusedIndex === null) {
+                    x = index * 40;
+                    rotate = index * 4;
+                    z = data.length - index;
                   } else {
-                    const offset = index > focusedIndex ? index : index + 1;
-                    x = offset * 40;
-                    rotate = offset * 4;
-                    z = 998 - offset;
+                    if (isFocused) {
+                      x = 0;
+                      rotate = 0;
+                      z = 999;
+                    } else {
+                      const offset = index > focusedIndex ? index : index + 1;
+                      x = offset * 40;
+                      rotate = offset * 4;
+                      z = 998 - offset;
+                    }
                   }
                 }
-              }
 
-              return (
-                <motion.div
-                  key={`blog-${index}`}
-                  onClick={() => setFocusedIndex(index)}
-                  animate={{ x, rotate, zIndex: z }}
-                  transition={{
-                    opacity: { duration: 0.3, ease: "easeInOut" },
-                  }}
-                  className="absolute w-full max-h-100 bg-white rounded-xl shadow-xl"
-                >
-                  <div className="p-2">
-                    <img
-                      src={article.featured_image_url}
-                      alt={article.title}
-                      className="w-full h-56 object-fit rounded-lg shadow-sm"
-                    />
-                  </div>
-
-                  <div className="px-3">
-                    <h2 className="text-lg font-semibold text-black leading-snug line-clamp-1">
-                      {article.title}
-                    </h2>
-
-                    <div className="flex items-center text-sm text-gray-600 mt-3 space-x-4">
-                      <div className="flex items-center space-x-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>
-                          {article.updated_at &&
-                            new Date(article.updated_at).toLocaleString()}
-                        </span>
-                      </div>
+                return (
+                  <motion.div
+                    key={`blog-${index}`}
+                    onClick={() => setFocusedIndex(index)}
+                    animate={{ x, rotate, zIndex: z }}
+                    transition={{
+                      opacity: { duration: 0.3, ease: "easeInOut" },
+                    }}
+                    className="absolute w-full max-h-100 bg-white rounded-xl shadow-xl"
+                  >
+                    <div className="p-2">
+                      <img
+                        src={article.featured_image_url}
+                        alt={article.title}
+                        className="w-full h-56 object-fit rounded-lg shadow-sm"
+                      />
                     </div>
 
-                    <a
-                      href={`/blogs/${article.id}`}
-                      className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
-                    >
-                      Read more <ArrowRight className="ml-2 w-4 h-4" />
-                    </a>
-                  </div>
-                </motion.div>
-              );
-            })}
+                    <div className="px-3">
+                      <h2 className="text-lg font-semibold text-black leading-snug line-clamp-1">
+                        {article.title}
+                      </h2>
+
+                      <div className="flex items-center text-sm text-gray-600 mt-3 space-x-4">
+                        <div className="flex items-center space-x-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>
+                            {article.updated_at &&
+                              new Date(article.updated_at).toLocaleString()}
+                          </span>
+                        </div>
+                      </div>
+
+                      <a
+                        href={`/blogs/${article.id}`}
+                        className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
+                      >
+                        Read more <ArrowRight className="ml-2 w-4 h-4" />
+                      </a>
+                    </div>
+                  </motion.div>
+                );
+              })}
         </motion.div>
       </div>
     </section>
