@@ -27,7 +27,7 @@ export function BlogsAndPublications() {
             initial={{ y: 75, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-black"
+            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-black"
           >
             Publications And Blogs
           </motion.h1>
