@@ -4,11 +4,11 @@ import * as motion from "motion/react-client";
 const partners: string[] = [
   "https://mach-consultants.com/wp-content/uploads/2024/05/ISEOR-Smaller.jpg",
   "https://mach-consultants.com/wp-content/uploads/2022/05/aec_logo_en.jpg",
-  "https://mach-consultants.com/wp-content/uploads/2024/05/apave.jpg",
+  "/images/apave.png",
   "https://mach-consultants.com/wp-content/uploads/2022/05/LRI.jpg",
   "https://mach-consultants.com/wp-content/uploads/2022/05/UBYFOL.jpg",
-  "https://mach-consultants.com/wp-content/uploads/2024/05/ilo-logo.png",
-  "https://mach-consultants.com/wp-content/uploads/2024/05/PDP-logo-high-res-scaled.jpg",
+  "/images/ilp.png",
+  "/images/pdp.jpg",
 ];
 
 export function Partners() {
@@ -60,7 +60,7 @@ export function Partners() {
                   }}
                   src={partner}
                   alt="partner-image"
-                  className="rounded-md overflow-hidden"
+                  className="h-35 w-35 object-fit rounded-full overflow-hidden shadow-xl"
                 />
               </motion.div>
             ))}

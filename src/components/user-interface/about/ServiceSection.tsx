@@ -1,3 +1,4 @@
+import { ChevronRight } from "lucide-react";
 import * as motion from "motion/react-client";
 
 type Service = {
@@ -64,11 +65,13 @@ export function ServiceSection() {
             }}
             className="text-gray-700 text-md leading-relaxed max-w-md py-2"
           >
-            At Britto Charette, we offer a comprehensive range of services to
-            bring your interior design vision to life. Each service is tailored
-            to meet the unique needs of our clients, ensuring a seamless and
-            satisfying experience.
+            We offer specialized consulting services designed to unlock your
+            enterprise's potential and drive immediate, sustainable performance
+            improvement. Our methodologies, including CODE, DPIE, STAR, OMC,
+            BRD, and BUTTERS, address diverse organizational and development
+            needs.
           </motion.p>
+
           <motion.img
             initial={{
               y: 100,
@@ -138,6 +141,32 @@ export function ServiceSection() {
           ))}
         </div>
       </div>
+
+      <motion.div
+        initial={{
+          y: 100,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 0.3,
+          ease: "easeOut",
+          delay: 0.1,
+        }}
+        className="text-center mt-10 md:mt-14"
+      >
+        <a
+          href="/services"
+          className="inline-flex items-center px-6 py-3 bg-black hover:bg-gray-800 text-white font-medium rounded-lg transition-colors duration-300"
+        >
+          Read More...
+          <ChevronRight className="w-4 h-4 ml-2" />
+        </a>
+      </motion.div>
     </section>
   );
 }

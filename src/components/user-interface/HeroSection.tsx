@@ -1,4 +1,4 @@
-import { Cog, UserRoundCheck } from "lucide-react";
+import { Cog } from "lucide-react";
 import * as motion from "motion/react-client";
 import React from "react";
 
@@ -125,7 +125,7 @@ export function Hero() {
                 ease: "easeOut",
                 delay: 0.3,
               }}
-              href="/#contactUs"
+              href="/services"
               className="flex items-center justify-center gap-4 bg-black hover:bg-gray-800 text-white px-5 py-3 rounded-md ransition cursor-pointer w-[max-content] text-xl overflow-hidden"
             >
               Our Services

@@ -27,7 +27,7 @@ export function AboutUs() {
             className="absolute top-10 z-0"
           >
             <img
-              src="https://mach-consultants.com/wp-content/uploads/elementor/thumbs/hector-martinez-110928-unsplash-qnx3j9a0ezt5n73lv890o79c7yej7rts0tvg9luoc8.jpg"
+              src="images/about-us-1.png"
               alt="Happy family"
               className="w-72 md:w-100 md:h-80 object-cover rounded-xl shadow-lg"
             />
@@ -52,7 +52,7 @@ export function AboutUs() {
             className="absolute left-0 bottom-14 md:bottom-10 md:right-36 lg:right-12 z-10 overflow-hidden"
           >
             <img
-              src="https://mach-consultants.com/wp-content/uploads/elementor/thumbs/scott-graham-5fNmWej4tAA-unsplash-scaled-ql5dkfej39leypplv180564klk593emq00gt6pjx6g.jpg"
+              src="/images/about-us-2.jpg"
               alt="Moving boxes"
               className="w-64 md:w-96 md:h-80 object-cover rounded-xl shadow-md"
             />

@@ -135,8 +135,9 @@ export function Footer({ promises }: FooterProps) {
                   viewport={{ once: true }}
                   className="text-base sm:text-lg max-w-md"
                 >
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
+                  Need expert guidance for your project's vision and rationale?
+                  Submit your contact info below; we'll reach out within 24
+                  hours.
                 </motion.p>
 
                 <motion.div
@@ -264,9 +265,10 @@ export function Footer({ promises }: FooterProps) {
                 viewport={{ once: true }}
                 className="text-gray-300 text-lg leading-relaxed lg:max-w-xs"
               >
-                At Avenues Financial, we are a team of knowledgeable &
-                experienced accounting and business professionals that provide
-                solutions to your accounting needs.
+                Shape your project's vision with expert guidance. MACH
+                Consultants helps reveal hidden resources and grow your
+                enterprise's potential. Leave your contact info, and we'll
+                connect within 24 hours.
               </motion.p>
             </div>
 

@@ -3,6 +3,7 @@ import React from "react";
 import { Calendar, ArrowRight, MoveUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { BlogDataContext } from "@/components/layout/Layout-wrapper";
+import Link from "next/link";
 
 export function MiddleSection() {
   const promises = React.useContext(BlogDataContext);
@@ -32,7 +33,7 @@ export function MiddleSection() {
             viewport={{ once: true }}
             className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold mb-3 md:mb-4 font-PTSerif italic"
           >
-            Get started with us today.
+            Get expert guidance for your project's vision.
           </motion.h2>
 
           <motion.p
@@ -52,8 +53,9 @@ export function MiddleSection() {
             viewport={{ once: true }}
             className="text-base sm:text-lg max-w-md"
           >
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit.
+            Mach Consultants uncovers hidden resources to boost your
+            enterprise's potential. Submit your contact info now, and we'll
+            respond within 24 hours.
           </motion.p>
 
           <motion.div
@@ -71,16 +73,16 @@ export function MiddleSection() {
               delay: 0.2,
             }}
             viewport={{ once: true }}
-            className="my-10 w-full sm:w-auto flex flex-col sm:flex-row gap-3 bg-white p-1 sm:p-2 rounded-lg shadow-sm"
+            className="my-10 max-w-md w-full sm:w-auto flex flex-col sm:flex-row gap-3 bg-white p-1 sm:p-2 rounded-lg shadow-sm"
           >
             <input
               type="email"
               placeholder="Email Address"
-              className="text-black px-4 py-3 w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-gray-900 rounded-lg placeholder:text-gray-400"
+              className="flex-2 text-black px-4 py-3 w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-gray-900 rounded-lg placeholder:text-gray-400"
             />
             <a
               href="/#contactUs"
-              className="w-full cursor-pointer font-semibold flex items-center justify-center gap-2 bg-black hover:bg-gray-900 text-white px-5 py-3 rounded-lg transition-colors duration-300"
+              className="flex-1 w-full cursor-pointer font-semibold flex items-center justify-center gap-2 bg-black hover:bg-gray-900 text-white px-5 py-3 rounded-lg transition-colors duration-300"
             >
               Contact Us
               <MoveUpRight className="w-4 h-4" />

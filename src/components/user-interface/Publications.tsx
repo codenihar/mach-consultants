@@ -137,7 +137,7 @@ export function Publications() {
                         </h3>
                         <a
                           href={`/blogs/${publication.id}`}
-                          className="bg-gray-300 rounded-full p-2 cursor-pointer"
+                          className="bg-gray-200 text-gray-500 rounded-full p-2 cursor-pointer"
                         >
                           <ChevronRight className="w-6 h-6" />
                         </a>

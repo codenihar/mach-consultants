@@ -1,38 +1,38 @@
 "use client";
-import { ShieldCheck, MapPin, Users, FileText } from "lucide-react";
 import { Stat } from "@/lib/types";
 import { motion } from "motion/react";
 import React from "react";
 import { useResponsiveFlag } from "@/lib/hooks/use-mobile";
+import { BookOpen, Building, Globe, Handshake } from "lucide-react";
 
 export const stats: Stat[] = [
   {
     icon: (
-      <MapPin className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
+      <Building className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
     ),
-    value: "30+",
-    label: "Locations Available",
+    value: "15+",
+    label: "Years in Consulting",
   },
   {
     icon: (
-      <ShieldCheck className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
+      <Handshake className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
     ),
-    value: "30+",
-    label: "Licensed All States",
+    value: "100+",
+    label: "Successful Engagements",
   },
   {
     icon: (
-      <Users className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
+      <Globe className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
     ),
-    value: "60K+",
-    label: "Satisfied Clients",
+    value: "5+",
+    label: "Regions Served",
   },
   {
     icon: (
-      <FileText className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
+      <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
     ),
-    value: "12K+",
-    label: "Insurance Policies",
+    value: "20+",
+    label: "Academic Publications",
   },
 ];
 

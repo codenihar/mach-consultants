@@ -19,10 +19,10 @@ export function AboutHeroSection() {
           duration: 0.6,
           ease: "easeOut",
         }}
-        className="max-sm:flex max-sm:gap-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif italic"
+        className="max-sm:flex max-sm:gap-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif"
       >
         ABOUT{" "}
-        <p className="md:hidden text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif italic">
+        <p className="md:hidden text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif">
           US
         </p>
       </motion.h2>
@@ -45,7 +45,7 @@ export function AboutHeroSection() {
               ease: "easeOut",
               delay: 0.2,
             }}
-            className="hidden md:block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif italic"
+            className="hidden md:block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif"
           >
             US
           </motion.h2>
@@ -65,12 +65,11 @@ export function AboutHeroSection() {
               ease: "easeOut",
               delay: 0.2,
             }}
-            className="text-gray-700 font-medium text-md lg:text-lg my-3 sm:my-4 md:my-6 line-clamp-6 font-Inter"
+            className="text-gray-700 font-medium text-md lg:text-lg my-3 sm:my-4 md:my-6 font-Inter"
           >
-            Selective consultants focused on immediate performance improvement.
-            We are dedicated to revealing the hidden resources of the enterprise
-            and growing its potential. Sustainable performance is the core of
-            our work.
+            We are selective consultants focused on immediate performance
+            improvement, dedicated to revealing your enterprise's hidden
+            resources and fostering sustainable growth.
           </motion.p>
         </div>
 
@@ -93,7 +92,7 @@ export function AboutHeroSection() {
           className="col-span-1 md:col-span-2 flex flex-col items-center gap-3 sm:gap-4 md:gap-6"
         >
           <img
-            src="https://mach-consultants.com/wp-content/uploads/2024/03/headway-5QgIuuBxKwM-unsplash-scaled.jpg"
+            src="/images/about-us-main.gif"
             alt="About Us"
             className="rounded-xl sm:rounded-2xl md:rounded-[2rem] w-full object-cover"
           />
@@ -157,10 +156,8 @@ export function AboutHeroSection() {
               }}
               className="text-gray-600 text-md sm:text-lg line-clamp-6 font-Inter"
             >
-              We consider complementary and wholesome the ethical, normative,
-              and regulative dimensions. We are engaged in advancing the
-              benefits of our stakeholders and placing them at par with ours as
-              a guide to our work ethics
+              We are deeply committed to ethical and transparent engagement,
+              aligning our success with the mutual benefit of all stakeholders.
             </motion.p>
           </div>
         </div>

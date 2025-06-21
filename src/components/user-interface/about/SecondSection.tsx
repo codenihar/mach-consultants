@@ -105,9 +105,9 @@ export function PrincipalsSection() {
             }}
             className="py-8"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
-            dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Eaque temporibus quae soluta, saepe molestias adipisci.
+            Our team comprises senior associates like Dr. Pierre El Haddad and
+            Nabil Najjar, who bring extensive academic knowledge and practical
+            management experience from diverse fields to every engagement.
           </motion.p>
         </div>
 

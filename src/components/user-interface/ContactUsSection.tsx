@@ -4,14 +4,6 @@ import { motion } from "motion/react";
 import { MoveUpRight } from "lucide-react";
 
 export function ConsultationForm() {
-  const [hasMounted, setHasMounted] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  if (!hasMounted) return null;
-
   return (
     <section id="contactUs" className="py-12 px-4 sm:px-6 md:px-8 font-Inter">
       <div className="bg-black py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 rounded-4xl max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
@@ -34,7 +26,7 @@ export function ConsultationForm() {
         >
           <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
             <img
-              src="https://mach-consultants.com/wp-content/uploads/elementor/thumbs/woman-hand-desk-office-qnsnja20favr40urk8g0mnordansyzd26g8act02wc.jpg"
+              src="/images/contact-us.jpg"
               alt="Consultation"
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               loading="lazy"
@@ -67,9 +59,11 @@ export function ConsultationForm() {
               Contact us now for a free consultation
             </h2>
             <p className="text-gray-300 my-4 sm:my-0 text-base sm:text-md">
-              Consultic can handle tech advisory help decide upon the project
-              rationale. Leave your contacts below and we'll get back to you
-              within 24 hours.
+              MACH Consultants can provide strategic advisory to help you define
+              and solidify your project's rationale, ensuring it aligns with
+              your overall enterprise potential and performance goals. Leave
+              your contact details below, and we'll get back to you within 24
+              hours
             </p>
 
             <form className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
