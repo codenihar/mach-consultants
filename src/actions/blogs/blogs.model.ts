@@ -1,26 +1,39 @@
 import { db } from "@/lib/db";
-import {
-  blogs,
-  contentBlocks,
-  headerBlocks,
-  paragraphBlocks,
-} from "@/lib/drizzle/schema";
+import { blogs } from "@/lib/drizzle/schema";
 import {
   GetBlogsSearchParamsSchema,
   TContentBlockSchema,
   TBlogSchema,
 } from "@/actions/blogs/blogs.types";
-import { unstable_cache } from "next/cache";
-import { and, count, eq, gte, ilike, lte } from "drizzle-orm";
+import { revalidateTag, unstable_cache } from "next/cache";
+import { asc, count, desc, eq } from "drizzle-orm";
 import { ContentBlocksService } from "@/actions/content-blocks/content-blocks.service";
 import { HeaderBlocksService } from "@/actions/header-blocks/header-blocks.service";
 import { ParagraphBlocksService } from "@/actions/paragraph-blocks/paragraph-blocks.service";
+import { LinkBlocksService } from "@/actions/link-blocks/link-blocks.service";
 import { DateTime } from "luxon";
 
 export class BlogsModel {
   static async createBlog(
     data: Omit<TBlogSchema, "id" | "created_at" | "updated_at">
   ): Promise<TBlogSchema["id"]> {
+    const { preference } = data;
+
+    if (preference) {
+      const existingBlog = await db.query.blogs.findFirst({
+        where: (b, { eq }) => eq(b.preference, preference),
+      });
+
+      if (existingBlog) {
+        await db
+          .update(blogs)
+          .set({ preference: 0 })
+          .where(eq(blogs.id, existingBlog.id));
+
+        revalidateTag(`blog-${existingBlog.id}`);
+      }
+    }
+
     const [newBlog] = await db
       .insert(blogs)
       .values({
@@ -31,30 +44,37 @@ export class BlogsModel {
       })
       .returning();
 
-    for (const [index, block] of data.contentBlocks.entries()) {
-      const [newBlock] = await db
-        .insert(contentBlocks)
-        .values({
-          blog_id: newBlog.id,
-          block_type: block.block_type,
-          block_order: block.block_order,
-        })
-        .returning();
+    for (let i = 0; i < data.contentBlocks.length; i++) {
+      const block = data.contentBlocks[i] as TContentBlockSchema;
+      const order = i + 1;
 
-      if (block.block_type === "header") {
-        await db
-          .insert(headerBlocks)
-          .values({
-            block_id: newBlock.id,
+      const newBlock = await ContentBlocksService.createContentBlock({
+        blog_id: newBlog.id,
+        block_type: block.block_type,
+        block_order: order,
+      });
+
+      switch (block.block_type) {
+        case "header":
+          await HeaderBlocksService.creatHeaderBlock({
+            block_id: newBlock.data?.id,
             text: block.headerBlock.text,
             level: block.headerBlock.level,
-          })
-          .returning();
-      } else if (block.block_type === "paragraph") {
-        await db.insert(paragraphBlocks).values({
-          block_id: newBlock.id,
-          text: block.paragraphBlock.text,
-        });
+          });
+          break;
+        case "paragraph":
+          await ParagraphBlocksService.createParagraphBlock({
+            block_id: newBlock.data?.id,
+            text: block.paragraphBlock.text,
+          });
+          break;
+        case "link":
+          await LinkBlocksService.createLinkBlock({
+            block_id: newBlock.data?.id,
+            text: block.linkBlock.text,
+            link: block.linkBlock.link,
+          });
+          break;
       }
     }
     return newBlog.id;
@@ -87,6 +107,7 @@ export class BlogsModel {
                 paragraphBlock: {
                   columns: {
                     text: true,
+                    link: true,
                   },
                 },
               },
@@ -131,6 +152,7 @@ export class BlogsModel {
                 paragraphBlock: {
                   columns: {
                     text: true,
+                    link: true,
                   },
                 },
               },
@@ -154,16 +176,13 @@ export class BlogsModel {
       async () => {
         try {
           const offset = (input.page - 1) * input.perPage;
-          const fromDate = input.from ? new Date(input.from) : undefined;
-          const toDate = input.to ? new Date(input.to) : undefined;
 
-          const where = and(
-            input.blogId ? ilike(blogs.id, `%${input.blogId}%`) : undefined,
-            input.title ? ilike(blogs.title, `%${input.title}%`) : undefined,
-            input.type ? ilike(blogs.type, `%${input.type}%`) : undefined,
-            fromDate ? gte(blogs.created_at, fromDate) : undefined,
-            toDate ? lte(blogs.created_at, toDate) : undefined
-          );
+          const orderBy =
+            input.sort.length > 0
+              ? input.sort.map((item) => {
+                  return item.desc ? desc(blogs[item.id]) : asc(blogs[item.id]);
+                })
+              : [desc(blogs.updated_at)];
 
           const { data, total } = await db.transaction(async (tx) => {
             const data = await tx
@@ -179,14 +198,13 @@ export class BlogsModel {
               .from(blogs)
               .limit(input.perPage)
               .offset(offset)
-              .where(where);
+              .orderBy(...orderBy);
 
             const total = await tx
               .select({
                 count: count(),
               })
               .from(blogs)
-              .where(where)
               .execute()
               .then((res) => res[0]?.count ?? 0);
 
@@ -213,6 +231,27 @@ export class BlogsModel {
     data: Partial<TBlogSchema>
   ): Promise<TBlogSchema["id"] | null> {
     const { contentBlocks, ...rest } = data;
+    const { preference } = rest;
+
+    if (preference) {
+      const existingBlog = await db.query.blogs.findFirst({
+        where: (b, { eq, and, ne }) =>
+          and(eq(blogs.preference, preference), ne(b.id, id)),
+      });
+
+      if (existingBlog) {
+        const currentBlog = await db.query.blogs.findFirst({
+          where: (b, { eq }) => eq(b.id, id),
+        });
+
+        await db
+          .update(blogs)
+          .set({ preference: currentBlog?.preference ?? 0 })
+          .where(eq(blogs.id, existingBlog.id));
+
+        revalidateTag(`blog-${existingBlog.id}`);
+      }
+    }
 
     const [newBlog] = await db
       .update(blogs)
@@ -233,6 +272,7 @@ export class BlogsModel {
       if (blockIds) {
         await HeaderBlocksService.deleteHeaderBlocks(blockIds);
         await ParagraphBlocksService.deleteParagraphBlocks(blockIds);
+        await LinkBlocksService.deleteLinkBlocks(blockIds);
         await ContentBlocksService.deleteContentBlocks(blockIds);
       }
 
@@ -258,6 +298,13 @@ export class BlogsModel {
             await ParagraphBlocksService.createParagraphBlock({
               block_id: newBlock.data?.id,
               text: block.paragraphBlock.text,
+            });
+            break;
+          case "link":
+            await LinkBlocksService.createLinkBlock({
+              block_id: newBlock.data?.id,
+              text: block.linkBlock.text,
+              link: block.linkBlock.link,
             });
             break;
         }

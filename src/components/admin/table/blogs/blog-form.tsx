@@ -1,281 +1,308 @@
 "use client";
-import { TBlogSchema, TContentBlockSchema } from "@/actions/blogs/blogs.types";
-import React, { useState } from "react";
-import { SubmitButton } from "@/components/admin/submit-button";
+
+import React from "react";
+import {
+  blogSchema,
+  TBlogSchema,
+  TContentBlockSchema,
+} from "@/actions/blogs/blogs.types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useFieldArray, useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 
 interface BlogFormProps {
   type: "update" | "create";
-  onSubmit: (formData: FormData) => Promise<void> | void;
+  onSubmit: (data: any) => Promise<void> | void;
   initialData: TBlogSchema | null;
 }
 
+function sanitizeInitialData(
+  initialData: TBlogSchema | null | undefined
+): TBlogSchema | undefined {
+  if (!initialData) return undefined;
+
+  return {
+    ...initialData,
+    contentBlocks: (initialData.contentBlocks ?? []).map((block) => {
+      if (block.block_type === "paragraph") {
+        return {
+          ...block,
+          paragraphBlock: {
+            ...block.paragraphBlock,
+            link: block.paragraphBlock.link ?? "",
+          },
+        };
+      }
+      return block;
+    }),
+  };
+}
+
 export function BlogForm({ type, onSubmit, initialData }: BlogFormProps) {
-  const [formData, setFormData] = useState<
-    Omit<TBlogSchema, "id" | "created_at" | "updated_at" | "block_order">
-  >({
-    title: initialData?.title ?? "",
-    featured_image_url: initialData?.featured_image_url ?? "",
-    contentBlocks: initialData?.contentBlocks ?? [
-      {
-        block_order: 1,
-        block_type: "header",
-        headerBlock: { text: "", level: 1 },
-      },
-      { block_order: 2, block_type: "paragraph", paragraphBlock: { text: "" } },
-    ],
-    preference: initialData?.preference ?? parseInt("0"),
-    type: initialData?.type ?? "blog",
+  const form = useForm<TBlogSchema>({
+    resolver: zodResolver(blogSchema),
+    defaultValues: sanitizeInitialData(initialData) ?? {
+      title: "",
+      featured_image_url: "",
+      type: "blog",
+      preference: 0,
+      contentBlocks: [
+        {
+          block_order: 1,
+          block_type: "header",
+          headerBlock: { text: "", level: 1 },
+        },
+        {
+          block_order: 2,
+          block_type: "paragraph",
+          paragraphBlock: { text: "", link: "" },
+        },
+      ],
+    },
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const { fields, append, remove } = useFieldArray({
+    control: form.control,
+    name: "contentBlocks",
+  });
+
+  const addContentBlock = (block_type: TContentBlockSchema["block_type"]) => {
+    const block_order = fields.length + 1;
+
+    switch (block_type) {
+      case "header":
+        append({
+          block_type: "header",
+          block_order,
+          headerBlock: { text: "", level: 1 },
+        });
+        break;
+      case "paragraph":
+        append({
+          block_type: "paragraph",
+          block_order,
+          paragraphBlock: { text: "", link: "" },
+        });
+        break;
+    }
   };
 
-  const handleContentChange = (
-    index: number,
-    newBlock: TContentBlockSchema
-  ) => {
-    const newContent = [...formData.contentBlocks];
-    newContent[index] = newBlock;
-    setFormData((prev) => ({ ...prev, contentBlocks: newContent }));
-  };
-
-  const addContentBlock = (type: TContentBlockSchema["block_type"]) => {
-    setFormData((prev) => {
-      const newOrder = prev.contentBlocks.length + 1;
-      let newBlock: TContentBlockSchema;
-
-      switch (type) {
-        case "header":
-          newBlock = {
-            block_order: newOrder,
-            block_type: "header",
-            headerBlock: { text: "", level: 2 },
-          };
-          break;
-        case "paragraph":
-          newBlock = {
-            block_order: newOrder,
-            block_type: "paragraph",
-            paragraphBlock: { text: "" },
-          };
-          break;
-        default:
-          return prev;
-      }
-
-      return {
-        ...prev,
-        contentBlocks: [...prev.contentBlocks, newBlock],
-      };
-    });
-  };
-
-  const removeContentBlock = (index: number) => {
-    setFormData((prev) => {
-      const newBlock = prev.contentBlocks
-        .filter((_, i) => i !== index)
-        .map((block, i) => ({
-          ...block,
-          block_order: i + 1,
-        }));
-
-      return {
-        ...prev,
-        contentBlocks: newBlock,
-      };
-    });
+  const handleFinalSubmit = (data: any) => onSubmit(data);
+  const handleFormError = (errors: any) => {
+    return { error: "Form Errors:", errors };
   };
 
   return (
-    <form
-      action={onSubmit}
-      className="bg-white p-6 rounded-lg shadow-sm border border-gray-300"
-    >
-      <div className="mb-6">
-        <label
-          className="block text-gray-700 text-sm font-bold mb-2"
-          htmlFor="title"
-        >
-          Article Title
-        </label>
-        <input
-          type="text"
-          id="title"
+    <Form {...form}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          form.handleSubmit(handleFinalSubmit, handleFormError)(e);
+        }}
+        className="bg-white p-6 rounded-lg shadow-sm border border-gray-300"
+      >
+        <FormField
+          control={form.control}
           name="title"
-          value={formData.title}
-          onChange={handleChange}
-          className="text-gray-500 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 placeholder:text-gray-400"
-          placeholder="title"
-          required
+          render={({ field }) => (
+            <FormItem className="text-gray-600 text-sm my-4">
+              <FormLabel>Title</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter blog title" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
 
-      <div className="mb-6">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
-          Featured Image
-        </label>
-        <input
-          type="text"
-          id="featured_image_url"
+        <FormField
+          control={form.control}
           name="featured_image_url"
-          value={formData.featured_image_url}
-          onChange={handleChange}
-          className="text-gray-500 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 placeholder:text-gray-400"
-          placeholder="Image URL"
-          required
+          render={({ field }) => (
+            <FormItem className="text-gray-600 text-sm my-4">
+              <FormLabel>Featured Image URL</FormLabel>
+              <FormControl>
+                <Input placeholder="https://example.com/image.jpg" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
 
-      <div className="mb-6">
-        <label
-          className="block text-gray-700 text-sm font-bold mb-2"
-          htmlFor="type"
-        >
-          Article Type
-        </label>
-
-        <select
-          id="type"
+        <FormField
+          control={form.control}
           name="type"
-          value={formData.type}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-            setFormData((prev) => ({
-              ...prev,
-              [e.target.name]: e.target.value,
-            }));
-          }}
-          className="p-2 text-gray-600 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500"
-          required
-        >
-          <option value={"blog"}>Blog</option>
-          <option value={"publication"}>Publication</option>
-        </select>
-      </div>
+          render={({ field }) => (
+            <FormItem className="w-full block text-gray-600 text-sm my-4">
+              <FormLabel>Article Type</FormLabel>
+              <FormControl>
+                <Select value={field.value} onValueChange={field.onChange}>
+                  <SelectTrigger className="w-full my-2">
+                    <SelectValue placeholder="Select type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="blog">Blog</SelectItem>
+                    <SelectItem value="publication">Publication</SelectItem>
+                  </SelectContent>
+                </Select>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-      <div className="mb-6">
-        <label
-          className="block text-gray-700 text-sm font-bold mb-2"
-          htmlFor="preference"
-        >
-          Article Preference
-        </label>
-
-        <select
-          id="preference"
+        <FormField
+          control={form.control}
           name="preference"
-          value={formData.preference}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-            setFormData((prev) => ({
-              ...prev,
-              [e.target.name]: e.target.value,
-            }));
-          }}
-          className="p-2 text-gray-600 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500"
-          required
-        >
-          <option value={0}>0</option>
-          <option value={1}>1</option>
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-          <option value={4}>4</option>
-          <option value={5}>5</option>
-          <option value={6}>6</option>
-          <option value={7}>7</option>
-          <option value={8}>8</option>
-          <option value={9}>9</option>
-          <option value={10}>10</option>
-          <option value={11}>11</option>
-        </select>
-      </div>
-
-      <div className="mb-6">
-        {formData.contentBlocks.length > 0 && (
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            Content Blocks
-          </label>
-        )}
+          render={({ field }) => (
+            <FormItem className="w-full block text-gray-500 text-sm my-4">
+              <FormLabel>Preference</FormLabel>
+              <FormControl>
+                <Select
+                  value={String(field.value)}
+                  onValueChange={(val) => field.onChange(Number(val))}
+                >
+                  <SelectTrigger className="w-full my-2">
+                    <SelectValue placeholder="Select preference">
+                      {field.value === 0
+                        ? "0"
+                        : field.value
+                        ? String(field.value)
+                        : "Select preference"}
+                    </SelectValue>
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Array.from({ length: 12 }).map((_, i) => (
+                      <SelectItem key={i} value={String(i)}>
+                        {i}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         <div className="space-y-4">
-          {formData.contentBlocks.map((block, index) => (
-            <div key={index} className="rounded-md">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-xs font-semibold text-gray-500 uppercase">
-                  {block.block_type}
-                </span>
-
-                <button
-                  type="button"
-                  onClick={() => removeContentBlock(index)}
-                  className="cursor-pointer text-red-400 hover:text-red-600 text-sm"
-                >
-                  Remove
-                </button>
-              </div>
-
-              {block.block_type === "header" && (
-                <div>
-                  <select
-                    value={block.headerBlock.level}
-                    onChange={(e) =>
-                      handleContentChange(index, {
-                        ...block,
-                        headerBlock: {
-                          ...block.headerBlock,
-                          level: parseInt(e.target.value),
-                        },
-                      })
-                    }
-                    className="p-2 text-gray-600 mb-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500"
+          {fields.map((block, index) => {
+            const name = `contentBlocks.${index}` as const;
+            return (
+              <div key={block.id} className="border rounded p-4">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="uppercase text-xs font-medium text-gray-600">
+                    {block.block_type}
+                  </span>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => remove(index)}
                   >
-                    <option value={1}>Heading 1</option>
-                    <option value={2}>Heading 2</option>
-                    <option value={3}>Heading 3</option>
-                  </select>
-
-                  <input
-                    type="text"
-                    value={block.headerBlock.text}
-                    onChange={(e) =>
-                      handleContentChange(index, {
-                        ...block,
-                        headerBlock: {
-                          ...block.headerBlock,
-                          text: e.target.value,
-                        },
-                      })
-                    }
-                    className="text-gray-500 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 placeholder:text-gray-400"
-                    placeholder="Header text"
-                  />
+                    Remove
+                  </Button>
                 </div>
-              )}
 
-              {block.block_type === "paragraph" && (
-                <textarea
-                  value={block.paragraphBlock.text}
-                  onChange={(e) =>
-                    handleContentChange(index, {
-                      ...block,
-                      paragraphBlock: {
-                        ...block.paragraphBlock,
-                        text: e.target.value,
-                      },
-                    })
-                  }
-                  rows={4}
-                  className="text-gray-500 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 placeholder:text-gray-400"
-                  placeholder="Paragraph text"
-                />
-              )}
-            </div>
-          ))}
+                {block.block_type === "header" && (
+                  <>
+                    <FormField
+                      control={form.control}
+                      name={`${name}.headerBlock.level`}
+                      render={({ field }) => (
+                        <FormItem className="w-full block text-gray-600 text-sm my-4">
+                          <FormLabel>Level</FormLabel>
+                          <Select
+                            value={String(field.value)}
+                            onValueChange={(val) => field.onChange(Number(val))}
+                          >
+                            <SelectTrigger className="w-full my-2">
+                              <SelectValue placeholder="Select level" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="1">H1</SelectItem>
+                              <SelectItem value="2">H2</SelectItem>
+                              <SelectItem value="3">H3</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name={`${name}.headerBlock.text`}
+                      render={({ field }) => (
+                        <FormItem className="text-gray-600 text-sm my-4">
+                          <FormLabel>Text</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Header text" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </>
+                )}
+
+                {block.block_type === "paragraph" && (
+                  <>
+                    <FormField
+                      control={form.control}
+                      name={`${name}.paragraphBlock.text`}
+                      render={({ field }) => (
+                        <FormItem className="text-gray-600 text-sm my-2">
+                          <FormControl>
+                            <Textarea
+                              placeholder="Enter paragraph text"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name={`${name}.paragraphBlock.link`}
+                      render={({ field }) => (
+                        <FormItem className="text-gray-600 text-sm my-4">
+                          <FormLabel>Reference Page Link</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="https://example.com"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        <div className="mt-4 flex space-x-2 flex-wrap">
+        <div className="my-4 flex space-x-2 flex-wrap">
           <button
             type="button"
             onClick={() => addContentBlock("header")}
@@ -291,25 +318,31 @@ export function BlogForm({ type, onSubmit, initialData }: BlogFormProps) {
             Add Paragraph
           </button>
         </div>
-      </div>
 
-      <input
-        type="hidden"
-        name="contentBlocks"
-        value={JSON.stringify(formData.contentBlocks)}
-      />
+        <div className="flex justify-end space-x-3">
+          <a
+            href="/a/dashboard"
+            className="cursor-pointer px-4 py-2 bg-gray-200 text-gray-700 rounded-3xl hover:bg-gray-300 transition"
+          >
+            Cancel
+          </a>
 
-      <div className="flex justify-end space-x-3">
-        <a
-          href="/a/dashboard"
-          className="cursor-pointer px-4 py-2 bg-gray-200 text-gray-700 rounded-3xl hover:bg-gray-300 transition"
-        >
-          Cancel
-        </a>
-
-        <SubmitButton type={type} />
-      </div>
-    </form>
+          <button
+            type="submit"
+            disabled={form.formState.isSubmitting}
+            className={`cursor-pointer px-4 py-2 bg-gray-900 text-white rounded-3xl hover:bg-gray-700 transition ${
+              form.formState.isSubmitting && "opacity-70"
+            }`}
+          >
+            {form.formState.isSubmitting ? (
+              <>{type === "update" ? "Updating..." : "Creating..."}</>
+            ) : (
+              <>{type === "update" ? "Update" : "Create"} Blog</>
+            )}
+          </button>
+        </div>
+      </form>
+    </Form>
   );
 }
 

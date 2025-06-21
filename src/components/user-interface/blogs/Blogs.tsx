@@ -58,7 +58,7 @@ export function RecentBlogs() {
   const [{ data }] = React.use(promises);
   if (!data) return;
 
-  const mainArticle = data.find((a) => a.preference === 9);
+  const mainArticle = data.find((a) => a.preference === 4);
 
   const controls = useAnimation();
   const ref = useRef(null);
@@ -142,7 +142,7 @@ export function RecentBlogs() {
             {data &&
               data.length > 0 &&
               data
-                .filter((a) => [7, 8, 10].includes(a.preference))
+                .filter((a) => [5, 6, 7].includes(a.preference))
                 .map((blog, index) => (
                   <div
                     key={index}

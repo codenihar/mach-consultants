@@ -99,7 +99,7 @@ export function MiddleSection() {
             {data &&
               data.length > 0 &&
               data
-                .filter((a) => [1, 2, 4].includes(a.preference))
+                .filter((a) => [8, 9, 10].includes(a.preference))
                 .map((article, index) => {
                   const isFocused = focusedIndex === index;
 

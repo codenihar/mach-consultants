@@ -50,6 +50,13 @@
       "when": 1750239975062,
       "tag": "0006_faithful_night_thrasher",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1750505980478,
+      "tag": "0007_minor_iceman",
+      "breakpoints": true
     }
   ]
 }

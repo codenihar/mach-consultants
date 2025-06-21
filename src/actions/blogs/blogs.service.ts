@@ -7,10 +7,6 @@ import {
   GetBlogsSearchParamsSchema,
   TBlogSchema,
 } from "@/actions/blogs/blogs.types";
-import { db } from "@/lib/db";
-import { blogs } from "@/lib/drizzle/schema";
-import { eq } from "drizzle-orm";
-import { revalidateTag } from "next/cache";
 
 export class BlogsService {
   static async createBlog(
@@ -98,23 +94,6 @@ export class BlogsService {
   }> {
     try {
       const validatedData = blogSchema.parse(data);
-
-      const { preference } = validatedData;
-      if (preference) {
-        const existingBlogWithSamePreference = await db.query.blogs.findFirst({
-          where: (b, { eq, and, ne }) =>
-            and(eq(blogs.preference, preference), ne(b.id, id)),
-        });
-
-        if (existingBlogWithSamePreference) {
-          await db
-            .update(blogs)
-            .set({ preference: 0 })
-            .where(eq(blogs.id, existingBlogWithSamePreference.id));
-
-          revalidateTag(`blog-${existingBlogWithSamePreference.id}`);
-        }
-      }
 
       const updatedBlog = await BlogsModel.updateBlog(id, validatedData);
       if (!updatedBlog) {

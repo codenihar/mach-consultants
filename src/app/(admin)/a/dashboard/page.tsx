@@ -17,6 +17,7 @@ export default async function IndexPage(props: IndexPageProps) {
   const promises = Promise.all([
     BlogsService.getAdminBlogs({
       ...search,
+      sort: search.sort,
     }),
   ]);
 

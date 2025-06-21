@@ -78,6 +78,15 @@ export function getBlogsColumns({
       cell: ({ row }) => <div className="w-10">{row.getValue("type")}</div>,
     },
     {
+      accessorKey: "preference",
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="Article Preference" />
+      ),
+      cell: ({ row }) => (
+        <div className="w-10">{row.getValue("preference")}</div>
+      ),
+    },
+    {
       accessorKey: "updated_at",
       header: ({ column }) => (
         <DataTableColumnHeader column={column} title="Updated At" />

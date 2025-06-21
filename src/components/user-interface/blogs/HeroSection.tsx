@@ -53,7 +53,7 @@ export function BlogsAndPublications() {
           {data &&
             data.length > 0 &&
             data
-              .filter((a) => [2, 3, 4].includes(a.preference))
+              .filter((a) => [1, 2, 3].includes(a.preference))
               .map((article, index) => {
                 const isFocused = focusedIndex === index;
 

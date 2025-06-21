@@ -98,7 +98,7 @@ export function Blogs() {
             {data &&
               data.length > 0 &&
               data
-                .filter((b) => [4, 7, 8].includes(b.preference))
+                .filter((b) => [4, 5, 6].includes(b.preference))
                 .map((blog, index) => (
                   <motion.article
                     initial={{

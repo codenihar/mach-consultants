@@ -1,7 +1,7 @@
 import React from "react";
 import BlogForm from "@/components/admin/table/blogs/blog-form";
 import { BlogsService } from "@/actions/blogs/blogs.service";
-import { TContentBlockSchema } from "@/actions/blogs/blogs.types";
+import { TBlogSchema, TContentBlockSchema } from "@/actions/blogs/blogs.types";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -14,19 +14,9 @@ export default async function NewBlog() {
         </h2>
 
         <BlogForm
-          onSubmit={async (formData) => {
+          onSubmit={async (formData: TBlogSchema) => {
             "use server";
-            const contentBlocks = JSON.parse(
-              formData.get("contentBlocks") as string
-            );
-            const response = await BlogsService.createBlog({
-              title: formData.get("title") as string,
-              featured_image_url: formData.get("featured_image_url") as string,
-              preference:
-                parseInt(formData.get("preference") as string) || parseInt("0"),
-              type: formData.get("type") as "blog" | "publication",
-              contentBlocks: contentBlocks as TContentBlockSchema[],
-            });
+            const response = await BlogsService.createBlog(formData);
             if (response.success) {
               revalidateTag("blogs");
               redirect("/a/dashboard");

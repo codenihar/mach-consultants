@@ -32,7 +32,7 @@ export const contentBlocks = pgTable(
       .references(() => blogs.id, { onDelete: "cascade" }),
     block_type: varchar("block_type", { length: 20 })
       .notNull()
-      .$type<"header" | "paragraph">(),
+      .$type<"header" | "paragraph" | "link">(),
     block_order: integer("block_order").notNull(),
     created_at: timestamp("created_at", { withTimezone: true }).defaultNow(),
   },
@@ -58,6 +58,15 @@ export const paragraphBlocks = pgTable("paragraph_blocks", {
     .primaryKey()
     .references(() => contentBlocks.id, { onDelete: "cascade" }),
   text: text("text").notNull(),
+  link: text("link"),
+});
+
+export const linkBlocks = pgTable("link_blocks", {
+  block_id: uuid("block_id")
+    .primaryKey()
+    .references(() => contentBlocks.id, { onDelete: "cascade" }),
+  link: text("link").notNull(),
+  text: text("text"),
 });
 
 export const blogRelations = relations(blogs, ({ many }) => ({
@@ -79,6 +88,11 @@ export const contentBlockRelations = relations(contentBlocks, ({ one }) => ({
     fields: [contentBlocks.id],
     references: [paragraphBlocks.block_id],
   }),
+
+  linkBlock: one(linkBlocks, {
+    fields: [contentBlocks.id],
+    references: [linkBlocks.block_id],
+  }),
 }));
 
 export const headerBlockRelations = relations(headerBlocks, ({ one }) => ({
@@ -97,3 +111,10 @@ export const paragraphBlockRelations = relations(
     }),
   })
 );
+
+export const linkBlockRelations = relations(linkBlocks, ({ one }) => ({
+  contentBlock: one(contentBlocks, {
+    fields: [linkBlocks.block_id],
+    references: [contentBlocks.id],
+  }),
+}));

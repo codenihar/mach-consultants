@@ -58,22 +58,12 @@ export default async function UpdateBlog({
           }
         >
           <BlogForm
-            onSubmit={async (formData) => {
+            onSubmit={async (formData: TBlogSchema) => {
               "use server";
-              const contentBlocks = JSON.parse(
-                formData.get("contentBlocks") as string
+              const response = await BlogsService.updateBlog(
+                articleId,
+                formData
               );
-              const response = await BlogsService.updateBlog(articleId, {
-                title: formData.get("title") as string,
-                featured_image_url: formData.get(
-                  "featured_image_url"
-                ) as string,
-                preference:
-                  parseInt(formData.get("preference") as string) ||
-                  parseInt("0"),
-                type: formData.get("type") as "blog" | "publication",
-                contentBlocks: contentBlocks as TContentBlockSchema[],
-              });
               if (response.success) {
                 revalidateTag("blogs");
                 revalidateTag(`blog-${articleId}`);

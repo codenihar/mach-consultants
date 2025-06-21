@@ -1,5 +1,4 @@
 import {
-  type ColumnFiltersState,
   type PaginationState,
   type RowSelectionState,
   type SortingState,
@@ -8,24 +7,17 @@ import {
   type Updater,
   type VisibilityState,
   getCoreRowModel,
-  getFacetedRowModel,
-  getFacetedUniqueValues,
-  getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ExtendedSortingState } from "@/lib/data-table/types";
 import {
-  type Parser,
-  type UseQueryStateOptions,
-  parseAsArrayOf,
-  parseAsInteger,
-  parseAsString,
-  useQueryState,
-  useQueryStates,
-} from "nuqs";
+  DataTableFilterField,
+  ExtendedSortingState,
+} from "@/lib/data-table/types";
+import { type UseQueryStateOptions, parseAsInteger, useQueryState } from "nuqs";
 import React from "react";
+import { getSortingStateParser } from "@/lib/table/parser";
 
 interface UseDataTableProps<TData>
   extends Omit<
@@ -38,6 +30,7 @@ interface UseDataTableProps<TData>
       | "manualSorting"
     >,
     Required<Pick<TableOptions<TData>, "pageCount">> {
+  filterFields?: DataTableFilterField<TData>[];
   history?: "push" | "replace";
   scroll?: boolean;
   shallow?: boolean;
@@ -52,6 +45,7 @@ interface UseDataTableProps<TData>
 
 export function useDataTable<TData>({
   pageCount = -1,
+  filterFields = [],
   history = "replace",
   scroll = false,
   shallow = true,
@@ -87,6 +81,7 @@ export function useDataTable<TData>({
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>(
     initialState?.rowSelection ?? {}
   );
+
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>(initialState?.columnVisibility ?? {});
 
@@ -99,6 +94,12 @@ export function useDataTable<TData>({
     parseAsInteger
       .withOptions(queryStateOptions)
       .withDefault(initialState?.pagination?.pageSize ?? 10)
+  );
+  const [sorting, setSorting] = useQueryState(
+    "sort",
+    getSortingStateParser<TData>()
+      .withOptions(queryStateOptions)
+      .withDefault(initialState?.sorting ?? [])
   );
 
   const pagination: PaginationState = {
@@ -117,24 +118,35 @@ export function useDataTable<TData>({
     }
   }
 
+  function onSortingChange(updaterOrValue: Updater<SortingState>) {
+    if (typeof updaterOrValue === "function") {
+      const newSorting = updaterOrValue(sorting) as ExtendedSortingState<TData>;
+      void setSorting(newSorting);
+    }
+  }
+
   const table = useReactTable({
     ...props,
     initialState,
     pageCount,
     state: {
       pagination,
+      sorting,
       columnVisibility,
       rowSelection,
+      columnFilters: [],
     },
+    enableRowSelection: true,
     onRowSelectionChange: setRowSelection,
     onPaginationChange,
+    onSortingChange,
     onColumnVisibilityChange: setColumnVisibility,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     manualPagination: true,
-    manualSorting: true,
     manualFiltering: true,
+    manualSorting: true,
   });
 
   return { table };
