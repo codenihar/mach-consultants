@@ -58,7 +58,8 @@ export function ContentSection({ service }: Service) {
             </p>
           </motion.div>
 
-          <motion.button
+          <motion.a
+            href="/#contactUs"
             initial={{
               y: 50,
               opacity: 0,
@@ -80,7 +81,7 @@ export function ContentSection({ service }: Service) {
           >
             {service.buttonText}
             <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4" />
-          </motion.button>
+          </motion.a>
         </div>
 
         <div className="order-1 md:order-2 flex justify-center">
