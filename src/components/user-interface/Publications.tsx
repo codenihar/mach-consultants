@@ -1,14 +1,10 @@
 "use client";
 import React from "react";
 import { ChevronRight } from "lucide-react";
-import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion } from "motion/react";
 import { useResponsiveFlag } from "@/lib/hooks/use-mobile";
-
-interface PublicationsProps {
-  promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
-}
+import { BlogDataContext } from "@/components/layout/Layout-wrapper";
 
 const getInitialX = (index: number) => {
   const offsets = [400, 0, -400];
@@ -32,8 +28,12 @@ function PublicationCardSkeleton() {
   );
 }
 
-export function Publications({ promises }: PublicationsProps) {
+export function Publications() {
+  const promises = React.useContext(BlogDataContext);
+  if (!promises) return;
+
   const [{ data }] = React.use(promises);
+
   const isMobile = useResponsiveFlag();
   const [hasMounted, setHasMounted] = React.useState<boolean>(false);
 
@@ -96,66 +96,68 @@ export function Publications({ promises }: PublicationsProps) {
           <div className="grid gap-8 sm:gap-6 lg:gap-12 md:grid-cols-2 lg:grid-cols-3">
             {data &&
               data.length > 0 &&
-              data.slice(3, 6).map((publication, idx) => (
-                <motion.div
-                  initial={{
-                    x: isMobile ? 0 : getInitialX(idx),
-                    y: isMobile ? 100 : 0,
-                    opacity: isMobile ? 0 : idx !== 1 ? 1 : 0.5,
-                    scale: isMobile ? 1 : idx === 1 ? 0.5 : 1,
-                  }}
-                  whileInView={{
-                    x: 0,
-                    y: 0,
-                    opacity: 1,
-                    scale: 1,
-                  }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: isMobile ? 0.6 : idx !== 1 ? 1 : 0.6,
-                    ease: "easeInOut",
-                    delay: isMobile ? idx * 0.2 : 0,
-                  }}
-                  key={idx}
-                  className="flex flex-col items-center text-left bg-white border border-gray-200 py-2 shadow-lg rounded-lg"
-                >
-                  <div className="relative max-h-56 w-full overflow-hidden rounded-t-xl aspect-square mb-4 sm:mb-6">
-                    <img
-                      src={publication.featured_image_url}
-                      alt={publication.title}
-                      className="w-full h-full object-fit transition-transform duration-500 hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
-
-                  <div className="px-3">
-                    <div className="flex items-center justify-between w-full mb-3">
-                      <h3 className="text-lg sm:text-xl font-semibold text-gray-800 line-clamp-1 font-PTSerif italic">
-                        {publication.title}
-                      </h3>
-                      <a
-                        href={`/blogs/${publication.id}`}
-                        className="bg-gray-300 rounded-full p-2 cursor-pointer"
-                      >
-                        <ChevronRight className="w-6 h-6" />
-                      </a>
+              data
+                .filter((b) => [1, 2, 3].includes(b.preference))
+                .map((publication, idx) => (
+                  <motion.div
+                    initial={{
+                      x: isMobile ? 0 : getInitialX(idx),
+                      y: isMobile ? 100 : 0,
+                      opacity: isMobile ? 0 : idx !== 1 ? 1 : 0.5,
+                      scale: isMobile ? 1 : idx === 1 ? 0.5 : 1,
+                    }}
+                    whileInView={{
+                      x: 0,
+                      y: 0,
+                      opacity: 1,
+                      scale: 1,
+                    }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: isMobile ? 0.6 : idx !== 1 ? 1 : 0.6,
+                      ease: "easeInOut",
+                      delay: isMobile ? idx * 0.2 : 0,
+                    }}
+                    key={idx}
+                    className="flex flex-col items-center text-left bg-white border border-gray-200 py-2 shadow-lg rounded-lg"
+                  >
+                    <div className="relative max-h-56 w-full overflow-hidden rounded-t-xl aspect-square mb-4 sm:mb-6">
+                      <img
+                        src={publication.featured_image_url}
+                        alt={publication.title}
+                        className="w-full h-full object-fit transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                      />
                     </div>
 
-                    {publication.contentBlocks &&
-                      publication.contentBlocks.find(
-                        (block) => block.block_type === "paragraph"
-                      )?.paragraphBlock?.text && (
-                        <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed flex-grow line-clamp-4">
-                          {
-                            publication.contentBlocks.find(
-                              (block) => block.block_type === "paragraph"
-                            )!.paragraphBlock!.text
-                          }
-                        </p>
-                      )}
-                  </div>
-                </motion.div>
-              ))}
+                    <div className="px-3">
+                      <div className="flex items-center justify-between w-full mb-3">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 line-clamp-1 font-PTSerif italic">
+                          {publication.title}
+                        </h3>
+                        <a
+                          href={`/blogs/${publication.id}`}
+                          className="bg-gray-300 rounded-full p-2 cursor-pointer"
+                        >
+                          <ChevronRight className="w-6 h-6" />
+                        </a>
+                      </div>
+
+                      {publication.contentBlocks &&
+                        publication.contentBlocks.find(
+                          (block) => block.block_type === "paragraph"
+                        )?.paragraphBlock?.text && (
+                          <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed flex-grow line-clamp-4">
+                            {
+                              publication.contentBlocks.find(
+                                (block) => block.block_type === "paragraph"
+                              )!.paragraphBlock!.text
+                            }
+                          </p>
+                        )}
+                    </div>
+                  </motion.div>
+                ))}
           </div>
         </React.Suspense>
       </div>

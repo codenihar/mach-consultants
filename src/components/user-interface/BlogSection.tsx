@@ -2,14 +2,10 @@
 
 import React from "react";
 import { ChevronRight } from "lucide-react";
-import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
 import * as motion from "motion/react-client";
 import { useResponsiveFlag } from "@/lib/hooks/use-mobile";
-
-interface BlogSectionProps {
-  promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
-}
+import { BlogDataContext } from "@/components/layout/Layout-wrapper";
 
 function BlogCardSkeleton() {
   return (
@@ -31,8 +27,12 @@ const getInitialX = (index: number) => {
   return offsets[index] || 0;
 };
 
-export function Blogs({ promises }: BlogSectionProps) {
+export function Blogs() {
+  const promises = React.useContext(BlogDataContext);
+  if (!promises) return;
+
   const [{ data }] = React.use(promises);
+
   const isMobile = useResponsiveFlag();
   const [hasMounted, setHasMounted] = React.useState<boolean>(false);
 
@@ -97,66 +97,68 @@ export function Blogs({ promises }: BlogSectionProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {data &&
               data.length > 0 &&
-              data.slice(0, 3).map((blog, index) => (
-                <motion.article
-                  initial={{
-                    x: isMobile ? 0 : getInitialX(index),
-                    y: isMobile ? 100 : 0,
-                    opacity: isMobile ? 0 : index !== 1 ? 1 : 0.5,
-                    scale: isMobile ? 1 : index === 1 ? 0.5 : 1,
-                  }}
-                  whileInView={{
-                    x: 0,
-                    y: 0,
-                    opacity: 1,
-                    scale: 1,
-                  }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: isMobile ? 0.6 : index !== 1 ? 1 : 0.6,
-                    ease: "easeInOut",
-                    delay: isMobile ? index * 0.2 : 0,
-                  }}
-                  key={`blog-${index}`}
-                  className="bg-white rounded-lg shadow-lg transition-shadow duration-300 border border-gray-300 flex flex-col h-full overflow-hidden"
-                >
-                  <div className="relative aspect-video overflow-hidden">
-                    <img
-                      src={blog.featured_image_url}
-                      alt={blog.title}
-                      className="w-full max-h-56 h-full object-fit transition-transform duration-500 hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
+              data
+                .filter((b) => [4, 7, 8].includes(b.preference))
+                .map((blog, index) => (
+                  <motion.article
+                    initial={{
+                      x: isMobile ? 0 : getInitialX(index),
+                      y: isMobile ? 100 : 0,
+                      opacity: isMobile ? 0 : index !== 1 ? 1 : 0.5,
+                      scale: isMobile ? 1 : index === 1 ? 0.5 : 1,
+                    }}
+                    whileInView={{
+                      x: 0,
+                      y: 0,
+                      opacity: 1,
+                      scale: 1,
+                    }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: isMobile ? 0.6 : index !== 1 ? 1 : 0.6,
+                      ease: "easeInOut",
+                      delay: isMobile ? index * 0.2 : 0,
+                    }}
+                    key={`blog-${index}`}
+                    className="bg-white rounded-lg shadow-lg transition-shadow duration-300 border border-gray-300 flex flex-col h-full overflow-hidden"
+                  >
+                    <div className="relative aspect-video overflow-hidden">
+                      <img
+                        src={blog.featured_image_url}
+                        alt={blog.title}
+                        className="w-full max-h-56 h-full object-fit transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
 
-                  <div className="px-3 py-4 flex flex-col flex-grow">
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 leading-snug line-clamp-1 font-PTSerif italic">
-                      {blog.title}
-                    </h3>
+                    <div className="px-3 py-4 flex flex-col flex-grow">
+                      <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 leading-snug line-clamp-1 font-PTSerif italic">
+                        {blog.title}
+                      </h3>
 
-                    {blog.contentBlocks &&
-                      blog.contentBlocks.find(
-                        (block) => block.block_type === "paragraph"
-                      )?.paragraphBlock?.text && (
-                        <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed flex-grow line-clamp-4">
-                          {
-                            blog.contentBlocks.find(
-                              (block) => block.block_type === "paragraph"
-                            )!.paragraphBlock!.text
-                          }
-                        </p>
-                      )}
+                      {blog.contentBlocks &&
+                        blog.contentBlocks.find(
+                          (block) => block.block_type === "paragraph"
+                        )?.paragraphBlock?.text && (
+                          <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed flex-grow line-clamp-4">
+                            {
+                              blog.contentBlocks.find(
+                                (block) => block.block_type === "paragraph"
+                              )!.paragraphBlock!.text
+                            }
+                          </p>
+                        )}
 
-                    <a
-                      href={`/blogs/${blog.id}`}
-                      className="inline-flex items-center text-gray-600 font-medium text-sm sm:text-base mt-auto"
-                    >
-                      Read More
-                      <ChevronRight className="w-4 h-4 ml-1" />
-                    </a>
-                  </div>
-                </motion.article>
-              ))}
+                      <a
+                        href={`/blogs/${blog.id}`}
+                        className="inline-flex items-center text-gray-600 font-medium text-sm sm:text-base mt-auto"
+                      >
+                        Read More
+                        <ChevronRight className="w-4 h-4 ml-1" />
+                      </a>
+                    </div>
+                  </motion.article>
+                ))}
           </div>
         </React.Suspense>
 

@@ -115,12 +115,12 @@ export function SingleBlogPage({ blog }: { blog: TBlogSchema }) {
               }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.6,
+                duration: 0.3,
                 ease: "easeOut",
                 delay: index * 0.1,
               }}
               key={index}
-              className="text-gray-700 leading-relaxed mb-4"
+              className="bg-white text-gray-700 leading-relaxed mb-4"
             >
               {block.paragraphBlock.text}
             </motion.p>

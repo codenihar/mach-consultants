@@ -1,7 +1,7 @@
 "use client";
 import { TBlogSchema, TContentBlockSchema } from "@/actions/blogs/blogs.types";
 import React, { useState } from "react";
-import { useFormStatus } from "react-dom";
+import { SubmitButton } from "@/components/admin/submit-button";
 
 interface BlogFormProps {
   type: "update" | "create";
@@ -10,7 +10,6 @@ interface BlogFormProps {
 }
 
 export function BlogForm({ type, onSubmit, initialData }: BlogFormProps) {
-  const { pending } = useFormStatus();
   const [formData, setFormData] = useState<
     Omit<TBlogSchema, "id" | "created_at" | "updated_at" | "block_order">
   >({
@@ -183,6 +182,13 @@ export function BlogForm({ type, onSubmit, initialData }: BlogFormProps) {
           <option value={2}>2</option>
           <option value={3}>3</option>
           <option value={4}>4</option>
+          <option value={5}>5</option>
+          <option value={6}>6</option>
+          <option value={7}>7</option>
+          <option value={8}>8</option>
+          <option value={9}>9</option>
+          <option value={10}>10</option>
+          <option value={11}>11</option>
         </select>
       </div>
 
@@ -301,18 +307,7 @@ export function BlogForm({ type, onSubmit, initialData }: BlogFormProps) {
           Cancel
         </a>
 
-        <button
-          disabled={pending}
-          className={`cursor-pointer px-4 py-2 bg-gray-900 text-white rounded-3xl hover:bg-gray-700 transition ${
-            pending && "opacity-70"
-          }`}
-        >
-          {pending ? (
-            <>{type === "update" ? "Updating..." : "Creating..."}</>
-          ) : (
-            <>{type === "update" ? "Update" : "Create"} Blog</>
-          )}
-        </button>
+        <SubmitButton type={type} />
       </div>
     </form>
   );

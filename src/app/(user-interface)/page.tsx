@@ -7,10 +7,9 @@ import { Stats } from "@/components/user-interface/StatsSection";
 import { ConsultationForm } from "@/components/user-interface/ContactUsSection";
 import { WhyChooseUs } from "@/components/user-interface/WhyChooseUs";
 import { Blogs } from "@/components/user-interface/BlogSection";
+import React from "react";
 
 export default async function Home() {
-  const promises = Promise.all([BlogsService.getBlogs()]);
-
   return (
     <main className="bg-white">
       <div className="relative">
@@ -19,10 +18,10 @@ export default async function Home() {
       </div>
       <AboutUs />
       <Partners />
-      <Publications promises={promises} />
+      <Publications />
       <WhyChooseUs />
       <ConsultationForm />
-      <Blogs promises={promises} />
+      <Blogs />
     </main>
   );
 }

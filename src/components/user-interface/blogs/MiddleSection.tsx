@@ -2,13 +2,12 @@
 import React from "react";
 import { Calendar, ArrowRight, MoveUpRight } from "lucide-react";
 import { motion } from "motion/react";
-import { BlogsService } from "@/actions/blogs/blogs.service";
+import { BlogDataContext } from "@/components/layout/Layout-wrapper";
 
-interface MiddleSectionProps {
-  promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
-}
+export function MiddleSection() {
+  const promises = React.useContext(BlogDataContext);
+  if (!promises) return;
 
-export function MiddleSection({ promises }: MiddleSectionProps) {
   const [{ data }] = React.use(promises);
 
   const [focusedIndex, setFocusedIndex] = React.useState<number | null>(null);

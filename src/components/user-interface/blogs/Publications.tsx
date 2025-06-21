@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowRight, Calendar } from "lucide-react";
 import { motion, useAnimation, useInView } from "motion/react";
+import { BlogDataContext } from "@/components/layout/Layout-wrapper";
 
 interface BlogCardProps {
   blog: {
@@ -14,10 +14,6 @@ interface BlogCardProps {
     id: string;
   };
   index: number;
-}
-
-interface FeaturedBlogProps {
-  promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
 }
 
 function FeaturedBlogSkeleton() {
@@ -95,7 +91,10 @@ const PublicationCard: React.FC<BlogCardProps> = ({ blog, index }) => {
   );
 };
 
-export const Publications = ({ promises }: FeaturedBlogProps) => {
+export const Publications = () => {
+  const promises = React.useContext(BlogDataContext);
+  if (!promises) return;
+
   const [{ data }] = React.use(promises);
 
   const controls = useAnimation();

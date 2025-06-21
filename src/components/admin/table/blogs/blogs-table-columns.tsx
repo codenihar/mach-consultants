@@ -55,7 +55,7 @@ export function getBlogsColumns({
     {
       accessorKey: "id",
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Blog ID" />
+        <DataTableColumnHeader column={column} title="Article ID" />
       ),
       cell: ({ row }) => <div className="w-auto">{row.getValue("id")}</div>,
       enableSorting: false,
@@ -64,7 +64,7 @@ export function getBlogsColumns({
     {
       accessorKey: "title",
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Blog Title" />
+        <DataTableColumnHeader column={column} title="Article Title" />
       ),
       cell: ({ row }) => (
         <div className="w-60 line-clamp-1">{row.getValue("title")}</div>

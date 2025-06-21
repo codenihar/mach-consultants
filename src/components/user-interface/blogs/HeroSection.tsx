@@ -2,14 +2,14 @@
 import React, { useEffect } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import { BlogsService } from "@/actions/blogs/blogs.service";
+import { BlogDataContext } from "@/components/layout/Layout-wrapper";
 
-interface BlogPageProps {
-  promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
-}
+export function BlogsAndPublications() {
+  const promises = React.useContext(BlogDataContext);
+  if (!promises) return;
 
-export function BlogsAndPublications({ promises }: BlogPageProps) {
   const [{ data }] = React.use(promises);
+
   const [hovered, setHovered] = React.useState<boolean>(true);
   const [focusedIndex, setFocusedIndex] = React.useState<number | null>(null);
 

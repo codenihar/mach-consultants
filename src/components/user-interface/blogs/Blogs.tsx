@@ -2,13 +2,9 @@
 
 import React, { useEffect, useRef } from "react";
 import { CalendarDays } from "lucide-react";
-import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion, useAnimation, useInView } from "motion/react";
-
-interface RecentBlogProps {
-  promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
-}
+import { BlogDataContext } from "@/components/layout/Layout-wrapper";
 
 function RecentBlogSkeleton() {
   return (
@@ -55,8 +51,12 @@ function RecentBlogSkeleton() {
   );
 }
 
-export function RecentBlogs({ promises }: RecentBlogProps) {
+export function RecentBlogs() {
+  const promises = React.useContext(BlogDataContext);
+  if (!promises) return;
+
   const [{ data }] = React.use(promises);
+
   const controls = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
