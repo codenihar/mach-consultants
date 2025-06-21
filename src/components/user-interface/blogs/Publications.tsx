@@ -55,9 +55,9 @@ const PublicationCard: React.FC<BlogCardProps> = ({ blog, index }) => {
       initial={{ y: 100, opacity: 0 }}
       animate={controls}
       transition={{ duration: 0.3, ease: "easeOut", delay: 0.05 * index }}
-      className="overflow-hidden font-Inter"
+      className="font-Inter"
     >
-      <div className="relative rounded-xl overflow-hidden border border-gray-300">
+      <div className="relative rounded-xl border border-gray-300">
         <img
           className="w-full max-h-52 h-full object-fit hover:scale-102 transition-all duration-300 shadow-sm"
           src={blog.featured_image_url}

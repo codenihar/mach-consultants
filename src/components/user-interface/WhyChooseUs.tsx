@@ -133,8 +133,7 @@ export function WhyChooseUs() {
           </div>
         </div>
 
-        {/* Right Image with Badge */}
-        <div className="relative w-full order-1 lg:order-2">
+        <div className="relative w-full order-1 lg:order-2 max-lg:overflow-hidden">
           <motion.div
             initial={{
               x: 100,

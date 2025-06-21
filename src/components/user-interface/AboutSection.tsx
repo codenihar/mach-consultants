@@ -4,10 +4,10 @@ import React from "react";
 
 export function AboutUs() {
   return (
-    <section className="pt-36 pb-20 font-Inter">
+    <section className="pt-36 pb-10 font-Inter">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-2 md:gap-12">
         {/* Left Image Section */}
-        <div className="relative flex items-center justify-end h-120 md:h-140 w-full">
+        <div className="relative flex items-center justify-end h-120 md:h-140 w-full overflow-hidden">
           {/* Top Image */}
           <motion.div
             initial={{
@@ -49,7 +49,7 @@ export function AboutUs() {
               delay: 0.3,
             }}
             viewport={{ once: true }}
-            className="absolute left-0 bottom-14 md:bottom-10 md:right-36 lg:right-12 z-10"
+            className="absolute left-0 bottom-14 md:bottom-10 md:right-36 lg:right-12 z-10 overflow-hidden"
           >
             <img
               src="https://mach-consultants.com/wp-content/uploads/elementor/thumbs/scott-graham-5fNmWej4tAA-unsplash-scaled-ql5dkfej39leypplv180564klk593emq00gt6pjx6g.jpg"

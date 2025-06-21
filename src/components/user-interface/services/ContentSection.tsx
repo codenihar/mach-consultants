@@ -6,7 +6,7 @@ export function ContentSection({ service }: Service) {
   return (
     <section className={`w-full px-4 sm:px-6 md:px-8 lg:px-12 font-Inter`}>
       <div
-        className={`rounded-t-4xl ${service.bgColor} ${
+        className={`rounded-t-2xl md:rounded-t-4xl ${service.bgColor} ${
           service.textColor === "white" ? "text-white" : "text-black"
         } max-w-7xl mx-auto py-8 px-4 sm:px-6 md:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center`}
       >
@@ -25,7 +25,7 @@ export function ContentSection({ service }: Service) {
               duration: 0.3,
               ease: "easeOut",
             }}
-            className="text-3xl font-bold mb-4 sm:mb-5 md:mb-6 font-PTSerif italic"
+            className="text-3xl md:text-2xl lg:text-3xl font-bold mb-4 sm:mb-5 md:mb-6 font-PTSerif italic"
           >
             {service.title}
           </motion.h2>

@@ -1,14 +1,23 @@
+"use client";
 import React from "react";
 import { ArrowRight, Calendar, Mail, MoveUpRight, Phone } from "lucide-react";
 import { NavItems, policies } from "@/lib/constants";
-import * as motion from "motion/react-client";
+import { motion } from "motion/react";
 
 export function Footer() {
+  const [hasMounted, setHasMounted] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) return null;
+
   return (
-    <footer className="bg-black text-[#f6f4f4] px-4 md:px-8 xl:px-0 pb-8 pt-16 md:pt-24 font-Inter">
+    <footer className="bg-black text-[#f6f4f4] pb-8 pt-16 font-Inter">
       <div className="max-w-[120rem] mx-auto">
         {/* Top CTA Section */}
-        <div className="flex flex-col lg:flex-row justify-between px-4 sm:px-6 py-12 md:py-16 overflow-hidden">
+        <div className="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 py-12 md:py-16 overflow-hidden">
           <motion.div
             initial={{
               x: -10,
@@ -57,7 +66,7 @@ export function Footer() {
             </div>
           </motion.div>
 
-          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-8">
+          <div className="max-w-6xl mx-auto my-20 lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8">
             <div className="mx-auto text-center lg:text-left">
               <motion.h2
                 initial={{
@@ -182,8 +191,7 @@ export function Footer() {
           </motion.div>
         </div>
 
-        {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto mt-16">
+        <div className="max-w-7xl mx-auto mt-16 px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-10">
             {/* Logo and About */}
             <div className="md:col-span-3 lg:col-span-1 xl:col-span-2">
@@ -403,7 +411,7 @@ export function Footer() {
           <div className="w-full border-t text-center border-gray-300 mt-12 md:mt-16 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-300">
             <p className="w-full text-sm md:text-md text-center">
               Copyright © {new Date().getFullYear()} MACH-Consultants | Powered
-              by Streamline Consultancy
+              by Codedale
             </p>
           </div>
         </div>

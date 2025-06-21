@@ -1,8 +1,17 @@
+"use client";
 import React from "react";
-import * as motion from "motion/react-client";
+import { motion } from "motion/react";
 import { MoveUpRight } from "lucide-react";
 
 export function ConsultationForm() {
+  const [hasMounted, setHasMounted] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) return null;
+
   return (
     <section id="contactUs" className="py-12 px-4 sm:px-6 md:px-8 font-Inter">
       <div className="bg-black py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 rounded-4xl max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
@@ -21,7 +30,7 @@ export function ConsultationForm() {
             delay: 0.15,
           }}
           viewport={{ once: true }}
-          className="order-2 lg:order-1 w-full"
+          className="order-2 lg:order-1 w-full overflow-hidden"
         >
           <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
             <img
@@ -33,7 +42,7 @@ export function ConsultationForm() {
           </div>
         </motion.div>
 
-        <div className="order-1 lg:order-2 w-full">
+        <div className="order-1 lg:order-2 w-full overflow-hidden">
           <motion.div
             initial={{
               x: 100,
@@ -88,7 +97,7 @@ export function ConsultationForm() {
                   required
                 />
               </div>
-              <div>
+              <div className="max-sm:col-span-2">
                 <input
                   type="email"
                   placeholder="Email address*"
@@ -96,7 +105,7 @@ export function ConsultationForm() {
                   required
                 />
               </div>
-              <div>
+              <div className="max-sm:col-span-2">
                 <input
                   type="number"
                   placeholder="Phone Number"

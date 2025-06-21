@@ -60,6 +60,7 @@ export function Partners() {
                   }}
                   src={partner}
                   alt="partner-image"
+                  className="rounded-md overflow-hidden"
                 />
               </motion.div>
             ))}

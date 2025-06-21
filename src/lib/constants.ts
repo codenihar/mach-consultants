@@ -1,4 +1,4 @@
-import { NavItem, Policy } from "./types";
+import { NavItem, Policy } from "@/lib/types";
 
 export const NavItems: NavItem[] = [
   { name: "Home", route: "/" },

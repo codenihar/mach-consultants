@@ -9,24 +9,19 @@ export function Header() {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setHasScrolled(true);
-      } else {
-        setHasScrolled(false);
-      }
+    const checkScroll = () => {
+      setHasScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    checkScroll();
+    window.addEventListener("scroll", checkScroll);
+    return () => window.removeEventListener("scroll", checkScroll);
   });
 
   return (
     <header
       className={`fixed left-0 right-0 top-0 z-50 py-2 w-full transition-all duration-300 font-Inter ${
-        hasScrolled
-          ? "backdrop-blur-xl shadow-sm"
-          : "bg-transparent shadow-none"
+        hasScrolled ? "bg-gray-100 shadow-lg" : "bg-transparent shadow-none"
       }`}
     >
       <div className="container mx-auto p-5 md:p-3 max-w-6xl">
@@ -83,7 +78,7 @@ export function Header() {
               initial={{ opacity: 0, y: -100 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -100 }}
-              transition={{ duration: 0.1, ease: "easeInOut" }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               className="lg:hidden w-full absolute top-0 left-0 right-0 z-40 bg-white shadow-lg rounded-b-lg py-4 px-6 overflow-hidden"
             >
               <div className="flex items-center gap-2 pt-3 pb-5">

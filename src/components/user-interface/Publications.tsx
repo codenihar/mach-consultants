@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import { ChevronRight } from "lucide-react";
 import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
-import * as motion from "motion/react-client";
+import { motion } from "motion/react";
+import { useResponsiveFlag } from "@/lib/hooks/use-mobile";
 
 interface PublicationsProps {
   promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
@@ -32,6 +34,14 @@ function PublicationCardSkeleton() {
 
 export function Publications({ promises }: PublicationsProps) {
   const [{ data }] = React.use(promises);
+  const isMobile = useResponsiveFlag();
+  const [hasMounted, setHasMounted] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) return null;
 
   return (
     <section className="py-12 md:py-16 bg-white px-4 sm:px-6 font-Inter">
@@ -89,19 +99,22 @@ export function Publications({ promises }: PublicationsProps) {
               data.slice(3, 6).map((publication, idx) => (
                 <motion.div
                   initial={{
-                    x: getInitialX(idx),
-                    opacity: idx !== 1 ? 1 : 0.5,
-                    scale: idx === 1 ? 0.5 : 1,
+                    x: isMobile ? 0 : getInitialX(idx),
+                    y: isMobile ? 100 : 0,
+                    opacity: isMobile ? 0 : idx !== 1 ? 1 : 0.5,
+                    scale: isMobile ? 1 : idx === 1 ? 0.5 : 1,
                   }}
                   whileInView={{
                     x: 0,
+                    y: 0,
                     opacity: 1,
                     scale: 1,
                   }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: idx !== 1 ? 1 : 0.6,
+                    duration: isMobile ? 0.6 : idx !== 1 ? 1 : 0.6,
                     ease: "easeInOut",
+                    delay: isMobile ? idx * 0.2 : 0,
                   }}
                   key={idx}
                   className="flex flex-col items-center text-left bg-white border border-gray-200 py-2 shadow-lg rounded-lg"

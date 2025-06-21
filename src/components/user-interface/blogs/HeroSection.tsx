@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
-import { motion, useAnimation } from "motion/react";
+import { motion } from "motion/react";
 import { BlogsService } from "@/actions/blogs/blogs.service";
 
 interface BlogPageProps {
@@ -20,14 +20,14 @@ export function BlogsAndPublications({ promises }: BlogPageProps) {
   }, []);
 
   return (
-    <section className="bg-[#f4f4f4] px-8 pt-42 py-20 font-PTSerif">
-      <div className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center gap-20">
-        <div className="max-w-2xl">
+    <section className="bg-[#f4f4f4] px-8 pt-36 md:pt-42 py-20 font-PTSerif overflow-hidden">
+      <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center gap-10 md:gap-5 lg:gap-20">
+        <div className="md:flex-1 lg-flex-0 max-w-2xl">
           <motion.h1
             initial={{ y: 75, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="text-6xl md:text-8xl font-extrabold text-black"
+            className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-black"
           >
             Publications And Blogs
           </motion.h1>
@@ -48,7 +48,7 @@ export function BlogsAndPublications({ promises }: BlogPageProps) {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-          className="relative w-80 h-95 flex justify-center items-center"
+          className="relative w-75 md:w-80 max-w-80 h-95 flex justify-center items-center md:flex-1 lg-flex-0"
         >
           {data &&
             data.length > 0 &&

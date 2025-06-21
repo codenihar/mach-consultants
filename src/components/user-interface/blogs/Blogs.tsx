@@ -68,7 +68,7 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
   }, [inView]);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-20 font-Inter text-black">
+    <section className="max-w-7xl mx-auto px-4 py-10 md:py-20 font-Inter text-black">
       <motion.h2
         ref={ref}
         initial={{ y: 100, opacity: 0 }}
@@ -134,25 +134,25 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
             initial={{ y: 100, opacity: 0 }}
             animate={controls}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-            className="w-full h-72 flex flex-col items-between gap-6"
+            className="w-full h-auto md:h-72 flex flex-col items-between gap-6"
           >
             {data &&
               data.length > 0 &&
               data.slice(7, 11).map((blog, index) => (
                 <div
                   key={index}
-                  className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-6 justify-between items-between"
+                  className="flex-1 grid grid-cols-2 gap-3 md:gap-6 justify-between items-between"
                 >
-                  <div className="col-span-1 relative overflow-hidden rounded-xl border border-gray-300">
+                  <div className="col-span-2 md:col-span-1 relative overflow-hidden rounded-xl border border-gray-300">
                     <img
                       src={blog.featured_image_url}
                       alt={blog.title}
-                      className="w-full max-h-36 object-cover rounded-xl shrink-0 hover:scale-102 transform-all duration-300"
+                      className="w-full h-auto md:max-h-36 object-cover rounded-xl shrink-0 hover:scale-102 transform-all duration-300"
                     />
                   </div>
 
-                  <div className="lg:col-span-2 flex flex-col">
-                    <h4 className="text-md md:text-sm lg:text-xl font-semibold max-w-sm line-clamp-2 font-PTSerif italic">
+                  <div className="col-span-2 md:col-span-1 flex flex-col">
+                    <h4 className="text-md md:text-md lg:text-xl font-semibold line-clamp-1 font-PTSerif italic">
                       {blog.title}
                     </h4>
 
@@ -173,6 +173,7 @@ export function RecentBlogs({ promises }: RecentBlogProps) {
                       Read more →
                     </a>
                   </div>
+
                   <a
                     href={`/blogs/${blog.id}`}
                     className="md:hidden w-full col-span-2 cursor-pointer px-3 py-1 text-sm border border-gray-300 rounded-full hover:bg-gray-100 transition flex justify-center items-center gap-1"

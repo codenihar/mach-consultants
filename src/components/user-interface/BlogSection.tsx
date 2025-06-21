@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { BlogsService } from "@/actions/blogs/blogs.service";
 import { Skeleton } from "@/components/ui/skeleton";
 import * as motion from "motion/react-client";
+import { useResponsiveFlag } from "@/lib/hooks/use-mobile";
 
 interface BlogSectionProps {
   promises: Promise<[Awaited<ReturnType<typeof BlogsService.getBlogs>>]>;
@@ -32,6 +33,14 @@ const getInitialX = (index: number) => {
 
 export function Blogs({ promises }: BlogSectionProps) {
   const [{ data }] = React.use(promises);
+  const isMobile = useResponsiveFlag();
+  const [hasMounted, setHasMounted] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) return null;
 
   return (
     <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-white font-Inter">
@@ -91,19 +100,22 @@ export function Blogs({ promises }: BlogSectionProps) {
               data.slice(0, 3).map((blog, index) => (
                 <motion.article
                   initial={{
-                    x: getInitialX(index),
-                    opacity: index !== 1 ? 1 : 0.5,
-                    scale: index === 1 ? 0.5 : 1,
+                    x: isMobile ? 0 : getInitialX(index),
+                    y: isMobile ? 100 : 0,
+                    opacity: isMobile ? 0 : index !== 1 ? 1 : 0.5,
+                    scale: isMobile ? 1 : index === 1 ? 0.5 : 1,
                   }}
                   whileInView={{
                     x: 0,
+                    y: 0,
                     opacity: 1,
                     scale: 1,
                   }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: index !== 1 ? 1 : 0.6,
+                    duration: isMobile ? 0.6 : index !== 1 ? 1 : 0.6,
                     ease: "easeInOut",
+                    delay: isMobile ? index * 0.2 : 0,
                   }}
                   key={`blog-${index}`}
                   className="bg-white rounded-lg shadow-lg transition-shadow duration-300 border border-gray-300 flex flex-col h-full overflow-hidden"

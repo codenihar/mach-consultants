@@ -14,9 +14,9 @@ export function MiddleSection({ promises }: MiddleSectionProps) {
   const [focusedIndex, setFocusedIndex] = React.useState<number | null>(null);
 
   return (
-    <section className="py-10 font-PTSerif">
-      <div className="max-w-7xl mx-auto rounded-[2rem] px-20 py-20 bg-black text-[#f6f4f4] w-full flex flex-col lg:flex-row justify-between items-center gap-20">
-        <div className="text-left">
+    <section className="py-5 md:py-10 font-PTSerif overflow-hidden">
+      <div className="max-w-7xl mx-auto rounded-xl md:rounded-[2rem] px-5 lg:px-14 py-20 bg-black text-[#f6f4f4] w-full flex flex-col md:flex-row justify-between items-center gap-5 md:gap-10 lg:gap-14">
+        <div className="text-left flex-1">
           <motion.h2
             initial={{
               y: 100,
@@ -31,7 +31,7 @@ export function MiddleSection({ promises }: MiddleSectionProps) {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 md:mb-4 font-PTSerif italic"
+            className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold mb-3 md:mb-4 font-PTSerif italic"
           >
             Get started with us today.
           </motion.h2>

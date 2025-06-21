@@ -1,10 +1,10 @@
-import { UserRoundCheck } from "lucide-react";
+import { Cog, UserRoundCheck } from "lucide-react";
 import * as motion from "motion/react-client";
 import React from "react";
 
 export function Hero() {
   return (
-    <section className="w-full flex items-center px-4 sm:px-6 md:px-8 lg:px-16 pt-24 pb-48 md:pt-36 font-PTSerif">
+    <section className="w-full flex items-center px-4 sm:px-6 md:px-8 lg:px-16 pt-24 md:pt-36 pb-36 md:pb-48 font-PTSerif">
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-20 w-full">
         {/* Left Section */}
         <div className="flex-1 w-full mt-8 lg:mt-0">
@@ -102,7 +102,7 @@ export function Hero() {
               ease: "easeOut",
               delay: 0.25,
             }}
-            className="text-gray-600 text-base sm:text-lg md:text-xl my-4 sm:my-6 md:my-8 max-w-2xl font-Inter"
+            className="text-gray-600 text-base sm:text-lg md:text-xl my-4 sm:my-6 md:my-8 max-w-2xl font-Inter overflow-hidden"
           >
             We are selective consultants focused on immediate performance
             improvement. We are dedicated to revealing hidden resources of the
@@ -126,10 +126,10 @@ export function Hero() {
                 delay: 0.3,
               }}
               href="/#contactUs"
-              className="flex items-center justify-center gap-4 bg-black hover:bg-gray-800 text-white px-5 py-3 rounded-md ransition cursor-pointer w-[max-content] text-xl"
+              className="flex items-center justify-center gap-4 bg-black hover:bg-gray-800 text-white px-5 py-3 rounded-md ransition cursor-pointer w-[max-content] text-xl overflow-hidden"
             >
-              Contact Us
-              <UserRoundCheck />
+              Our Services
+              <Cog />
             </motion.a>
           </div>
         </div>
