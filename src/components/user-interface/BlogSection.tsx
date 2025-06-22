@@ -43,7 +43,7 @@ export function Blogs() {
   if (!hasMounted) return null;
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-white font-Inter">
+    <section className="md:py-16 lg:py-20 px-4 sm:px-6 bg-white font-Inter">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10 md:mb-14 lg:mb-16">
           <motion.p
@@ -126,7 +126,7 @@ export function Blogs() {
                       <img
                         src={blog.featured_image_url}
                         alt={blog.title}
-                        className="w-full max-h-56 h-full object-fit transition-transform duration-500 hover:scale-105"
+                        className="w-full max-h-56 h-full object-fit transition-transform duration-500 hover:scale-105 brightness-98"
                         loading="lazy"
                       />
                     </div>
@@ -177,7 +177,7 @@ export function Blogs() {
             ease: "easeOut",
             delay: 0.1,
           }}
-          className="text-center mt-10 md:mt-14"
+          className="text-center my-6 md:my-10"
         >
           <a
             href="/blogs"

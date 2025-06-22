@@ -125,7 +125,7 @@ export function Publications() {
                       <img
                         src={publication.featured_image_url}
                         alt={publication.title}
-                        className="w-full h-full object-fit transition-transform duration-500 hover:scale-105"
+                        className="w-full h-full object-fit transition-transform duration-500 hover:scale-105 brightness-98"
                         loading="lazy"
                       />
                     </div>

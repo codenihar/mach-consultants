@@ -135,7 +135,7 @@ export function Hero() {
         </div>
 
         {/* Right Section */}
-        <div className="relative flex-1 w-full flex justify-start lg:justify-end">
+        <div className="relative flex-1 w-full flex justify-start lg:justify-end overflow-hidden">
           <motion.div
             initial={{
               y: 100,
@@ -151,7 +151,7 @@ export function Hero() {
               ease: "easeOut",
               delay: 0.35,
             }}
-            className="relative w-full max-w-md lg:max-w-none lg:mx-0 rounded-2xl sm:rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-lg"
+            className="relative w-full max-w-md lg:max-w-none lg:mx-0 rounded-2xl sm:rounded-[2rem] lg:rounded-[3rem] shadow-lg"
             style={{ clipPath: "url(#clip-home-shape)" }}
           >
             <svg width="0" height="0" className="absolute">

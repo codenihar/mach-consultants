@@ -27,7 +27,7 @@ export function AboutUs() {
             className="absolute top-10 z-0"
           >
             <img
-              src="images/about-us-1.png"
+              src="images/about-us-2.jpg"
               alt="Happy family"
               className="w-72 md:w-100 md:h-80 object-cover rounded-xl shadow-lg"
             />
@@ -52,9 +52,9 @@ export function AboutUs() {
             className="absolute left-0 bottom-14 md:bottom-10 md:right-36 lg:right-12 z-10 overflow-hidden"
           >
             <img
-              src="/images/about-us-2.jpg"
+              src="/images/about-us-1.png"
               alt="Moving boxes"
-              className="w-64 md:w-96 md:h-80 object-cover rounded-xl shadow-md"
+              className="w-64 md:w-96 h-52 md:h-80 object-cover rounded-xl shadow-md"
             />
           </motion.div>
 
@@ -74,7 +74,7 @@ export function AboutUs() {
               delay: 0.1,
             }}
             viewport={{ once: true }}
-            className="absolute z-20 max-sm:left-52 left-64 md:left-88 lg:left-80 top-52 md:top-72"
+            className="absolute z-20 max-sm:left-52 left-64 md:left-88 lg:left-80 top-46 md:top-72"
           >
             <div className="bg-pink-100 border-2 border-pinl-500 text-center rounded-full w-28 h-28 flex flex-col items-center justify-center shadow-md">
               <span className="text-4xl font-bold text-pink-700">35</span>

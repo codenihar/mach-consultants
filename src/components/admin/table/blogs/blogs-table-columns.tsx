@@ -69,6 +69,7 @@ export function getBlogsColumns({
       cell: ({ row }) => (
         <div className="w-60 line-clamp-1">{row.getValue("title")}</div>
       ),
+      enableHiding: false,
     },
     {
       accessorKey: "type",
@@ -76,6 +77,7 @@ export function getBlogsColumns({
         <DataTableColumnHeader column={column} title="Article Type" />
       ),
       cell: ({ row }) => <div className="w-10">{row.getValue("type")}</div>,
+      enableHiding: false,
     },
     {
       accessorKey: "preference",
@@ -85,6 +87,7 @@ export function getBlogsColumns({
       cell: ({ row }) => (
         <div className="w-10">{row.getValue("preference")}</div>
       ),
+      enableHiding: false,
     },
     {
       accessorKey: "updated_at",
@@ -96,6 +99,7 @@ export function getBlogsColumns({
           {new Date(row.getValue("updated_at")).toLocaleString()}
         </div>
       ),
+      enableHiding: false,
     },
     {
       accessorKey: "created_at",
@@ -107,6 +111,7 @@ export function getBlogsColumns({
           {new Date(row.getValue("created_at")).toLocaleString()}
         </div>
       ),
+      enableHiding: false,
     },
     {
       id: "actions",

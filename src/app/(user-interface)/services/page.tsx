@@ -60,10 +60,10 @@ const services: Service["service"][] = [
     textColor: "black",
   },
   {
-    title: "BRD - Business Responsible Development",
+    title: "BUTTERS - Project Management",
     image:
       "https://mach-consultants.com/wp-content/uploads/2024/05/BUTTERS-with-no-title-1536x776.jpg",
-    desc: "We are not imposing models or certifications or a procedure. We go into the company, work with the people with their environmental and social sensibilities in order to innovate in the products, processes, strategies, to build environmental and social resources to sustain future growth of the company.",
+    desc: "Designed for ease and effectiveness, BUTTERS offers a user-friendly guide that not only balances all aspects of project management, but also drives your projects to a greater level of accomplishment.",
     buttonText: "Book Appointment",
     bgColor: "bg-gradient-to-r from-white to-pink-100",
     textColor: "black",

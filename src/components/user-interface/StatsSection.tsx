@@ -1,6 +1,6 @@
 "use client";
 import { Stat } from "@/lib/types";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import React from "react";
 import { useResponsiveFlag } from "@/lib/hooks/use-mobile";
 import { BookOpen, Building, Globe, Handshake } from "lucide-react";
@@ -41,6 +41,11 @@ const getInitialX = (index: number) => {
   return offsets[index] || 0;
 };
 
+const getZIndex = (index: number) => {
+  const zIndex = [1, 2, 3, 1];
+  return zIndex[index] || 0;
+};
+
 export function Stats() {
   const isMobile = useResponsiveFlag();
   const [hasMounted, setHasMounted] = React.useState<boolean>(false);
@@ -59,11 +64,13 @@ export function Stats() {
             initial={{
               x: isMobile ? 0 : getInitialX(index),
               y: isMobile ? 100 : 0,
+              zIndex: getZIndex(index),
               opacity: 0,
             }}
             whileInView={{
               x: 0,
               y: 0,
+              zIndex: getZIndex(index),
               opacity: 1,
             }}
             transition={{
@@ -71,7 +78,7 @@ export function Stats() {
               ease: "easeInOut",
               delay: isMobile ? index * 0.2 : 0,
             }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-15%" }}
             key={index}
             className={`flex flex-col gap-1 sm:gap-2 lg:gap-3 lg:flex-row items-center ${
               index > 0 && "xl:border-l-2"

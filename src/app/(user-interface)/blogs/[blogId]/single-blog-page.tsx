@@ -81,7 +81,7 @@ export function SingleBlogPage({ blog }: { blog: TBlogSchema }) {
           ease: "easeOut",
           delay: 0.2,
         }}
-        className="max-w-2xl mx-auto rounded-xl overflow-hidden mb-6 border border-gray-200 shadow-sm"
+        className="max-w-2xl rounded-xl overflow-hidden my-6 border border-gray-200 shadow-sm"
       >
         <img
           src={blog?.featured_image_url}
@@ -101,32 +101,39 @@ export function SingleBlogPage({ blog }: { blog: TBlogSchema }) {
             </h2>
           );
         }
-
         if (block.block_type === "paragraph" && block.paragraphBlock) {
+          const { text, link } = block.paragraphBlock;
+
           return (
-            <motion.p
-              initial={{
-                y: -100,
-                opacity: 0,
-              }}
-              whileInView={{
-                y: 0,
-                opacity: 1,
-              }}
+            <motion.div
+              key={index}
+              initial={{ y: -100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.3,
                 ease: "easeOut",
                 delay: index * 0.1,
               }}
-              key={index}
-              className="bg-white text-gray-700 leading-relaxed mb-4"
+              className="bg-white text-gray-700 leading-relaxed my-6"
             >
-              {block.paragraphBlock.text}
-            </motion.p>
+              <p className="mb-2">{text}</p>
+              {link && (
+                <p>
+                  For more detail visit:{" "}
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    Source ↗
+                  </a>
+                </p>
+              )}
+            </motion.div>
           );
         }
-
         return null;
       })}
     </div>
