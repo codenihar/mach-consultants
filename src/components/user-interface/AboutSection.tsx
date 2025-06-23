@@ -125,7 +125,7 @@ export function AboutUs({ className }: { className?: string }) {
             }}
             className={`text-2xl md:text-3xl xl:text-4xl font-bold text-[#6e3a5e] mb-4 leading-tight ${className}`}
           >
-            We specialize in customized consulting programs for people and
+            we specialize in customized consulting programs for people and
             businesses.
           </motion.h2>
 

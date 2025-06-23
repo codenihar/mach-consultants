@@ -9,7 +9,7 @@ export function Hero({ className }: { className?: string }) {
         {/* Left Section */}
         <div className="flex-1 w-full mt-8 lg:mt-0">
           <h1
-            className={`text-4xl md:text-5xl lg:text-6xl text-[#6e3a5e] mb-4 sm:mb-6 md:leading-15 lg:leading-17 font-SFCompact-medium font-extrabold overflow-hidden ${className}`}
+            className={`text-4xl md:text-5xl lg:text-6xl text-[#6e3a5e] mb-4 sm:mb-6 md:leading-15 lg:leading-17 font-extrabold overflow-hidden ${className}`}
           >
             <motion.p
               initial={{
@@ -88,6 +88,7 @@ export function Hero({ className }: { className?: string }) {
               core of our work
             </motion.p>
           </h1>
+
           <motion.p
             initial={{
               x: 50,
@@ -126,7 +127,7 @@ export function Hero({ className }: { className?: string }) {
                 delay: 0.3,
               }}
               href="/services"
-              className="flex items-center justify-center gap-4 bg-[#075fa4] text-white px-5 py-3 rounded-md transition cursor-pointer w-[max-content] text-xl overflow-hidden"
+              className="flex items-center justify-center gap-4 bg-[#075fa4] text-white px-5 py-3 rounded-md transition cursor-pointer w-[max-content] text-xl font-semibold overflow-hidden"
             >
               Our Services
               <Cog />

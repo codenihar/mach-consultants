@@ -13,15 +13,15 @@ export default async function Home() {
     <main className="bg-white">
       {/* Give Italic inside className, if needed */}
       <div className="relative">
-        <Hero className="italic" />
-        <Stats className="italic" />
+        <Hero className="font-PTSerif italic" />
+        <Stats className="font-PTSerif italic" />
       </div>
-      <AboutUs className="italic" />
-      <Partners className="italic" />
-      <Publications className="italic" />
-      <WhyChooseUs className="italic" />
-      <ConsultationForm className="italic" />
-      <Blogs className="italic" />
+      <AboutUs className="font-PTSerif italic" />
+      <Partners className="font-PTSerif italic" />
+      <Publications className="font-PTSerif italic" />
+      <WhyChooseUs className="font-PTSerif italic" />
+      <ConsultationForm className="font-PTSerif italic" />
+      <Blogs className="font-PTSerif italic" />
     </main>
   );
 }
