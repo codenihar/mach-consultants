@@ -2,7 +2,7 @@ import * as motion from "motion/react-client";
 
 export function PrincipalsSection() {
   return (
-    <section className="max-w-7xl w-full mx-auto font-Inter 2xl:rounded-[3rem] bg-gradient-to-r from-blue-100 to-yellow-100 overflow-hidden">
+    <section className="max-w-7xl w-full mx-auto font-Inter 2xl:rounded-[3rem] bg-[#F4F8FB] overflow-hidden">
       <div className="grid md:grid-cols-7 2xl:grid-cols-3 justify-between items-end w-full overflow-hidden md:pt-4">
         <div className="md:col-span-2 2xl:col-span-1 text-center md:text-left max-sm:order-2">
           <motion.img

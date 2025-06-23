@@ -1,21 +1,19 @@
 "use client";
 import React from "react";
-import { Calendar, ArrowRight, MoveUpRight } from "lucide-react";
 import { motion } from "motion/react";
+import { Calendar, ArrowRight, MoveUpRight } from "lucide-react";
 import { BlogDataContext } from "@/components/layout/Layout-wrapper";
-import Link from "next/link";
 
 export function MiddleSection() {
   const promises = React.useContext(BlogDataContext);
   if (!promises) return;
 
   const [{ data }] = React.use(promises);
-
   const [focusedIndex, setFocusedIndex] = React.useState<number | null>(null);
 
   return (
     <section className="py-5 md:py-10 font-PTSerif overflow-hidden">
-      <div className="max-w-7xl mx-auto rounded-xl md:rounded-[2rem] px-5 lg:px-14 py-20 bg-black text-[#f6f4f4] w-full flex flex-col md:flex-row justify-between items-center gap-5 md:gap-10 lg:gap-14">
+      <div className="max-w-7xl mx-auto rounded-xl md:rounded-[2rem] px-5 lg:px-14 py-20 bg-[#F4F8FB] text-black w-full flex flex-col md:flex-row justify-between items-center gap-5 md:gap-10 lg:gap-14">
         <div className="text-left flex-1">
           <motion.h2
             initial={{

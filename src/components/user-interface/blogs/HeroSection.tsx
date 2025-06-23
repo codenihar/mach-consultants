@@ -20,7 +20,7 @@ export function BlogsAndPublications() {
   }, []);
 
   return (
-    <section className="bg-[#f4f4f4] px-8 pt-36 md:pt-42 py-20 font-PTSerif overflow-hidden">
+    <section className="bg-[#F4F8FB] px-8 pt-36 md:pt-42 py-20 font-PTSerif overflow-hidden">
       <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center gap-10 md:gap-5 lg:gap-20">
         <div className="md:flex-1 lg-flex-0 max-w-2xl">
           <motion.h1
