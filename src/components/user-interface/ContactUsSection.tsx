@@ -3,9 +3,9 @@ import React from "react";
 import { motion } from "motion/react";
 import { MoveUpRight } from "lucide-react";
 
-export function ConsultationForm() {
+export function ConsultationForm({ className }: { className?: string }) {
   return (
-    <section id="contactUs" className="py-12 px-4 sm:px-6 md:px-8 font-Inter">
+    <section id="contactUs" className="py-12 px-4 sm:px-6 md:px-8">
       <div className="bg-[#F4F8FB] py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 rounded-4xl max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         <motion.div
           initial={{
@@ -34,7 +34,7 @@ export function ConsultationForm() {
           </div>
         </motion.div>
 
-        <div className="order-1 lg:order-2 w-full overflow-hidden">
+        <div className="order-1 lg:order-2 w-full max-sm:overflow-hidden">
           <motion.div
             initial={{
               x: 100,
@@ -52,13 +52,15 @@ export function ConsultationForm() {
             viewport={{ once: true }}
             className="max-w-lg"
           >
-            <h3 className="text-black text-sm md:text-md lg:text-lg font-semibold mb-2">
+            <h3 className="text-[#075fa4] text-sm md:text-md lg:text-lg font-semibold mb-2">
               Free Consultation
             </h3>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-black leading-tight font-PTSerif italic">
+            <h2
+              className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-[#6e3a5e] leading-tight ${className}`}
+            >
               Contact us now for a free consultation
             </h2>
-            <p className="text-gray-700 my-4 sm:my-0 text-base sm:text-md">
+            <p className="text-[#6e3a5e] font-semibold my-4 sm:my-0 text-base sm:text-md">
               MACH Consultants can provide strategic advisory to help you define
               and solidify your project's rationale, ensuring it aligns with
               your overall enterprise potential and performance goals. Leave
@@ -136,7 +138,10 @@ export function ConsultationForm() {
                   className="cursor-pointer mt-1.5"
                   required
                 />
-                <label htmlFor="checkbox" className="text-black cursor-pointer">
+                <label
+                  htmlFor="checkbox"
+                  className="text-black font-semibold cursor-pointer"
+                >
                   GDPR consent: I authorize Mach to use my data to respond to my
                   request
                 </label>
@@ -145,7 +150,7 @@ export function ConsultationForm() {
               <div className="max-sm:col-span-2 mt-2">
                 <button
                   type="submit"
-                  className="w-[max-content] px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white font-semibold rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-[max-content] px-6 py-3 bg-[#075fa4] hover:opacity-90 text-white font-semibold rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
                 >
                   Make An Appointment
                   <MoveUpRight className="w-4 h-4" />

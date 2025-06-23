@@ -11,16 +11,17 @@ import { Blogs } from "@/components/user-interface/BlogSection";
 export default async function Home() {
   return (
     <main className="bg-white">
+      {/* Give Italic inside className, if needed */}
       <div className="relative">
-        <Hero />
-        <Stats />
+        <Hero className="" />
+        <Stats className="" />
       </div>
-      <AboutUs />
-      <Partners />
-      <Publications />
-      <WhyChooseUs />
-      <ConsultationForm />
-      <Blogs />
+      <AboutUs className="" />
+      <Partners className="" />
+      <Publications className="" />
+      <WhyChooseUs className="" />
+      <ConsultationForm className="" />
+      <Blogs className="" />
     </main>
   );
 }

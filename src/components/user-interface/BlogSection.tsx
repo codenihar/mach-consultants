@@ -27,7 +27,7 @@ const getInitialX = (index: number) => {
   return offsets[index] || 0;
 };
 
-export function Blogs() {
+export function Blogs({ className }: { className?: string }) {
   const promises = React.useContext(BlogDataContext);
   if (!promises) return;
 
@@ -43,7 +43,7 @@ export function Blogs() {
   if (!hasMounted) return null;
 
   return (
-    <section className="md:py-16 lg:py-20 px-4 sm:px-6 bg-white font-Inter">
+    <section className="md:py-16 lg:py-20 px-4 sm:px-6 bg-white font-SFCompact-medium">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10 md:mb-14 lg:mb-16">
           <motion.p
@@ -60,7 +60,7 @@ export function Blogs() {
               duration: 0.3,
               ease: "easeOut",
             }}
-            className="text-pink-600 font-semibold text-md md:text-lg lg:text-xl mb-2"
+            className="text-[#075fa4] font-semibold text-md md:text-lg lg:text-xl mb-2"
           >
             Our Blogs
           </motion.p>
@@ -79,7 +79,7 @@ export function Blogs() {
               ease: "easeOut",
               delay: 0.1,
             }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight font-PTSerif italic"
+            className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#6e3a5e] leading-tight ${className}`}
           >
             Take a look at the latest blogs from Mach Consultants
           </motion.h2>
@@ -131,8 +131,10 @@ export function Blogs() {
                       />
                     </div>
 
-                    <div className="px-3 py-4 flex flex-col flex-grow">
-                      <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 leading-snug line-clamp-1 font-PTSerif italic">
+                    <div className="px-4 py-4 flex flex-col flex-grow">
+                      <h3
+                        className={`text-lg sm:text-xl font-semibold text-[#6e3a5e] mb-3 leading-snug line-clamp-1 ${className}`}
+                      >
                         {blog.title}
                       </h3>
 
@@ -140,7 +142,7 @@ export function Blogs() {
                         blog.contentBlocks.find(
                           (block) => block.block_type === "paragraph"
                         )?.paragraphBlock?.text && (
-                          <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed flex-grow line-clamp-4">
+                          <p className="text-sm sm:text-base text-[#6e3a5e] mb-4 leading-relaxed flex-grow line-clamp-4">
                             {
                               blog.contentBlocks.find(
                                 (block) => block.block_type === "paragraph"
@@ -151,7 +153,7 @@ export function Blogs() {
 
                       <a
                         href={`/blogs/${blog.id}`}
-                        className="inline-flex items-center text-gray-600 font-medium text-sm sm:text-base mt-auto"
+                        className="inline-flex items-center text-[#075fa4] transition-all duration-300 hover:scale-102 font-medium text-sm sm:text-base mt-auto"
                       >
                         Read More
                         <ChevronRight className="w-4 h-4 ml-1" />
@@ -181,7 +183,7 @@ export function Blogs() {
         >
           <a
             href="/blogs"
-            className="inline-flex items-center px-6 py-3 bg-black hover:bg-gray-800 text-white font-medium rounded-lg transition-colors duration-300"
+            className="inline-flex items-center px-6 py-3 bg-[#075fa4] hover:opacity-90 text-white font-medium rounded-lg transition-colors duration-300"
           >
             View All Articles
             <ChevronRight className="w-4 h-4 ml-2" />

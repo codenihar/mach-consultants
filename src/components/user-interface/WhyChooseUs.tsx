@@ -10,34 +10,34 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    icon: <Diamond className="text-[#0562a3] w-10 h-10" />,
+    icon: <Diamond className="text-[#ae2333] w-10 h-10" />,
     title: "Selective Expertise",
     description:
       "We're selective consultants laser-focused on delivering immediate performance improvement by revealing your enterprise's hidden potential.",
   },
   {
-    icon: <TrendingUp className="text-[#0562a3] w-10 h-10" />,
+    icon: <TrendingUp className="text-[#ae2333] w-10 h-10" />,
     title: "Sustainable Performance",
     description:
       "Sustainable performance is at the core of all our work, ensuring lasting growth and impact for your organization.",
   },
   {
-    icon: <Handshake className="text-[#0562a3] w-10 h-10" />,
+    icon: <Handshake className="text-[#ae2333] w-10 h-10" />,
     title: "Ethical Partnership",
     description:
       "We uphold ethical, normative, and regulative dimensions, committed to transparency and advancing stakeholder benefits alongside our own.",
   },
   {
-    icon: <Lightbulb className="text-[#0562a3] w-10 h-10" />,
+    icon: <Lightbulb className="text-[#ae2333] w-10 h-10" />,
     title: "Holistic Development",
     description:
       "Our services, from CODE to DPIE, STAR, and BRD, cover comprehensive organizational and business responsible development.",
   },
 ];
 
-export function WhyChooseUs() {
+export function WhyChooseUs({ className }: { className?: string }) {
   return (
-    <section className="md:py-16 lg:py-20 bg-white px-4 sm:px-6 md:px-8 font-PTSerif">
+    <section className="md:py-16 lg:py-20 bg-white px-4 sm:px-6 md:px-8 font-SFCompact-medium">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         <div className="order-2 lg:order-1">
           <motion.p
@@ -54,7 +54,7 @@ export function WhyChooseUs() {
               duration: 0.3,
               ease: "easeOut",
             }}
-            className="text-pink-600 font-semibold mb-2 text-sm sm:text-base md:text-lg"
+            className="text-[#075fa4] font-semibold mb-2 text-sm sm:text-base md:text-lg"
           >
             Why Choose Us
           </motion.p>
@@ -73,7 +73,7 @@ export function WhyChooseUs() {
               ease: "easeOut",
               delay: 0.1,
             }}
-            className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4 md:mb-6 font-PTSerif italic"
+            className={`text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#6e3a5e] leading-tight mb-4 md:mb-6 ${className}`}
           >
             Choose Mach Consultants: Where Performance Meets Potential.
           </motion.h2>
@@ -92,7 +92,7 @@ export function WhyChooseUs() {
               ease: "easeOut",
               delay: 0.2,
             }}
-            className="text-gray-700 mb-6 md:mb-8 text-base sm:text-lg"
+            className="text-[#6e3a5e] mb-6 md:mb-8 text-base sm:text-lg"
           >
             At Mach Consultants, we're not just consultants; we're partners
             dedicated to revealing the hidden resources within your enterprise
@@ -141,7 +141,7 @@ export function WhyChooseUs() {
               delay: 0.25,
             }}
             viewport={{ once: true }}
-            className="absolute bottom-20 -left-2 md:-left-4 lg:-right-4 xl:right-4 bg-pink-100 text-pink-700 font-bold text-sm w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-2 border-pink-300 flex flex-col items-center justify-center shadow-md"
+            className="absolute bottom-20 -left-2 md:-left-4 lg:-right-4 xl:right-4 bg-pink-100 text-[#6e3a5e] font-bold text-sm w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full flex flex-col items-center justify-center shadow-md"
           >
             <span className="text-2xl sm:text-3xl">25+</span>
             <span className="text-xs sm:text-sm font-medium">Experienced</span>
@@ -170,12 +170,14 @@ export function WhyChooseUs() {
             key={`feat-${index}`}
             className="flex flex-col items-start gap-3 p-4 sm:p-5 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors duration-300"
           >
-            <div className="text-pink-600">{feature.icon}</div>
+            <div className="text-[#ae2333]">{feature.icon}</div>
             <div>
-              <h4 className="font-semibold text-lg lg:text-xl text-gray-900 font-PTSerif italic">
+              <h4
+                className={`font-semibold text-lg lg:text-xl text-[#6e3a5e] ${className}`}
+              >
                 {feature.title}
               </h4>
-              <p className="text-gray-600 text-md text-base leading-relaxed mt-2">
+              <p className="text-[#6e3a5e] text-md text-base leading-relaxed mt-2">
                 {feature.description}
               </p>
             </div>

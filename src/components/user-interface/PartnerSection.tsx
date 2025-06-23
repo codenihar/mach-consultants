@@ -11,10 +11,12 @@ const partners: string[] = [
   "/images/pdp.jpg",
 ];
 
-export function Partners() {
+export function Partners({ className }: { className?: string }) {
   return (
-    <section className="py-4 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 font-Inter">
-      <div className="max-w-7xl mx-auto bg-[#F4F8FB] rounded-3xl max-md:px-4 md:px-8 lg:px-0 py-8">
+    <section
+      className={`py-4 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 font-SFCompact-medium`}
+    >
+      <div className="max-w-7xl mx-auto bg-[#2d528a] rounded-3xl max-md:px-4 md:px-8 lg:px-0 py-8">
         <motion.h2
           initial={{
             y: 100,
@@ -30,7 +32,7 @@ export function Partners() {
             ease: "easeOut",
             delay: 0.1,
           }}
-          className="text-2xl lg:text-3xl text-black text-center font-semibold pb-8 font-PTSerif italic"
+          className={`text-2xl lg:text-3xl text-white text-center font-semibold pb-8 ${className}`}
         >
           Our Partners
         </motion.h2>

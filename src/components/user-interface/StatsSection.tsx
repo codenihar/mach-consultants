@@ -8,28 +8,28 @@ import { BookOpen, Building, Globe, Handshake } from "lucide-react";
 export const stats: Stat[] = [
   {
     icon: (
-      <Building className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
+      <Building className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#6e3a5e]" />
     ),
     value: "15+",
     label: "Years in Consulting",
   },
   {
     icon: (
-      <Handshake className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
+      <Handshake className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#6e3a5e]" />
     ),
     value: "100+",
     label: "Successful Engagements",
   },
   {
     icon: (
-      <Globe className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
+      <Globe className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#6e3a5e]" />
     ),
     value: "5+",
     label: "Regions Served",
   },
   {
     icon: (
-      <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#0562a3]" />
+      <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#6e3a5e]" />
     ),
     value: "20+",
     label: "Academic Publications",
@@ -46,7 +46,7 @@ const getZIndex = (index: number) => {
   return zIndex[index] || 0;
 };
 
-export function Stats() {
+export function Stats({ className }: { className?: string }) {
   const isMobile = useResponsiveFlag();
   const [hasMounted, setHasMounted] = React.useState<boolean>(false);
 
@@ -57,7 +57,7 @@ export function Stats() {
   if (!hasMounted) return null;
 
   return (
-    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-4 sm:py-6 md:py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md font-PTSerif border border-gray-200">
+    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-4 sm:py-6 md:py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md border border-gray-200 font-SFCompact-medium">
       <div className="max-w-full grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12 px-2 sm:px-4 md:py-2 md:px-6">
         {stats.map((stat, index) => (
           <motion.div
@@ -87,10 +87,12 @@ export function Stats() {
           >
             <div className="h-full flex items-center">{stat.icon}</div>
             <div className="flex flex-col items-center lg:items-start text-center">
-              <p className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 italic">
+              <p
+                className={`text-xl md:text-2xl lg:text-3xl font-bold text-[#6e3a5e] ${className}`}
+              >
                 {stat.value}
               </p>
-              <p className="text-sm md:text-md text-gray-500 w-[max-content] font-Inter">
+              <p className="text-sm md:text-md text-[#6e3a5e] w-[max-content]">
                 {stat.label}
               </p>
             </div>

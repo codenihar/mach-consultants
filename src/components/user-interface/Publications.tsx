@@ -28,7 +28,7 @@ function PublicationCardSkeleton() {
   );
 }
 
-export function Publications() {
+export function Publications({ className }: { className?: string }) {
   const promises = React.useContext(BlogDataContext);
   if (!promises) return;
 
@@ -44,7 +44,7 @@ export function Publications() {
   if (!hasMounted) return null;
 
   return (
-    <section className="py-12 md:py-16 bg-white px-4 sm:px-6 font-Inter">
+    <section className="py-12 md:py-16 bg-white px-4 sm:px-6 font-SFCompact-medium">
       <div className="max-w-6xl mx-auto text-center">
         <motion.p
           initial={{
@@ -60,7 +60,7 @@ export function Publications() {
             duration: 0.3,
             ease: "easeOut",
           }}
-          className="text-pink-600 font-semibold text-md md:text-lg lg:text-xl mb-2 sm:mb-3"
+          className="text-[#075fa4] font-semibold text-md md:text-lg lg:text-xl mb-2 sm:mb-3"
         >
           Publications
         </motion.p>
@@ -79,7 +79,7 @@ export function Publications() {
             ease: "easeOut",
             delay: 0.1,
           }}
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-8 sm:mb-10 md:mb-12 leading-tight font-PTSerif italic"
+          className={`text-[#6e3a5e] text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 leading-tight ${className}`}
         >
           View our latest publications
         </motion.h2>
@@ -132,7 +132,9 @@ export function Publications() {
 
                     <div className="px-3">
                       <div className="flex items-center justify-between w-full mb-3">
-                        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 line-clamp-1 font-PTSerif italic">
+                        <h3
+                          className={`text-lg sm:text-xl font-semibold text-[#6e3a5e] line-clamp-1 ${className}`}
+                        >
                           {publication.title}
                         </h3>
                         <a
@@ -147,7 +149,7 @@ export function Publications() {
                         publication.contentBlocks.find(
                           (block) => block.block_type === "paragraph"
                         )?.paragraphBlock?.text && (
-                          <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed flex-grow line-clamp-4">
+                          <p className="text-sm sm:text-base text-[#6e3a5e] opacity-90 mb-4 leading-relaxed flex-grow line-clamp-4">
                             {
                               publication.contentBlocks.find(
                                 (block) => block.block_type === "paragraph"

@@ -3,3 +3,17 @@
   src: url("../assets/fonts/Mona-Sans-Regular.otf") format("opentype");
   font-style: normal;
 }
+
+@font-face {
+  font-family: "SF Compact Display Medium";
+  src: url("../assets/fonts/sf-compact-display-medium-5864711817c30.woff")
+    format("opentype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Compact Display Thin";
+  src: url("../assets/fonts/sf-compact-display-thin-58646eb43a785.woff")
+    format("opentype");
+  font-style: normal;
+}

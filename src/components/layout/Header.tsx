@@ -1,7 +1,7 @@
 "use client";
 import { NavItems } from "@/lib/constants";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, UserRoundCheck } from "lucide-react";
+import { Menu, X, UserRoundCheck, PhoneIncoming } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function Header() {
@@ -20,7 +20,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 py-2 w-full transition-all duration-300 font-Inter ${
+      className={`fixed left-0 right-0 top-0 z-50 py-2 w-full transition-all duration-300 font-SFCompact-medium ${
         hasScrolled ? "bg-gray-100 shadow-lg" : "bg-transparent shadow-none"
       }`}
     >
@@ -36,14 +36,14 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-3 md:space-x-6 xl:space-x-10 font-bold text-gray-700">
+          <nav className="hidden md:flex items-center space-x-3 md:space-x-6 xl:space-x-10 font-bold text-[#6e3a5e]">
             {NavItems &&
               NavItems.length > 0 &&
               NavItems.map((nav, index) => (
                 <a
                   key={`nav-${index}`}
                   href={nav.route}
-                  className="cursor-pointer hover:text-black text-sm md:text-[1.1rem]"
+                  className="cursor-pointer hover:opacity-80 text-sm md:text-[1.1rem]"
                 >
                   {nav.name}
                 </a>
@@ -52,10 +52,10 @@ export function Header() {
 
           <a
             href="/#contactUs"
-            className="hidden lg:flex items-center justify-center gap-2 bg-black opacity-95 hover:opacity-100 text-white px-3 py-2 rounded-md transition cursor-pointer w-[max-content] text-lg"
+            className="hidden lg:flex items-center justify-center gap-2 bg-[#075fa4] opacity-95 hover:opacity-100 text-white px-3 py-2 rounded-md transition cursor-pointer w-[max-content] text-md"
           >
             Contact Us
-            <UserRoundCheck />
+            <PhoneIncoming className="w-5 h-5" />
           </a>
 
           {/* Mobile Menu Button */}

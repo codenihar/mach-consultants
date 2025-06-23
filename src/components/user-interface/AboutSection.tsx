@@ -2,9 +2,9 @@ import { MoveUpRight } from "lucide-react";
 import * as motion from "motion/react-client";
 import React from "react";
 
-export function AboutUs() {
+export function AboutUs({ className }: { className?: string }) {
   return (
-    <section className="pt-36 pb-10 font-Inter">
+    <section className="pt-36 pb-10 font-SFCompact-medium">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-2 md:gap-12">
         {/* Left Image Section */}
         <div className="relative flex items-center justify-end h-120 md:h-140 w-full overflow-hidden">
@@ -77,8 +77,8 @@ export function AboutUs() {
             className="absolute z-20 max-sm:left-52 left-64 md:left-88 lg:left-80 top-46 md:top-72"
           >
             <div className="bg-pink-100 border-2 border-pinl-500 text-center rounded-full w-28 h-28 flex flex-col items-center justify-center shadow-md">
-              <span className="text-4xl font-bold text-pink-700">35</span>
-              <span className="text-xs text-gray-900 leading-none">
+              <span className="text-4xl font-bold text-[#8f2f48]">35</span>
+              <span className="text-xs text-[#8f2f48] leading-none">
                 Years of
                 <br />
                 Experience
@@ -103,7 +103,7 @@ export function AboutUs() {
               duration: 0.3,
               ease: "easeOut",
             }}
-            className="text-lg text-pink-600 font-semibold mb-2"
+            className="text-lg text-[#075fa4] font-semibold mb-2"
           >
             About Us
           </motion.p>
@@ -123,7 +123,7 @@ export function AboutUs() {
               ease: "easeOut",
               delay: 0.1,
             }}
-            className="text-2xl md:text-3xl xl:text-4xl font-bold text-gray-800 mb-4 leading-tight font-PTSerif italic"
+            className={`text-2xl md:text-3xl xl:text-4xl font-bold text-[#6e3a5e] mb-4 leading-tight ${className}`}
           >
             We specialize in customized consulting programs for people and
             businesses.
@@ -144,7 +144,7 @@ export function AboutUs() {
               ease: "easeOut",
               delay: 0.2,
             }}
-            className="text-md md:text-lg text-gray-600 mb-4"
+            className="text-md md:text-lg text-[#8f2f48] mb-4"
           >
             Selective consultants focused on immediate performance improvement.
             We are dedicated to revealing the hidden resources of the enterprise
@@ -167,7 +167,7 @@ export function AboutUs() {
               ease: "easeOut",
               delay: 0.3,
             }}
-            className="text-md md:text-lg text-gray-600 mb-6"
+            className="text-md md:text-lg text-[#8f2f48] mb-6"
           >
             We consider complementary and wholesome the ethical, normative, and
             regulative dimensions. We are engaged in advancing the benefits of
@@ -193,7 +193,7 @@ export function AboutUs() {
               ease: "easeOut",
               delay: 0.1,
             }}
-            className="cursor-pointer bg-black text-white px-4 py-2 rounded-md font-semibold transition"
+            className="cursor-pointer bg-[#075fa4] text-white px-4 py-2 rounded-md font-semibold transition"
           >
             <a className="w-full flex items-center gap-2" href="/about">
               Learn More <MoveUpRight className="w-4 h-4" />

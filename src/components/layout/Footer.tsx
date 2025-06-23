@@ -21,7 +21,7 @@ export function Footer({ promises }: FooterProps) {
   if (!hasMounted) return null;
 
   return (
-    <footer className="bg-[#F4F8FB] text-black pb-8 pt-16 font-Inter">
+    <footer className="bg-[#F4F8FB] text-[#6e3a5e] pb-8 pt-16 font-SFCompact-medium">
       <div className="max-w-[120rem] mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 py-12 md:py-16 overflow-hidden">
           <div className="max-w-6xl mx-auto my-20 lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8">
@@ -40,7 +40,7 @@ export function Footer({ promises }: FooterProps) {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true }}
-                className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 md:mb-4 font-PTSerif"
+                className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-[#6e3a5e]"
               >
                 Get started with us today.
               </motion.h2>
@@ -60,7 +60,7 @@ export function Footer({ promises }: FooterProps) {
                   delay: 0.1,
                 }}
                 viewport={{ once: true }}
-                className="text-base sm:text-lg max-w-md"
+                className="text-center text-base sm:text-lg max-w-md"
               >
                 Need expert guidance for your project's vision and rationale?
                 Submit your contact info below; we'll reach out within 24 hours.
@@ -90,7 +90,7 @@ export function Footer({ promises }: FooterProps) {
                 />
                 <a
                   href="/#contactUs"
-                  className="w-full cursor-pointer font-semibold flex items-center justify-center gap-2 bg-black hover:bg-gray-900 text-white px-5 py-3 rounded-lg transition-colors duration-300"
+                  className="bg-[#075fa4] hover:opacity-90 w-full cursor-pointer font-semibold flex items-center justify-center gap-2 text-white px-5 py-3 rounded-lg transition-colors duration-300"
                 >
                   Contact Us
                   <MoveUpRight className="w-4 h-4" />
@@ -117,7 +117,7 @@ export function Footer({ promises }: FooterProps) {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true }}
-                className="font-bold text-xl lg:text-2xl mb-3 font-PTSerif"
+                className="font-bold text-xl lg:text-2xl mb-3"
               >
                 Mach Consultants
               </motion.div>
@@ -137,7 +137,7 @@ export function Footer({ promises }: FooterProps) {
                   delay: 0.1,
                 }}
                 viewport={{ once: true }}
-                className="text-gray-600 text-lg leading-relaxed lg:max-w-xs"
+                className="text-[#6e3a5e] text-lg leading-relaxed lg:max-w-xs"
               >
                 Shape your project's vision with expert guidance. MACH
                 Consultants helps reveal hidden resources and grow your
@@ -183,7 +183,7 @@ export function Footer({ promises }: FooterProps) {
                   delay: 0.15,
                 }}
                 viewport={{ once: true }}
-                className="space-y-3 md:space-y-4 hover:text-gray-700 text-gray-600 text-base"
+                className="space-y-3 md:space-y-4 text-[#6e3a5e] opacity-90 text-base"
               >
                 {NavItems &&
                   NavItems.length > 0 &&
@@ -238,7 +238,7 @@ export function Footer({ promises }: FooterProps) {
                   delay: 0.2,
                 }}
                 viewport={{ once: true }}
-                className="space-y-3 md:space-y-4 hover:text-gray-700 text-gray-600 text-base"
+                className="space-y-3 md:space-y-4 text-[#6e3a5e] opacity-90 text-base"
               >
                 {policies &&
                   policies.length > 0 &&
@@ -294,7 +294,7 @@ export function Footer({ promises }: FooterProps) {
                 viewport={{ once: true }}
                 className="space-y-4 md:space-y-5"
               >
-                <div className="flex items-start gap-3 hover:text-gray-700 text-gray-600 text-sm md:text-lg">
+                <div className="flex items-start gap-3 text-[#6e3a5e] hover:opacity-90 text-sm md:text-lg">
                   <Phone className="w-5 h-5 mt-1 flex-shrink-0" />
                   <div>
                     <p className="transition-colors w-[max-content]">
@@ -308,7 +308,7 @@ export function Footer({ promises }: FooterProps) {
 
                 <div className="flex items-center gap-3 text-sm md:text-lg">
                   <Mail className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <p className="hover:text-gray-700 text-gray-600 transition-colors">
+                  <p className="text-[#6e3a5e] hover:opacity-90 transition-colors">
                     info@mach-consultants.com
                   </p>
                 </div>
@@ -317,7 +317,7 @@ export function Footer({ promises }: FooterProps) {
           </div>
 
           {/* Bottom Section */}
-          <div className="w-full border-t text-center border-gray-300 mt-12 md:mt-16 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 hover:text-gray-700 text-gray-600">
+          <div className="w-full border-t text-center text-[#075fa4] border-gray-300 mt-12 md:mt-16 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 hover:opacity-90">
             <p className="w-full text-sm md:text-md text-center">
               Copyright © {new Date().getFullYear()} Mach Consultants | Powered
               by Codedale
