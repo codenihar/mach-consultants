@@ -40,7 +40,7 @@ export function Footer({ promises }: FooterProps) {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true }}
-                className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-[#6e3a5e]"
+                className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-[#6e3a5e] italic"
               >
                 Get started with us today.
               </motion.h2>
@@ -117,7 +117,7 @@ export function Footer({ promises }: FooterProps) {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true }}
-                className="font-bold text-xl lg:text-2xl mb-3"
+                className="font-bold text-xl lg:text-2xl mb-3 italic"
               >
                 Mach Consultants
               </motion.div>
@@ -163,7 +163,7 @@ export function Footer({ promises }: FooterProps) {
                   delay: 0.1,
                 }}
                 viewport={{ once: true }}
-                className="font-semibold mb-4 md:mb-6 text-lg font-PTSerif"
+                className="font-semibold mb-4 md:mb-6 text-lg italic"
               >
                 Pages
               </motion.h4>
@@ -218,7 +218,7 @@ export function Footer({ promises }: FooterProps) {
                   delay: 0.15,
                 }}
                 viewport={{ once: true }}
-                className="font-semibold mb-4 md:mb-6 text-lg font-PTSerif"
+                className="font-semibold mb-4 md:mb-6 text-lg italic"
               >
                 Our Company
               </motion.h4>
@@ -272,7 +272,7 @@ export function Footer({ promises }: FooterProps) {
                   delay: 0.2,
                 }}
                 viewport={{ once: true }}
-                className="font-semibold mb-4 md:mb-6 text-lg font-PTSerif"
+                className="font-semibold mb-4 md:mb-6 text-lg italic"
               >
                 Get in touch
               </motion.h4>
