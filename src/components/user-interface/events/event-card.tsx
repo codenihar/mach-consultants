@@ -35,7 +35,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
       </div>
 
       <div className="flex flex-col flex-1 justify-between gap-3">
-        <h3 className="text-3xl font-semibold line-clamp-2 sm:line-clamp-1">
+        <h3 className="text-3xl font-semibold line-clamp-2 sm:line-clamp-1 font-PTSerif italic">
           {event.title}
         </h3>
 
