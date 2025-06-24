@@ -18,65 +18,6 @@ export type Stat = {
 
 export const Events = [
   {
-    id: "introduction",
-    title: "Introduction to (RISE)",
-    category: "conference",
-    featured_image_url: "/images/about-us-2.jpg",
-    placeOfEvent: "Saint Joseph University, Beirut",
-    dateOfEvent: "2023-11-15",
-    timeOfEvent: "09:00",
-    description:
-      "Annual conference bridging management scholarship and practice to improve research quality and relevance for business leaders.",
-    created_at: "2023-01-15T08:00:00Z",
-    updated_at: "2023-10-10T16:45:00Z",
-    contentBlocks: [
-      {
-        block_type: "header",
-        headerBlock: { text: "About RISE Conference" },
-      },
-      {
-        block_type: "paragraph",
-        paragraphBlock: {
-          text: "RISE is an annual conference held at Saint Joseph University in Beirut in partnership with the Network of Organizational Development Experts, and sponsored by the Academy of Management – Management Consulting Division and the International Society for Organization Development and Change.",
-          link: null,
-        },
-      },
-      {
-        block_type: "header",
-        headerBlock: { text: "Conference Partners" },
-      },
-      {
-        block_type: "paragraph",
-        paragraphBlock: {
-          text: "Organized in collaboration with MACH Consultants, the Family Business Network Levant, Institut de la Socio-Économie des Entreprises et des Organisations, and University College of Bahrain.",
-          link: null,
-        },
-      },
-      {
-        block_type: "header",
-        headerBlock: { text: "Conference Format" },
-      },
-      {
-        block_type: "paragraph",
-        paragraphBlock: {
-          text: "The event uses a hybrid format, both online and in-person, featuring Paper Sessions, Professional Development Workshops, and Discussion Sessions with international researchers and industry leaders.",
-          link: null,
-        },
-      },
-      {
-        block_type: "header",
-        headerBlock: { text: "Conference Objectives" },
-      },
-      {
-        block_type: "paragraph",
-        paragraphBlock: {
-          text: "RISE aims to improve research quality through scientific review, identify enterprise problematics for research, and enhance competencies in education to make research more meaningful for business leaders.",
-          link: null,
-        },
-      },
-    ],
-  },
-  {
     id: "2021",
     title: "The 2021 theme",
     category: "theme",

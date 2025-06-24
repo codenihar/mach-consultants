@@ -35,24 +35,21 @@ export const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
       </div>
 
       <div className="flex flex-col flex-1 justify-between gap-3">
-        <span className="w-fit text-xs text-black border border-black bg-gray-100 px-4 py-2 rounded-full">
-          {event.category}
-        </span>
         <h3 className="text-3xl font-semibold line-clamp-2 sm:line-clamp-1">
           {event.title}
         </h3>
+
         <p className="text-md gray-600 line-clamp-2">{event.description}</p>
-        <div className="max-w-md flex flex-col gap-3 lg:gap-1">
-          <p className="text-sm grid grid-cols-1 lg:grid-cols-2 max-lg:gap-1">
+
+        <div className="max-w-md flex flex-col gap-1">
+          <p className="text-sm flex gap-2">
             <span className="font-semibold text-gray-600 ">Place:</span>{" "}
             <span>{event.placeOfEvent}</span>
           </p>
 
-          <p className="text-sm grid grid-cols-1 lg:grid-cols-2 max-lg:gap-1">
-            <span className="font-semibold text-gray-600 ">Date & Time:</span>
-            <span>
-              {event.dateOfEvent}, {event.timeOfEvent}
-            </span>
+          <p className="text-sm flex gap-2">
+            <span className="font-semibold text-gray-600 ">Date:</span>
+            <span>{event.dateOfEvent}</span>
           </p>
         </div>
       </div>
