@@ -57,7 +57,7 @@ const EventsPage = () => {
           }}
           className="max-w-[80%] sm:max-w-4xl sm:mx-auto text-left sm:text-center text-4xl sm:text-6xl lg:text-7xl leading-tight"
         >
-          Grow Your Network & Skills with Our Events
+          RISE: Research with Impact for Society and the Enterprise
         </motion.h1>
 
         <motion.button
