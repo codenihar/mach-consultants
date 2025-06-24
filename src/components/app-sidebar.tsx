@@ -3,18 +3,17 @@
 import * as React from "react";
 import {
   IconArticle,
+  IconCalendarEvent,
   IconCamera,
-  IconDashboard,
   IconFileAi,
   IconFileDescription,
   IconHelp,
   IconInnerShadowTop,
-  IconNewSection,
+  IconPhoneCall,
   IconSearch,
   IconSettings,
 } from "@tabler/icons-react";
 import { NavMain } from "@/components/nav-main";
-import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
@@ -35,9 +34,19 @@ const data = {
   },
   navMain: [
     {
-      title: "Dashboard",
-      url: "/a/dashboard",
-      icon: IconDashboard,
+      title: "Articles",
+      url: "/a/articles",
+      icon: IconArticle,
+    },
+    {
+      title: "Events",
+      url: "/a/events",
+      icon: IconCalendarEvent,
+    },
+    {
+      title: "Contact Requests",
+      url: "/a/contact-requests",
+      icon: IconPhoneCall,
     },
   ],
   navClouds: [
@@ -144,7 +153,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user} />

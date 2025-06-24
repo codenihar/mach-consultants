@@ -7,16 +7,16 @@ export function SingleBlogPage({ blog }: { blog: TBlogSchema }) {
       <div className="text-sm flex items-center gap-4 text-gray-500">
         <motion.div
           initial={{
-            y: -100,
+            y: 50,
             opacity: 0,
           }}
-          whileInView={{
+          animate={{
             y: 0,
             opacity: 1,
           }}
           viewport={{ once: true }}
           transition={{
-            duration: 0.4,
+            duration: 0.3,
             ease: "easeOut",
           }}
           className="text-md md:text-lg overflow-hidden"
@@ -24,20 +24,20 @@ export function SingleBlogPage({ blog }: { blog: TBlogSchema }) {
           Published on{" "}
           {blog.created_at && new Date(blog?.created_at).toLocaleString()}
         </motion.div>
+
         <motion.div
           initial={{
-            y: -100,
+            y: 50,
             opacity: 0,
           }}
-          whileInView={{
+          animate={{
             y: 0,
             opacity: 1,
           }}
           viewport={{ once: true }}
           transition={{
-            duration: 0.4,
+            duration: 0.3,
             ease: "easeOut",
-            delay: 0.1,
           }}
           className="overflow-hidden"
         >
@@ -48,7 +48,7 @@ export function SingleBlogPage({ blog }: { blog: TBlogSchema }) {
 
       <motion.h1
         initial={{
-          y: -100,
+          y: 50,
           opacity: 0,
         }}
         whileInView={{
@@ -57,7 +57,7 @@ export function SingleBlogPage({ blog }: { blog: TBlogSchema }) {
         }}
         viewport={{ once: true }}
         transition={{
-          duration: 0.4,
+          duration: 0.3,
           ease: "easeOut",
           delay: 0.1,
         }}
@@ -68,18 +68,18 @@ export function SingleBlogPage({ blog }: { blog: TBlogSchema }) {
 
       <motion.div
         initial={{
-          scale: 0.7,
+          y: 50,
           opacity: 0,
         }}
-        whileInView={{
-          scale: 1,
+        animate={{
+          y: 0,
           opacity: 1,
         }}
         viewport={{ once: true }}
         transition={{
-          duration: 0.6,
+          duration: 0.3,
           ease: "easeOut",
-          delay: 0.2,
+          delay: 0.1,
         }}
         className="max-w-2xl rounded-xl overflow-hidden my-6 border border-gray-200 shadow-sm"
       >
@@ -101,13 +101,14 @@ export function SingleBlogPage({ blog }: { blog: TBlogSchema }) {
             </h2>
           );
         }
+
         if (block.block_type === "paragraph" && block.paragraphBlock) {
           const { text, link } = block.paragraphBlock;
 
           return (
             <motion.div
               key={index}
-              initial={{ y: -100, opacity: 0 }}
+              initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{

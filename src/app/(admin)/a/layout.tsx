@@ -20,7 +20,7 @@ export default async function AdminInterfaceLayout({
         } as React.CSSProperties
       }
     >
-      {/* <AppSidebar variant="inset" /> */}
+      <AppSidebar variant="inset" />
       <SidebarInset suppressHydrationWarning>{children}</SidebarInset>
     </SidebarProvider>
   );

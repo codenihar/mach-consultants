@@ -1,5 +1,6 @@
 import { relations } from "drizzle-orm";
 import {
+  date,
   index,
   integer,
   pgTable,
@@ -8,6 +9,8 @@ import {
   timestamp,
   uuid,
   varchar,
+  time,
+  boolean,
 } from "drizzle-orm/pg-core";
 
 export const blogs = pgTable("blogs", {

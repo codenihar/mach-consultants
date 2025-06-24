@@ -42,7 +42,7 @@ export function SignInForm() {
       setLoading(true);
       const response = await login(data);
       if (response.success) {
-        router.push("/a/dashboard");
+        router.push("/a/articles");
       } else {
         setError("Invalid Credentials");
         setLoading(false);

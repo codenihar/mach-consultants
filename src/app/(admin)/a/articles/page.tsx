@@ -1,9 +1,9 @@
+import React from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SearchParams } from "@/lib/data-table/types";
 import { blogSearchParamCache } from "@/actions/blogs/blogs.types";
 import { BlogsService } from "@/actions/blogs/blogs.service";
 import { BlogsTable } from "@/components/admin/table/blogs/blogs-table";
-import React from "react";
 import { DataTableSkelton } from "@/components/data-table/data-table-skeleton";
 import { Shell } from "@/components/shell/shell";
 

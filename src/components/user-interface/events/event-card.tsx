@@ -1,4 +1,5 @@
 import * as motion from "motion/react-client";
+import Link from "next/link";
 
 export interface Event {
   id: number;
@@ -65,12 +66,11 @@ export const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
       </div>
 
       <div className="max-lg:w-full sm:pr-4 flex flex-col gap-1">
-        <button className="max-lg:w-full cursor-pointer text-md bg-black text-white px-8 py-3 rounded-full text-sm">
-          Buy a ticket
-        </button>
-        <button className="max-lg:w-full cursor-pointer px-4 py-2 rounded-full text-sm">
-          See Details
-        </button>
+        <Link href={`/events/${event.id}`}>
+          <button className="max-lg:w-full cursor-pointer text-md bg-black text-white px-8 py-3 rounded-full text-sm">
+            View Details
+          </button>
+        </Link>
       </div>
     </motion.section>
   );
