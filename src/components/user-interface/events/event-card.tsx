@@ -39,7 +39,9 @@ export const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
           {event.title}
         </h3>
 
-        <p className="text-md gray-600 line-clamp-2">{event.description}</p>
+        <p className="text-md gray-600 font-Inter line-clamp-2">
+          {event.description}
+        </p>
 
         <div className="max-w-md flex flex-col gap-1">
           <p className="text-sm flex gap-2">
@@ -56,7 +58,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
 
       <div className="max-lg:w-full sm:pr-4 flex flex-col gap-1">
         <Link href={`/events/${event.id}`}>
-          <button className="max-lg:w-full cursor-pointer text-md bg-black hover:bg-gray-700 text-white px-8 py-3 rounded-full text-sm">
+          <button className="max-lg:w-full cursor-pointer text-md bg-[#075fa4] hover:bg-[#2d528a] text-white px-8 py-3 rounded-full text-sm">
             View Details
           </button>
         </Link>

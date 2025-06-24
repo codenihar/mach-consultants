@@ -76,7 +76,7 @@ export function ContentSection({ service }: Service) {
             className={`mt-6 sm:mt-8 cursor-pointer ${
               service.textColor === "white"
                 ? "bg-white text-black"
-                : "bg-black text-white"
+                : "bg-[#075fa4] text-white"
             } font-semibold text-xs sm:text-sm lg:text-md px-4 sm:px-6 py-2 sm:py-3 rounded-full inline-flex items-center gap-1 sm:gap-2 hover:brightness-95 transition-all duration-200`}
           >
             {service.buttonText}

@@ -20,7 +20,7 @@ const services: Service["service"][] = [
       "https://mach-consultants.com/wp-content/uploads/2024/05/CODE-without-a-title-1-1024x985.jpg",
     desc: "Reveals the hidden resources and critical elements of operations in order to develop the capabilities of the enterprise for global performance, create transformations, improve global performance, build strategic vigilance, and foster innovation and resilience.",
     buttonText: "Book Appointment",
-    bgColor: "bg-gradient-to-r from-gray-300 to-white",
+    bgColor: "bg-gradient-to-r from-blue-100 to-white",
     textColor: "black",
   },
   {
@@ -29,7 +29,7 @@ const services: Service["service"][] = [
       "https://mach-consultants.com/wp-content/uploads/2024/05/Transformational-Change-without-a-title.jpg",
     desc: "Few professionals doubt that companies and administrations need to transform. We help organizations manage their transformations effectively and instill processes to identify transformation objectives, methods, and measurements.",
     buttonText: "Book Appointment",
-    bgColor: "bg-gradient-to-r from-gray-100 to-green-100",
+    bgColor: "bg-gradient-to-r from-white to-pink-100",
     textColor: "black",
   },
   {
@@ -38,7 +38,7 @@ const services: Service["service"][] = [
       "https://mach-consultants.com/wp-content/uploads/2024/05/Strategy-without-a-title.jpg",
     desc: "The pace of change in the world is brutal; reactive strategies fall short of delivering results and survivability. Get ahead of the curve with the right process of strategy review.",
     buttonText: "Book Appointment",
-    bgColor: "bg-gradient-to-r from-gray-100 to-yellow-100",
+    bgColor: "bg-gradient-to-r from-blue-100 to-white",
     textColor: "black",
   },
   {
@@ -47,7 +47,7 @@ const services: Service["service"][] = [
       "https://mach-consultants.com/wp-content/uploads/2024/05/Management-Control-english-958x1024.jpg",
     desc: "Unleashes then federates human energy through collaborative management tools. It is the process needed by business leaders to monitor and control the advancement toward objectives, and the alignment of personal objectives with teamwork and corporate goals.",
     buttonText: "Book Appointment",
-    bgColor: "bg-gradient-to-r from-white to-red-100",
+    bgColor: "bg-gradient-to-r from-white to-pink-100",
     textColor: "black",
   },
   {

@@ -40,7 +40,7 @@ const EventsPage = () => {
             ease: "easeOut",
             delay: 0.1,
           }}
-          className="text-left md:text-center max-w-3xl w-fit sm:mx-auto px-2 md:px-6 py-2 border-black rounded-lg md:rounded-3xl font-medium"
+          className="text-left font-Inter md:text-center max-w-3xl w-fit sm:mx-auto px-2 md:px-6 py-2 border-black rounded-lg md:rounded-3xl font-medium"
         >
           RISE is an annual hybrid conference in Beirut that bridges management
           research and practice by bringing together international scholars,

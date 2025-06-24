@@ -27,7 +27,7 @@ export function Hero({ className }: { className?: string }) {
               }}
               className="inline-block"
             >
-              Mach <span className="text-[#075fa4]">Consultants</span>
+              <span className="text-[#075fa4]">MACH</span> Consultants
             </motion.p>
             <br />
             <motion.p
