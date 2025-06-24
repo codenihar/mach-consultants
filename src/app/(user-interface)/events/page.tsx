@@ -20,7 +20,7 @@ const EventsPage = () => {
             duration: 0.3,
             ease: "easeOut",
           }}
-          className="px-2 md:px-0 max-w-[80%] sm:max-w-4xl sm:mx-auto text-left sm:text-center text-4xl md:text-5xl lg:text-6xl leading-tight"
+          className="px-2 md:px-0 max-w-[80%] sm:max-w-4xl sm:mx-auto text-left sm:text-center text-4xl md:text-5xl lg:text-6xl leading-tight font-PTSerif font-semibold italic"
         >
           RISE: Research with Impact for Society and the Enterprise
         </motion.h1>
@@ -40,7 +40,7 @@ const EventsPage = () => {
             ease: "easeOut",
             delay: 0.1,
           }}
-          className="text-left md:text-center max-w-3xl w-fit sm:mx-auto px-2 md:px-6 py-2 bg-gray-100 border-black rounded-lg md:rounded-3xl font-medium"
+          className="text-left md:text-center max-w-3xl w-fit sm:mx-auto px-2 md:px-6 py-2 border-black rounded-lg md:rounded-3xl font-medium"
         >
           RISE is an annual hybrid conference in Beirut that bridges management
           research and practice by bringing together international scholars,
