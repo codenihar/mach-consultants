@@ -20,7 +20,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 py-2 w-full transition-all duration-300 font-SFCompact-medium ${
+      className={`fixed left-0 right-0 top-0 z-50 py-2 w-full transition-all duration-300 font-inter ${
         hasScrolled ? "bg-gray-100 shadow-lg" : "bg-transparent shadow-none"
       }`}
     >

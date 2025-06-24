@@ -14,7 +14,7 @@ const partners: string[] = [
 export function Partners({ className }: { className?: string }) {
   return (
     <section
-      className={`py-4 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 font-SFCompact-medium`}
+      className={`py-4 md:py-10 lg:py-12 px-4 sm:px-6 md:px-8 font-inter`}
     >
       <div className="max-w-7xl mx-auto bg-[#2d528a] rounded-3xl max-md:px-4 md:px-8 lg:px-0 py-8">
         <motion.h2

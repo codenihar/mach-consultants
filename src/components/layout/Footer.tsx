@@ -105,7 +105,7 @@ export function Footer({ promises }: FooterProps) {
         </div>
       </div>
 
-      <footer className="bg-[#F4F8FB] text-black pb-8 pt-5 font-SFCompact-medium">
+      <footer className="bg-[#F4F8FB] text-black pb-8 pt-5 font-inter">
         <div className="max-w-[120rem] mx-auto">
           <div className="max-w-7xl mx-auto mt-16 px-4 md:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-10">
