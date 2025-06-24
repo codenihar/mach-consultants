@@ -28,11 +28,7 @@ export function Footer({ promises }: FooterProps) {
             backgroundImage:
               "linear-gradient(to bottom right,rgb(253, 232, 235) 10%, #ae2333 170%)",
           }}
-<<<<<<< HEAD
-          className="pt-10 pb-10 pl-30 pr-30 rounded-4xl max-w-6xl mx-auto lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8"
-=======
           className="pt-10 pl-30 pr-30 rounded-4xl max-w-6xl mx-auto lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8"
->>>>>>> 82111340422fa9317572cd0a06e87b8a3eb3731b
         >
           <div className="mx-auto text-center lg:text-left">
             <motion.h2
