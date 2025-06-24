@@ -28,7 +28,7 @@ export function Footer({ promises }: FooterProps) {
             backgroundImage:
               "linear-gradient(to bottom right,rgb(253, 232, 235) 10%, #ae2333 170%)",
           }}
-          className="pt-10 pb-10 pl-30 pr-30 rounded-4xl max-w-6xl mx-auto my-20 lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8"
+          className="pt-10 pb-10 pl-30 pr-30 rounded-4xl max-w-6xl mx-auto lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8"
         >
           <div className="mx-auto text-center lg:text-left">
             <motion.h2
@@ -45,7 +45,7 @@ export function Footer({ promises }: FooterProps) {
                 ease: "easeOut",
               }}
               viewport={{ once: true }}
-              className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-[#2d528a] italic"
+              className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 md:mb-4 text-[#2d528a] italic font-RecoletaRegular"
             >
               Get started with us today.
             </motion.h2>
