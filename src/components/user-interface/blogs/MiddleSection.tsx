@@ -12,8 +12,14 @@ export function MiddleSection() {
   const [focusedIndex, setFocusedIndex] = React.useState<number | null>(null);
 
   return (
-    <section className="py-5 md:py-10 font-PTSerif overflow-hidden">
-      <div className="max-w-7xl mx-auto rounded-xl md:rounded-[2rem] px-5 lg:px-14 py-20 bg-[#F4F8FB] text-black w-full flex flex-col md:flex-row justify-between items-center gap-5 md:gap-10 lg:gap-14">
+    <section className="py-5 md:py-10 font-PTSerif overflow-hidden ">
+      <div
+        style={{
+          backgroundImage:
+            "linear-gradient(to bottom right, #d0eaff 10%, #075fa4 170%)",
+        }}
+        className="max-w-7xl mx-auto rounded-xl md:rounded-[2rem] px-5 lg:px-14 py-20 bg-[#F4F8FB] text-black w-full flex flex-col md:flex-row justify-between items-center gap-5 md:gap-10 lg:gap-14"
+      >
         <div className="text-left flex-1">
           <motion.h2
             initial={{
