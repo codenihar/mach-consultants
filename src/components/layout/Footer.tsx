@@ -104,7 +104,7 @@ export function Footer({ promises }: FooterProps) {
           </div>
         </div>
       </div>
-      <footer className="bg-[#F4F8FB] text-[#6e3a5e] pb-8 pt-5 font-SFCompact-medium">
+      <footer className="bg-[#F4F8FB] text-black pb-8 pt-5 font-SFCompact-medium">
         <div className="max-w-[120rem] mx-auto">
           <div className="max-w-7xl mx-auto mt-16 px-4 md:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-10">
@@ -123,7 +123,7 @@ export function Footer({ promises }: FooterProps) {
                     ease: "easeOut",
                   }}
                   viewport={{ once: true }}
-                  className="font-bold text-xl lg:text-2xl mb-3 italic"
+                  className="text-black font-bold text-xl lg:text-2xl mb-3 font-RecoletaRegular italic"
                 >
                   Mach Consultants
                 </motion.div>
@@ -143,7 +143,7 @@ export function Footer({ promises }: FooterProps) {
                     delay: 0.1,
                   }}
                   viewport={{ once: true }}
-                  className="text-[#6e3a5e] text-lg leading-relaxed lg:max-w-xs"
+                  className=" text-lg leading-relaxed lg:max-w-xs"
                 >
                   Shape your project's vision with expert guidance. MACH
                   Consultants helps reveal hidden resources and grow your
@@ -169,7 +169,7 @@ export function Footer({ promises }: FooterProps) {
                     delay: 0.1,
                   }}
                   viewport={{ once: true }}
-                  className="font-semibold mb-4 md:mb-6 text-lg italic"
+                  className="text-black font-semibold mb-4 md:mb-6 text-lg font-RecoletaRegular italic"
                 >
                   Pages
                 </motion.h4>
@@ -189,7 +189,7 @@ export function Footer({ promises }: FooterProps) {
                     delay: 0.15,
                   }}
                   viewport={{ once: true }}
-                  className="space-y-3 md:space-y-4 text-[#6e3a5e] opacity-90 text-base"
+                  className="space-y-3 md:space-y-4  opacity-90 text-base"
                 >
                   {NavItems &&
                     NavItems.length > 0 &&
@@ -224,7 +224,7 @@ export function Footer({ promises }: FooterProps) {
                     delay: 0.15,
                   }}
                   viewport={{ once: true }}
-                  className="font-semibold mb-4 md:mb-6 text-lg italic"
+                  className="text-black font-semibold mb-4 md:mb-6 text-lg font-RecoletaRegular italic"
                 >
                   Our Company
                 </motion.h4>
@@ -244,7 +244,7 @@ export function Footer({ promises }: FooterProps) {
                     delay: 0.2,
                   }}
                   viewport={{ once: true }}
-                  className="space-y-3 md:space-y-4 text-[#6e3a5e] opacity-90 text-base"
+                  className="space-y-3 md:space-y-4 opacity-90 text-base"
                 >
                   {policies &&
                     policies.length > 0 &&
@@ -278,7 +278,7 @@ export function Footer({ promises }: FooterProps) {
                     delay: 0.2,
                   }}
                   viewport={{ once: true }}
-                  className="font-semibold mb-4 md:mb-6 text-lg italic"
+                  className="text-black font-semibold mb-4 md:mb-6 text-lg font-RecoletaRegular italic"
                 >
                   Get in touch
                 </motion.h4>
@@ -300,7 +300,7 @@ export function Footer({ promises }: FooterProps) {
                   viewport={{ once: true }}
                   className="space-y-4 md:space-y-5"
                 >
-                  <div className="flex items-start gap-3 text-[#6e3a5e] hover:opacity-90 text-sm md:text-lg">
+                  <div className="flex items-start gap-3  hover:opacity-90 text-sm md:text-lg">
                     <Phone className="w-5 h-5 mt-1 flex-shrink-0" />
                     <div>
                       <p className="transition-colors w-[max-content]">
@@ -314,7 +314,7 @@ export function Footer({ promises }: FooterProps) {
 
                   <div className="flex items-center gap-3 text-sm md:text-lg">
                     <Mail className="w-5 h-5 mt-1 flex-shrink-0" />
-                    <p className="text-[#6e3a5e] hover:opacity-90 transition-colors">
+                    <p className=" hover:opacity-90 transition-colors">
                       info@mach-consultants.com
                     </p>
                   </div>
@@ -323,7 +323,7 @@ export function Footer({ promises }: FooterProps) {
             </div>
 
             {/* Bottom Section */}
-            <div className="w-full border-t text-center text-[#075fa4] border-gray-300 mt-12 md:mt-16 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 hover:opacity-90">
+            <div className="w-full border-t text-center text-black border-gray-300 mt-12 md:mt-16 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 hover:opacity-90">
               <p className="w-full text-sm md:text-md text-center">
                 Copyright © {new Date().getFullYear()} Mach Consultants |
                 Powered by Codedale
