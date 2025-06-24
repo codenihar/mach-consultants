@@ -95,7 +95,7 @@ const EventsPage = () => {
           transition={{
             duration: 0.3,
             ease: "easeOut",
-            delay: 0.2,
+            delay: 0.1,
           }}
           className="cursor-pointer px-6 py-2 border border-black rounded-full hover:bg-gray-100"
         >
@@ -114,7 +114,7 @@ const EventsPage = () => {
           transition={{
             duration: 0.3,
             ease: "easeOut",
-            delay: 0.2,
+            delay: 0.1,
           }}
           className="cursor-pointer px-4 py-2 border border-black rounded-full hover:bg-gray-100"
         >
