@@ -137,7 +137,7 @@ export function SingleEventPage({ event }: { event: (typeof Events)[0] }) {
               }}
               className={`text-2xl lg:text-3xl text-black text-center font-semibold pb-10 font-PTSerif italic`}
             >
-              Our Sponsers
+              Our Sponsors
             </motion.h2>
 
             <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 lg:gap-8 py-2">
