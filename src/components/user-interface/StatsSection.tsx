@@ -83,7 +83,7 @@ export function Stats({ className }: { className?: string }) {
             className={`flex flex-col gap-1 sm:gap-2 lg:gap-3 lg:flex-row items-center ${
               index > 0 && "xl:border-l-2"
             }
-            xl:px-10 font-SFmedium`}
+            xl:px-10 font-inter`}
           >
             <div className="h-full flex items-center">{stat.icon}</div>
             <div className="flex flex-col items-center lg:items-start text-center">
