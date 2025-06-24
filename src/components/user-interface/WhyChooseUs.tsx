@@ -168,7 +168,7 @@ export function WhyChooseUs({ className }: { className?: string }) {
             }}
             viewport={{ once: true }}
             key={`feat-${index}`}
-            className="flex flex-col items-start gap-3 p-4 sm:p-5 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors duration-300 hover:scale-105 transform transition-transform"
+            className="flex flex-col items-start gap-3 p-4 sm:p-5 bg-gray-50 rounded-lg hover:bg-blue-50 duration-300 hover:scale-105 transform transition-transform"
             style={{
               backgroundImage:
                 "linear-gradient(to bottom right, #d0eaff 10%, #075fa4 170%)",
