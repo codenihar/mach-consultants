@@ -75,7 +75,7 @@ const EventsPage = () => {
             ease: "easeOut",
             delay: 0.1,
           }}
-          className="w-fit sm:mx-auto px-6 py-2 bg-gray-200 border-black rounded-full font-medium"
+          className="w-fit sm:mx-auto px-6 py-2 bg-gray-100 border-black rounded-full font-medium"
         >
           Events
         </motion.button>
