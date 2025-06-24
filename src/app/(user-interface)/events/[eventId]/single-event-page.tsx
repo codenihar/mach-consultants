@@ -1,5 +1,5 @@
+import { Events } from "@/lib/types";
 import * as motion from "motion/react-client";
-import { Events } from "./page";
 
 export function SingleEventPage({ event }: { event: (typeof Events)[0] }) {
   return (
