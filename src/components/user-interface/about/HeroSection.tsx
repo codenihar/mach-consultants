@@ -19,7 +19,7 @@ export function AboutHeroSection() {
           duration: 0.6,
           ease: "easeOut",
         }}
-        className="max-sm:flex max-sm:gap-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif"
+        className="max-sm:flex max-sm:gap-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif italic"
       >
         ABOUT{" "}
         <p className="md:hidden text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif">
@@ -45,7 +45,7 @@ export function AboutHeroSection() {
               ease: "easeOut",
               delay: 0.2,
             }}
-            className="hidden md:block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif"
+            className="hidden md:block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] leading-none font-bold text-black tracking-tight font-PTSerif italic"
           >
             US
           </motion.h2>

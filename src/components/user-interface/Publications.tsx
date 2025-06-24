@@ -44,7 +44,7 @@ export function Publications({ className }: { className?: string }) {
   if (!hasMounted) return null;
 
   return (
-    <section className="py-12 md:py-16 bg-white px-4 sm:px-6 font-SFCompact-medium">
+    <section className="py-12 md:py-16 bg-white px-4 sm:px-6 font-inter">
       <div className="max-w-6xl mx-auto text-center">
         <motion.p
           initial={{

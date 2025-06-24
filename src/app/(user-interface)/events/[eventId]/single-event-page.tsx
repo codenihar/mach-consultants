@@ -27,30 +27,6 @@ export function SingleEventPage({ event }: { event: (typeof Events)[0] }) {
         </motion.div>
       </div>
 
-      <div className="text-sm flex items-center gap-4 text-gray-500 mt-2">
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          className="text-md md:text-lg overflow-hidden"
-        >
-          Published on{" "}
-          {event.created_at && new Date(event.created_at).toLocaleString()}
-        </motion.div>
-
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          className="overflow-hidden"
-        >
-          📝 Updated:{" "}
-          {event.updated_at && new Date(event.updated_at).toLocaleDateString()}
-        </motion.div>
-      </div>
-
       <motion.h1
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -71,7 +47,7 @@ export function SingleEventPage({ event }: { event: (typeof Events)[0] }) {
         <img
           src={event.featured_image_url}
           alt="Event Visual"
-          className="w-full h-auto object-cover"
+          className="border border-gray-400 rounded-xl w-full h-auto object-cover"
         />
       </motion.div>
 
@@ -88,12 +64,20 @@ export function SingleEventPage({ event }: { event: (typeof Events)[0] }) {
       {event.contentBlocks.map((block, index) => {
         if (block.block_type === "header" && block.headerBlock) {
           return (
-            <h2
+            <motion.h2
               key={index}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.3,
+                ease: "easeOut",
+                delay: index * 0.1,
+              }}
               className="text-2xl font-semibold mb-2 mt-6 font-PTSerif"
             >
               {block.headerBlock.text}
-            </h2>
+            </motion.h2>
           );
         }
 
@@ -132,16 +116,62 @@ export function SingleEventPage({ event }: { event: (typeof Events)[0] }) {
         }
         return null;
       })}
-    </div>
-  );
-}
 
-export function EventList() {
-  return (
-    <div className="space-y-20">
-      {Events.map((event) => (
-        <SingleEventPage key={event.id} event={event} />
-      ))}
+      {event.sponsors && (
+        <div className={`py-4 md:py-10 lg:py-12`}>
+          <div className="max-w-7xl mx-auto bg-[#F4F8FB] border border-gray-200 rounded-3xl max-md:px-4 md:px-8 lg:px-0 py-8">
+            <motion.h2
+              initial={{
+                y: 50,
+                opacity: 0,
+              }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+              }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.3,
+                ease: "easeOut",
+                delay: 0.1,
+              }}
+              className={`text-2xl lg:text-3xl text-black text-center font-semibold pb-10 font-PTSerif italic`}
+            >
+              Our Sponsers
+            </motion.h2>
+
+            <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 lg:gap-8 py-2">
+              {event.sponsors &&
+                event.sponsors.map((event, idx) => (
+                  <motion.div
+                    key={idx}
+                    className="flex justify-center items-center cursor-pointer text-center transition-all duration-300"
+                  >
+                    <motion.img
+                      initial={{
+                        y: 50,
+                        opacity: 0,
+                      }}
+                      whileInView={{
+                        y: 0,
+                        opacity: 1,
+                      }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeOut",
+                        delay: idx * 0.1,
+                      }}
+                      src={event}
+                      alt="partner-image"
+                      className="border border-gray-400 h-40 w-40 object-fit rounded-xl overflow-hidden shadow-md"
+                    />
+                  </motion.div>
+                ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

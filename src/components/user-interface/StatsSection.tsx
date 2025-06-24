@@ -57,7 +57,7 @@ export function Stats({ className }: { className?: string }) {
   if (!hasMounted) return null;
 
   return (
-    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-4 sm:py-6 md:py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md border border-gray-200 font-SFCompact-medium">
+    <section className="w-[95%] md:w-[90%] lg:w-[80%] bg-white py-4 sm:py-6 md:py-8 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-xl shadow-md border border-gray-200 font-inter">
       <div className="max-w-full grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12 px-2 sm:px-4 md:py-2 md:px-6">
         {stats.map((stat, index) => (
           <motion.div

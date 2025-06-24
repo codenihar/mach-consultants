@@ -4,7 +4,7 @@ import React from "react";
 
 export function AboutUs({ className }: { className?: string }) {
   return (
-    <section className="pt-36 pb-10 font-SFCompact-medium">
+    <section className="pt-36 pb-10 font-inter">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-2 md:gap-12">
         {/* Left Image Section */}
         <div className="relative flex items-center justify-end h-120 md:h-140 w-full overflow-hidden">

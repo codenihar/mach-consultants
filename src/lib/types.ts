@@ -18,71 +18,88 @@ export type Stat = {
 
 export const Events = [
   {
-    id: "1",
-    title: "Tech Conference 2023",
+    id: "introduction",
+    title: "Introduction to (RISE)",
     category: "conference",
-    featured_image_url:
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678",
-    placeOfEvent: "San Francisco Convention Center",
+    featured_image_url: "/images/about-us-2.jpg",
+    placeOfEvent: "Saint Joseph University, Beirut",
     dateOfEvent: "2023-11-15",
     timeOfEvent: "09:00",
     description:
-      "Annual tech conference featuring the latest innovations in AI and web development.",
-    created_at: "2023-10-01T10:00:00Z",
-    updated_at: "2023-10-05T14:30:00Z",
+      "Annual conference bridging management scholarship and practice to improve research quality and relevance for business leaders.",
+    created_at: "2023-01-15T08:00:00Z",
+    updated_at: "2023-10-10T16:45:00Z",
     contentBlocks: [
       {
         block_type: "header",
-        headerBlock: { text: "About the Event" },
+        headerBlock: { text: "About RISE Conference" },
       },
       {
         block_type: "paragraph",
         paragraphBlock: {
-          text: "Join us for the biggest tech gathering of the year with keynote speakers from leading tech companies.",
-          link: "https://techconf.example.com",
+          text: "RISE is an annual conference held at Saint Joseph University in Beirut in partnership with the Network of Organizational Development Experts, and sponsored by the Academy of Management – Management Consulting Division and the International Society for Organization Development and Change.",
+          link: null,
+        },
+      },
+      {
+        block_type: "header",
+        headerBlock: { text: "Conference Partners" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "Organized in collaboration with MACH Consultants, the Family Business Network Levant, Institut de la Socio-Économie des Entreprises et des Organisations, and University College of Bahrain.",
+          link: null,
+        },
+      },
+      {
+        block_type: "header",
+        headerBlock: { text: "Conference Format" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "The event uses a hybrid format, both online and in-person, featuring Paper Sessions, Professional Development Workshops, and Discussion Sessions with international researchers and industry leaders.",
+          link: null,
+        },
+      },
+      {
+        block_type: "header",
+        headerBlock: { text: "Conference Objectives" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "RISE aims to improve research quality through scientific review, identify enterprise problematics for research, and enhance competencies in education to make research more meaningful for business leaders.",
+          link: null,
         },
       },
     ],
   },
   {
-    id: "2",
-    title: "Art Exhibition Opening",
-    category: "art",
-    featured_image_url:
-      "https://images.unsplash.com/photo-1547891654-e66ed7ebb968",
-    placeOfEvent: "Modern Art Museum",
-    dateOfEvent: "2023-12-05",
-    timeOfEvent: "18:30",
-    description: "Exhibition of contemporary artists from around the world.",
-    created_at: "2023-09-15T09:00:00Z",
-    updated_at: "2023-09-20T11:45:00Z",
+    id: "2021",
+    title: "The 2021 theme",
+    category: "theme",
+    featured_image_url: "/images/rise-2021.png",
+    placeOfEvent: "Saint Joseph University, Beirut",
+    dateOfEvent: "2022-11-29",
+    timeOfEvent: "09:00",
+    description:
+      "The 1st annual RISE conference under the theme 'Rejuvenating the Relationship of Scholarship and Practice'",
+    created_at: "2022-01-01T00:00:00Z",
+    updated_at: "2022-11-01T12:00:00Z",
     contentBlocks: [
       {
         block_type: "header",
-        headerBlock: { text: "Featured Artists" },
+        headerBlock: { text: "Conference Theme" },
       },
       {
         block_type: "paragraph",
         paragraphBlock: {
-          text: "This exhibition showcases works from emerging talents alongside established masters.",
-          link: "https://artmuseum.example.com/exhibitions",
+          text: "The inaugural RISE conference in 2021 focused on 'Rejuvenating the Relationship of Scholarship and Practice', organized by Saint Joseph University in Beirut and the Network of Organizational Development Experts (NODE).",
+          link: null,
         },
       },
-    ],
-  },
-  {
-    id: "3",
-    title: "Community Charity Run",
-    category: "sports",
-    featured_image_url:
-      "https://images.unsplash.com/photo-1552674605-db6ffd4facb5",
-    placeOfEvent: "Central Park",
-    dateOfEvent: "2023-10-22",
-    timeOfEvent: "07:00",
-    description: "5K run to raise funds for local children's hospital.",
-    created_at: "2023-08-10T14:00:00Z",
-    updated_at: "2023-09-01T16:20:00Z",
-    contentBlocks: [
       {
         block_type: "header",
         headerBlock: { text: "Event Details" },
@@ -90,8 +107,191 @@ export const Events = [
       {
         block_type: "paragraph",
         paragraphBlock: {
-          text: "All proceeds will go directly to the children's hospital. Participants will receive a t-shirt and medal.",
-          link: "https://charityrun.example.com/register",
+          text: "The conference took place on November 29-30, 2022, bringing together scholars and practitioners to bridge the gap between academic research and real-world business applications.",
+          link: null,
+        },
+      },
+    ],
+    sponsors: [
+      "/images/2021-sponser-1.png",
+      "/images/2021-sponser-2.png",
+      "/images/2021-sponser-3.png",
+      "/images/2021-sponser-4.jpg",
+    ],
+  },
+  {
+    id: "2022",
+    title: "The 2022 theme",
+    category: "theme",
+    featured_image_url: "/images/rise-2022.webp",
+    placeOfEvent: "Saint Joseph University, Beirut",
+    dateOfEvent: "2022-11-28",
+    timeOfEvent: "09:00",
+    description:
+      "The 2nd annual RISE conference under the theme 'Organization Development as Explicit or Implicit Practice'",
+    created_at: "2022-01-15T00:00:00Z",
+    updated_at: "2022-11-15T12:00:00Z",
+    contentBlocks: [
+      {
+        block_type: "header",
+        headerBlock: { text: "Conference Theme" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "The 2022 RISE conference explored 'Organization Development as Explicit or Implicit Practice', continuing its mission to bridge scholarship and practice.",
+          link: null,
+        },
+      },
+      {
+        block_type: "header",
+        headerBlock: { text: "Event Details" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "Organized by Saint Joseph University in Beirut and the Network of Organizational Development Experts (NODE), the conference took place on November 28-29, 2022.",
+          link: null,
+        },
+      },
+      {
+        block_type: "header",
+        headerBlock: { text: "Conference Materials" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "Recordings and materials from RISE 2022 are available for participants.",
+          link: "#rise2022-recordings",
+        },
+      },
+    ],
+    sponsors: [
+      "/images/2022-sponser-1.jpg",
+      "/images/2022-sponser-2.png",
+      "/images/2022-sponser-3.jpg",
+      "/images/2022-sponser-4.png",
+      "/images/2022-sponser-5.jpg",
+      "/images/2021-sponser-1.png",
+      "/images/2021-sponser-2.png",
+      "/images/2021-sponser-3.png",
+      "/images/2021-sponser-4.jpg",
+    ],
+  },
+  {
+    id: "2023",
+    title: "The 2023 theme",
+    category: "theme",
+    featured_image_url: "/images/rise-2023.png",
+    placeOfEvent: "Saint Joseph University, Beirut",
+    dateOfEvent: "2023-11-27",
+    timeOfEvent: "09:00",
+    description:
+      "The 3rd annual RISE conference under the theme 'Revisiting the Reward and Motivation System'",
+    created_at: "2023-02-01T00:00:00Z",
+    updated_at: "2023-11-20T10:30:00Z",
+    contentBlocks: [
+      {
+        block_type: "header",
+        headerBlock: { text: "Conference Theme" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "The 2023 RISE conference examined 'Revisiting the Reward and Motivation System', continuing its tradition of bridging academic research and organizational practice.",
+          link: null,
+        },
+      },
+      {
+        block_type: "header",
+        headerBlock: { text: "Event Details" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "Organized by Saint Joseph University in Beirut and the Network of Organizational Development Experts (NODE), the conference took place on November 27-28, 2023.",
+          link: null,
+        },
+      },
+      {
+        block_type: "header",
+        headerBlock: { text: "Conference Materials" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "Recordings from RISE 2023 will be made available to participants in the coming weeks.",
+          link: null,
+        },
+      },
+    ],
+    sponsors: [
+      "/images/2022-sponser-1.jpg",
+      "/images/2022-sponser-2.png",
+      "/images/2022-sponser-3.jpg",
+      "/images/2022-sponser-4.png",
+      "/images/2022-sponser-5.jpg",
+      "/images/2021-sponser-1.png",
+      "/images/2021-sponser-2.png",
+      "/images/2021-sponser-3.png",
+      "/images/2021-sponser-4.jpg",
+    ],
+  },
+  {
+    id: "2025",
+    title: "The 2025 theme",
+    category: "theme",
+    featured_image_url: "/images/about-us-1.png",
+    placeOfEvent: "INSEEC Grande Ecole, Paris",
+    dateOfEvent: "2025-04-01",
+    timeOfEvent: "09:00",
+    description:
+      "The 4th annual RISE conference under the theme 'From Thoughts to Assets: Transforming Innovation and Creativity into Value'",
+    created_at: "2024-06-01T00:00:00Z",
+    updated_at: "2025-03-15T14:20:00Z",
+    contentBlocks: [
+      {
+        block_type: "header",
+        headerBlock: { text: "Conference Evolution" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "RISEinEurope 2025 marks the fourth annual conference and first European edition, co-organized by INSEEC Grande Ecole in Paris, Saint Joseph University in Beirut, and the Network of Organization Development Experts (NODE).",
+          link: null,
+        },
+      },
+      {
+        block_type: "header",
+        headerBlock: { text: "2025 Theme" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "Focused on 'From Thoughts to Assets: The Journey of Transforming Innovation and Creativity into Value', the conference explored practical frameworks for value creation.",
+          link: null,
+        },
+      },
+      {
+        block_type: "header",
+        headerBlock: { text: "Event Details" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "The conference took place on April 1-2, 2025 at INSEEC Grande Ecole in Paris, featuring keynotes, workshops, and networking sessions.",
+          link: null,
+        },
+      },
+      {
+        block_type: "header",
+        headerBlock: { text: "Conference Materials" },
+      },
+      {
+        block_type: "paragraph",
+        paragraphBlock: {
+          text: "Recordings and presentation materials from RISE 2025 will be available to registered participants.",
+          link: "#rise2025-recordings",
         },
       },
     ],

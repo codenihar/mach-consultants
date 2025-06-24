@@ -3,7 +3,7 @@ import * as motion from "motion/react-client";
 
 export function HeroSection() {
   return (
-    <div className="py-28 pt-36 relative w-full text-black font-RecoletaRegular bg-[#F4F8FB]">
+    <div className="py-28 pt-36 relative w-full text-black font-inter bg-[#F4F8FB]">
       <div className="flex flex-col items-center justify-center text-center px-4">
         <motion.h1
           initial={{

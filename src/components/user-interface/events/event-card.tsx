@@ -1,18 +1,9 @@
 import * as motion from "motion/react-client";
 import Link from "next/link";
-
-export interface Event {
-  id: number;
-  title: string;
-  description: string;
-  organizer: string;
-  date: string;
-  category: string;
-  imageUrl: string;
-}
+import { Events } from "@/lib/types";
 
 interface EventCardProps {
-  event: Event;
+  event: (typeof Events)[0];
   index: number;
 }
 
@@ -37,7 +28,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
     >
       <div>
         <img
-          src={event.imageUrl}
+          src={event.featured_image_url}
           alt={event.title}
           className="w-full h-full lg:max-w-80 object-cover rounded-3xl"
         />
@@ -51,16 +42,17 @@ export const EventCard: React.FC<EventCardProps> = ({ event, index }) => {
           {event.title}
         </h3>
         <p className="text-md gray-600 line-clamp-2">{event.description}</p>
-        <div className="max-w-xl flex flex-col gap-3 lg:gap-1">
+        <div className="max-w-md flex flex-col gap-3 lg:gap-1">
           <p className="text-sm grid grid-cols-1 lg:grid-cols-2 max-lg:gap-1">
-            <span className="font-semibold text-gray-600 ">Penyelenggara:</span>{" "}
-            <span>{event.organizer}</span>
+            <span className="font-semibold text-gray-600 ">Place:</span>{" "}
+            <span>{event.placeOfEvent}</span>
           </p>
+
           <p className="text-sm grid grid-cols-1 lg:grid-cols-2 max-lg:gap-1">
-            <span className="font-semibold text-gray-600 ">
-              Tanggal pelaksanaan:
+            <span className="font-semibold text-gray-600 ">Date & Time:</span>
+            <span>
+              {event.dateOfEvent}, {event.timeOfEvent}
             </span>
-            <span>{event.date}</span>
           </p>
         </div>
       </div>

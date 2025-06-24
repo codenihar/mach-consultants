@@ -43,7 +43,7 @@ export function Blogs({ className }: { className?: string }) {
   if (!hasMounted) return null;
 
   return (
-    <section className="md:py-16 lg:py-20 px-4 sm:px-6 bg-white font-SFCompact-medium">
+    <section className="md:py-16 lg:py-20 px-4 sm:px-6 bg-white font-inter">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10 md:mb-14 lg:mb-16">
           <motion.p

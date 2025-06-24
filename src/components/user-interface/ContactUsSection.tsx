@@ -5,7 +5,7 @@ import { MoveUpRight } from "lucide-react";
 
 export function ConsultationForm({ className }: { className?: string }) {
   return (
-    <section id="contactUs" className="py-12 px-4 sm:px-6 md:px-8">
+    <section id="contactUs" className="py-12 px-4 sm:px-6 md:px- font-Inter">
       <div className="bg-[#2d528a] py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 rounded-4xl max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         <motion.div
           initial={{

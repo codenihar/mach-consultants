@@ -20,14 +20,14 @@ export function BlogsAndPublications() {
   }, []);
 
   return (
-    <section className="bg-[#F4F8FB] px-8 pt-36 md:pt-42 py-20 font-PTSerif overflow-hidden">
+    <section className="bg-[#F4F8FB] px-8 pt-36 md:pt-42 py-20 font-inter overflow-hidden">
       <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center gap-10 md:gap-5 lg:gap-20">
         <div className="md:flex-1 lg-flex-0 max-w-2xl">
           <motion.h1
             initial={{ y: 75, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-black"
+            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold font-PTSerif italic text-black"
           >
             Publications And Blogs
           </motion.h1>

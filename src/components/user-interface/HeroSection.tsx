@@ -4,7 +4,7 @@ import React from "react";
 
 export function Hero({ className }: { className?: string }) {
   return (
-    <section className="w-full flex items-center px-4 sm:px-6 md:px-8 lg:px-16 pt-24 md:pt-36 pb-36 md:pb-48 font-SFCompact-thin">
+    <section className="w-full flex items-center px-4 sm:px-6 md:px-8 lg:px-16 pt-24 md:pt-36 pb-36 md:pb-48 font-inter">
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-14 w-full">
         {/* Left Section */}
         <div className="flex-1 w-full mt-8 lg:mt-0">

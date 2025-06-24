@@ -22,13 +22,13 @@ export function Footer({ promises }: FooterProps) {
 
   return (
     <div>
-      <div className="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 py-12 md:py-16 overflow-hidden">
+      <div className="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 py-6 md:py-16 overflow-hidden">
         <div
           style={{
             backgroundImage:
               "linear-gradient(to bottom right,rgb(253, 232, 235) 10%, #ae2333 170%)",
           }}
-          className="pt-10 pl-30 pr-30 rounded-4xl max-w-6xl mx-auto lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8"
+          className="px-4 md:px-8 py-10 rounded-4xl max-w-3xl mx-auto lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8"
         >
           <div className="mx-auto text-center lg:text-left">
             <motion.h2
@@ -86,7 +86,7 @@ export function Footer({ promises }: FooterProps) {
                 delay: 0.2,
               }}
               viewport={{ once: true }}
-              className="my-10 w-full sm:w-auto flex flex-col sm:flex-row gap-3 bg-white p-1 sm:p-2 rounded-lg shadow-sm"
+              className="mt-10 w-full sm:w-auto flex flex-col sm:flex-row gap-3 bg-white p-1 sm:p-2 rounded-lg shadow-sm"
             >
               <input
                 type="email"
@@ -144,7 +144,7 @@ export function Footer({ promises }: FooterProps) {
                     delay: 0.1,
                   }}
                   viewport={{ once: true }}
-                  className=" text-lg leading-relaxed lg:max-w-xs"
+                  className="text-xs md:text-md lg:text-lg leading-relaxed lg:max-w-xs"
                 >
                   Shape your project's vision with expert guidance. MACH
                   Consultants helps reveal hidden resources and grow your
