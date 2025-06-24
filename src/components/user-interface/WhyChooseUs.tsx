@@ -37,7 +37,7 @@ const features: Feature[] = [
 
 export function WhyChooseUs({ className }: { className?: string }) {
   return (
-    <section className="md:py-16 lg:py-20 bg-white px-4 sm:px-6 md:px-8 font-SFCompact-medium">
+    <section className="md:py-16 lg:py-20 bg-white px-4 sm:px-6 md:px-8 font-SFCompact-medium ">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         <div className="order-2 lg:order-1">
           <motion.p
@@ -100,7 +100,7 @@ export function WhyChooseUs({ className }: { className?: string }) {
           </motion.p>
         </div>
 
-        <div className="relative w-full order-1 lg:order-2 max-lg:overflow-hidden">
+        <div className="relative w-full order-1 lg:order-2 max-lg:overflow-hidden ">
           <motion.div
             initial={{
               x: 100,
@@ -116,7 +116,7 @@ export function WhyChooseUs({ className }: { className?: string }) {
               delay: 0.3,
             }}
             viewport={{ once: true }}
-            className="rounded-xl overflow-hidden w-full max-w-md xl:mx-auto shadow-lg"
+            className="rounded-xl overflow-hidden w-full max-w-md xl:mx-auto shadow-lg "
           >
             <img
               src="/images/why-choose-us.jpg"
@@ -168,7 +168,11 @@ export function WhyChooseUs({ className }: { className?: string }) {
             }}
             viewport={{ once: true }}
             key={`feat-${index}`}
-            className="flex flex-col items-start gap-3 p-4 sm:p-5 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors duration-300"
+            className="flex flex-col items-start gap-3 p-4 sm:p-5 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors duration-300 hover:scale-105 transform transition-transform"
+            style={{
+              backgroundImage:
+                "linear-gradient(to bottom right, #d0eaff 10%, #075fa4 170%)",
+            }}
           >
             <div className="text-[#ae2333]">{feature.icon}</div>
             <div>
