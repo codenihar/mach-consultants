@@ -125,7 +125,7 @@ export function AboutUs({ className }: { className?: string }) {
             }}
             className={`text-2xl md:text-3xl xl:text-4xl font-bold text-[#6e3a5e] mb-4 leading-tight ${className}`}
           >
-            we specialize in customized consulting programs for people and
+            We specialize in customized consulting programs for people and
             businesses.
           </motion.h2>
 
@@ -144,7 +144,7 @@ export function AboutUs({ className }: { className?: string }) {
               ease: "easeOut",
               delay: 0.2,
             }}
-            className="text-md md:text-lg text-[#8f2f48] mb-4"
+            className="text-md md:text-lg text-[#075fa4] mb-4"
           >
             Selective consultants focused on immediate performance improvement.
             We are dedicated to revealing the hidden resources of the enterprise
@@ -167,7 +167,7 @@ export function AboutUs({ className }: { className?: string }) {
               ease: "easeOut",
               delay: 0.3,
             }}
-            className="text-md md:text-lg text-[#8f2f48] mb-6"
+            className="text-md md:text-lg text-[#075fa4] mb-6"
           >
             We consider complementary and wholesome the ethical, normative, and
             regulative dimensions. We are engaged in advancing the benefits of

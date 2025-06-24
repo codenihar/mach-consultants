@@ -104,9 +104,9 @@ export function Hero({ className }: { className?: string }) {
               ease: "easeOut",
               delay: 0.25,
             }}
-            className="text-[#8f2f48] font-semibold text-base sm:text-lg md:text-xl my-4 sm:my-6 md:my-8 max-w-2xl overflow-hidden"
+            className="text-[#075fa4] font-semibold text-base sm:text-lg md:text-xl my-4 sm:my-6 md:my-8 max-w-2xl overflow-hidden"
           >
-            We are selective consultants focused on immediate performance
+            We are scientific consultants focused on immediate performance
             improvement. We are dedicated to revealing hidden resources of the
             enterprise and growing its potential.
           </motion.p>

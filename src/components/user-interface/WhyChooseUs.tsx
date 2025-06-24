@@ -92,7 +92,7 @@ export function WhyChooseUs({ className }: { className?: string }) {
               ease: "easeOut",
               delay: 0.2,
             }}
-            className="text-[#6e3a5e] mb-6 md:mb-8 text-base sm:text-lg"
+            className="text-[#075fa4] mb-6 md:mb-8 text-base sm:text-lg"
           >
             At Mach Consultants, we're not just consultants; we're partners
             dedicated to revealing the hidden resources within your enterprise

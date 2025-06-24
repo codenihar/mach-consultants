@@ -67,7 +67,7 @@ export function AboutHeroSection() {
             }}
             className="text-gray-700 font-medium text-md lg:text-lg my-3 sm:my-4 md:my-6 font-Inter"
           >
-            We are selective consultants focused on immediate performance
+            We are scientific consultants focused on immediate performance
             improvement, dedicated to revealing your enterprise's hidden
             resources and fostering sustainable growth.
           </motion.p>
