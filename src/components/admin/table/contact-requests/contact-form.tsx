@@ -41,6 +41,8 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
   const [status, setStatus] = React.useState<"success" | "error" | null>(null);
   const [message, setMessage] = React.useState<string | null>(null);
   const handleFinalSubmit = async (data: TContactFormSchema) => {
+    setStatus(null);
+    setMessage(null);
     const result = await onSubmit(data);
 
     if (result.success) {
