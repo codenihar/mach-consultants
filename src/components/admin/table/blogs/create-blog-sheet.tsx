@@ -13,7 +13,7 @@ export function CreateBlogSheet() {
       <Button
         variant="outline"
         size="sm"
-        onClick={() => router.push("/a/dashboard/new")}
+        onClick={() => router.push("/a/articles/new")}
       >
         <Plus />
         New Blog

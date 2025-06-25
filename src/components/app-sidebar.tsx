@@ -39,11 +39,6 @@ const data = {
       icon: IconArticle,
     },
     {
-      title: "Events",
-      url: "/a/events",
-      icon: IconCalendarEvent,
-    },
-    {
       title: "Contact Requests",
       url: "/a/contact-requests",
       icon: IconPhoneCall,

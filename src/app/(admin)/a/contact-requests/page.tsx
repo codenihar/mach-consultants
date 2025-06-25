@@ -1,10 +1,10 @@
 import React from "react";
 import { SearchParams } from "@/lib/data-table/types";
-import { blogSearchParamCache } from "@/actions/blogs/blogs.types";
-import { BlogsService } from "@/actions/blogs/blogs.service";
-import { BlogsTable } from "@/components/admin/table/blogs/blogs-table";
 import { DataTableSkelton } from "@/components/data-table/data-table-skeleton";
 import { Shell } from "@/components/shell/shell";
+import { contactFormSearchParamCache } from "@/actions/contact-form/contact-form.types";
+import { ContactFormService } from "@/actions/contact-form/contact-form.service";
+import { ContactFormsTable } from "@/components/admin/table/contact-requests/conatct-form-table";
 
 interface IndexPageProps {
   searchParams: Promise<SearchParams>;
@@ -12,9 +12,9 @@ interface IndexPageProps {
 
 export default async function IndexPage(props: IndexPageProps) {
   const searchParams = await props.searchParams;
-  const search = blogSearchParamCache.parse(searchParams);
+  const search = contactFormSearchParamCache.parse(searchParams);
   const promises = Promise.all([
-    BlogsService.getAdminBlogs({
+    ContactFormService.getContactForms({
       ...search,
       sort: search.sort,
     }),
@@ -31,7 +31,7 @@ export default async function IndexPage(props: IndexPageProps) {
           />
         }
       >
-        <BlogsTable promises={promises} />
+        <ContactFormsTable promises={promises} />
       </React.Suspense>
     </Shell>
   );

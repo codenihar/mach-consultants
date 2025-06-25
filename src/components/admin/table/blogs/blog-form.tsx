@@ -321,7 +321,7 @@ export function BlogForm({ type, onSubmit, initialData }: BlogFormProps) {
 
         <div className="flex justify-end space-x-3">
           <a
-            href="/a/dashboard"
+            href="/a/articles"
             className="cursor-pointer px-4 py-2 bg-gray-200 text-gray-700 rounded-3xl hover:bg-gray-300 transition"
           >
             Cancel

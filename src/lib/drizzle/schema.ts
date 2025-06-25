@@ -26,6 +26,19 @@ export const blogs = pgTable("blogs", {
   updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 });
 
+export const contactForm = pgTable("contact_form", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  firstName: text("first_name").notNull(),
+  lastName: text("last_name"),
+  organization: text("organization").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  inquiryType: text("inquiry_type").notNull(),
+  message: text("message"),
+  consent: boolean("consent").notNull(),
+  created_at: timestamp("created_at", { withTimezone: true }).defaultNow(),
+});
+
 export const contentBlocks = pgTable(
   "content_blocks",
   {

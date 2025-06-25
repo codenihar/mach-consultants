@@ -1,31 +1,29 @@
 "use client";
+import * as React from "react";
 import type { ColumnDef } from "@tanstack/react-table";
 import { Ellipsis, Trash2 } from "lucide-react";
-import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useRouter } from "next/navigation";
 import { DataTableRowAction } from "@/lib/data-table/types";
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-headers";
-import { Blog } from "@/actions/blogs/blogs.types";
+import { ContactForm } from "@/actions/contact-form/contact-form.types";
 
-interface GetBlogColumnsProps {
+interface GetContactFormColumnsProps {
   setRowAction: React.Dispatch<
-    React.SetStateAction<DataTableRowAction<Blog> | null>
+    React.SetStateAction<DataTableRowAction<ContactForm> | null>
   >;
 }
 
-export function getBlogsColumns({
+export function getContactFormsColumns({
   setRowAction,
-}: GetBlogColumnsProps): ColumnDef<Blog>[] {
+}: GetContactFormColumnsProps): ColumnDef<ContactForm>[] {
   return [
     {
       id: "select",
@@ -55,56 +53,80 @@ export function getBlogsColumns({
     {
       accessorKey: "id",
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Article ID" />
+        <DataTableColumnHeader column={column} title="Form ID" />
       ),
       cell: ({ row }) => <div className="w-auto">{row.getValue("id")}</div>,
       enableSorting: false,
       enableHiding: false,
     },
     {
-      accessorKey: "title",
+      accessorKey: "firstName",
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Article Title" />
+        <DataTableColumnHeader column={column} title="First Name" />
       ),
       cell: ({ row }) => (
-        <div className="w-60 line-clamp-1">{row.getValue("title")}</div>
+        <div className="w-auto line-clamp-1">{row.getValue("firstName")}</div>
       ),
       enableHiding: false,
     },
     {
-      accessorKey: "type",
+      accessorKey: "lastName",
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Article Type" />
+        <DataTableColumnHeader column={column} title="Last Name" />
       ),
-      cell: ({ row }) => <div className="w-10">{row.getValue("type")}</div>,
+      cell: ({ row }) => <div className="w-10">{row.getValue("lastName")}</div>,
       enableHiding: false,
     },
     {
-      accessorKey: "preference",
+      accessorKey: "organization",
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Article Preference" />
+        <DataTableColumnHeader column={column} title="Organization" />
       ),
       cell: ({ row }) => (
-        <div className="w-10">{row.getValue("preference")}</div>
+        <div className="w-10">{row.getValue("organization")}</div>
       ),
       enableHiding: false,
     },
     {
-      accessorKey: "updated_at",
+      accessorKey: "email",
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Updated At" />
+        <DataTableColumnHeader column={column} title="Email" />
+      ),
+      cell: ({ row }) => <div className="w-auto">{row.getValue("email")}</div>,
+      enableHiding: false,
+    },
+    {
+      accessorKey: "phone",
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="Phone Number" />
+      ),
+      cell: ({ row }) => <div className="w-10">{row.getValue("phone")}</div>,
+      enableHiding: false,
+    },
+    {
+      accessorKey: "inquiryType",
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="Inquiry Type" />
       ),
       cell: ({ row }) => (
-        <div className="w-auto">
-          {new Date(row.getValue("updated_at")).toLocaleString()}
-        </div>
+        <div className="w-auto">{row.getValue("inquiryType")}</div>
+      ),
+      enableHiding: false,
+    },
+    {
+      accessorKey: "message",
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="Message" />
+      ),
+      cell: ({ row }) => (
+        <div className="w-auto">{row.getValue("message")}</div>
       ),
       enableHiding: false,
     },
     {
       accessorKey: "created_at",
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Created At" />
+        <DataTableColumnHeader column={column} title="Submitted At" />
       ),
       cell: ({ row }) => (
         <div className="w-auto">
@@ -116,8 +138,6 @@ export function getBlogsColumns({
     {
       id: "actions",
       cell: function Cell({ row }) {
-        const [isUpdatePending, startUpdateTransition] = React.useTransition();
-        const router = useRouter();
         return (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -130,13 +150,6 @@ export function getBlogsColumns({
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem
-                onSelect={() => setRowAction({ row, type: "update" })}
-                onClick={() => router.push(`/a/articles/${row.original.id}`)}
-              >
-                Edit
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
               <DropdownMenuItem
                 onSelect={() => setRowAction({ row, type: "delete" })}
               >
