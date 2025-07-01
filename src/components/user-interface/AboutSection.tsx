@@ -76,9 +76,9 @@ export function AboutUs({ className }: { className?: string }) {
             viewport={{ once: true }}
             className="absolute z-20 max-sm:left-52 left-64 md:left-88 lg:left-80 top-46 md:top-72"
           >
-            <div className="bg-pink-100 border-2 border-pinl-500 text-center rounded-full w-28 h-28 flex flex-col items-center justify-center shadow-md">
-              <span className="text-4xl font-bold text-[#ae2333]">35</span>
-              <span className="text-xs text-[#ae2333] leading-none">
+            <div className="bg-red-500 border-2 border-pink-500 text-center rounded-full w-28 h-28 flex flex-col items-center justify-center shadow-md">
+              <span className="text-4xl font-bold text-white">35</span>
+              <span className="text-xs text-white leading-none">
                 Years of
                 <br />
                 Experience

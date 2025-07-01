@@ -62,7 +62,9 @@ export function Partners({ className }: { className?: string }) {
                   }}
                   src={partner}
                   alt="partner-image"
-                  className="h-35 w-35 object-fit rounded-full overflow-hidden shadow-xl"
+                  className={`h-35 w-35 ${
+                    [2, 5].includes(idx) ? "object-cover" : "object-fit"
+                  }  rounded-full overflow-hidden shadow-xl`}
                 />
               </motion.div>
             ))}

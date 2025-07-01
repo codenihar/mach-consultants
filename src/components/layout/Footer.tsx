@@ -21,15 +21,9 @@ export function Footer({ promises }: FooterProps) {
   if (!hasMounted) return null;
 
   return (
-    <div>
-      <div className="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 py-6 md:py-16 overflow-hidden">
-        <div
-          style={{
-            backgroundImage:
-              "linear-gradient(to bottom right,rgb(253, 232, 235) 10%, #ae2333 170%)",
-          }}
-          className="px-4 md:px-8 py-10 rounded-4xl max-w-3xl mx-auto lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8"
-        >
+    <div className="bg-[#F4F8FB]">
+      <div className="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 py-6 md:py-16 overflow-hidden ">
+        <div className="border shadow-sm px-4 md:px-8 py-10 rounded-xl max-w-3xl mx-auto lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8">
           <div className="mx-auto text-center lg:text-left">
             <motion.h2
               initial={{
@@ -105,7 +99,7 @@ export function Footer({ promises }: FooterProps) {
         </div>
       </div>
 
-      <footer className="bg-[#F4F8FB] text-black pb-8 pt-5 font-inter">
+      <footer className="text-black pb-8 pt-5 font-inter">
         <div className="max-w-[120rem] mx-auto">
           <div className="max-w-7xl mx-auto mt-16 px-4 md:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-10">
