@@ -241,7 +241,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
                     htmlFor="consent"
                     className="text-white text-sm font-semibold"
                   >
-                    GDPR consent: I authorize Mach to use my data to respond to
+                    GDPR consent: I authorize MACH to use my data to respond to
                     my request
                   </FormLabel>
                 </div>

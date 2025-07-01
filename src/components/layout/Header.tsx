@@ -36,7 +36,7 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-3 md:space-x-6 xl:space-x-10 font-bold text-[#6e3a5e]">
+          <nav className="hidden md:flex items-center space-x-3 md:space-x-6 xl:space-x-10 font-bold text-[#ae2333]">
             {NavItems &&
               NavItems.length > 0 &&
               NavItems.map((nav, index) => (

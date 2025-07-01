@@ -116,7 +116,7 @@ export function AboutHeroSection() {
               delay: 0.2,
             }}
             src="https://mach-consultants.com/wp-content/uploads/2022/03/MACH-LOGO-FINAL-01.png"
-            alt="Mach Consultants"
+            alt="MACH Consultants"
             className="hidden lg:block w-full h-auto rounded-xl sm:rounded-2xl md:rounded-[2rem] object-cover"
           />
           <div>

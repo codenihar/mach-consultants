@@ -57,7 +57,7 @@ export function MiddleSection() {
             viewport={{ once: true }}
             className="text-base sm:text-lg max-w-md"
           >
-            Mach Consultants uncovers hidden resources to boost your
+            MACH Consultants uncovers hidden resources to boost your
             enterprise's potential. Submit your contact info now, and we'll
             respond within 24 hours.
           </motion.p>

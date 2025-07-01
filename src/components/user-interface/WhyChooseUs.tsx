@@ -13,7 +13,7 @@ const features: Feature[] = [
     icon: <Diamond className="text-[#ae2333] w-10 h-10" />,
     title: "Selective Expertise",
     description:
-      "We're selective consultants laser-focused on delivering immediate performance improvement by revealing your enterprise's hidden potential.",
+      "We're scientific consultants laser-focused on delivering immediate performance improvement by revealing your enterprise's hidden potential.",
   },
   {
     icon: <TrendingUp className="text-[#ae2333] w-10 h-10" />,
@@ -75,7 +75,7 @@ export function WhyChooseUs({ className }: { className?: string }) {
             }}
             className={`text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#6e3a5e] leading-tight mb-4 md:mb-6 ${className}`}
           >
-            Choose Mach Consultants: Where Performance Meets Potential.
+            Choose MACH Consultants: Where Performance Meets Potential.
           </motion.h2>
           <motion.p
             initial={{
@@ -94,7 +94,7 @@ export function WhyChooseUs({ className }: { className?: string }) {
             }}
             className="text-[#075fa4] mb-6 md:mb-8 text-base sm:text-lg"
           >
-            At Mach Consultants, we're not just consultants; we're partners
+            At MACH Consultants, we're not just consultants; we're partners
             dedicated to revealing the hidden resources within your enterprise
             and growing its potential.
           </motion.p>
@@ -181,7 +181,7 @@ export function WhyChooseUs({ className }: { className?: string }) {
               >
                 {feature.title}
               </h4>
-              <p className="text-[#6e3a5e] text-md text-base leading-relaxed mt-2">
+              <p className="text-black text-md text-base leading-relaxed mt-2">
                 {feature.description}
               </p>
             </div>

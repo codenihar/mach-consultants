@@ -126,7 +126,7 @@ export function Footer({ promises }: FooterProps) {
                   viewport={{ once: true }}
                   className="text-black font-bold text-xl lg:text-2xl mb-3 font-RecoletaRegular italic"
                 >
-                  Mach Consultants
+                  MACH Consultants
                 </motion.div>
 
                 <motion.p
