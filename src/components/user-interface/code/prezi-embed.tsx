@@ -6,8 +6,8 @@ interface PreziEmbedCodeProps {
 }
 
 export function PreziEmbedCode({
-  width = 560,
-  height = 315,
+  width = 1140,
+  height = 630,
 }: PreziEmbedCodeProps) {
   return (
     <iframe

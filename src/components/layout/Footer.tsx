@@ -23,7 +23,7 @@ export function Footer({ promises }: FooterProps) {
   return (
     <div className="bg-[#F4F8FB]">
       <div className="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 py-6 md:py-16 overflow-hidden ">
-        <div className="border shadow-sm px-4 md:px-8 py-10 rounded-xl max-w-3xl mx-auto lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8">
+        <div className="shadow-sm px-4 md:px-8 py-10 rounded-xl max-w-3xl mx-auto lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8">
           <div className="mx-auto text-center lg:text-left">
             <motion.h2
               initial={{
