@@ -22,10 +22,10 @@ export default function PreziEmbed() {
           }}
           className="px-2 md:px-0 max-w-[80%] sm:max-w-4xl sm:mx-auto text-left sm:text-center text-4xl md:text-5xl lg:text-6xl leading-tight font-PTSerif font-semibold italic"
         >
-          CODE: Research with Impact for Society and the Enterprise
+          CODE: Consulting for Organization and Development of Enterprises
         </motion.h1>
 
-        <motion.p
+        {/* <motion.p
           initial={{
             y: 50,
             opacity: 0,
@@ -46,7 +46,7 @@ export default function PreziEmbed() {
           research and practice by bringing together international scholars,
           practitioners, and business leaders to collaborate on impactful,
           enterprise-relevant research.
-        </motion.p>
+        </motion.p> */}
       </div>
 
       <div className="flex justify-center items-center">
