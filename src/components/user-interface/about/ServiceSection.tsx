@@ -161,10 +161,9 @@ export function ServiceSection() {
       >
         <a
           href="/services"
-          className="inline-flex items-center px-6 py-3 bg-black hover:bg-gray-800 text-white font-medium rounded-lg transition-colors duration-300"
+          className="font-bold inline-flex items-center px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-lg transition-colors duration-300"
         >
-          Read More...
-          <ChevronRight className="w-4 h-4 ml-2" />
+          Read More
         </a>
       </motion.div>
     </section>

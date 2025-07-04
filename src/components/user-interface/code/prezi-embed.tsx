@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import React from "react";
 
 interface PreziEmbedCodeProps {
@@ -19,7 +20,12 @@ export function PreziEmbedCode({
       width={width}
       height={height}
       style={{ border: "none" }}
-      className="rounded-xl shadow-2xl overflow-hidden"
+      className={cn(
+        "rounded-xl shadow-2xl overflow-hidden",
+        "w-full h-[300px]",
+        "sm:h-[300px]",
+        `md:w-[1140px] md:h-[630px]`
+      )}
     />
   );
 }

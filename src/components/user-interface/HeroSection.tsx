@@ -27,7 +27,7 @@ export function Hero({ className }: { className?: string }) {
               }}
               className="inline-block"
             >
-              <span className="text-[#075fa4]">MACH</span> Consultants
+              <span className="text-[#075fa4]">MACH Consultants</span>
             </motion.p>
             <br />
             <motion.p
@@ -127,10 +127,9 @@ export function Hero({ className }: { className?: string }) {
                 delay: 0.3,
               }}
               href="/services"
-              className="flex items-center justify-center gap-4 bg-[#075fa4] text-white px-5 py-3 rounded-md transition cursor-pointer w-[max-content] text-xl font-semibold overflow-hidden"
+              className="flex items-center justify-center gap-4 bg-[#075fa4] text-white px-6 py-3 rounded-md transition cursor-pointer w-[max-content]  text-sm md:text-lg font-bold overflow-hidden"
             >
               Our Services
-              <Cog />
             </motion.a>
           </div>
         </div>

@@ -114,10 +114,10 @@ export function BlogsAndPublications() {
                       </div>
 
                       <a
-                        href={`/blogs/${article.id}`}
+                        href={`/publications/${article.id}`}
                         className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
                       >
-                        Read more <ArrowRight className="ml-2 w-4 h-4" />
+                        Read more
                       </a>
                     </div>
                   </motion.div>

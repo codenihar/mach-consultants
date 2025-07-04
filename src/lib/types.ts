@@ -19,7 +19,7 @@ export type Stat = {
 export const Events = [
   {
     id: "2021",
-    title: "The 2021 theme",
+    title: "Rise 2021",
     category: "theme",
     featured_image_url: "/images/rise-2021.png",
     placeOfEvent: "Saint Joseph University, Beirut",
@@ -62,7 +62,7 @@ export const Events = [
   },
   {
     id: "2022",
-    title: "The 2022 theme",
+    title: "Rise 2022",
     category: "theme",
     featured_image_url: "/images/rise-2022.webp",
     placeOfEvent: "Saint Joseph University, Beirut",
@@ -121,7 +121,7 @@ export const Events = [
   },
   {
     id: "2023",
-    title: "The 2023 theme",
+    title: "Rise 2023",
     category: "theme",
     featured_image_url: "/images/rise-2023.png",
     placeOfEvent: "Saint Joseph University, Beirut",
@@ -180,7 +180,7 @@ export const Events = [
   },
   {
     id: "2025",
-    title: "The 2025 theme",
+    title: "RISEinEurope 2025",
     category: "theme",
     featured_image_url: "/images/about-us-1.png",
     placeOfEvent: "INSEEC Grande Ecole, Paris",

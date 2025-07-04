@@ -4,9 +4,9 @@ export const NavItems: NavItem[] = [
   { name: "Home", route: "/" },
   { name: "About Us", route: "/about" },
   { name: "Services", route: "/services" },
-  { name: "Publications & Blogs", route: "/blogs" },
-  { name: "RISE", route: "/events" },
-  { name: "CODE", route: "/code" },
+  { name: "Publications", route: "/publications" },
+  { name: "RISE Conference", route: "/events" },
+  { name: "CODE Scientific Consulting", route: "/code" },
 ];
 
 export const policies: Policy[] = [

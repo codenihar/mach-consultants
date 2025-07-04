@@ -21,7 +21,7 @@ export function Footer({ promises }: FooterProps) {
   if (!hasMounted) return null;
 
   return (
-    <div className="bg-[#F4F8FB]">
+    <div className="bg-[#F4F8FB] font-PTSerif">
       <div className="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 py-6 md:py-16 overflow-hidden ">
         <div className="shadow-sm px-4 md:px-8 py-10 rounded-xl max-w-3xl mx-auto lg:my-0 flex flex-col lg:flex-row justify-between items-center gap-8">
           <div className="mx-auto text-center lg:text-left">
@@ -85,14 +85,13 @@ export function Footer({ promises }: FooterProps) {
               <input
                 type="email"
                 placeholder="Email Address"
-                className="text-black px-4 py-3 w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-gray-900 rounded-lg placeholder:text-gray-400"
+                className="flex-1 text-black px-4 py-3 w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-gray-900 rounded-lg placeholder:text-gray-400"
               />
               <a
                 href="/#contactUs"
-                className="bg-[#075fa4] hover:opacity-90 w-full cursor-pointer font-semibold flex items-center justify-center gap-2 text-white px-5 py-3 rounded-lg transition-colors duration-300"
+                className="text-sm md:text-lg font-bold bg-[#075fa4] hover:opacity-90 cursor-pointer flex items-center justify-center gap-2 text-white px-10 py-3 rounded-lg transition-colors duration-300"
               >
                 Contact Us
-                <MoveUpRight className="w-4 h-4" />
               </a>
             </motion.div>
           </div>

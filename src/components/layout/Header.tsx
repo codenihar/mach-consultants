@@ -36,14 +36,14 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-3 md:space-x-5 xl:space-x-8 font-bold text-[#ae2333]">
+          <nav className="hidden lg:flex items-center space-x-3 md:space-x-5 xl:space-x-6 font-bold text-[#ae2333]">
             {NavItems &&
               NavItems.length > 0 &&
               NavItems.map((nav, index) => (
                 <a
                   key={`nav-${index}`}
                   href={nav.route}
-                  className="cursor-pointer hover:opacity-80 text-sm md:text-[1.1rem]"
+                  className="cursor-pointer hover:opacity-80 text-sm xl:text-[1rem]"
                 >
                   {nav.name}
                 </a>
@@ -52,15 +52,14 @@ export function Header() {
 
           <a
             href="/#contactUs"
-            className="hidden lg:flex items-center justify-center gap-2 bg-[#075fa4] opacity-95 hover:opacity-100 text-white px-3 py-2 rounded-md transition cursor-pointer w-[max-content] text-md"
+            className="font-bold hidden lg:flex items-center justify-center gap-2 bg-[#075fa4] opacity-95 hover:opacity-100 text-white px-6 py-2 rounded-md transition cursor-pointer w-[max-content] text-md"
           >
             Contact Us
-            <PhoneIncoming className="w-5 h-5" />
           </a>
 
           {/* Mobile Menu Button */}
           <button
-            className="absolute right-3 z-50 md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
+            className="lg:hidden absolute right-3 z-50 p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -105,9 +104,8 @@ export function Header() {
               </nav>
 
               {/* Mobile Hotline */}
-              <button className="hidden lg:flex items-center justify-center gap-2 bg-pink-500 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-lg">
+              <button className="font-bold hidden lg:flex items-center justify-center gap-2 bg-pink-500 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer w-[max-content] text-lg">
                 Contact Us
-                <UserRoundCheck />
               </button>
             </motion.div>
           )}

@@ -86,10 +86,9 @@ export function MiddleSection() {
             />
             <a
               href="/#contactUs"
-              className="flex-1 w-full cursor-pointer font-semibold flex items-center justify-center gap-2 bg-black hover:bg-gray-900 text-white px-5 py-3 rounded-lg transition-colors duration-300"
+              className="flex-1 w-full cursor-pointer font-bold flex items-center justify-center gap-2 bg-black hover:bg-gray-900 text-white px-5 py-3 rounded-lg transition-colors duration-300"
             >
               Contact Us
-              <MoveUpRight className="w-4 h-4" />
             </a>
           </motion.div>
         </div>
@@ -168,7 +167,7 @@ export function MiddleSection() {
                           href={`/blogs/${article.id}`}
                           className="cursor-pointer w-[max-content] bg-black text-white my-3 px-4 py-2 rounded-xl flex items-center justify-center hover:bg-gray-900 transition-all"
                         >
-                          Read more <ArrowRight className="ml-2 w-4 h-4" />
+                          Read more
                         </a>
                       </div>
                     </motion.div>

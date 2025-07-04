@@ -193,10 +193,13 @@ export function AboutUs({ className }: { className?: string }) {
               ease: "easeOut",
               delay: 0.1,
             }}
-            className="cursor-pointer bg-[#075fa4] text-white px-4 py-2 rounded-md font-semibold transition"
+            className="cursor-pointer bg-[#075fa4] text-white px-6 py-2 rounded-md font-semibold transition"
           >
-            <a className="w-full flex items-center gap-2" href="/about">
-              Learn More <MoveUpRight className="w-4 h-4" />
+            <a
+              className="font-bold w-full flex items-center gap-2"
+              href="/about"
+            >
+              Learn More
             </a>
           </motion.button>
         </div>

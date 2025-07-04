@@ -180,19 +180,18 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
                   </SelectTrigger>
 
                   <SelectContent>
-                    <SelectItem value="Support or consulting">
-                      Support or consulting
+                    <SelectItem value="Consulting Services">
+                      Consulting Services
                     </SelectItem>
-                    <SelectItem value="Conference or speaking">
-                      Conference or speaking
+                    <SelectItem value="Trainings & Workshops">
+                      Trainings & Workshops
                     </SelectItem>
-                    <SelectItem value="Collaboration or research">
-                      Collaboration or research
+                    <SelectItem value="Conference Participation & Speaking">
+                      Conference Participation & Speaking
                     </SelectItem>
-                    <SelectItem value="Information request">
-                      Information request
+                    <SelectItem value="General Inquiry">
+                      General Inquiry
                     </SelectItem>
-                    <SelectItem value="Other">Other</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -269,7 +268,6 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
             {form.formState.isSubmitting
               ? "Submitting..."
               : "Make An Appointment"}
-            <MoveUpRight className="w-4 h-4" />
           </button>
         </div>
       </form>

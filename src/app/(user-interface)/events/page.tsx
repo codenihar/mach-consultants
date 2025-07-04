@@ -22,7 +22,7 @@ const EventsPage = () => {
           }}
           className="px-2 md:px-0 max-w-[80%] sm:max-w-4xl sm:mx-auto text-left sm:text-center text-4xl md:text-5xl lg:text-6xl leading-tight font-PTSerif font-semibold italic"
         >
-          RISE: Research with Impact for Society and the Enterprise
+          RISE: Research with Impact for Society and Enterprise
         </motion.h1>
 
         <motion.p

@@ -11,28 +11,28 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    className: "bg-[#CCECFE]",
+    className: "bg-[#F6D9DC]",
     icon: <Diamond className="text-black w-10 h-10" />,
     title: "Selective Expertise",
     description:
       "We're scientific consultants laser-focused on delivering immediate performance improvement by revealing your enterprise's hidden potential.",
   },
   {
-    className: "bg-[#D5F2DF]",
+    className: "bg-[#F2DDE3]",
     icon: <TrendingUp className="text-black w-10 h-10" />,
     title: "Sustainable Performance",
     description:
       "Sustainable performance is at the core of all our work, ensuring lasting growth and impact for your organization.",
   },
   {
-    className: "bg-[#ECDAFF]",
+    className: "bg-[#EBDCEB]",
     icon: <Handshake className="text-black w-10 h-10" />,
     title: "Ethical Partnership",
     description:
       "We uphold ethical, normative, and regulative dimensions, committed to transparency and advancing stakeholder benefits alongside our own.",
   },
   {
-    className: "bg-[#FDE998]",
+    className: "bg-[#DBE6F5]",
     icon: <Lightbulb className="text-black w-10 h-10" />,
     title: "Holistic Development",
     description:

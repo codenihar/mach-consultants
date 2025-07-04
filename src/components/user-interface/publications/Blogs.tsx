@@ -127,7 +127,7 @@ export function RecentBlogs() {
                 href={`/blogs/${mainArticle.id}`}
                 className="cursor-pointer w-[max-content] mt-2 lg:mt-4 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition text-sm flex items-center gap-2"
               >
-                Read more →
+                Read more
               </a>
             </motion.div>
           )}
@@ -175,7 +175,7 @@ export function RecentBlogs() {
                         href={`/blogs/${blog.id}`}
                         className="max-md:hidden cursor-pointer mt-2 px-4 py-2 text-sm border border-gray-300 rounded-md hover:bg-gray-100 transition flex items-center gap-1 w-fit"
                       >
-                        Read more →
+                        Read more
                       </a>
                     </div>
 
@@ -183,7 +183,7 @@ export function RecentBlogs() {
                       href={`/blogs/${blog.id}`}
                       className="md:hidden w-full col-span-2 cursor-pointer px-3 py-1 text-sm border border-gray-300 rounded-full hover:bg-gray-100 transition flex justify-center items-center gap-1"
                     >
-                      Read more →
+                      Read more
                     </a>
                   </div>
                 ))}

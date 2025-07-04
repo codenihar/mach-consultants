@@ -183,10 +183,9 @@ export function Blogs({ className }: { className?: string }) {
         >
           <a
             href="/blogs"
-            className="inline-flex items-center px-6 py-3 bg-[#075fa4] hover:opacity-90 text-white font-medium rounded-lg transition-colors duration-300"
+            className="font-bold inline-flex items-center px-6 py-3 bg-[#075fa4] hover:opacity-90 text-white rounded-lg transition-colors duration-300"
           >
             View All Articles
-            <ChevronRight className="w-4 h-4 ml-2" />
           </a>
         </motion.div>
       </div>

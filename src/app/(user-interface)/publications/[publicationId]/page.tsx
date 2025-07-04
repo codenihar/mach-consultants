@@ -6,12 +6,12 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default async function page({
   params,
 }: {
-  params: Promise<{ blogId: string }>;
+  params: Promise<{ publicationId: string }>;
 }) {
-  const { blogId } = await params;
+  const { publicationId } = await params;
 
   const [{ data: blog }] = await Promise.all([
-    BlogsService.getBlogById(blogId),
+    BlogsService.getBlogById(publicationId),
   ]);
 
   if (!blog) {
