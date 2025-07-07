@@ -34,7 +34,7 @@ export default function CodePage() {
         <h2 className="text-2xl md:text-3xl font-RecoletaRegular text-[#6E3A5E]">
           Breaking the CODE of Effective Enterprising
         </h2>
-        <p className="font-PTSerif">
+        <p className="font-inter">
           CODE is a socio-economic consulting framework designed to unlock
           hidden potential in enterprises by identifying invisible costs and
           inefficiencies. With over 45 years of research, it has been applied to
@@ -67,7 +67,7 @@ export default function CodePage() {
         <h2 className="text-2xl md:text-3xl font-RecoletaRegular text-[#6E3A5E]">
           The 3 Axes of CODE
         </h2>
-        <ul className="list-decimal pl-5 space-y-2 font-PTSerif">
+        <ul className="list-decimal pl-5 space-y-2 font-inter">
           <li>
             <strong>Change Axis:</strong> Diagnosis → Project → Evaluation.
             Involves tools like Time Management Grid, Competency Grid, and
@@ -95,7 +95,7 @@ export default function CodePage() {
         <h2 className="text-2xl md:text-3xl font-RecoletaRegular text-[#6E3A5E]">
           Key Tools of CODE
         </h2>
-        <ul className="list-disc pl-5 space-y-2 font-PTSerif">
+        <ul className="list-disc pl-5 space-y-2 font-inter">
           <li>
             <strong>Time Management Grid (TM):</strong> Analyzes how time is
             spent and identifies non-value-adding activities.
@@ -130,14 +130,14 @@ export default function CodePage() {
         <h2 className="text-2xl md:text-3xl font-RecoletaRegular text-[#6E3A5E]">
           Performance Metric
         </h2>
-        <p className="font-PTSerif">
+        <p className="font-inter">
           CODE uses a proprietary performance indicator to quantify the
           value-added by each working hour:
         </p>
         <div className="bg-[#F5F5F5] border-l-4 border-[#AE2333] p-4 rounded-md font-mono text-sm">
           (Revenues - Variable Costs) / Total Hours Worked
         </div>
-        <p className="font-PTSerif">
+        <p className="font-inter">
           This value highlights the human contribution embedded in each product
           or service, and helps monitor improvement after implementation.
         </p>
