@@ -62,7 +62,7 @@ export function Blogs({ className }: { className?: string }) {
             }}
             className="text-[#075fa4] font-semibold text-md md:text-lg lg:text-xl mb-2"
           >
-            Our Blogs
+            Our Publications
           </motion.p>
           <motion.h2
             initial={{
@@ -81,7 +81,7 @@ export function Blogs({ className }: { className?: string }) {
             }}
             className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#6e3a5e] leading-tight ${className}`}
           >
-            Take a look at the latest blogs from MACH Consultants
+            Take a look at our latest publications.
           </motion.h2>
         </div>
 

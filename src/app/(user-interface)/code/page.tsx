@@ -4,15 +4,15 @@ import { PreziEmbedCode } from "@/components/user-interface/code/prezi-embed";
 
 export default function CodePage() {
   return (
-    <section className="max-w-7xl mx-auto pt-36 pb-24 space-y-12 px-4">
+    <section className="max-w-7xl mx-auto pt-36 pb-24 space-y-12 px-4 font-Inter">
       {/* Heading */}
       <div className="flex flex-col gap-4 text-center">
         <motion.h1
           initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="px-2 md:px-0 max-w-[80%] sm:max-w-4xl sm:mx-auto text-left sm:text-center text-4xl md:text-5xl lg:text-6xl leading-tight font-RecoletaRegular text-[#8F2F48] italic font-extrabold"
+          className="px-2 md:px-0 max-w-[80%] sm:max-w-4xl sm:mx-auto text-left sm:text-center text-4xl md:text-5xl lg:text-6xl leading-tight text-[#8F2F48] font-PTSerif italic font-extrabold"
         >
           CODE: Consulting for Organization and Development of Enterprises
         </motion.h1>
@@ -26,21 +26,21 @@ export default function CodePage() {
       {/* What is CODE */}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
-        className="max-w-4xl mx-auto text-left space-y-6 font-Inter text-[#2D2D2D]"
+        className="max-w-4xl mx-auto text-left space-y-6 text-[#2D2D2D] md:text-lg"
       >
-        <h2 className="text-2xl md:text-3xl font-RecoletaRegular text-[#6E3A5E]">
+        <h2 className="text-2xl md:text-3xl text-[#ae2333] font-PTSerif italic font-semibold">
           Breaking the CODE of Effective Enterprising
         </h2>
-        <p className="font-inter">
+        <p>
           CODE is a socio-economic consulting framework designed to unlock
           hidden potential in enterprises by identifying invisible costs and
           inefficiencies. With over 45 years of research, it has been applied to
           2400 organizations across 45 countries and 72 sectors.
         </p>
-        <ul className="list-disc pl-5 space-y-2 font-PTSerif">
+        <ul className="list-disc pl-5 space-y-2">
           <li>
             Focus on hidden costs not captured by traditional systems like
             budgeting or KPIs.
@@ -59,15 +59,15 @@ export default function CodePage() {
       {/* 3 Axes */}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.3, ease: "easeOut", delay: 0.4 }}
-        className="max-w-4xl mx-auto text-left space-y-6 font-Inter text-[#2D2D2D]"
+        className="max-w-4xl mx-auto text-left space-y-6 text-[#2D2D2D] md:text-lg"
       >
-        <h2 className="text-2xl md:text-3xl font-RecoletaRegular text-[#6E3A5E]">
+        <h2 className="text-2xl md:text-3xl text-[#ae2333] font-PTSerif italic font-semibold">
           The 3 Axes of CODE
         </h2>
-        <ul className="list-decimal pl-5 space-y-2 font-inter">
+        <ul className="list-decimal pl-5 space-y-2">
           <li>
             <strong>Change Axis:</strong> Diagnosis → Project → Evaluation.
             Involves tools like Time Management Grid, Competency Grid, and
@@ -87,15 +87,15 @@ export default function CodePage() {
       {/* Tools */}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.3, ease: "easeOut", delay: 0.6 }}
-        className="max-w-4xl mx-auto text-left space-y-6 font-Inter text-[#2D2D2D]"
+        className="max-w-4xl mx-auto text-left space-y-6 text-[#2D2D2D] md:text-lg"
       >
-        <h2 className="text-2xl md:text-3xl font-RecoletaRegular text-[#6E3A5E]">
+        <h2 className="text-2xl md:text-3xl text-[#ae2333] font-PTSerif italic font-semibold">
           Key Tools of CODE
         </h2>
-        <ul className="list-disc pl-5 space-y-2 font-inter">
+        <ul className="list-disc pl-5 space-y-2">
           <li>
             <strong>Time Management Grid (TM):</strong> Analyzes how time is
             spent and identifies non-value-adding activities.
@@ -122,22 +122,22 @@ export default function CodePage() {
       {/* Performance Metric */}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.3, ease: "easeOut", delay: 0.8 }}
-        className="max-w-4xl mx-auto text-left space-y-6 font-Inter text-[#2D2D2D]"
+        className="max-w-4xl mx-auto text-left space-y-6 text-[#2D2D2D] md:text-lg"
       >
-        <h2 className="text-2xl md:text-3xl font-RecoletaRegular text-[#6E3A5E]">
+        <h2 className="text-2xl md:text-3xl text-[#ae2333] font-PTSerif italic font-semibold">
           Performance Metric
         </h2>
-        <p className="font-inter">
+        <p>
           CODE uses a proprietary performance indicator to quantify the
           value-added by each working hour:
         </p>
         <div className="bg-[#F5F5F5] border-l-4 border-[#AE2333] p-4 rounded-md font-mono text-sm">
           (Revenues - Variable Costs) / Total Hours Worked
         </div>
-        <p className="font-inter">
+        <p>
           This value highlights the human contribution embedded in each product
           or service, and helps monitor improvement after implementation.
         </p>

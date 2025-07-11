@@ -146,10 +146,10 @@ export function AboutUs({ className }: { className?: string }) {
             }}
             className="text-md md:text-lg text-[#075fa4] mb-4"
           >
-            Selective consultants focused on immediate performance improvement.
-            We are dedicated to revealing the hidden resources of the enterprise
-            and growing its potential. Sustainable performance is the core of
-            our work.
+            Scientific consultants focused on immediate performance improvement
+            through applied research. We are dedicated to revealing the hidden
+            resources of the enterprise and growing its potential. Sustainable
+            performance is the core of our work.
           </motion.p>
 
           <motion.p

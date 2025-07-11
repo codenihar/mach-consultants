@@ -64,14 +64,6 @@ export function ConsultationForm({ className }: { className?: string }) {
               Contact us now for a free consultation
             </h2>
 
-            <p className="text-gray-300 font-semibold my-4 sm:my-0 text-base sm:text-md">
-              MACH Consultants can provide strategic advisory to help you define
-              and solidify your project's rationale, ensuring it aligns with
-              your overall enterprise potential and performance goals. Leave
-              your contact details below, and we'll get back to you within 24
-              hours
-            </p>
-
             <ContactForm
               onSubmit={async (
                 data: NewContactForm

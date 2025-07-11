@@ -19,7 +19,7 @@ export type Stat = {
 export const Events = [
   {
     id: "2021",
-    title: "Rise 2021",
+    title: "RISE 2021",
     category: "theme",
     featured_image_url: "/images/rise-2021.png",
     placeOfEvent: "Saint Joseph University, Beirut",
@@ -62,7 +62,7 @@ export const Events = [
   },
   {
     id: "2022",
-    title: "Rise 2022",
+    title: "RISE 2022",
     category: "theme",
     featured_image_url: "/images/rise-2022.webp",
     placeOfEvent: "Saint Joseph University, Beirut",
@@ -121,11 +121,11 @@ export const Events = [
   },
   {
     id: "2023",
-    title: "Rise 2023",
+    title: "RISE 2023",
     category: "theme",
     featured_image_url: "/images/rise-2023.png",
     placeOfEvent: "Saint Joseph University, Beirut",
-    dateOfEvent: "2023-11-27",
+    dateOfEvent: "2023-11-27 & 2023-11-28",
     timeOfEvent: "09:00",
     description:
       "The 3rd annual RISE conference under the theme 'Revisiting the Reward and Motivation System'",
@@ -182,9 +182,9 @@ export const Events = [
     id: "2025",
     title: "RISEinEurope 2025",
     category: "theme",
-    featured_image_url: "/images/about-us-1.png",
+    featured_image_url: "/images/rise-2025.jpeg",
     placeOfEvent: "INSEEC Grande Ecole, Paris",
-    dateOfEvent: "2025-04-01",
+    dateOfEvent: "2025-04-01 & 2025-04-02",
     timeOfEvent: "09:00",
     description:
       "The 4th annual RISE conference under the theme 'From Thoughts to Assets: Transforming Innovation and Creativity into Value'",

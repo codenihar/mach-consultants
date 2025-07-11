@@ -88,27 +88,6 @@ export function PrincipalsSection() {
           >
             Meet The <br className="hidden md:block" /> Associates
           </motion.h2>
-          <motion.p
-            initial={{
-              y: 100,
-              opacity: 0,
-            }}
-            whileInView={{
-              y: 0,
-              opacity: 1,
-            }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.6,
-              ease: "easeOut",
-              delay: 0.2,
-            }}
-            className="py-8"
-          >
-            Our team comprises senior associates like Dr. Pierre El Haddad and
-            Nabil Najjar, who bring extensive academic knowledge and practical
-            management experience from diverse fields to every engagement.
-          </motion.p>
         </div>
 
         <div className="md:col-span-2 2xl:col-span-1 flex flex-col items-end order-3 md:order-3">
@@ -129,8 +108,9 @@ export function PrincipalsSection() {
             }}
             src="/images/Pierre-Haddad.png"
             alt=" Dr. Pierre El Haddad"
-            className="w-full rounded-2xl max-w-sm mx-auto md:mx-0"
+            className="w-full max-h-[600px] max-w-sm mx-auto md:mx-0"
           />
+
           <div className="text-center pt-6 w-full bg-white">
             <div className="max-w-sm ml-auto">
               <motion.h3
@@ -168,7 +148,7 @@ export function PrincipalsSection() {
                 }}
                 className="text-gray-600 text-base sm:text-lg line-clamp-1"
               >
-                Senior Associate MACH Consultants
+                Senior Associate
               </motion.p>
             </div>
           </div>

@@ -13,7 +13,7 @@ const features: Feature[] = [
   {
     className: "bg-[#F6D9DC]",
     icon: <Diamond className="text-black w-10 h-10" />,
-    title: "Selective Expertise",
+    title: "Scientific Expertise",
     description:
       "We're scientific consultants laser-focused on delivering immediate performance improvement by revealing your enterprise's hidden potential.",
   },
@@ -99,9 +99,9 @@ export function WhyChooseUs({ className }: { className?: string }) {
             }}
             className="text-[#075fa4] mb-6 md:mb-8 text-base sm:text-lg"
           >
-            At MACH Consultants, we're not just consultants; we're partners
-            dedicated to revealing the hidden resources within your enterprise
-            and growing its potential.
+            At MACH Consultants, we're not just consultants; we're scientific
+            researchers dedicated to revealing the hidden resources within your
+            enterprise and growing its potential.
           </motion.p>
         </div>
 
