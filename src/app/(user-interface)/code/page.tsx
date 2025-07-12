@@ -56,7 +56,7 @@ export default function CodePage() {
         </ul>
       </motion.div>
 
-      {/* 3 Axes */}
+      {/* 
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -84,7 +84,6 @@ export default function CodePage() {
         </ul>
       </motion.div>
 
-      {/* Tools */}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -119,7 +118,6 @@ export default function CodePage() {
         </ul>
       </motion.div>
 
-      {/* Performance Metric */}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -141,7 +139,7 @@ export default function CodePage() {
           This value highlights the human contribution embedded in each product
           or service, and helps monitor improvement after implementation.
         </p>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }
