@@ -7,8 +7,8 @@ import { revalidateTag } from "next/cache";
 
 export function ConsultationForm({ className }: { className?: string }) {
   return (
-    <section id="contactUs" className="py-12 px-4 sm:px-6 md:px- font-Inter">
-      <div className="bg-[#075fa4] py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 rounded-4xl max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
+    <section id="contactUs" className="py-6 px-4 sm:px-6 font-Inter">
+      <div className="bg-[#075fa4] py-12 md:py-8 px-4 sm:px-6 md:px-8 rounded-4xl max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-10 lg:gap-12">
         <motion.div
           initial={{
             x: -100,
@@ -26,7 +26,7 @@ export function ConsultationForm({ className }: { className?: string }) {
           viewport={{ once: true }}
           className="order-2 lg:order-1 w-full overflow-hidden"
         >
-          <div className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
+          <div className="relative w-full aspect-[4/5] lg:aspect-[7/8] rounded-xl overflow-hidden shadow-lg">
             <img
               src="/images/contact-us.jpg"
               alt="Consultation"

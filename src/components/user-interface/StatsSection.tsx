@@ -8,28 +8,28 @@ import { BookOpen, Building, Globe, Handshake } from "lucide-react";
 export const stats: Stat[] = [
   {
     icon: (
-      <Building className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#6e3a5e]" />
+      <Building className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#ae2333]" />
     ),
     value: "15+",
     label: "Years in Consulting",
   },
   {
     icon: (
-      <Handshake className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#6e3a5e]" />
+      <Handshake className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#ae2333]" />
     ),
     value: "100+",
     label: "Successful Engagements",
   },
   {
     icon: (
-      <Globe className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#6e3a5e]" />
+      <Globe className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#ae2333]" />
     ),
     value: "5+",
     label: "Regions Served",
   },
   {
     icon: (
-      <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#6e3a5e]" />
+      <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#ae2333]" />
     ),
     value: "20+",
     label: "Academic Publications",
@@ -86,15 +86,13 @@ export function Stats({ className }: { className?: string }) {
             xl:px-10 font-inter`}
           >
             <div className="h-full flex items-center">{stat.icon}</div>
-            <div className="flex flex-col items-center lg:items-start text-center">
+            <div className="flex flex-col items-center lg:items-start text-center text-[#ae2333]">
               <p
-                className={`text-xl md:text-2xl lg:text-3xl font-bold text-[#6e3a5e] ${className}`}
+                className={`text-xl md:text-2xl lg:text-3xl font-bold ${className}`}
               >
                 {stat.value}
               </p>
-              <p className="text-sm md:text-md text-[#6e3a5e] w-[max-content]">
-                {stat.label}
-              </p>
+              <p className="text-sm md:text-md w-[max-content]">{stat.label}</p>
             </div>
           </motion.div>
         ))}

@@ -88,6 +88,28 @@ export function PrincipalsSection() {
           >
             Meet The <br className="hidden md:block" /> Associates
           </motion.h2>
+
+          <motion.p
+            initial={{
+              y: 100,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 0.1,
+            }}
+            className="my-8"
+          >
+            Our team comprises senior associates who bring extensive academic
+            knowledge and practical management experience from diverse fields to
+            every engagement
+          </motion.p>
         </div>
 
         <div className="md:col-span-2 2xl:col-span-1 flex flex-col items-end order-3 md:order-3">
